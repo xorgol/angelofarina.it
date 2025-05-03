@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ramsete</title>
+<link rel="stylesheet" href="emx_nav_right.css" type="text/css" />
+<script type="text/javascript">
+<!--
+var time = 3000;
+var numofitems = 8;
+
+//menu constructor
+function menu(allitems,thisitem,startstate){ 
+  callname= "gl"+thisitem;
+  divname="subglobal"+thisitem;  
+	this.numberofmenuitems = allitems;
+	this.caller = document.getElementById(callname);
+	this.thediv = document.getElementById(divname);
+	this.thediv.style.visibility = startstate;
+}
+				 
+//menu methods
+function ehandler(event,theobj){
+  for (var i=1; i<= theobj.numberofmenuitems; i++){
+	  var shutdiv =eval( "menuitem"+i+".thediv");
+    shutdiv.style.visibility="hidden";
+	}
+	theobj.thediv.style.visibility="visible";
+}
+				
+function closesubnav(event){
+  if ((event.clientY <48)||(event.clientY > 207)){
+    for (var i=1; i<= numofitems; i++){
+      var shutdiv =eval('menuitem'+i+'.thediv');
+			shutdiv.style.visibility='hidden';
+		}  
+	}
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+.Stile1 {font-size: small}
+-->
+</style>
+</head>
+
+<div id="masthead">
+  <h1 id="siteName">R A M S E T E &nbsp;&nbsp;&nbsp;Room Acoustics  modeling on PC  </h1>
+  <div id="globalNav"> <img alt="" src="gblnav_left.gif" height="32" width="4" id="gnl" /> <img alt="" src="glbnav_right.gif" height="32" width="4" id="gnr" />
+    <div id="globalLink"> <a href="#" id="gl1" class="glink" onmouseover="ehandler(event,menuitem1);">Home</a><a href="#" id="gl2" class="glink" onmouseover="ehandler(event,menuitem2);">Package</a><a href="#" id="gl3" class="glink" onmouseover="ehandler(event,menuitem3);">News</a><a href="#" id="gl4" class="glink" onmouseover="ehandler(event,menuitem4);">Download</a><a href="#" id="gl5" class="glink" onmouseover="ehandler(event,menuitem5);">Support</a><a href="#" id="gl6" class="glink" onmouseover="ehandler(event,menuitem6);">About Us </a><a href="#" id="gl7" class="glink" onmouseover="ehandler(event,menuitem7);">Forum</a></div>
+    
+    <!--end globalLinks-->
+  </div>
+  
+  
+  <p>
+    <!-- end globalNav -->
+  </p>
+  <p>&nbsp;</p>
+  <div id="subglobal1" class="subglobalNav"> <a href="index.htm">Home</a></div>
+  <div id="subglobal2" class="subglobalNav"> <a href="features.htm">Features</a> | <a href="RamseteCad.htm">Ramsete CAD</a> | <a href="MaterialManager.htm">Material Manager</a> | <a href="Source Manager.htm">Source Manager</a> | <a href="Ramsete Tracer.htm">Ramsete Tracer</a> | <a href="RamseteView.htm">Ramsete View</a> | <a href="AudioConverter.htm">Audio Converter</a> | <a href="WaveConvolver.htm">Wave Convolver</a> | <a href="http://www.aurora-plugins.com/">Aurora</a> </div>
+  <div id="subglobal3" class="subglobalNav"> <a href="news.htm">New</a> | <a href="futurerelease.htm">Future Releases</a></div>
+  <div id="subglobal4" class="subglobalNav"> <a href="Download_General_informations.htm">General Informations</a> | <a href="Download_Setup_instruction.htm">Download & Setup Instruction</a> | <a href="Dongles.htm">Dongles</a></div>
+  <div id="subglobal5" class="subglobalNav"> <a href="Help_e_manual.htm">Help & Manual</a> | <a href="http://www.ramsete.com/intrepidi/intrepidi.htm">Examples</a> | <a href="FAQ.htm">F.A.Q.</a></div>
+  <div id="subglobal6" class="subglobalNav"> <a href="AboutUS.htm">Authors</a></div>
+  <div id="subglobal7" class="subglobalNav"> <a href="http://ramsete.forumfree.net/">Forum</a></div>
+  <div id="subglobal8" class="subglobalNav"> <a href="#">RamSuite</a> | <a href="#">Aurora</a> | <a href="#">LAE</a> | <a href="#">Spectra</a></div>
+</div>
+<!-- end masthead -->
+<div id="pagecell1">
+  <!--pagecell1-->
+  
+  <div id="breadCrumb"></div>
+  <div class="Stile1" id="pageName">
+    <h2 class="Stile1">Download - General Information </h2>
+  </div>
+  <div id="advert">
+    <div class="feature">
+      <ul type="disc">
+        <li>
+          <div align="justify"><strong>Beta version</strong> of the forthcoming       release (25.03.2005)</div>
+        </li>
+        <li>
+          <div align="justify"><strong>Ramsete 1.8/2.1 Full Version </strong>(12.04.2003)</div>
+        </li>
+      </ul>
+      <p align="justify">Please, contact  the publisher <a href="http://www.spectra.it"> Spectra</a> for prices and other commercial info. In some cases, they will supply a  dongle for a limited evaluation period. Remember that THEY ARE THE  PUBLISHER, we (the authors) are not responsible of the commercial stuff.</p>
+      <p align="justify"><strong>Warning: </strong><br />
+        Ramsete is a commercial package. These Beta modules are here for  registered users of the Ramsete package, who already did install the  complete version, who own the Ramsete dongle (hardware protection key,  either parallel or USB version) and who have paid the licence fees to  Spectra.</p>
+      <p align="justify">These  Beta modules are NOT an &quot;evaluation copy&quot; of Ramsete. Unregistered  users will not be able to run them, and should not bother the author  with questions as &quot;I downloaded Your software, but it does not work&quot;.  Of course, it does not work if You do not have previously accomplished  a full install, and You do not have an operational Ramsete dongle  fitted in Your PC...</p>
+      <p align="justify">Following  these instructions, you can download the latest release of the Ramsete  package. For installing the software, you need to obtain the proper  password from the authors.</p>
+      <p align="justify">E-Mail: <a href="mailto:farina@unipr.it">farina@unipr.it</a></p>
+      <p align="justify">&nbsp;</p>
+      <p align="justify"><strong>Please note:</strong> <br />
+        Ramsete is NOT freeware! You need to purchase the hardware protection  key (dongle) for making the program to work. So, if you do not have the  dongle, please do not bother us (the authors) requesting the password  for installing the software, because even with the password, but  without the dongle, the program will not run (until when you are able  of cracking it!).</p>
+      <p align="justify"><strong>Crackers &amp;  Hackers</strong><br />
+        Cracking a program which was regularly downloaded from the publisher's  site IS LEGAL here in Italy (D.L. 29 december 1992, n. 518), provided  that you do not make any profit from it.</p>
+      <p align="justify">We  are quite confident that our protection scheme is safe enough for  avoiding crackers be able to break it. Nevertheless, it's your right to  try! Simply, please do not bother us with requests of the password...  you have to find it yourself, if you are a serious hacker/cracker it  will be no problem!</p>
+      <p align="justify">So, if you are  able of decoding, installing and making it to work, Ramsete is legally  yours! We simply ask you to send us an E-Mail, telling us how you was  successful in doing the crack. This is a good etiquette rule between  programmers and crackers (and, of course, this will be useful for  improving our protection scheme). We will send you the complete Ramsete  manual as thanksgiving.</p>
+      </div>
+  </div>
+  <!--end content -->
+  <div id="siteInfo">&copy;2007 LAE </div>
+</div>
+<!--end pagecell1-->
+<br />
+<script type="text/javascript">
+    <!--
+      var menuitem1 = new menu(7,1,"hidden");
+			var menuitem2 = new menu(7,2,"hidden");
+			var menuitem3 = new menu(7,3,"hidden");
+			var menuitem4 = new menu(7,4,"hidden");
+			var menuitem5 = new menu(7,5,"hidden");
+			var menuitem6 = new menu(7,6,"hidden");
+			var menuitem7 = new menu(7,7,"hidden");
+    // -->
+    </script>
+</body>
+</html>

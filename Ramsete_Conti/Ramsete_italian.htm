@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ramsete</title>
+<link rel="stylesheet" href="emx_nav_right.css" type="text/css" />
+<script type="text/javascript">
+<!--
+var time = 3000;
+var numofitems = 8;
+
+//menu constructor
+function menu(allitems,thisitem,startstate){ 
+  callname= "gl"+thisitem;
+  divname="subglobal"+thisitem;  
+	this.numberofmenuitems = allitems;
+	this.caller = document.getElementById(callname);
+	this.thediv = document.getElementById(divname);
+	this.thediv.style.visibility = startstate;
+}
+				 
+//menu methods
+function ehandler(event,theobj){
+  for (var i=1; i<= theobj.numberofmenuitems; i++){
+	  var shutdiv =eval( "menuitem"+i+".thediv");
+    shutdiv.style.visibility="hidden";
+	}
+	theobj.thediv.style.visibility="visible";
+}
+				
+function closesubnav(event){
+  if ((event.clientY <48)||(event.clientY > 207)){
+    for (var i=1; i<= numofitems; i++){
+      var shutdiv =eval('menuitem'+i+'.thediv');
+			shutdiv.style.visibility='hidden';
+		}  
+	}
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+.Stile1 {font-size: small}
+-->
+</style>
+</head>
+
+<div id="masthead">
+  <h1 id="siteName">R A M S E T E &nbsp;&nbsp;&nbsp;Room Acoustics  modeling on PC  </h1>
+  <!-- end globalNav -->
+<div id="subglobal1" class="subglobalNav"> <a href="index.htm">Home</a></div>
+  <div id="subglobal2" class="subglobalNav"> <a href="features.htm">Features</a> | <a href="RamseteCad.htm">Ramsete CAD</a> | <a href="MaterialManager.htm">Material Manager</a> | <a href="Source Manager.htm">Source Manager</a> | <a href="Ramsete Tracer.htm">Ramsete Tracer</a> | <a href="RamseteView.htm">Ramsete View</a> | <a href="AudioConverter.htm">Audio Converter</a> | <a href="WaveConvolver.htm">Wave Convolver</a> | <a href="http://www.aurora-plugins.com/">Aurora</a> </div>
+  <div id="subglobal3" class="subglobalNav"> <a href="news.htm">New</a> | <a href="futurerelease.htm">Future Releases</a></div>
+  <div id="subglobal4" class="subglobalNav"> <a href="Download_General_informations.htm">General Informations</a> | <a href="Download_Setup_instruction.htm">Download & Setup Instruction</a> | <a href="Dongles.htm">Dongles</a></div>
+  <div id="subglobal5" class="subglobalNav"> <a href="Help_e_manual.htm">Help & Manual</a> | <a href="http://www.ramsete.com/intrepidi/intrepidi.htm">Examples</a> | <a href="FAQ.htm">F.A.Q.</a></div>
+  <div id="subglobal6" class="subglobalNav"> <a href="AboutUS.htm">Authors</a></div>
+  <div id="subglobal7" class="subglobalNav"> <a href="http://ramsete.forumfree.net/">Forum</a></div>
+  <div id="subglobal8" class="subglobalNav"> <a href="#">RamSuite</a> | <a href="#">Aurora</a> | <a href="#">LAE</a> | <a href="#">Spectra</a></div>
+</div>
+<!-- end masthead -->
+<div id="pagecell1">
+  <!--pagecell1-->
+  
+  <div id="breadCrumb"></div>
+  <div class="Stile1" id="pageName">
+    <h2 class="Stile1">Home</h2>
+  </div>
+  <div id="advert">
+    <div class="feature">
+      <p align="justify">Pagina in fase di allestimento... <a href="http://pcfarina.eng.unipr.it/ramshome.htm">Torna al men&ugrave; principale...</a> </p>
+      <p>&nbsp;</p>
+    </div>
+    </div>
+  <!--end content -->
+  <div id="siteInfo">&copy;2007 LAE </div>
+</div>
+<!--end pagecell1-->
+<br />
+<script type="text/javascript">
+    <!--
+      var menuitem1 = new menu(7,1,"hidden");
+			var menuitem2 = new menu(7,2,"hidden");
+			var menuitem3 = new menu(7,3,"hidden");
+			var menuitem4 = new menu(7,4,"hidden");
+			var menuitem5 = new menu(7,5,"hidden");
+			var menuitem6 = new menu(7,6,"hidden");
+			var menuitem7 = new menu(7,7,"hidden");
+    // -->
+    </script>
+</body>
+</html>

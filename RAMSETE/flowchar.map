@@ -1,0 +1,28 @@
+#Source Manager
+rect sourcmgr.htm 0,0 395,62
+#Material Manager
+rect Matermgr.htm 0,62 328,131
+#Ramsete CAD
+rect ramscad.htm 112,132 246,191
+#Geometry File
+rect slucia.ray 112,191 245,243
+#Pyramid Tracer
+rect tracer.htm 112,244 245,310
+#Impulse Response File
+rect slucia.__A 112,312 244,362
+#Golden Software - Surfer
+rect HTTP://www.goldensoftware.com/ 0,364 113,418
+#Ramsete View
+rect ramview.htm 114,363 231,419
+#Ramsete Graph
+rect ramgraph.htm 233,363 345,419
+#Audio Converter
+rect audioconverter.htm 522,133 639,185
+#Wave Convolver
+rect convolution.htm 524,249 640,310
+#Impulse Response
+rect ../public/wav/foli-p12.wav 522,185 639,249
+#Anechoic Signal
+rect ../public/wav/09-22k.wav 404,250 523,310
+#Convoluted signal
+rect ../public/wav/09-folsp.wav 524,312 640,367

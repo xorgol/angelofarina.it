@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ramsete</title>
+<link rel="stylesheet" href="emx_nav_right.css" type="text/css" />
+<script type="text/javascript">
+<!--
+var time = 3000;
+var numofitems = 8;
+
+//menu constructor
+function menu(allitems,thisitem,startstate){ 
+  callname= "gl"+thisitem;
+  divname="subglobal"+thisitem;  
+	this.numberofmenuitems = allitems;
+	this.caller = document.getElementById(callname);
+	this.thediv = document.getElementById(divname);
+	this.thediv.style.visibility = startstate;
+}
+				 
+//menu methods 'hidden'
+function ehandler(event,theobj){
+  for (var i=1; i<= theobj.numberofmenuitems; i++){
+	  var shutdiv =eval( "menuitem"+i+".thediv");
+    shutdiv.style.visibility="hidden";
+	}
+	theobj.thediv.style.visibility="visible";
+}
+				
+function closesubnav(event){
+  if ((event.clientY <48)||(event.clientY > 207)){
+    for (var i=1; i<= numofitems; i++){
+      var shutdiv =eval('menuitem'+i+'.thediv');
+			shutdiv.style.visibility='hidden';
+		}  
+	}
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+.Stile1 {font-size: small}
+.Stile2 {color: #107D00}
+-->
+</style>
+</head>
+
+
+
+
+
+
+
+<div id="masthead">
+  <h1 id="siteName">R A M S E T E &nbsp;&nbsp;&nbsp;Room Acoustics  modeling on PC  </h1>
+  <div id="globalNav"> <img alt="" src="gblnav_left.gif" height="32" width="4" id="gnl" /> <img alt="" src="glbnav_right.gif" height="32" width="4" id="gnr" />
+    <div id="globalLink"> <a href="#" id="gl1" class="glink" onmouseover="ehandler(event,menuitem1);">Home</a><a href="#" id="gl2" class="glink" onmouseover="ehandler(event,menuitem2);">Package</a><a href="#" id="gl3" class="glink" onmouseover="ehandler(event,menuitem3);">News</a><a href="#" id="gl4" class="glink" onmouseover="ehandler(event,menuitem4);">Download</a><a href="#" id="gl5" class="glink" onmouseover="ehandler(event,menuitem5);">Support</a><a href="#" id="gl6" class="glink" onmouseover="ehandler(event,menuitem6);">About Us </a><a href="#" id="gl7" class="glink" onmouseover="ehandler(event,menuitem7);">Forum</a></div>
+    <!--end globalLinks-->
+  </div>
+  
+  
+  <p>
+    <!-- end globalNav -->
+  </p>
+  <p>&nbsp;</p>
+  <div id="subglobal1" class="subglobalNav"> <a href="index.htm">Home</a></div>
+  <div id="subglobal2" class="subglobalNav"> <a href="features.htm">Features</a> | <a href="RamseteCad.htm">Ramsete CAD</a> | <a href="MaterialManager.htm">Material Manager</a> | <a href="Source Manager.htm">Source Manager</a> | <a href="Ramsete Tracer.htm">Ramsete Tracer</a> | <a href="RamseteView.htm">Ramsete View</a> | <a href="AudioConverter.htm">Audio Converter</a> | <a href="WaveConvolver.htm">Wave Convolver</a> | <a href="http://www.aurora-plugins.com/">Aurora</a> </div>
+  <div id="subglobal3" class="subglobalNav"> <a href="news.htm">New</a> | <a href="futurerelease.htm">Future Releases</a></div>
+  <div id="subglobal4" class="subglobalNav"> <a href="Download_General_informations.htm">General Informations</a> | <a href="Download_Setup_instruction.htm">Download & Setup Instruction</a> | <a href="Dongles.htm">Dongles</a></div>
+  <div id="subglobal5" class="subglobalNav"> <a href="Help_e_manual.htm">Help & Manual</a> | <a href="http://www.ramsete.com/intrepidi/intrepidi.htm">Examples</a> | <a href="FAQ.htm">F.A.Q.</a></div>
+  <div id="subglobal6" class="subglobalNav"> <a href="AboutUS.htm">Authors</a></div>
+  <div id="subglobal7" class="subglobalNav"> <a href="http://ramsete.forumfree.net/">Forum</a></div>
+  <div id="subglobal8" class="subglobalNav"> <a href="#">RamSuite</a> | <a href="#">Aurora</a> | <a href="#">LAE</a> | <a href="#">Spectra</a></div>
+</div>
+<!-- end masthead -->
+
+
+
+<div id="pagecell1">
+  <!--pagecell1-->
+  
+  <div id="breadCrumb"></div>
+  <div class="Stile1" id="pageName">
+    <h2 class="Stile1 Stile2">Home</h2>
+  </div>
+  <div id="advert">
+    <div class="feature">
+      <table width="100%" border="0">
+        <tr>
+          <td width="65%"><p align="justify">
+		  
+		  
+            <strong>Which are  your expectations from Ramsete III?... <a href="http://ramsete.forumfree.net//index.php?topic=230.0">Click here!</a> </strong>
+          <p align="justify"><strong>Cosa ti aspetti da Ramsete III?...
+              <a href="http://ramsete.forumfree.net//index.php?topic=230.0">clicca qui!              </a></strong>
+			
+		
+			
+<!-- countdown -->
+		<p align="justify" class="Stile18"><font size=8><script language="JavaScript">
+TargetDate = "12/27/2007 5:00 AM";
+BackColor = "palegray";
+ForeColor = "red";
+CountActive = true;
+CountStepper = -1;
+LeadingZero = true;
+DisplayFormat = "- %%D%%";
+FinishMessage = "It is finally here!";
+</script>
+<script language="JavaScript" src="http://scripts.hashemian.com/js/countdown.js"></script></font>
+
+<!-- DisplayFormat = "%%D%% Days, %%H%% Hours, %%M%% Minutes, %%S%% Seconds."; -->
+<!-- end countdown -->			
+          </p>
+            <p align="justify" class="Stile18">Ramsete is the first publicly  available software based on the Pyramid Tracing computing scheme, which  is quite different from traditional Ray Tracing or Cone Tracing  schemes. </p>
+            <p align="justify">Briefly,  the Pyramid Tracing algorithm is capable to solve the sound propagation  problems in large enclosures or outdoors, following the Geometrical  Acoustics assumptions. It takes into account specular reflections over  sound absorbing surfaces, being the absorption coefficient defined over  10 octave bands. Furthermore, it takes into account diffraction over  free edges of screens, energy passing through the panels (sound  insulation), holes in large surfaces, windows or doors made of a  material different from the surrounding surface.</p></td>
+          <td width="5%"><p align="justify">&nbsp;</p>          </td>
+          <td width="30%"><img src="immagini/Triangoli_400_ok.PNG" width="300" height="302" /></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!--end content -->
+  <div id="siteInfo">&copy;2007 LAE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+  
+<!-- Inizio Codice PowerStats.it -->
+<script type="text/javascript"
+language="JavaScript" src="http://www.powerstats.it/logs
+/logme.php?id=52498"></script>
+<noscript>
+<a href="http://www.powerstats.it/logs/statistiche_52498.htm&quo
+t;><img alt="Statistiche Web" title="Statistiche
+Web" src="http://www.powerstats.it/logs/statistiche_52498.gif
+" border="0"></a>
+<a href="http://www.powerstats.it" title="Statistiche
+Web">Statistiche Web</a>
+</noscript>
+<!-- Fine Codice PowerStats.it -->
+  
+  
+  
+  
+  
+  
+  
+  
+   </div>
+</div>
+<!--end pagecell1-->
+<br />
+<script type="text/javascript">
+    <!--
+      var menuitem1 = new menu(7,1,"hidden");
+			var menuitem2 = new menu(7,2,"hidden");
+			var menuitem3 = new menu(7,3,"hidden");
+			var menuitem4 = new menu(7,4,"hidden");
+			var menuitem5 = new menu(7,5,"hidden");
+			var menuitem6 = new menu(7,6,"hidden");
+			var menuitem7 = new menu(7,7,"hidden");
+    // -->
+    </script>
+</body>
+</html>

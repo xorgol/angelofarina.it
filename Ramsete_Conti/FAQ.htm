@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ramsete</title>
+<link rel="stylesheet" href="emx_nav_right.css" type="text/css" />
+<script type="text/javascript">
+<!--
+var time = 3000;
+var numofitems = 8;
+
+//menu constructor
+function menu(allitems,thisitem,startstate){ 
+  callname= "gl"+thisitem;
+  divname="subglobal"+thisitem;  
+	this.numberofmenuitems = allitems;
+	this.caller = document.getElementById(callname);
+	this.thediv = document.getElementById(divname);
+	this.thediv.style.visibility = startstate;
+}
+				 
+//menu methods
+function ehandler(event,theobj){
+  for (var i=1; i<= theobj.numberofmenuitems; i++){
+	  var shutdiv =eval( "menuitem"+i+".thediv");
+    shutdiv.style.visibility="hidden";
+	}
+	theobj.thediv.style.visibility="visible";
+}
+				
+function closesubnav(event){
+  if ((event.clientY <48)||(event.clientY > 207)){
+    for (var i=1; i<= numofitems; i++){
+      var shutdiv =eval('menuitem'+i+'.thediv');
+			shutdiv.style.visibility='hidden';
+		}  
+	}
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+.Stile1 {font-size: small}
+-->
+</style>
+</head>
+
+<div id="masthead">
+  <h1 id="siteName">R A M S E T E &nbsp;&nbsp;&nbsp;Room Acoustics  modeling on PC  </h1>
+  <div id="globalNav"> <img alt="" src="gblnav_left.gif" height="32" width="4" id="gnl" /> <img alt="" src="glbnav_right.gif" height="32" width="4" id="gnr" />
+    <div id="globalLink"> <a href="#" id="gl1" class="glink" onmouseover="ehandler(event,menuitem1);">Home</a><a href="#" id="gl2" class="glink" onmouseover="ehandler(event,menuitem2);">Package</a><a href="#" id="gl3" class="glink" onmouseover="ehandler(event,menuitem3);">News</a><a href="#" id="gl4" class="glink" onmouseover="ehandler(event,menuitem4);">Download</a><a href="#" id="gl5" class="glink" onmouseover="ehandler(event,menuitem5);">Support</a><a href="#" id="gl6" class="glink" onmouseover="ehandler(event,menuitem6);">About Us </a><a href="#" id="gl7" class="glink" onmouseover="ehandler(event,menuitem7);">Forum</a></div>
+    
+    <!--end globalLinks-->
+  </div>
+  
+  
+  <p>
+    <!-- end globalNav -->
+  </p>
+  <p>&nbsp;</p>
+  <div id="subglobal1" class="subglobalNav"> <a href="index.htm">Home</a></div>
+  <div id="subglobal2" class="subglobalNav"> <a href="features.htm">Features</a> | <a href="RamseteCad.htm">Ramsete CAD</a> | <a href="MaterialManager.htm">Material Manager</a> | <a href="Source Manager.htm">Source Manager</a> | <a href="Ramsete Tracer.htm">Ramsete Tracer</a> | <a href="RamseteView.htm">Ramsete View</a> | <a href="AudioConverter.htm">Audio Converter</a> | <a href="WaveConvolver.htm">Wave Convolver</a> | <a href="http://www.aurora-plugins.com/">Aurora</a> </div>
+  <div id="subglobal3" class="subglobalNav"> <a href="news.htm">New</a> | <a href="futurerelease.htm">Future Releases</a></div>
+  <div id="subglobal4" class="subglobalNav"> <a href="Download_General_informations.htm">General Informations</a> | <a href="Download_Setup_instruction.htm">Download & Setup Instruction</a> | <a href="Dongles.htm">Dongles</a></div>
+  <div id="subglobal5" class="subglobalNav"> <a href="Help_e_manual.htm">Help & Manual</a> | <a href="http://www.ramsete.com/intrepidi/intrepidi.htm">Examples</a> | <a href="FAQ.htm">F.A.Q.</a></div>
+  <div id="subglobal6" class="subglobalNav"> <a href="AboutUS.htm">Authors</a></div>
+  <div id="subglobal7" class="subglobalNav"> <a href="http://ramsete.forumfree.net/">Forum</a></div>
+  <div id="subglobal8" class="subglobalNav"> <a href="#">RamSuite</a> | <a href="#">Aurora</a> | <a href="#">LAE</a> | <a href="#">Spectra</a></div>
+</div>
+<!-- end masthead -->
+<div id="pagecell1">
+  <!--pagecell1-->
+  
+  <div id="breadCrumb"></div>
+  <div class="Stile1" id="pageName">
+    <h2 class="Stile1">F.A.Q.</h2>
+  </div>
+  <div id="advert">
+    <div class="feature">
+      <p align="justify"><strong>Perch&egrave; si chiama Ramsete?</strong><br />
+Poich&egrave; &egrave; stato il primo software di simulazione acustica che ha  utilizzato fasci piramidali, abbiamo pensato ad un nome che avesse una  vaga attinenza con le piramidi egiziane.</p>
+      <p align="justify"><strong>Ramsete pu&ograve; essere usato anche all'aperto?</strong><br />
+      S&igrave;, ma con tutte le precauzioni del caso; infatti Ramsete &egrave; nato come  programma per interni e non tiene conto di effetti che mentre  all'interno sono del tutto trascurabili, all'esterno non lo sono  affatto quali l'effetto radente, il gradiente termico, la direzione del  vento ecc.</p>
+      <p align="justify"><strong>Qual  &egrave; il margine di errore di Ramsete nella valutazione della propagazione  in ambiente aperto (limitatamente al calcolo di sorgenti e ricevitori  posti a distanze di circa 100-150 metri) e considerando il valore  globale del livello sonoro espresso in dB(A)?</strong><br />
+      L'errore  cresce fortemente con la distanza.&nbsp; L'errore &egrave; inferiore a 2 dB(A) sino  a circa 50 m, poi per&ograve; cresce notevolmente, soprattutto in caso di  propagazione radente su terreno pianeggiante. A 100 m &egrave; gi&agrave; dell'ordine  dei 4-5 dB(A). Ramsete &egrave; sconsigliato per distanze maggiori di 100 m. A  tale proposito si pu&ograve; consultare la&nbsp; pubblicazione dell'ing. Farina n.  140 scaricandola dal sito (http://pcfarina.eng.unipr.it).</p>
+      <p align="justify"><strong>Quali sono i parametri internazionali da cambiare?</strong><br />
+      Bisogna scegliere come lingua l'inglese (Gran Bretagna) e impostare  come separatore decimale il punto (.) e come separatore di elenco il  punto e virgola (;).</p>
+      <p align="justify"><strong>Come si fa a stampare una schermata di Ramsete?</strong><br />
+      Come una schermata di un qualsiasi programma. (Alt+Stamp) per catturare  la schermata ed avere l'immagine nella clipboard; a questo punto si pu&ograve;  incollare in un qualsiasi programma e stampare.</p>
+      <p align="justify"><strong>Quando bisogna dichiarare &quot;obstructing&quot;  una parete?</strong><br />
+      In linea teorica va dichiarata &quot;obstructing&quot; una qualsiasi faccia che  si trova fra una sorgente immagine della sorgente ed un qualsiasi  ascoltatore.</p>
+      <p align="justify">Se  una parete non viene dichiarata &quot;obstructing&quot; viene attraversata dal  raggio che la impatta senza che vi sia decremento di energia qualsiasi  sia il potere fonoisolante proprio del materiale della parete stessa.</p>
+      <p align="justify"><strong>Quante pareti obstructing si possono interporre  tra una sorgente ed un ricevitore ?</strong><br />
+      Non c'&egrave; un  limite, se non l'accrescere del tempo di calcolo.</p>
+      <p align="justify"><strong>Come si imposta il calcolo della diffrazione di  una barriera?</strong><br />
+      Ogni volta che una superficie dichiarata &quot;obstructing&quot; presenta un  bordo libero viene automaticamente effettuato il calcolo della  diffrazione, tenendo conto del minimo cammino possibile. L'algoritmo  tiene conto al massimo di due diffrazioni in successione fra una  sorgente ed un ricevitore.</p>
+      <p align="justify"><strong>Che cosa significa superficie  &quot;monopermeable&quot;?</strong><br />
+      Una superficie dichiarata &quot;monopermeable&quot; ha caratteristiche simili a  quelle di una &quot;obstructing&quot;, ma solo per l'onda diretta che la  attraversa. Ci&ograve; significa che se si disegna una scatola composta da  pareti &quot;monopermeable&quot; con dentro una sorgente, tutti i raggi emessi  dalla sorgente verranno decrementati del potere fonoisolante proprio  del materiale, ma invece di continuare a rimbalzare all'interno della  scatola, i raggi usciranno senza pi&ugrave; rientrarci.</p>
+      <p align="justify"><strong>Quanti ascoltatori bisogna inserire nella  geometria per avere una mappatura corretta?</strong><br />
+      Per ottenere una mappatura corretta bisogna tenere conto che gli unici  valori &quot;veri&quot; che il software mappa sono quelli in cui &egrave; presente un  ricettore. Tutti gli altri sono ottenuti per interpolazione e quindi  variando il metodo di interpolazione pu&ograve; variare anche la mappa.  L'abilit&agrave; sta quindi nel saper correttamente disporre gli ascoltatori  nello spazio. La pratica suggerisce di predisporre un reticolo con  passo costante aggiungendo qualche ascoltatore in prossimit&agrave; di  situazioni di discontinuit&agrave; (p. es. barriere) e alla sorgente (in modo  che non si creino dei falsi minimi fra la sorgente e l'ascoltatore pi&ugrave;  vicino). In campo completamente diffuso, invece, la densit&agrave; di  ascoltatori pu&ograve; progressivamente calare con la distanza dalla sorgente.</p>
+      <p align="justify"><strong>Con quale grado di precisione bisogna introdurre  la geometria?</strong><br />
+      Viste le lunghezze d'onda in gioco in campo audio non conviene  certamente introdurre particolari come la maniglia di una porta o gli  intarsi di un capitello; tali dettagli servono solo ad appesantire il  modello aumentando a dismisura il numero di superfici della geometria  3d. L'aumento del numero delle facce ovviamente si ripercuote sul tempo  di calcolo. Inoltre bisogna tenere presente che la precisione del  modello geometrico contribuisce s&igrave; all'accuratezza dei risultati ma  solo se il numero di piramidi lanciate &egrave; cos&igrave; elevato che la divergenza  geometrica al momento dell'impatto ha prodotto una sezione del fascio  inferiore alle facce pi&ugrave; piccole disegnate; altrimenti il tracciatore  non si accorge dell'esistenza di facce tanto piccole e tale dettaglio &egrave;  come se non fosse disegnato.</p>
+      <p align="justify"><strong>Come si fa a simulare l'isolamento di pareti  multistrato?</strong><br />
+      Se la il materiale &egrave; lo stesso su tutte e due le facce della parete  basta attribuire al materiale il potere fonoassorbente del materiale  esterno e come potere fonoisolante il potere fonoisolante complessivo  di tutti gli strati. Infine &egrave; necessario dichiarare questa parete  &quot;obstructing&quot;. Se la parete composta &egrave; presenta invece sulle due facce  materiali diversi, bisogner&agrave; oltre ad aver disegnato la parete come gi&agrave;  detto, disegnarne una parallela a 10 cm di distanza del materiale di  finitura della seconda faccia. Tale seconda parete non deve essere  dichiarata &quot;obstructing&quot; e quindi non ha importanza il potere  fonoisolante attribuito nel Material Manager.</p>
+      <p align="justify"><strong>Che differenza c'&egrave; fra &alpha; ramsete ed &alpha; sabine?</strong><br />
+      Ramsete, come la gran parte dei programmi tipo &quot;ray tracing&quot;, richiede  in ingresso i valori &quot;veri&quot; del coefficiente di assorbimento, non i  valori &quot;di Sabine&quot;. I valori veri sono in generale pi&ugrave; bassi di quelli  di Sabine, ovvero i primi non superano mai uno, mentre i secondi s&igrave;.  Questo &egrave; stato inizialmente studiato dall'ing. Olliaro del Politecnico  di Torino (mi pare nel 1996), ed in seguito da un gruppo di ricercatori  inglesi (Steve Vance e colleghi), che hanno recentemente pubblicato una  serie di tre articoli su Applied Acoustics. In sostanza, si &egrave; visto che  i programmi basati sull'acustica geometrica richiedono in ingresso i  coeff. di assorbimento di Millington, non di Sabine. A seguito della  pubblicazione di tali studi, ho introdotto in Ramsete la conversione  automatica fra valori di Alpha Sabine e valori di Alpha Millington.  Quindi, se avete i valori di Alpha Sabine tratti da una prova ISO 354,  li introducete nella maschera apposita di Material manager, e tali  valori vengono automaticamente convertiti (ridotti) nei corrispondenti  valori di Alpha Millington. Se viceversa avete dei valori di Alpha  &quot;vero&quot;, ad esempio da misure con la tecnica intensimetrica (o in  subordine con il tubo di Kundt), allora vanno introdotti nella maschera  di &quot;Alpha Ramsete&quot;, ed essi verranno automaticamente trasformati nei  corrispondenti valori di Alpha Sabine.</p>
+      <p align="justify"><strong>Che cosa &egrave; il parametro &delta;?</strong><br />
+      Il parametro &delta; &egrave; il coefficiente di &quot;scattering&quot;, definito dalla nuova  norma ISO sviluppata da Vorlander e Rindell. Si veda il recente  articolo di Vorlander e Mommertz su Acustica di Dicembre 2000. Sullo  stesso volume c'&egrave; anche un mio articolo, che spiega dettagliatamente  come il coefficiente di scattering &egrave; stato introdotto in Ramsete. In  sostanza, &egrave; il rapporto fra energia riflessa in direzione non speculare  e l'energia riflessa totale. Per superfici lisce normali (intonaco,  cemento, pavimento, etc.) il valore standard 0.1 va bene. Per superfici  pi&ugrave; &quot;mosse&quot;, si possono avere valori pi&ugrave; elevati (sino a 0.5). Valori  maggiori di 0.5 possono essere ottenuti solo con speciali pannelli  diffondenti, usati negli studi di registrazione o nei teatri, nel qual  caso i valori del coeff. di scattering vengono normalmente forniti dal  costruttore dei pannelli.</p>
+      <p align="justify"><strong>Come si fa a &quot;tarare il modello&quot;?</strong><br />
+      La taratura del modello &egrave; forse la parte pi&ugrave; difficile e delicata del  programma in quanto implica conoscenze di base che vanno dalla  metodologia di misura del locale reale alla corretta scelta dei  materiali nel data base di Ramsete (o alla reperibilit&agrave; di certificati  di prova) alla corretta interpretazione dei risultati elaborati dal  software. Non ultimo l'aver disegnato correttamente la geometria con il  giusto compromesso fra numero di facce ed accuratezza del modello 3d  inserito. Normalmente per la taratura del modello pu&ograve; occorrere fino al  50% del tempo dell'intero lavoro. Purtroppo, soprattutto nella fase  iniziale e ancora di pi&ugrave; le prime volte che si usa il programma, la  precisione dei risultati dipende quasi totalmente dai dati in ingresso  (geometria, sorgente, materiali....) e l'errore che si pu&ograve; commettere &egrave;  di gran lunga superiore all'accuratezza del programma. Con l'esperienza  si riusciranno ad ottenere ottime convergenze con i casi reali  utilizzando quasi sempre i materiali di default e senza essere  costretti ad inventare materiali con coefficienti di fonoassorbimento  tali per cui il tempo di riverberazione misurato risulti uguale a  quello calcolato. Questa forzatura, per quanto possibile, va evitata.</p>
+      <p align="justify"><strong>Quali sono i valori corretti di alfa e beta?</strong><br />
+        La taratura di  Alfa e Beta &egrave; una strana storia, la domanda ci &egrave; stata fatta pi&ugrave; volte.  Precisiamo due fatti:<br />
+        a) lanciando molte piramidi, allorch&egrave; il tempo critico eccede la  lunghezza della risposta all'impulso, non c'&egrave; pi&ugrave; alcuna correzione  della coda da fare, e quindi Alfa e Beta sono ininfluenti. Con i  computer veloci di oggi, capitano sovente casi semplici nei quali si  possono lanciare 64.000 piramidi in poche decine di secondi, ed il  problema &egrave; risolto;<br />
+      b) se l'ambiente non ha forme strane o geometrie complesse, ma la  solita, classica sala o aula o teatro, allora l'ambiente &egrave; Sabiniano, e  quindi Alfa vale 2 e Beta 0.1, e non c'&egrave; un reale bisogno di taratura.</p>
+      <p align="justify">Se  non siamo in nessuno dei due casi suddetti, allora vale la pena di fare  la taratura di Alfa e Beta. Ad esempio potremmo essere in un ambiente  industriale basso e vasto, con ostacoli &quot;obstructing&quot; qua e l&agrave;. Il  trucco &egrave; il seguente: siccome al crescere del numero di piramidi si  ottiene una risposta indipendente da Alfa e Beta, occorre fare due  simulazioni, utilizzando un'unica sorgente ed un ridotto numero di  recettori (cos&igrave; il calcolo &egrave; veloce), una con molte piramidi (ad  esempio 64000) e l'altra con il numero di piramidi che si intende poi  utilizzare nelle simulazioni normali (quelle con molte sorgenti e  ricevitori, che dunque non possono essere fatte con 64000 piramidi) -  ad esempio 2048. Fatte queste due simulazioni (con nomi diversi,  ovviamente), si apre AlfaBeta Optimizer, si caricano i risultati delle  due simulazioni, e si &quot;editano&quot; a mano i valori di Alfa e Beta finch&egrave;  le due curve (rossa e blu) non sono sovrapposte. Non bisogna  preoccuparsi di quello che accade nella parte troppo tardiva della coda  sonora (che tanto con poche piramidi &egrave; sempre incerta), occorre invece  ottimizzare l'aderenza delle due curve nella parte pi&ugrave; importante della  risposta all'impulso, cio&egrave; nei primi 20 - 25 dB di decadimento.</p>
+      <p align="justify"><strong>Quante piramidi bisogna sparare per ottenere un  risultato affidabile?</strong><br />
+      Solo pochi anni fa con la limitata potenza di calcolo dei computer, si  doveva far ricorso ad espedienti quali la taratura di alfa e beta ora  descritta. Oggi come oggi si pu&ograve; lavorare fin dall'inizio con un  livello 7 o 8 senza per questo essere costretti ad attese di pi&ugrave; di un  minuto. se questo accade o si &egrave; in presenza di casi particolari o si &egrave;  ecceduto nell'accuratezza della geometria o si &egrave; commesso qualche  errore.</p>
+      <p align="justify"><strong>Si pu&ograve; mappare su piani diversi dal piano  orizzontale?</strong><br />
+      S&igrave;, anche su quello verticale e laterale, ma ovviamente anche gli  ascoltatori devono essere disposti di conseguenza.</p>
+      <p align="justify">Dovendo  verificare l'attenuazione complessiva di una cabina insonorizzata che  presenta aperture di ingresso ed uscita del materiale, qual &egrave; la  dimensione minima della cabina che posso utilizzare affinch&egrave; i calcoli  siano attendibili?</p>
+      <p align="justify">Non esiste una  dimensione minima, ma bisogna tener presente che per cabine piccole, &egrave;  il concetto di &quot;potere fonoisolante&quot; che va in crisi. Ad esso si deve  sostituire il concetto di &quot;perdita di inserzione&quot;, che non &egrave;  altrettanto facilmente determinabile (in quanto, per un certo tipo di  pannello, dipende anche da forma e dimensioni della cabina). Se il  corretto valore della perdita di inserzione viene assegnata come &quot;R&quot;,  il calcolo &egrave; corretto anche per cabine molto piccole.</p>
+      <p align="justify">Dovendo valutare gli effetti della diffrazione,  quanti bordi di strutture geometriche considera Ramsete nel calcolo?<br />
+        Il numero massimo di diffrazioni successive &egrave; due, ma solo se si attiva  la corrispondente opzione nel tracciatore. Infatti l'impostazione di  default &egrave; 1.</p>
+      <p align="justify">Sarebbe utile  avere nella finestra del Ray Path anche il calcolo del tempo di ritardo tra  onda sonora diretta e successive.</p>
+      <p align="justify">Tale  parametro, denominato ITDG, veniva calcolato nelle versioni precedenti  di Ramsete (era persino possibile farne la mappatura). La sua  visualizzazione &egrave; stata disattivata, poich&egrave; la maggior parte degli  utenti pareva interpretarlo in modo improprio (allo stesso modo, &egrave;  stata disattivata la visualizzazione di T60).</p>
+      <p align="justify"><strong>Dove posso trovare una spiegazione esaustiva dei  vari parametri che il Ramsete View calcola (D, Tbar, C80, C50, Aeq, ....)?</strong><br />
+      Esistono alcune belle pubblicazioni di Carmine Ianniello sulla Rivista  Italiana di Acustica che descrivono questi parametri. In alternativa,  pu&ograve; consultare il par. 3.2 della pubblicazione n. 105 del prof. Angelo  Farina (sul sito http://pcfarina.eng.unipr.it).</p>
+      <p align="justify"><strong>E' normale che Ramsete2 non mappi il T60?</strong><br />
+      Le &quot;vecchie&quot; versioni di Ramsete visualizzavano il valore di T60, oltre  che di T20, T30, etc. La maggior parte degli utenti, tuttavia, si  lamentava perch&egrave; i valori di T60 non &quot;tornavano&quot; con le misure  sperimentali nella stessa sala. La realt&agrave; &egrave; che non si misura mai T60:  secondo la norma ISO 3382/1997, le grandezze &quot;standard&quot; da misurare  sono T20 e T30. In conseguenza a ci&ograve;, abbiamo rimosso la  visualizzazione del parametro T60, che generava solo confusione. Tutti  usano solitamente T30 (sia in fase di misura, sia di calcolo), anche se  alcuni lo &quot;ribattezzano&quot; impropriamente T60. Se comunque vuole avere  accesso ai valori di T60 &quot;veri&quot;, essi continuano ad essere salvati nel  file che contiene tutti i parametri acustici (quello con estensione  .-_A, per intenderci) . E' un normale file ASCII, importabile in Excel,  che compendia tutti i risultati del calcolo. Entro tale file, i valori  di T60 sono l'ultimo blocco di dati in fondo. Causa uno stupido errore  di copia-incolla delle righe di programma, tale blocco &egrave; indicato  erroneamente come T30 (come il blocco superiore, che contiene davvero  T30), mentre invece dovrebbe esserci scritto T60. Continuo a non capire  a cosa serva visualizzare i valori di T60, &egrave; un parametro privo di  alcuna utilit&agrave; pratica. Mapparlo, poi, non serve proprio a niente, T60  (ed anche T20, T30) sono parametri che non hanno variazione spaziale  (se non causata da errorini di calcolo), essi assumono lo stesso valore  in tutta la sala...</p>
+      <p align="justify"><strong>Nell'utilizzo  del Creator BZ &egrave; possibile che a fronte di una potenza elettrica di 500  w in Bz7, con tutte le frequenze attive, ottenga Lw di 1.7 dB con una  sensitivit&agrave; di 95.5 dB/w/m?</strong><br />
+      Va chiarito che il modulo  &quot;Create Source BZ&quot; &egrave; assolutamente obsoleto, verr&agrave; rimosso nella  prossima release di Ramsete. La gran parte degli utilizzatori, infatti,  lo usa del tutto a sproposito. Tale modulo non effettua alcun calcolo,  &egrave; l'utilizzatore che deve introdurre in esso i valori opportuni di  tutti i parametri acustici della sorgente sonora. La potenza elettrica  in W non entra in alcun calcolo, uno pu&ograve; scrivere qualunque numero in  tale cella, ed il risultato acustico non cambia (&egrave; una sorta di  documentazione delle caratteristiche della sorgente, come il nome del  costruttore, il modello, l'impedenza elettrica e la sensitivit&agrave;). Il  calcolo si basa unicamente sui valori di potenza sonora (come &egrave;  corretto che sia) e di direttivit&agrave;, che debbono venire specificati  dall'utente nel caso si utilizzi il modulo Create Source BZ. Io  comunque le consiglio di NON utilizzare tale modulo, ed impiegare  invece l'ISO3744/46, oppure la nuova opzione di interpolazione delle  curve di direttivit&agrave; (Interpolate Polar). In questo secondo caso,  occorre comunque specificare poi manualmente i livelli di potenza in  ogni banda di ottava. Se essi non sono dichiarati dal costruttore  dell'altoparlante, ma si conosce solo ciascuna banda d'ottava: -  potenza elettrica nominale W in watt - sensitivit&agrave; S in dB/1W,1m  sull'asse - efficienza E&rsquo; in percentuale - fattore di direttivit&agrave; Q  Occorre operare manualmente il calcolo dei livelli di potenza . La  formula &egrave; la seguente: Lw = S - 10logQ +10log(W*E%/100) Se anzich&egrave; il  fattore di direttivit&agrave; Q &egrave; nota la direttivit&agrave; D in dB, la formula  diventa: Lw = S - D +10log(W*E%/100) Si potrebbe anche pensare di  introdurre tale formulino nella mascherina di Ramsete in cui si  introducono le curve di direttivit&agrave;, ma essendo la stessa banale,  abbiamo preferito lasciare all'utente di calcolare il corretto valore  di Lw. Ramsete non ha la pretesa di sostituirsi ad un manuale di  acustica, &egrave; solo uno strumento per fare la parte pallosa dei calcoli, e  si presume che venga usato come ausilio alla progettazione acustica,  non come una &quot;black box&quot; che pensa a tutto... Non &egrave; un &quot;sistema  esperto&quot;, ma un software tecnico che va &quot;condotto per mano&quot; da un  tecnico acustico.</p>
+      </div>
+  </div>
+  <!--end content -->
+  <div id="siteInfo">&copy;2007 LAE </div>
+</div>
+<!--end pagecell1-->
+<br />
+<script type="text/javascript">
+    <!--
+      var menuitem1 = new menu(7,1,"hidden");
+			var menuitem2 = new menu(7,2,"hidden");
+			var menuitem3 = new menu(7,3,"hidden");
+			var menuitem4 = new menu(7,4,"hidden");
+			var menuitem5 = new menu(7,5,"hidden");
+			var menuitem6 = new menu(7,6,"hidden");
+			var menuitem7 = new menu(7,7,"hidden");
+    // -->
+    </script>
+</body>
+</html>

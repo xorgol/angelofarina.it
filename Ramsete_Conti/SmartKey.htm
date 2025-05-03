@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ramsete</title>
+<link rel="stylesheet" href="emx_nav_right.css" type="text/css" />
+<script type="text/javascript">
+<!--
+var time = 3000;
+var numofitems = 8;
+
+//menu constructor
+function menu(allitems,thisitem,startstate){ 
+  callname= "gl"+thisitem;
+  divname="subglobal"+thisitem;  
+	this.numberofmenuitems = allitems;
+	this.caller = document.getElementById(callname);
+	this.thediv = document.getElementById(divname);
+	this.thediv.style.visibility = startstate;
+}
+				 
+//menu methods
+function ehandler(event,theobj){
+  for (var i=1; i<= theobj.numberofmenuitems; i++){
+	  var shutdiv =eval( "menuitem"+i+".thediv");
+    shutdiv.style.visibility="hidden";
+	}
+	theobj.thediv.style.visibility="visible";
+}
+				
+function closesubnav(event){
+  if ((event.clientY <48)||(event.clientY > 207)){
+    for (var i=1; i<= numofitems; i++){
+      var shutdiv =eval('menuitem'+i+'.thediv');
+			shutdiv.style.visibility='hidden';
+		}  
+	}
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+.Stile1 {font-size: small}
+-->
+</style>
+</head>
+
+<div id="masthead">
+  <h1 id="siteName">R A M S E T E &nbsp;&nbsp;&nbsp;Room Acoustics  modeling on PC  </h1>
+  <div id="globalNav"> <img alt="" src="gblnav_left.gif" height="32" width="4" id="gnl" /> <img alt="" src="glbnav_right.gif" height="32" width="4" id="gnr" />
+    <div id="globalLink"> <a href="#" id="gl1" class="glink" onmouseover="ehandler(event,menuitem1);">Home</a><a href="#" id="gl2" class="glink" onmouseover="ehandler(event,menuitem2);">Package</a><a href="#" id="gl3" class="glink" onmouseover="ehandler(event,menuitem3);">News</a><a href="#" id="gl4" class="glink" onmouseover="ehandler(event,menuitem4);">Download</a><a href="#" id="gl5" class="glink" onmouseover="ehandler(event,menuitem5);">Support</a><a href="#" id="gl6" class="glink" onmouseover="ehandler(event,menuitem6);">About Us </a><a href="#" id="gl7" class="glink" onmouseover="ehandler(event,menuitem7);">Forum</a></div>
+    
+    <!--end globalLinks-->
+  </div>
+  
+  
+  <p>
+    <!-- end globalNav -->
+  </p>
+  <p>&nbsp;</p>
+  <div id="subglobal1" class="subglobalNav"> <a href="index.htm">Home</a></div>
+  <div id="subglobal2" class="subglobalNav"> <a href="features.htm">Features</a> | <a href="RamseteCad.htm">Ramsete CAD</a> | <a href="MaterialManager.htm">Material Manager</a> | <a href="Source Manager.htm">Source Manager</a> | <a href="Ramsete Tracer.htm">Ramsete Tracer</a> | <a href="RamseteView.htm">Ramsete View</a> | <a href="AudioConverter.htm">Audio Converter</a> | <a href="WaveConvolver.htm">Wave Convolver</a> | <a href="http://www.aurora-plugins.com/">Aurora</a> </div>
+  <div id="subglobal3" class="subglobalNav"> <a href="news.htm">New</a> | <a href="futurerelease.htm">Future Releases</a></div>
+  <div id="subglobal4" class="subglobalNav"> <a href="Download_General_informations.htm">General Informations</a> | <a href="Download_Setup_instruction.htm">Download & Setup Instruction</a> | <a href="Dongles.htm">Dongles</a></div>
+  <div id="subglobal5" class="subglobalNav"> <a href="Help_e_manual.htm">Help & Manual</a> | <a href="http://www.ramsete.com/intrepidi/intrepidi.htm">Examples</a> | <a href="FAQ.htm">F.A.Q.</a></div>
+  <div id="subglobal6" class="subglobalNav"> <a href="AboutUS.htm">Authors</a></div>
+  <div id="subglobal7" class="subglobalNav"> <a href="http://ramsete.forumfree.net/">Forum</a></div>
+  <div id="subglobal8" class="subglobalNav"> <a href="#">RamSuite</a> | <a href="#">Aurora</a> | <a href="#">LAE</a> | <a href="#">Spectra</a></div>
+</div>
+<!-- end masthead -->
+<div id="pagecell1">
+  <!--pagecell1-->
+  
+  <div id="breadCrumb"></div>
+  <div class="Stile1" id="pageName">
+    <h2 class="Stile1"> Smartkey </h2>
+  </div>
+  <div id="advert">
+    <div class="feature">
+      <p align="justify">Download the Latest Smartkey  Drivers (Ramsete 2.xx with white dongle)</p>
+      <p align="justify">Following  these instructions, you can download the latest drivers which enable  the use of the Smartkey dongle under 32 bit operating systems (Windows  95, Windows 98, Windows NT, Windows 2000, Windows XP).</p>
+      <p align="justify">Instructions:</p>
+      <p align="justify">Go to the directory containing  the dongle drivers:</p>
+      <p align="justify"><a href="http://www.ramsete.com/Public/ramsete/drivers">www.ramsete.com/Public/ramsete/drivers</a></p>
+      <p align="justify">Here You find these driver files:</p>
+      <p align="justify"><strong>Parall-NT2kXP.zip</strong> &nbsp;&nbsp;	Parallel Port dongle, Windows NT, 2k, XP<br />
+          <strong>Parall-Win9x.zip</strong>&nbsp; &nbsp;&nbsp;&nbsp; Parallel  port dongle, Windows 95, 98, 98SE, <strong>ME</strong><br />
+          <strong>USB.zip</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USB  dongle, Win ME, 2k, XP<br />
+          <strong>Visual32-SDI.zip</strong> &nbsp;&nbsp;&nbsp;&nbsp; GUI  program for setup/maintanance of the drivers (not recommended)<br />
+          <strong>skeydrv.dll&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VisualBasic low-level interface to the <strong>drivers. It</strong> must be present  either in the Ramsete installation directory or in C:\Windows\system</p>
+      <p align="justify">Unzip  the proper file maintaining the sub-directories stored inside the ZIP  archive and then look at the README.TXT file contained in the archive  for more information abut the installation procedure.</p>
+      <p align="justify">The most updated drivers for Smartkey dongles can  anyway be found at the Eutron  Smartkey <a href="http://www.smartkey.eutron.it/ita/home.asp">Home Page</a></p>
+      </div>
+  </div>
+  <!--end content -->
+  <div id="siteInfo">&copy;2007 LAE </div>
+</div>
+<!--end pagecell1-->
+<br />
+<script type="text/javascript">
+    <!--
+      var menuitem1 = new menu(7,1,"hidden");
+			var menuitem2 = new menu(7,2,"hidden");
+			var menuitem3 = new menu(7,3,"hidden");
+			var menuitem4 = new menu(7,4,"hidden");
+			var menuitem5 = new menu(7,5,"hidden");
+			var menuitem6 = new menu(7,6,"hidden");
+			var menuitem7 = new menu(7,7,"hidden");
+    // -->
+    </script>
+</body>
+</html>

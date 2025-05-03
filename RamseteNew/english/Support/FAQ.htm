@@ -1,0 +1,382 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Angelo Farina">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>F.A.Q.</title>
+</head>
+
+<body>
+
+<hr>
+<p align="center"><font face="Verdana" size="5">F.A.Q.</font></p>
+<hr>
+
+<div align=justify><font face="Verdana" size="2">
+
+<p><strong>Perchè si chiama Ramsete?</strong></p>
+
+<p>Poichè è stato il primo software
+di simulazione acustica che ha utilizzato fasci piramidali, abbiamo pensato ad
+un nome che avesse una vaga attinenza con le piramidi egiziane.</p>
+
+<p><strong>Ramsete può essere usato
+anche all'aperto?</strong></p>
+
+<p>Si, ma con tutte le precauzioni
+del caso; infatti Ramsete è nato come programma per interni e non tiene conto
+di effetti che mentre all'interno sono deltutto trascurabili, all'esterno non lo
+sono affatto quali l'effetto radente, il gradiente termico, la direzione del
+vento ecc.</p>
+
+<p><b>Qual è il margine di errore di Ramsete nella
+valutazione della propagazione in ambiente aperto (limitatamente al calcolo di
+sorgenti e ricevitori posti a distanze di circa 100-150 metri) e considerando il
+valore globale del livello sonoro espreso in dB(A)?</b></p>
+<p>L'errore
+cresce fortemente con la distanza.&nbsp; L'errore è inferiore a 2 dB(A) sino a circa 50 m, poi però cresce
+notevolmente, soprattutto in caso di propagazione radente su terreno
+pianeggiante. A 100 m è già dell'ordine dei 4-5 dB(A). Ramsete è sconsigliato
+per distanze maggiori di 100 m.
+A tale proposito si può consultare la&nbsp;
+pubblicazione dell'ing. Farina n.&nbsp;140 scaricandola dal sito (<a href="http://pcfarina.eng.unipr.it">http://pcfarina.eng.unipr.it</a>).</p>
+
+<p><strong>Quali sono i parametri
+internazionali da cambiare?</strong></p>
+
+<p>Bisogna scegliere come lingua
+l'inglese (Gran Bretagna)e dimpostare come separatore decimale il punto (.) e
+come separatore di elenco il punto e virgola (;).</p>
+
+<p><strong>Come si fa a stampare una
+schermata di Ramsete?</strong></p>
+
+<p>Come una schermata di un qualsiasi
+programma. (Alt+Stamp) per catturare la schermata ed avere l'immagine nella
+clipboard; a questo punto si può incollare in un qualsiasi programma e stampare.</p>
+
+<p><strong>Quando bisogna dichiarare
+&quot;obstructing&quot; una parete?</strong></p>
+
+<p style="margin-top: 0; margin-bottom: 0">In linea teorica va dichiarata
+&quot;obstructing&quot; una qualsiasi faccia che si trova fra una sorgente
+immagine della sorgente ed un qualsiasi ascoltatore.</p>
+
+<p style="margin-top: 0; margin-bottom: 0">Se
+una parete non viene dichiarata &quot;obstructing&quot; viene attraversata dal
+raggio che la impatta senza che vi sia decremento di energia qualsiasi sia il
+potere fonoisolante proprio del materiale della parete stessa.</p>
+
+<p><strong>Quante pareti obstructing si possono
+interporre tra una sorgente ed un ricevitore ?</strong></p>
+
+<p>Non c'è un limite, se non
+l'accrescere del tempo di calcolo.</p>
+
+<p><strong>Come si imposta il calcolo della
+diffrazione di una barriera?</strong></p>
+
+<p>Ogni volta che una superficie
+dichiarata &quot;obstructing&quot; presenta un bordo libero viene
+automaticamente effettuato il calcolo della diffrazione, tenendo conto del
+minimo cammino possibile. L'algoritmo tiene conto al massimo di due diffrazioni
+in successione fra una sorgente ed un ricevitore.</p>
+
+<p><strong>Che cosa significa
+superficie &quot;monopermeable&quot;?</strong></p>
+
+<p>Una superficie dichiarata &quot;monopermeable&quot;
+ha caratteristiche simili a quelle di una &quot;obstructing&quot;, ma solo per
+l'onda diretta che la attraversa. Ciò significa che se si disegna una scatola
+composta da pareti &quot;monopermeable&quot; con dentro una sorgente, tutti i
+raggi emessi dalla sorgente verranno decrementati del potere fonoisolanete
+proprio del materiale, ma invece di continuare a rimbalzare all'interno della
+scatola, i raggi usciranno semza più rientrarci.</p>
+
+<p><strong>Quanti ascoltatori bisogna
+inserire nella geometria per avere una mappatura corretta?</strong></p>
+
+<p>Per ottenere una mappatura
+corretta bisogna tenere conto che gli unici valori &quot;veri&quot; che il
+software mappa sono quelli in cui è presente un ricettore. Tutti gli altri sono
+ottenuti per interpolazione e quindi variando il metodo di interpolazione può
+variare anche la mappa. L'abilità sta quindi nel saper correttamente disporre
+gli ascoltatori nello spazio. La pratica suggerisce di predisporre un reticolo
+con passo costante aggiungendo qualche ascoltatore in prossimità di situazioni
+di discontinuità (p. es. barriere) e alla sorgente (in modo che non si creino
+dei falsi minimi fra la sorgente e l'ascoltatore più vicino). In campo
+completamente diffuso, invece, la densità di ascoltatori può progressivamente
+calare con la distanza dalla sorgente.</p>
+
+<p><strong>Con quale grado di
+precisione bisogna introdurre la geometria?</strong></p>
+
+<p>Viste le lunghezze d'onda in gioco
+in campo audio non conviene certamente introdurre particolari come la maniglia
+di una porta o gli intarsi di un capitello; tali dettagli servono solo ad
+appesantire il modello aumentando a dismisura il numero di superfici della
+geometria 3d. L'aumento del numero delle facce ovviamente si ripercuote sul
+tempo di calcolo. Inoltre bisogna tenere presente che la precisione del modello
+geometrico contribuisce sì all'accuratezza dei risultati ma solo se il numero
+di piramidi lanciate è così elevato che la divergenza geometrica al momentro
+dell'impatto ha prodotto una sezione del fascio inferiore alle facce più
+piccole disegnate; altrimenti il tracciatore non si accorge dell'esistenza di
+facce tanto piccole e tale dettaglio è come se non fosse disegnato.</p>
+
+<p><strong>Come si fa a simulare
+l'isolamento di pareti multistrato?</strong></p>
+
+<p>Se la il materiale è lo stesso su
+tutte e due le facce della parete basta attribuire al materiale il potere
+fonoassorbente del materiale esterno e come potere fonoisolante il potere
+fonoisolante complessivo di tutti gli strati. Infine è necessario dichiarare
+questa parete &quot;obstructing&quot;. Se la parete composta è presenta invece
+sulle due facce materiali diversi, bisognerà oltre ad aver disegnato la parete
+come già detto, disegnarne una parallela a 10 cm di distanza del materiale di
+finitura della seconda faccia. Tale seconda parete non deve essere dichiarata
+&quot;obstructing&quot; e quindi non ha importanza il potere fonoisolante
+attribuito nel Material Manager.</p>
+
+<p><strong>Che differenza c'è fra
+alfa ramsete ed alfa sabine?</strong></p>
+
+<p>Ramsete, come la gran parte dei programmi tipo &quot;ray
+tracing&quot;, richiede in 
+ingresso i valori &quot;veri&quot; del coeff. di assorbimento, non i valori
+&quot;di 
+Sabine&quot;. I valori veri sono in generale più bassi di quelli di Sabine, 
+fattosta che i primi non superano mai uno, mentre i secondi si. Questo è 
+stato inizialmente studiato dall'ing. Olliaro del Politecnico di Torino (mi 
+pare nel 1996), ed in seguito da un gruppo di ricercatori inglesi (Steve 
+Vance e colleghi), che hanno recentemente pubblicato una serie di tre 
+articoli su Applied Acoustics. In sostanza, si è visto che i programmi basati
+sull'acustica geometrica 
+richiedono in ingresso i coeff. di assorbimento di Millington, non di 
+Sabine. A seguito della pubblicazione di tali studi, ho introdotto in 
+Ramsete la conversione automatica fra valori di Alpha Sabine e valori di 
+Alpha Millington. Quindi, se avete i valori di Alpha Sabine tratti da una 
+prova ISO 354, li introducete nella maschera apposita di Material manager, e 
+tali valori vengono automaticamente convertiti (ridotti) nei corrispondenti 
+valori di Alpha Millington. Se viceversa avete dei valori di Alpha &quot;vero&quot;, 
+ad esempio da misure con la tecnica intensimetrica (o in subordine con il 
+tubo di Kundt), allora vanno introdotti nella maschera di &quot;Alpha Ramsete&quot;, 
+ed essi verranno automaticamente trasformati nei corrispondenti valori di 
+Alpha Sabine. 
+</p>
+
+<p><strong>Che cosa è il parametro
+delta?</strong></p>
+
+<p>Il parametro &quot;delta&quot; è il coefficiente di
+&quot;scattering&quot;, definito dalla nuova 
+norma ISO sviluppata da Vorlander e Rindell. Si veda il recente articolo di 
+Vorlander e Mommertz su Acustica/acta acustica di Dicembre 2000. Sullo 
+stesso volume c'è anche un mio articolo, che spiega dettagliatamente come il 
+coeff. di scattering è stato introdotto in Ramsete. In sostanza, è il 
+rapporto fra energia riflessa in direzione non speculare e l'energia 
+riflessa totale. Per superfici liscie normali (intonaco, cemento, pavimento, 
+etc.) il valore standard 0.1 va bene. Per superfici più &quot;mosse&quot;, si
+possono 
+avere valori più elevati (sino a 0.5). Valori maggiori di 0.5 possono essere 
+ottenuti solo con speciali pannelli diffondenti, usati negli studi di 
+registrazione o nei teatri, nel qual caso i valori del coeff. di scattering 
+vengono normalmente forniti dal costruttore dei pannelli. 
+</p>
+
+<p><strong>Come si fa a &quot;tarare
+il modello&quot;?</strong></p>
+
+<p>La taratura del modello è forse
+la parte più difficile e delicata del programma in quanto implica conoscenze di
+base che vanno dalla metodologia di misura del locale reale alla corretta scelta
+dei materiali nel data base di Ramsete (o alla reperibilità di certificati di
+prova) alla corretta interpretazione dei risultati elaborati dal software. Non
+ultimo l'aver disegnato correttamente la geometria con il giusto compromesso fra
+numero di facce ed accuratezza del modello 3d inserito. Normalmente per la
+taratura del modello può occorrere fino al 50% del tempo dell'intero lavoro.
+Purtroppo, soprattutto nella fase iniziale e ancora di più le prime volte che
+si usa il programma, la precisione dei risultati dipende quasi totalmente dai
+dati in ingresso (geometria, sorgente, materiali....) e l'errore che si può
+commettere è di gran lunga superiore all'accuratezza del programma. Con
+l'esperienza si riusciranno ad ottenere ottime convergenze con i casi reali
+utilizzando quasi sempre i materiali di default e senza essere costretti ad
+inventare materiali con coefficienti di fonoassorbimento tali per cui il tempo
+di riverberazione misurato risulti uguale a quello calcolato. Questa forzatura,
+per quanto possibile, va evitata.</p>
+
+<p><strong>Quali sono i valori
+corretti di alfa e beta?</strong></p>
+
+<p>La taratura di Alfa e Beta è una strana storia, la domanda ci
+è stata fatta 
+più volte. Precisiamo 
+due fatti:<br>
+a) lanciando molte piramidi, allorchè il tempo critico eccede la lunghezza 
+della risposta all'impulso, non c'è più alcuna correzione della coda da 
+fare, e quindi Alfa e Beta sono ininfluenti. Con i computer veloci di oggi, 
+capitano sovente casi semplici nei quali si possono lanciare 64.000 piramidi in poche 
+decine di secondi, ed il problema è risolto;<br>
+b) se l'ambiente non ha forme strane o geometrie complesse, ma la solita, 
+classica sala o aula o teatro, allora l'ambiente è Sabiniano, e quindi Alfa 
+vale 2 e Beta 0.1, e non c'è un reale bisogno di taratura. 
+ 
+</p>
+
+<p>Se non siamo in nessuno dei due casi suddetti, allora vale la pena di fare 
+la taratura di Alfa e Beta. Ad esempio potremmo essere in un ambiente 
+industriale basso e vasto, con ostacoli &quot;obstructing&quot; qua e là. Il
+trucco è 
+il seguente: siccome al crescere del numero di piramidi si ottiene una 
+risposta indipendente da Alfa e Beta, occorre fare due simulazioni, 
+utilizzando un'unica sorgente ed un ridotto numero di recettori (cosi' il 
+calcolo è veloce), una con molte piramidi (ad esempio 64000) e l'altra con il 
+numero di piramidi che si intende poi utilizzare nelle simulazioni normali 
+(quelle con molte sorgenti e ricevitori, che dunque non possono essere fatte 
+con 64000 piramidi) - ad esempio 2048. Fatte queste due simulazioni (con 
+nomi diversi, ovviamente), si apre AlfaBeta Optimizer, si caricano i 
+risultati delle due simulazioni, e si &quot;editano&quot; a mano i valori di
+Alfa e 
+Beta finchè le due curve (rossa e blu) non sono sovrapposte. Non bisogna 
+preoccuparsi di quello che accade nella parte troppo tardiva della coda 
+sonora (che tanto con poche piramidi è sempre incerta), occorre invece 
+ottimizzare l'aderenza delle due curve nella parte più importante della 
+risposta all'impulso, cioè nei primi 20 - 25 dB di decadimento. 
+ 
+</p>
+
+<p><strong>Quante piramidi bisogna
+sparare per ottenere un risultato affidabile?</strong></p>
+
+<p>Solo pochi anni fa con la limitata
+potenza di calcolo dei computer, si doveva far ricorso ad espedienti quali la
+taratura di alfa e beta ora descritta. Oggi come oggi (2001) si può lavorare
+fin dall'inizio con un livello 7 o 8 senza per questo essere costretti ad attese
+di più di un minuto. se questo accade o si è in presenza di casi particolari o
+si è ecceduto nell'accuratezza della geometria o si è commesso qualche errore. 
+</p>
+
+
+<p><strong>Si può mappare su piani
+diversi dal piano orizzontale?</strong></p>
+
+
+<p>Si, anche su quello verticale e
+laterale, ma ovviamente anche gli ascoltatori devono essere disposti di
+conseguenza.</p>
+
+
+<p><b>Dovendo
+verificare l'attenuazione complessiva di una cabina insonorizzata che presenta
+aperture di ingresso ed uscita del materiale, qual è la dimensione minima della
+cabina che posso utilizzare affinchè i calcoli siano attendibili?</b><font face="Verdana"><o:p>
+</o:p>
+</p>
+<p>Non
+esiste una dimensione minima, ma bisogna tener presente che per cabine piccole,
+è il concetto di &quot;potere fonoisolante&quot; che va in crisi. Ad esso si
+deve sostituire il concetto di &quot;perdita di inserzione&quot;, che non è
+altrettanto facilmente determinabile (in quanto, per un certo tipo di pannello,
+dipende anche da forma e dimensioni della cabina). Se il corretto valore della
+perdita di inserzione viene assegnata come &quot;R&quot;, il calcolo è corretto
+anche per cabine molto piccole.</p>
+<p><b>Dovendo
+valutare gli effetti della diffrazione, quanti bordi di strutture geometriche
+considera ramsete nel calcolo?</b></p>
+<p>Il
+numero massimo di diffrazioni sucessive è due, ma solo se si attiva la
+corrispondente opzione nel tracciatore. Infatti l'impostazione di default è 1.</p>
+<p><b>Sarebbe
+utile avere nella finetra del Ray Path anche il calcolo del tempo di ritardo tra
+onda sonora diretta e successive</b></p>
+<p>Tale
+parametro, denominato ITDG, veniva calcolato nelle versioni precdenti di Ramsete
+(era persino possibile farne la mappatura). La sua visualizzazione è stata
+disattivata, poichè la maggior parte degli utenti pareva interpretarlo in modo
+improprio (allo stesso modo, è stata disattivata la visualizzazione di T60).</p>
+<p><b><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: IT; mso-fareast-language: IT; mso-bidi-language: AR-SA">Dove
+posso trovare una spiegazione esaustiva dei vari parametri che il ramsete View
+calcola (D, Tbar, C80, C50, Aeq, ....)</span></b></p>
+<p>Esistono
+alcune belle pubblicazioni di Carmine Ianniello sulla Rivista Italiana di Acustica che
+descrivono questi parametri. In alternativa, può consultare&nbsp;il par. 3.2&nbsp;della
+pubblicazione n.&nbsp;105 dell'ing. Farina (scaricandola dal sito
+<a href="http://pcfarina.eng.unipr.it">http://pcfarina.eng.unipr.it</a>).</p>
+
+<p><strong>E' normale che Ramsete2 non mappi il T60?</strong></p>
+
+<p>
+Le "vecchie" versioni di Ramsete visualizzavano il valore di T60, oltre che
+di T20, T30, etc. La maggior parte degli utenti, tuttavia, si lamentava
+perchè i valori di T60 non "tornavano" con le misure sperimentali nella
+stessa sala. La realtà è che non si misura mai T60: secondo la norma ISO
+3382/1997, le grandezze "standard" da misurare sono T20 e T30.
+In conseguenza a ciò, abbiamo rimosso la visualizzazione del parametro T60,
+che generava solo confusione.
+Tutti usano solitamente T30 (sia in fase di misura, sia di calcolo), anche
+se alcuni lo "ribattezzano" impropriamente T60.
+Se comunque vuole avere accesso ai valori di T60 "veri", essi continuano ad
+essere salvati nel file che contiene tutti i parametri acustici (quello con
+estensione .-_A, per intenderci) . E' un normale file ASCII, importabile in
+Excel, che compendia tutti i risultati del calcolo.
+Entro tale file, i valori di T60 sono l'ultimo blocco di dati in fondo.
+Causa uno stupido errore di copia-incolla delle righe di programma, tale
+blocco è indicato erroneamente come T30 (come il blocco superiore, che
+contiene davvero T30), mentre invece dovrebbe esserci scritto T60.
+Continuo a non capire a cosa serva visualizzare i valori di T60, è un
+parametro privo di alcuna utilità pratica. Mapparlo, poi, non serve proprio
+a niente, T60 (ed anche T20, T30) sono parametri che non hanno variazione
+spaziale (se non causata da errorini di calcolo), essi assumono lo stesso
+valore in tutta la sala...
+</p>
+
+<p><strong>Nell'utilizzo del Creator BZ è possibile che a fronte di una potenza
+elettrica di 500 w in Bz7, con tutte le frequenze attive, ottenga Lw di 1.7
+dB con una sensitività di 95.5 dB/w/m? </strong></p>
+<p>
+Va chiarito che il modulo "Create Source BZ" è
+assolutamente obsoleto,  verrà rimosso nella prossima release di Ramsete. La
+gran parte degli utilizzatori, infatti, lo usa del tutto a sproposito. Tale
+modulo non effettua alcun calcolo, è l'utilizzatore che deve introdurre in
+esso i valori opportuni di tutti i parametri acustici della sorgente sonora.
+La potenza elettrica in W non entra in alcun calcolo, uno può scrivere
+qualunque numero in tale cella, ed il risultato acustico non cambia (è una
+sorta di documentazione delle caratteristiche della sorgente, come il nome
+del costruttore, il modello, l'impedenza elettrica e la sensitività).
+Il calcolo si basa unicamente sui valori di potenza sonora (come è corretto
+che sia) e di direttività, che debbono venire specificati dall'utente nel
+caso si utilizzi il modulo Create Source BZ. Io comunque le consiglio di NON
+utilizzare tale modulo, ed impiegare invece l'ISO3744/46, oppure la nuova
+opzione di interpolazione delle curve di direttività (Interpolate Polar). In
+questo secondo caso, occorre comunque specificare poi manualmente i livelli
+di potenza in ogni banda di ottava. Se essi non sono dichiarati dal
+costruttore dell'altoparlante, ma si conosce solo ciascuna banda d'ottava:
+- potenza elettrica nominale W in watt
+- sensitività S in dB/1W,1m sull'asse
+- efficienza E% in percentuale
+- fattore di direttività Q
+Occorre operare manualmente il calcolo dei livelli di potenza . La formula è
+la seguente:
+Lw = S - 10logQ +10log(W*E%/100)
+
+Se anzichè il fattore di direttività Q è nota la direttività D in dB, la
+formula diventa:
+Lw = S - D +10log(W*E%/100)
+
+Si potrebbe anche pensare di introdurre tale formulino nella mascherina di
+Ramsete in cui si introducono le curve di direttività, ma essendo la stessa
+banale, abbiamo preferito lasciare all'utente di calcolare il corretto
+valore di Lw. Ramsete non ha la pretesa di sostituirsi ad un manuale di
+acustica, è solo uno strumento per fare la parte pallosa dei calcoli, e si
+presume che venga usato come ausilio alla progettazione acustica, non come
+una "black box" che pensa a tutto... Non è un "sistema esperto", ma un
+software tecnico che va "condotto per mano" da un tecnico acustico.
+</p>
+
+</font></div>
+
+<hr>
+
+</body>
+</html>

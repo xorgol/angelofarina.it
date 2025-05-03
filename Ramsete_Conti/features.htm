@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ramsete</title>
+<link rel="stylesheet" href="emx_nav_right.css" type="text/css" />
+<script type="text/javascript">
+<!--
+var time = 3000;
+var numofitems = 8;
+
+//menu constructor
+function menu(allitems,thisitem,startstate){ 
+  callname= "gl"+thisitem;
+  divname="subglobal"+thisitem;  
+	this.numberofmenuitems = allitems;
+	this.caller = document.getElementById(callname);
+	this.thediv = document.getElementById(divname);
+	this.thediv.style.visibility = startstate;
+}
+				 
+//menu methods
+function ehandler(event,theobj){
+  for (var i=1; i<= theobj.numberofmenuitems; i++){
+	  var shutdiv =eval( "menuitem"+i+".thediv");
+    shutdiv.style.visibility="hidden";
+	}
+	theobj.thediv.style.visibility="visible";
+}
+				
+function closesubnav(event){
+  if ((event.clientY <48)||(event.clientY > 207)){
+    for (var i=1; i<= numofitems; i++){
+      var shutdiv =eval('menuitem'+i+'.thediv');
+			shutdiv.style.visibility='hidden';
+		}  
+	}
+}
+// -->
+</script>
+<style type="text/css">
+<!--
+.Stile1 {font-size: small}
+.Stile2 {font-weight: bold}
+-->
+</style>
+</head>
+
+<div id="masthead">
+  <h1 id="siteName">R A M S E T E &nbsp;&nbsp;&nbsp;Room Acoustics  modeling on PC  </h1>
+  <div id="globalNav"> <img alt="" src="gblnav_left.gif" height="32" width="4" id="gnl" /> <img alt="" src="glbnav_right.gif" height="32" width="4" id="gnr" />
+    <div id="globalLink"> <a href="#" id="gl1" class="glink" onmouseover="ehandler(event,menuitem1);">Home</a><a href="#" id="gl2" class="glink" onmouseover="ehandler(event,menuitem2);">Package</a><a href="#" id="gl3" class="glink" onmouseover="ehandler(event,menuitem3);">News</a><a href="#" id="gl4" class="glink" onmouseover="ehandler(event,menuitem4);">Download</a><a href="#" id="gl5" class="glink" onmouseover="ehandler(event,menuitem5);">Support</a><a href="#" id="gl6" class="glink" onmouseover="ehandler(event,menuitem6);">About Us </a><a href="#" id="gl7" class="glink" onmouseover="ehandler(event,menuitem7);">Forum</a></div>
+    
+    <!--end globalLinks-->
+  </div>
+  
+  
+  <p>
+    <!-- end globalNav -->
+  </p>
+  <p>&nbsp;</p>
+  <div id="subglobal1" class="subglobalNav"> <a href="index.htm">Home</a></div>
+  <div id="subglobal2" class="subglobalNav"> <a href="features.htm">Features</a> | <a href="RamseteCad.htm">Ramsete CAD</a> | <a href="MaterialManager.htm">Material Manager</a> | <a href="Source Manager.htm">Source Manager</a> | <a href="Ramsete Tracer.htm">Ramsete Tracer</a> | <a href="RamseteView.htm">Ramsete View</a> | <a href="AudioConverter.htm">Audio Converter</a> | <a href="WaveConvolver.htm">Wave Convolver</a> | <a href="http://www.aurora-plugins.com/">Aurora</a> </div>
+  <div id="subglobal3" class="subglobalNav"> <a href="news.htm">New</a> | <a href="futurerelease.htm">Future Releases</a></div>
+  <div id="subglobal4" class="subglobalNav"> <a href="Download_General_informations.htm">General Informations</a> | <a href="Download_Setup_instruction.htm">Download & Setup Instruction</a> | <a href="Dongles.htm">Dongles</a></div>
+  <div id="subglobal5" class="subglobalNav"> <a href="Help_e_manual.htm">Help & Manual</a> | <a href="http://www.ramsete.com/intrepidi/intrepidi.htm">Examples</a> | <a href="FAQ.htm">F.A.Q.</a></div>
+  <div id="subglobal6" class="subglobalNav"> <a href="AboutUS.htm">Authors</a></div>
+  <div id="subglobal7" class="subglobalNav"> <a href="http://ramsete.forumfree.net/">Forum</a></div>
+  <div id="subglobal8" class="subglobalNav"> <a href="#">RamSuite</a> | <a href="#">Aurora</a> | <a href="#">LAE</a> | <a href="#">Spectra</a></div>
+</div>
+<!-- end masthead -->
+<div id="pagecell1">
+  <!--pagecell1-->
+  
+  <div id="breadCrumb"></div>
+  <div class="Stile1" id="pageName">
+    <h2 class="Stile1">Features</h2>
+  </div>
+  <div id="advert">
+    <div class="feature">
+      <p align="justify">Ramsete comes with a dedicated  3D-surface CAD (compatible with AutoCAD), a general purpose program for  modeling the sound source's power and directivity, and powerful  visualization and post processing utilities.</p>
+      <p align="justify">Ramsete is now equipped with the format  conversion utility Audio Converter :  this enables the energy impulse responses to be converted in wide-band  binaural pressure impulse responses, which can then be convolved with  anechoic signals (speech, music or noise) to evaluate subjectively the  simulated sound field. For understanding more about auralization  through convolution, have a look at the Convolution page.<br />
+        Furthermore, Ramsete can easily be interfaced  with the companion auralization program, <a href="http://www.aurora-plugins.com">Aurora</a>:  it is one of the best convolution software available, but it can also  be used with experimental impulse responses (for example obtained using  MLSSA or TEF), and includes routines for generating MLS or IRS stimula  and to deconvolve the impulse response from them. Please note that  Aurora is a separate, stand-alone package, it is not shipped with  Ramsete. The forthcoming Ramsete II program, anyway, shall include some  of the auralization capabilities which are actually found only by  separately purchasing <a href="http://www.aurora-plugins.com">Aurora</a>.
+      Ramsete  software package has been restructured.</p>
+      <p align="justify"><br />
+        Now  it is available in three different versions:</p>
+      <p align="left"><span class="Stile2"><a href="TabelleComparative.htm">Ramsete Classic</a></span></p>
+      <p align="left"><strong><a href="TabelleComparative.htm">Ramsete Light</a></strong></p>
+      <p align="left"><strong><a href="TabelleComparative.htm">Ramsete II</a></strong></p>
+      <p align="left">&nbsp;</p>
+      <p><a href="TabelleComparative.htm"><strong>Click here...</strong></a> to see the differences between the versions.</p>
+      <h1>Main Features: </h1>
+      <p>The Pyramid Tracing avoids the coverage  problems previously found with conical beam tracers</p>
+      <p>The  original tail correction implemented in Ramsete enables the  reconstruction of the whole sound decay, without any &quot;hybrid&quot;  approximation for the late part of it</p>
+      <p>A  proper choice of the tail correction parameters Alfa and Beta enables  very fast calculations with a little number of pyramids also in highly  non sabinian cases</p>
+      <p>Ramsete features also some important,  unusual modeling capabilities:</p>
+      <p>&nbsp;&nbsp;  &nbsp;- Source characterization with octave-band directivity balloons  automatically computed from ISO3744 Power Level measurements<br />
+  &nbsp;&nbsp;&nbsp;  - Diffraction from free edges of obstructing panels<br />
+  &nbsp;&nbsp;&nbsp;  - Evaluation of the sound passing through insulating panels, enabling also  indoor-to-outdoor simulations</p>
+      </div>
+  </div>
+  <!--end content -->
+  <div id="siteInfo">&copy;2007 LAE </div>
+</div>
+<!--end pagecell1-->
+<br />
+<script type="text/javascript">
+    <!--
+      var menuitem1 = new menu(7,1,"hidden");
+			var menuitem2 = new menu(7,2,"hidden");
+			var menuitem3 = new menu(7,3,"hidden");
+			var menuitem4 = new menu(7,4,"hidden");
+			var menuitem5 = new menu(7,5,"hidden");
+			var menuitem6 = new menu(7,6,"hidden");
+			var menuitem7 = new menu(7,7,"hidden");
+    // -->
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>AudioConverter</title>
+</head>
+
+<body background="back1.gif">
+
+<table border="3" width="100%">
+    <tr>
+        <td align="center" bgcolor="#FFFFFF"><font size="6"><strong><img
+        src="audconv.gif" align="middle" width="69" height="70">
+        Audio Converter</strong></font></td>
+    </tr>
+</table>
+
+<p>This program, which is now free for registered Ramsete users,
+allows for easy conversion between different file formats. In
+particular, 4 conversions are possible:</p>
+
+<ol>
+    <li>From Ramsete results to .WAV impulse response (in
+        standard Windows format)</li>
+    <li>From Ramsete results to .TIM impulse response (in <a
+        href="http://www.mlssa.com">MLSSA</a> format)</li>
+    <li>From standard Windows .WAV files to MLSSA .TIM files</li>
+    <li>From MLSSA .TIM files to standard Windows .WAV files</li>
+</ol>
+
+<p>The main purpose of AudioConverter is to transform the
+energetic, 10-octave-bands impulse responses produced by Ramsete
+in a single, wide-band, pressure impulse response, suitable for
+being directly compared with measured IRs or for auralization
+purposes through a <a href="convolution.htm">convolution</a>
+software.</p>
+
+<p>This task is performed by choosing the proper file names, and
+the receiver number, as in this picture:</p>
+
+<p align="center"><img src="audiocnv1.gif" width="378"
+height="403"></p>
+
+<p align="left">It is also possible to choose the sampling
+frequency, and two Equalizer options:</p>
+
+<ul>
+    <li><p align="left">Octave Filter</p>
+    </li>
+    <li><p align="left">Force Pink</p>
+    </li>
+</ul>
+
+<p align="left">The first option displays a sort of octave-band
+graphic equalizer:</p>
+
+<p align="center"><img src="Equalizer.gif" width="305"
+height="404"></p>
+
+<p>The equalizer settings must be saved in a proper .DAT (ASCII)
+file, for being employed during the conversion. This allows for
+compensating the frequency response, and making it similar, for
+example, to a gun shot or to the response of a generic sound
+source.</p>
+
+<p>The second options makes the conversion process to start from
+a pink noise signal instead of white. The following warning is
+displayed:</p>
+
+<p align="center"><img src="forcepink.gif" width="365"
+height="152"></p>
+
+<p>In most cases, none of these two equalization options are
+required. Furthermore, for comparison with experimental results,
+it is far better to properly equalize the latter, and to leave
+the Ramsete simulation untouched.</p>
+
+<p>When the OK-Convert button is pressed, a Fortran Character-Mode
+application is launched and briefly displayed. This is the
+executable which actually performs the conversion. Please note
+that this program can also be launched directly from the DOS
+prompt.</p>
+
+<p align="center"><img src="rams2wav.gif" width="572"
+height="359"></p>
+
+<p>The second function of Audio Converter is to switch between .WAV
+and .TIM files. Let we look first at the first conversion, from .WAV
+to .TIM. Selecting this mode, the interface of Audio Converter
+changes slightly:</p>
+
+<p align="center"><img src="audiocnv2.gif" width="378"
+height="403"></p>
+
+<p align="left">In this case, it is possible to choose to convert
+a stereo .WAV in two separate .TIM files, and to set the flag for
+the measurement mode in MLSSA (cross-correlation or scope).
+Furthermore, it is possible to &quot;calibrate&quot; the impulse
+response, setting its overall SPL value. When the OK-Convert
+button is pressed, the separate character-mode program WTOTIMNT.EXE
+is launched:</p>
+
+<p align="center"><img src="wav2tim.gif" width="572" height="359"></p>
+
+<p>Also in this case the same program could also be launched
+directly from the DOS prompt.</p>
+
+<p>The opposite conversion is quite the same. Selecting the .TIM
+to .WAV conversion, Audio Converter appears this way:</p>
+
+<p align="center"><img src="audiocnv3.gif" width="378"
+height="403"></p>
+
+<p align="left">In this case, the Stereo mode was selected, which
+packs two IRs in a single stereo .WAV file. Also this conversion
+is performed by a separate Fortran character-mode executable,
+which can be launched automatically from Audio Converter, or
+manually from the DOS prompt:</p>
+
+<p align="center"><img src="timtowav.gif" width="572"
+height="359"></p>
+
+<hr>
+
+<p><a href="HTTP://www.ramsete.com/ramsete/home.htm"><img
+src="titrhp.gif" border="0" width="160" height="19"></a></p>
+</body>
+</html>

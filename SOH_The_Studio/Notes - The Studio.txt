@@ -1,0 +1,21 @@
+Date: 12.9.03
+Time: 23:00
+
+
+Room dimentions: L=19m , W=23m, H=7.55m
+
+
+Pt1 is at row D (4) seat no. 36 (one seat to the left of the center)
+
+Pt1 - Center = 8.94m
+Pt1 - Left = 9.8m
+Pt1 - Right = 9.8m
+
+
+
+
+
+
+Rotation angle = 15 deg
+
+Soundfield rotating radius = 0.5m
