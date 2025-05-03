@@ -1,0 +1,222 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="it">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Ambisonics to TBE conversion</title>
+<meta name="keywords" content="Two Big Ears, Facebook Spatial Workstation, X-volver, Ambix, Ambisonics">
+</head>
+
+<body>
+
+<h1 align="center">
+<font face="Arial"><img src="http://www.pspatialaudio.com/AmbisonicsLogo.png">&nbsp;
+<img src="http://img.freepik.com/free-icon/forward-right-arrow-button_318-76852.jpg?size=338c&ext=jpg" alt="Image result for right arrow" width="228" height="225">&nbsp;
+<img src="http://www.gamasutra.com/db_area/images/news/2016/May/273331/Screen-Shot-2016-05-23-at-3.53.jpg" alt="Image result for two big ears" width="229" height="230"></font></h1>
+<h2 align="center">
+<font face="Arial">Conversion form Ambisonics to TBE format</font></h2>
+<hr>
+<p><font face="Arial"><a href="https://en.wikipedia.org/wiki/Ambisonics">
+Ambisonics</a> is a widely employed format for capturing, transmitting and 
+decoding spatial audio, employing 1, 4, 9,16 or 25 channels. The
+<a href="http://www.twobigears.com/">Two Big Ears</a> TBE format is an 
+8-channels format employed by the Facebook's Spatial Workstation and being part 
+of the &quot;spatial audio&quot; 8+2 channels available for Facebook's 360 videos.</font></p>
+<p><font face="Arial">This web page provides information about the conversion 
+between Ambisonics and TBE formats, allowing users of the excellent Ambisonics 
+suites of plugins currently available such as
+<a href="http://www.matthiaskronlachner.com/?p=2015">Ambix</a> by Matthias 
+Kronlachner or <a href="http://www.blueripplesound.com/products/o3a-core-vst">
+O3A</a> by Richard Furse, to convert their mixes for creating soundtracks for 
+the Facebook platform with minimal loss of spatial information.</font></p>
+<p><font face="Arial">Some info is also provided on techniques employed for 
+converting back the TBE signals to horizontal-only 2nd-order Ambisonics, 
+allowing for monitoring of the soundtrack of a Facebook 360 video employing a 
+standard Ambisonics decoder feeding a loudspeaker rig, instead of employing 
+headphones. </font></p>
+<hr>
+<h1><font face="Arial">Ambisonics signals</font></h1>
+<p><font face="Arial">An Ambisonics multichannel sound track is not based on the 
+concept of &quot;position of the loudspeakers&quot;, as in a stereo (Left-Right) or 
+&quot;surround 5.1&quot; (Left, Right, Center, Sub, Left Surroudn, RIght Surround) 
+formats.</font></p>
+<p><font face="Arial">Instead, the complete spatial information is represented 
+by a number of &quot;spherical harmonics&quot; signals, at increasing orders. The number 
+of signals for each order is increasing, and the corresponding polar pattern of 
+the equivalent &quot;virtual microphone&quot; are shown here:</font></p>
+<p><font face="Arial">
+<img src="https://image.slidesharecdn.com/choijihyun-ndc2011-110607055041-phpapp02/95/choi-jihyun-ndc2011-32-1024.jpg?cb=1307431890" alt="Spherical Harmonics Projection &amp; Reconstructionm = -4       -3           -2         -1           0         1        2     ..."></font></p>
+<p><font face="Arial">An Ambisonics stream is said to be &quot;of order n&quot; when it 
+contains all the signal of orders 0 to n. For example, an Ambisonics signal of 
+order 3 (the most widely used, nowadays) contains 16 channels: 1 of order 0, 3 
+of order 1, 5 of order 2 and 7 of order 3.</font></p>
+<h1>&nbsp;</h1>
+<h1><font face="Arial">Recording Ambisonics signals</font></h1>
+<p><font face="Arial">An ambisonics stream of order 3 can be easily recorded, 
+employing a suitable microphone system, such as the Eigenmike(TM) or other 
+microphone arrays of different shape. Here you can see an Eigenmike and the 
+RAI-<a href="http://www.aidasrl.it">AIDA</a> cylindrical microphone array built by dismounting an Eigenmike and 
+remounting capsules and electronics inside a cylindrical body, for providing 
+increased accuracy in azimuthal information:</font></p>
+<p><font face="Arial">
+<img src="http://www.backstagenews.it/files/2013/06/Figura1.jpg" alt="Image result for eigenmike" width="144" height="490">
+<img border="0" src="TBE/TBE-co1.jpg" width="143" height="495"> Eigenmike (Left) 
+and RAI-<a href="http://www.aidasrl.it">AIDA</a> Cylindrical Microphone Array</font></p>
+<h1>&nbsp;</h1>
+<h1><font face="Arial">Creating synthetic Ambisonics signals</font></h1>
+<p><font face="Arial">A 16-channels Ambisonics stream (3rd order) can also be 
+created synthetically, starting form a mono track and employing a software tool 
+(typically a VST plugin) known as an &quot;encoder&quot; or a &quot;panner&quot;.</font></p>
+<p><font face="Arial">Two excellent and free tools are widely used nowadays, 
+which are included in the plugin suites named
+<a href="http://www.matthiaskronlachner.com/?p=2015">Ambix</a> and
+<a href="http://www.blueripplesound.com/products/o3a-core-vst">O3A</a>:</font></p>
+<p><font face="Arial"><img border="0" src="TBE/TBE-co2.jpg">&nbsp;&nbsp;
+<img border="0" src="TBE/TBE-co3.jpg"></font></p>
+<p><font face="Arial">Recently O3A was updated, including a &quot;graphical&quot; panner, 
+which allows to use a background equirectangular image for showing the position 
+of the sound source being panned around:</font></p>
+<p><font face="Arial"><img border="0" src="TBE/TBE-co4.jpg"></font></p>
+<p>&nbsp;</p>
+<h1><font face="Arial">Downstepping Ambisonics signals</font></h1>
+<p><font face="Arial">Due to the current availability of excellent microphone 
+arrays and panning tools, capable of full 3rd order, nowadays it is considered 
+completely obsolete and low-quality to employ the crappy, old 1st-order 
+Ambisonics format (4-channels) either for recording and for mastering. Better to 
+employ a complete workflow all at third order (16 channels), and eventually 
+downsize it to a smaller number of channels for delivery, but also keeping the 
+master at the highest possible spatial resolution.</font></p>
+<p><font face="Arial">Ambisonics is hierarchical, so downsizing to 2nd or 1st 
+order is trivial: just remove the last 7 channels for getting a 9-channels 
+2nd-order soundtrack. Further discard the last 5 channels, and you get a a 
+4-channels 1st order. This is true both employing the old-style choice for 
+channel numbering and scaling, called Furse-Malham (FuMa), not used anymore 
+nowadays, or the modern version of Ambisonics channel numbering (ACN) and 
+scaling (SN3D), called Ambix.</font></p>
+<p><font face="Arial">But converting a 3rd-order (or 2nd-order) Ambisonics 
+soundtrack to the &quot;proprietary&quot; TBE format (8 channels) is not so trivial, and 
+hence the need for the information contained in this web page.</font></p>
+<p>&nbsp;</p>
+<h1><font face="Arial">The TBE 8-channels format</font></h1>
+<p><font face="Arial">First of all: why the TBE format only employs 8 channels? 
+This is due for compatibility with a number of old, but still widely employed, 
+Digital Audio Workstation programs (DAW), such as Avid Protools.</font></p>
+<p><font face="Arial">Of course, modern DAWs, such as Reaper, do not suffer of 
+such old-times limitation, and can easily manage soundtracks containing 32 or 
+even 64 channels.</font></p>
+<p><font face="Arial">However, Protools is still the most widely employed DAW on 
+professional studios, albeit Reaper is growing rapidly, not only for his 
+superior technology, but also for the more affordable price.</font></p>
+<p><font face="Arial">The
+<a href="https://facebook360.fb.com/spatial-workstation/">Facebook Spatial 
+Workstation</a> is mostly based on two VST plugins: the first is called 
+Spatialser, and operates as a panner for a mono source:</font></p>
+<p><font face="Arial"><img border="0" src="TBE/TBE-co5.jpg"></font></p>
+<p><font face="Arial">Up to 7 mono sources can be panned around with this tool. 
+The second is called Control, and operates as a virtual room simulator for an 
+already-encoded 8-channels TBE stream:</font></p>
+<p><font face="Arial"><img border="0" src="TBE/TBE-co6.jpg"></font></p>
+<p><font face="Arial">The Control plugin can also work as a realtime binaural 
+rendering tool, staying in synch with an equirectangular video being played on 
+an Oculus Rift device attached to the computer.</font></p>
+<p><font face="Arial">The following 
+<a href="http://www.plogue.com/products/bidule/">Plogue Bidule</a> setup is a typical workflow 
+for encoding a mono source into an 8-channels TBE soundtrack, which is saved to 
+a file:</font></p>
+<p><font face="Arial"><img border="0" src="TBE/TBE-co7.jpg"></font></p>
+<p><font face="Arial">However, currently no microphone system is capable of 
+delivering a ready-to-go 8-channels TBE stream, and most sound engineers prefer 
+to master in 16-channels 3rd Order Ambisonics, instead of in 8-channels TBE.</font></p>
+<p>&nbsp;</p>
+<h1><font face="Arial">From Ambisonics to TBE</font></h1>
+<p><font face="Arial">So we have now a nice 16-channels Ambix recording:</font></p>
+<p><font face="Arial"><img border="0" src="TBE/TBE-co8.jpg"></font></p>
+<p><font face="Arial">And we want to convert it to TBE 8-channels. The solution, 
+of course, is NOT to drop the last 8 channels!</font></p>
+<p><font face="Arial">The TBE format is not a standard Ambisonics format, 
+instead is some sort of &quot;mixed order&quot; Ambisonics, in which two of the 9 channels 
+of 2nd order (namely, channels named Z and R) have been summed together, for 
+reducing the channel count form 9 to 8.</font></p>
+<p><font face="Arial">The conversion formulas from Ambix to TBE, obtained by 
+trial and errors, are the following:</font></p>
+<p style="margin-top: 0; margin-bottom: 0"><b><font face="Courier">TBE(1) =&nbsp; 
+0.486968 * Ambix(1) </font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b><font face="Courier">TBE(2) = 
+-0.486968 * Ambix(2) </font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b><font face="Courier">TBE(3) =&nbsp; 
+0.486968 * Ambix(4) </font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b><font face="Courier">TBE(4) =&nbsp; 
+0.344747 * Ambix(3) + 0.445656 * Ambix(7) </font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b><font face="Courier">TBE(5) = 
+-0.630957 * Ambix(9) </font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b><font face="Courier">TBE(6) = 
+-0.630957 * Ambix(5) </font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b><font face="Courier">TBE(7) = 
+-0.630957 * Ambix(6) </font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b><font face="Courier">TBE(8) =&nbsp; 
+0.630957 * Ambix(8)</font></b></p>
+<p><font face="Arial">And these formulas can be implemented in Plogue Bidule, as 
+follows:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<img border="0" src="TBE/TBE-co10.jpg"></p>
+<p>&nbsp;</p>
+<h1><font face="Arial">Using <a href="http://www.angelofarina.it/X-volver.htm">
+X-volver</a> for Ambisonics to TBE conversion</font></h1>
+<p><font face="Arial">If your DAW does not allow to enter easily these gain 
+factors, as in Plogue Bidule, you can always use
+<a href="http://www.angelofarina.it/X-volver.htm">X-volver</a> with a proper 9x8 
+FIR filter matrix, as shown here:</font></p>
+<p><img border="0" src="TBE/TBE-co11.jpg"></p>
+<p><img border="0" src="TBE/TBE-co12.jpg"></p>
+<p>&nbsp;</p>
+<h1><font face="Arial">From TBE to Ambisonics (to surround)</font></h1>
+<p><font face="Arial">In theory it is impossible to go back from 8-channels TBE 
+to 9-channels 2nd-order Ambisonics, as one channel is missing.</font></p>
+<p><font face="Arial">However, the loss of information only affects the vertical 
+information, as channels Z and R were summed. </font></p>
+<p><font face="Arial">This means that from the TBE signal it is possible to 
+recover a perfect 2nd-order horizontal-only Ambisonics stream (5 channels), 
+which is perfect for driving a &quot;surround&quot; horizontal-only loudspeaker rig, such 
+as a &quot;standard&quot; 5.1 system, or, better, a perfect centered octagon rig (8 
+channels, with loudspeaker #1 in front of the listener):</font></p>
+<p>
+<img src="https://www.cyberhomes.co.uk/wp-content/uploads/2013/11/5.1-speaker-layout.png" alt="Image result for surround 5.1 speaker placement">&nbsp;
+<img border="0" src="TBE/TBE-co13.jpg" width="309" height="318"></p>
+<p><font face="Arial">A number of excellent 2nd-order Ambisonics decoders are 
+available for free: for example, for a 5.1 loudspeaker layout, the Wigware 
+decoder by Bruce Wiggins provides excellent performances:</font></p>
+<p><img border="0" src="TBE/TBE-co14.jpg"></p>
+<p><font face="Arial">For an Octagon, I would recommend the
+<a href="http://www.digenis.co.uk/?page_id=59">Ambisonics Bidules</a> by 
+Aristotel Digenis.</font></p>
+<p><font face="Arial">For feeding a standard 2nd-order horizontal-only decoder, 
+typically a set of just 5 channels is required, with FuMa channel ordering and 
+scaling.</font></p>
+<p><font face="Arial">The following Plogue Bidule setup retrieves these 5 
+channels form the 8-channels TBE, and feeds the 5.0 Ambisonics decoder, also 
+providing the Subwoofer signal:</font></p>
+<p><img border="0" src="TBE/TBE-co16.jpg"></p>
+<p><font face="Arial">It can be seen that the gains required for converting back 
+from TBE to Ambisonics (FuMa) are the following:</font></p>
+<p><b>
+<span style="color: rgb(29, 33, 41); font-family: Courier; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px">
+W =&nbsp; 1.446968601 * TBE(1)</span><br style="color: rgb(29, 33, 41); font-family: Courier; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px">
+<span style="color: rgb(29, 33, 41); font-family: Courier; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px">
+X =&nbsp; 2.047502048 * TBE(3)</span><br style="color: rgb(29, 33, 41); font-family: Courier; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px">
+<span style="color: rgb(29, 33, 41); font-family: Courier; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px">
+Y = -2.047502048 * TBE(2)</span><br style="color: rgb(29, 33, 41); font-family: Courier; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px">
+<span style="color: rgb(29, 33, 41); font-family: Courier; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px">
+U = -1.839587932 * TBE(5)</span><br style="color: rgb(29, 33, 41); font-family: Courier; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px">
+<span style="color: rgb(29, 33, 41); font-family: Courier; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px">
+V = -1.839587932 * TBE(6)</span></b></p>
+<h1><font face="Arial">Downloads</font></h1>
+<p><font face="Arial">The FIR filter matrices and the Plogue Bidule 
+configuration files can be downloaded here:<br>
+<a href="http://www.angelofarina.it/Public/Xvolver/Filter-Matrices/TwoBigEars-encoder/">
+http://www.angelofarina.it/Public/Xvolver/Filter-Matrices/TwoBigEars-encoder/</a></font></p>
+<hr>
+<p><font face="Arial"><i>All the contents are Copyright by <a href="home.htm">Angelo Farina</a>, 2017</i></font></p>
+
+</body>
+
+</html>

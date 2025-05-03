@@ -1,0 +1,172 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="it">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Disable Discrete Graphics on MBP</title>
+</head>
+
+<body>
+
+<h1 align="center"><font face="Arial">How to disable discrete graphics chip</font></h1>
+<h1 align="center"><font face="Arial">on MacBookPro with broken Nvidia/AMD chip</font></h1>
+<p align="center">
+<font face="Arial">
+<img border="0" src="Apple-MacBook-Pro.jpg" width="599" height="307"></font></p>
+<p align="left">
+<font face="Arial">MacbookPro laptops have evolved in the years, but according to many people they 
+reached their top with &quot;classic&quot; (not Retina) models manufactured in years 2011 
+and 2012. These laptops have excellent features,<b> some of which </b>have not 
+been equalled yet by any subsequent MBP models, such as:</font></p>
+<ul>
+	<li>
+	<p align="left"><font face="Arial"><b>Antiglare display </b>(a must for professional users)</font></p>
+	</li>
+	<li>
+	<p align="left"><font face="Arial"><b>17&quot; inchs screen</b> (Late-2011 being the last one)</font></p>
+	</li>
+	<li>
+	<p align="left"><font face="Arial">USB3 ports (only mid-2012)</font></p></li>
+	<li>
+	<p align="left"><font face="Arial"><b>Firewire 800</b> interface</font></p></li>
+	<li>
+	<p align="left"><font face="Arial"><b>Expresscard slot</b> (17&quot; late 2011)</font></p></li>
+	<li>
+	<p align="left"><font face="Arial">SD card slot (13&quot; and 15&quot; models)</font></p></li>
+	<li>
+	<p align="left"><font face="Arial">i7 processor with up to 16 GB RAM</font></p></li>
+	<li>
+	<p align="left"><font face="Arial"><b>Magsafe Type 1</b> (the best)</font></p></li>
+	<li>
+	<p align="left"><font face="Arial"><b>Optical (SPDIF)</b> digital audio output and input</font></p>
+	</li>
+	<li>
+	<p align="left"><font face="Arial">Thunderbolt port, which works also as Mini-DisplayPort</font></p>
+	</li>
+	<li>
+	<p align="left"><font face="Arial"><b>Giga-ethernet RJ45</b> interface, supporting AVB</font></p></li>
+	<li>
+	<p align="left"><font face="Arial">SATA3 disk, which can be upgraded up to a 4TB Samsung EVO 
+	SSD</font></p></li>
+	<li>
+	<p align="left"><font face="Arial">DVD-burner (for who still needs it), which can be replaced 
+	with a <b>second SSD disk</b>, bringing the total capacity up to<b> 8 TB of 
+	SSD storage</b></font></p></li>
+	<li>
+	<p align="left"><font face="Arial">Native support for Windows 7, works well also with Windows 
+	10 using Bootcamp</font></p></li>
+	<li>
+	<p align="left"><font face="Arial"><b>Very robust keyboard</b>, lasting much more than 
+	subsequent Retina models</font></p></li>
+</ul>
+<p align="left"><font face="Arial">Due to these significant benefits, many users refuse to upgrade 
+to crap Retina models, due to their glare display, lack of useful ports, and 
+unreliable keyboard. These old MBPs were designed to last, and many of them are 
+still being heavily used everyday, 8 years after they were manufactured.</font></p>
+<p align="left"><font face="Arial">Unfortunately these machines did suffer of just ONE design 
+fault, that was improper soldering between the GPU chip (manufactured by ATI in 
+2011 and by Nvidia in 2012) and the logic board (that is how Apple names the 
+mainboard). Apple recognized the fault in their design, and offered a
+<a href="https://ww.9to5mac.com/2015/02/19/macbook-pro-repair/">free campaign</a> 
+for replacing the logic board in machines affected by GPU malfunctioning. But 
+even those with the replaced logic board started to fail after other 3-4 years, 
+and nowadays these legendaries MBP laptops are dying one after the other. Apple
+<a href="https://www.macrumors.com/2017/05/20/apple-ends-2011-macbook-pro-repair-program/">
+does not provide anymore</a> a free replacement of the logic board, and the 
+repair is more expensive than the value of the machine.</font></p>
+<p align="left"><font face="Arial">Several repair companies offer solutions such as reflow (lasts 
+one months, good just for backing up everything), reballing (lasts 6 months) or 
+reballing plus GPU chip replacement (lasts one year). None of these solutions is 
+definitive.</font></p>
+<p align="left"><font face="Arial">So an alternative solution emerged, at zero cost and requiring 
+just 3 minutes for being operated: reprogrammming the NVRAM of the MBP, so that 
+it only employs the internal graphics of Intel processor, and ignores entirely 
+the existence of the failed discrete GPU.</font></p>
+<p align="left"><font face="Arial">Various sites provide instructions on to do this software fix, 
+but the instructions are often confused, and rely on absurd approaches such as
+<a href="https://superuser.com/questions/836910/disable-discrete-graphics-card-on-macbook-pro-early-2011">
+causing the machine to overheat</a> for forcing it to boot with integrated 
+graphics, or to
+<a href="https://apple.stackexchange.com/questions/166876/macbook-pro-how-to-disable-discrete-gpu-permanently-from-efi">
+use a linux USB stick</a> for modifying the NVRAM. Hence I collected the 
+informations and created this web page, explaining how to perform the mod 
+without resorting to those hard-to-implement approaches.</font></p>
+<hr>
+<p><font face="Arial"><b>The following steps describe how to disable permanently the discrete GPU 
+of your MBP:</b></font></p>
+<ul>
+	<li>
+	<span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #242729; letter-spacing: normal; background-color: #FFFFFF">Boot in Single User Console mode by pressing
+	<span style="color: #242729; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; letter-spacing: normal; background-color: #FFFFFF; ">&nbsp;</span></span><span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #242729; letter-spacing: normal; font-size: 15px; background-color: #FFFFFF"><kbd style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-size: 15px; color: #242729; background-color: #FFFFFF; letter-spacing: normal; ">cmd
+	</kbd>
+	<span style="color: #242729; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; letter-spacing: normal; background-color: #FFFFFF; ">+</span><kbd style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-size: 15px; color: #242729; background-color: #FFFFFF; letter-spacing: normal; "> 
+	s </kbd></span></li>
+	<li>
+	<span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #242729; letter-spacing: normal; background-color: #FFFFFF">Type the following command for reprogramming the NVRAM:<code style="font-family: Arial, Helvetica Neue, Helvetica, sans-serif; background-color: #FFFFFF; color:#242729; letter-spacing:normal"><br>
+	</code>
+	</span>
+	<code style="font-style: normal; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, sans-serif; vertical-align: baseline; box-sizing: inherit; white-space: pre-wrap; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; color: rgb(36, 39, 41); letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 0px none; margin: 0px; padding-left: 5px; padding-right: 5px; padding-top: 1px; padding-bottom: 1px; background-color: rgb(239, 240, 241)">sudo nvram fa4ce28d-b62f-4c99-9cc3-6815686e30f9:gpu-power-prefs=%01%00%00%00</code></li>
+	<li>
+	<span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #242729; letter-spacing: normal; background-color: #FFFFFF">Reboot and go in recovery mode by pressing
+	<kbd style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-size: 15px; color: #242729; background-color: #FFFFFF; letter-spacing: normal; ">cmd</kbd><span style="color: #242729; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; letter-spacing: normal; background-color: #FFFFFF; "> +</span></span><span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #242729; letter-spacing: normal; font-size: 15px; background-color: #FFFFFF"><kbd style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-size: 15px; color: #242729; background-color: #FFFFFF; letter-spacing: normal; "> 
+	r </kbd>&nbsp;while restarting</span></li>
+	<li>
+	<span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #242729; letter-spacing: normal; background-color: #FFFFFF">Open the Terminal utility and type what follows:<br>
+	</span>
+	<code style="margin: 0px; border: 0px none; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Consolas, Menlo, Monaco, &quot;Lucida Console&quot;, &quot;Liberation Mono&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, monospace, sans-serif; vertical-align: baseline; box-sizing: inherit; background-color: rgb(239, 240, 241); white-space: pre-wrap; color: rgb(36, 39, 41); letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; padding-left:5px; padding-right:5px; padding-top:1px; padding-bottom:1px">diskutil cs list</code><span style="color: rgb(36, 39, 41); font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none">&nbsp;</span></li>
+	<li>
+	<span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #242729; letter-spacing: normal; background-color: #FFFFFF">
+	The output will be something as this, where I did highlight the UUID number 
+	of your Mac OS logical volume:<br>
+	</span>
+	<span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; color: #242729; letter-spacing: normal; background-color: #FFFFFF">
+	<img border="0" src="screen-shot-2011-06-25-at-10-54-27-am.png" width="343" height="390"></span></li>
+	<li>
+	<span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #242729; letter-spacing: normal; background-color: #FFFFFF">
+	as you see, the volume is locked, and you have to unlock it. So you should 
+	copy the highlighted alphanumeric UUID string and apply the following 
+	command:</span><br style="box-sizing: inherit; color: rgb(36, 39, 41); font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial">
+	<code style="margin: 0px; border: 0px none; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Consolas, Menlo, Monaco, &quot;Lucida Console&quot;, &quot;Liberation Mono&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, monospace, sans-serif; vertical-align: baseline; box-sizing: inherit; background-color: rgb(239, 240, 241); white-space: pre-wrap; color: rgb(36, 39, 41); letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; padding-left:5px; padding-right:5px; padding-top:1px; padding-bottom:1px">diskutil coreStorage unlockVolume UUID</code><span style="color: rgb(36, 39, 41); font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none">&nbsp;(UUID: 
+	string from previous command)</span></li>
+	<li>
+	<span style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #242729; letter-spacing: normal; background-color: #FFFFFF">Remove NVIDIA/AMD kexts by moving them to a dummy folder 
+	by typing the following 5 
+	commands: </span>
+	<ol>
+		<li>
+		<code style="margin: 0px; border: 0px none; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Consolas, Menlo, Monaco, &quot;Lucida Console&quot;, &quot;Liberation Mono&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, monospace, sans-serif; vertical-align: baseline; box-sizing: inherit; background-color: rgb(239, 240, 241); white-space: pre-wrap; color: rgb(36, 39, 41); letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; padding-left:5px; padding-right:5px; padding-top:1px; padding-bottom:1px">cd /Volumes</code></li>
+		<li>
+		<code style="margin: 0px; border: 0px none; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Consolas, Menlo, Monaco, &quot;Lucida Console&quot;, &quot;Liberation Mono&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, monospace, sans-serif; vertical-align: baseline; box-sizing: inherit; background-color: rgb(239, 240, 241); white-space: pre-wrap; color: rgb(36, 39, 41); letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; padding-left:5px; padding-right:5px; padding-top:1px; padding-bottom:1px">cd &quot;Lion HD&quot;</code>(<font face="Arial">or whatever is the name of the logical volume containing your system, it was Lion HD in the picture above: please note the usage of double quotes, required by the space contained in the logical volume name - it is general a very bad idea to use file or folder names containing spaces...)</font></li>
+		<li>
+		<code style="margin: 0px; border: 0px none; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Consolas, Menlo, Monaco, &quot;Lucida Console&quot;, &quot;Liberation Mono&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, monospace, sans-serif; vertical-align: baseline; box-sizing: inherit; background-color: rgb(239, 240, 241); white-space: pre-wrap; color: rgb(36, 39, 41); letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; padding-left:5px; padding-right:5px; padding-top:1px; padding-bottom:1px">mkdir Backup_Kexts</code> 
+		<font face="Arial">(creates a folder where the kexts are to be moved to)</font></li>
+		<li>
+		<code style="margin: 0px; border: 0px none; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Consolas, Menlo, Monaco, &quot;Lucida Console&quot;, &quot;Liberation Mono&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, monospace, sans-serif; vertical-align: baseline; box-sizing: inherit; background-color: rgb(239, 240, 241); white-space: pre-wrap; color: rgb(36, 39, 41); letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; padding-left:5px; padding-right:5px; padding-top:1px; padding-bottom:1px">mv System/Library/Extensions/AMD*.* Backup_Kexts/</code> 
+		<font face="Arial">(move all kexts beginning with AMD - of course use NVIDIA instead of AMD, if your MBP is mid-2012)</font></li>
+		<li>
+		<code style="margin: 0px; border: 0px none; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Consolas, Menlo, Monaco, &quot;Lucida Console&quot;, &quot;Liberation Mono&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, monospace, sans-serif; vertical-align: baseline; box-sizing: inherit; background-color: rgb(239, 240, 241); white-space: pre-wrap; color: rgb(36, 39, 41); letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; padding-left:5px; padding-right:5px; padding-top:1px; padding-bottom:1px">reboot</code></li>
+	</ol>
+	</li>
+</ul>
+<p><font face="Arial"><b>At this point your machine should reboot normally and never attempt 
+to use the broken discrete GPU again.</b></font></p>
+<p><font face="Arial">Graphical performances will be slightly worse than with the discrete GPU, but 
+the loss is not so big, as those GPUs were indeed quite weak, compared with 
+current standards, whilst the Intel integrated GPU of the times were not that 
+bad.<br>
+And this simple method will give your excellent MBP many other years to live..<br>
+The only real drawback is that <b>an external monitor connected to the 
+Thunderbolt port will not work anymore</b>.<br>
+This can be fixed buying a cheap USB-to-HDMI adaptor, such as this one:
+<a href="https://www.amazon.com/Adapter-CableCreation-External-Compatible-Resolution/dp/B013G4CHD4">
+https://www.amazon.com/Adapter-CableCreation-External-Compatible-Resolution/dp/B013G4CHD4</a></font></p>
+<p><font face="Arial"><img border="0" src="51NT+4aajFL._AC_SL1001_.jpg" width="468" height="234"></font></p>
+<p><font face="Arial">Last point: after applying this fix, please <b>avoid</b>
+<a href="https://support.apple.com/en-us/HT204063">resetting the NVRAM</a>. Doing 
+so will undo all the above setup, and will require to apply the fix again.</font></p>
+<hr>
+<p><font face="Arial"><i>All the contents are Copyright by <a href="home.htm">Angelo Farina</a>, 2019</i></font></p>
+
+</body>
+
+</html>

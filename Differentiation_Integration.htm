@@ -1,0 +1,515 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 11">
+<meta name="Originator" content="Microsoft Word 11">
+<link rel="Edit-Time-Data" href="acustica-2010_files/editdata.mso"><title>Differentiation and Integration of Audio Signals</title>
+
+
+<script language="javascript" type="text/javascript" src="http://wr.readspeaker.com/webreader/webreader.js.php?cid=Z7QX7IJ1Q0CJC46RI63SPSA8GG7Z862Y"></script><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Angelo Farina</o:Author>
+  <o:LastAuthor>Angelo Farina</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>11</o:TotalTime>
+  <o:Created>2005-03-21T21:18:00Z</o:Created>
+  <o:LastSaved>2011-01-20T18:13:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>7535</o:Words>
+  <o:Characters>42951</o:Characters>
+  <o:Company>UNIPR</o:Company>
+  <o:Lines>357</o:Lines>
+  <o:Paragraphs>100</o:Paragraphs>
+  <o:CharactersWithSpaces>50386</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>FullPage</w:Zoom>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:222371355;
+	mso-list-template-ids:1579190742;}
+@list l1
+	{mso-list-id:568419832;
+	mso-list-template-ids:1559760754;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1153525868;
+	mso-list-template-ids:-1569396948;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:1215510001;
+	mso-list-template-ids:1696903568;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:1429545037;
+	mso-list-template-ids:-603795290;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:2045060649;
+	mso-list-template-ids:886316486;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+
+<meta name="keywords" content="Audio processing, integration, differentiation, FIR filters">
+<meta name="description" content="How the differentiation and integration operators &quot;sound&quot; when applied to an audio signal "><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></head><body style="" bgcolor="#cccccc" lang="EN-US" link="#0000ff" vlink="#800080">
+
+<div class="Section1">
+
+<h1 style="margin-top: 0cm;"><font face="Arial">Differentiation and Integration of 
+Audio Signals</font></h1>
+
+<p><font face="Arial"><font face="Tahoma">What's the audible effect of the well-known mathematical 
+operations of differentiation and integration, when applied to a sound sample?</font></font></p>
+<p><font face="Arial"><font face="Tahoma">Do you want to listen at the derivative or integral of 
+your own voice?</font></font></p>
+
+
+<font face="Tahoma">
+<b>From Maths to sound</b></font><font face="Arial"></font><p><font face="Arial"><font face="Tahoma">Many 
+students at high school and university do not "grasp" the real meaning of the 
+usual operations of differentiation or integration of a function. Maths teachers 
+tend to explain these operators by means of "graphical" concepts, such as:</font></font></p>
+<p><font face="Arial"><i><font face="Tahoma">"the derivative of a given function is the slope of 
+the curve at any point"</font></i></font></p>
+<p><font face="Arial"><i><font face="Tahoma">"the integral of a given function is the area subtended 
+under the curve, between two points"</font></i></font></p>
+<p><font face="Arial"><font face="Tahoma">The following figures show these concepts:</font></font></p>
+<table id="table2" border="1" width="100%">
+	<tbody><tr>
+		<td align="center">
+		<img src="Acustica-samples/Derivative.png" border="0" height="480" width="640"></td>
+		<td align="center">
+		<img src="Acustica-samples/Integral.png" border="0" height="480" width="548"></td>
+	</tr>
+</tbody></table>
+<p><font face="Arial"><font face="Tahoma">Albeit these geometrical concepts can be useful for some 
+specific scientific applications (for example, the analysis of historical series 
+of the values of foreign exchanges or stock actions), they are of little value for 
+understanding the application of the differentiation and integration operators 
+to real-world realms, such as differentiating an image, a sound, and in general 
+most time-varying quantities related to human perceptions, such as vibrations, 
+temperature, air speed, etc.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">Here we present the effect of the differentiation and 
+integration operators applied to a sound signal. In particular, we start from a 
+PCM (Pulse Code Modulation) digitally-sampled waveform of the human voice. This 
+is obtained by first converting the sound pressure in an electric voltage 
+signal, by means of a condenser microphone. Then the electrical waveform is 
+sampled by means of an Analog-to-Digital converter, at a sampling rate of 48 kHz 
+(that is, 48000 samples per seconds are collected). Each sample is a 
+floating-point number, bounded in the range +/- 1.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">The following figure shows a very short piece of such a 
+digitally-sampled waveform:</font></font></p>
+<p><font face="Arial"><img src="Acustica-samples/Waveform.png" border="0" height="445" width="790"></font></p>
+<p><font face="Arial"><font face="Tahoma">So the sound is nothing else than a very long sequence of 
+floating-point numbers. As the time interval </font><font face="Symbol">D</font><font face="Tahoma">t 
+between two adjacent samples is very small (1/48000 s), we can compute the 
+derivative of our waveform&nbsp; following its definition, that is, taking the 
+difference between the value of each sample and the value of the preceding 
+sample:</font></font></p>
+<p><font face="Arial"><font face="Tahoma">x'(t) = x(t) - x(t-1)</font></font></p>
+<p><font face="Arial"><font face="Tahoma">If we do that to the waveform of the preceding example, 
+we get the following new waveform x':</font></font></p>
+<p>
+<font face="Arial"><img src="Acustica-samples/Differentiated-Waveform.png" border="0" height="444" width="787"></font></p>
+<p><font face="Arial"><font face="Tahoma">Similarly, for computing the "running" integral between 
+zero-time and the current time, we can simply sum the values of all the 
+preceding samples:</font></font></p>
+<p><font face="Arial"><font face="Tahoma">&nbsp;y(t) = x(t) + x(t-1) + x(t-2) + .... + x(0)</font></font></p>
+<p><font face="Arial"><font face="Tahoma">Applying this computation to the original waveform, we 
+get the following integrated waveform y:</font></font></p>
+<p>
+<font face="Arial"><img src="Acustica-samples/Integrated-Waveform.png" border="0" height="445" width="783"></font></p>
+<p><font face="Arial"><font face="Tahoma">It must be noted how the amplitude of the integrated 
+waveform is now much larger than the original, and it exceeds the "full scale 
+boundaries" of +/-1. For rebounding it inside the full-scale limits, it becomes 
+necessary to reduce the gain by approximately 22 dB.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">Looking at the waveforms, it can be seen that the 
+integrated one is very smooth and round, whilst the differentiated one is very 
+spiky and rough. This means that the integrated one contains a lot of energy at 
+low frequency (waveforms with long period), whilst the differentiated one 
+contains more energy at high frequency (waveform with very short period).</font></font></p>
+<p><font face="Arial"><font face="Tahoma">Mathematically, this can be explained if we assume that 
+our waveform is obtained as the sum of a number of sinusoidal signals with 
+proper amplitudes and phases (Fourier theorem):</font></font></p>
+<p><font face="Arial"><img src="Acustica-samples/Fourier.png" border="0" height="77" width="313"></font></p>
+<p><font face="Arial"><font face="Tahoma">When dealing with audio signals, it must be said that, in 
+general, the conditions of validity of the Fourier theorem are NOT met. So the 
+Fourier analysis of a real waveform provides a misleading representation of 
+reality. Nevertheless, we ca still learn something useful employing the Fourier 
+approach, albeit we must keep in mind that some artifacts can occur.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">As both differentiation and integral, when applied to a 
+sum of functions, can be applied directly to each of the addends, we get:</font></font></p>
+<p><font face="Arial"><font face="Tahoma">Differentiation:
+<img src="Acustica-samples/Fourier-Differentiated.png" border="0" height="74" width="702"></font></font></p>
+<p><font face="Arial"><font face="Tahoma">Integral:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="Acustica-samples/Fourier-Integrated.png" border="0" height="77" width="692"></font></font></p>
+<p><font face="Arial"><font face="Tahoma">This means that the differentiated signals will have 
+spectral components with amplitude increasing linearly with frequency. Instead, 
+the integrated signal will have spectral components with amplitude decreasing 
+proportionally with frequency. In practice, the spectrum of the signal is being 
+tilted, and the slope of the spectrum is increased by 6dB/octave in case of 
+differentiation and reduced by 6dB/octave in case of integration.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">The following figure shows how the spectrum of a "white 
+noise" is altered by the two mathematical operators (a "white noise" is a signal 
+having flat spectrum, that is, composed by sinusoids all having the same 
+amplitude A<sub>n</sub>):</font></font></p>
+<p><font face="Arial"><img src="Acustica-samples/White.png" border="0" height="495" width="638"></font></p>
+<p><font face="Arial"><font face="Tahoma">Note that the three spectra cross at 8000 Hz, that is, 
+exactly 1/6 of the sampling frequency.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">Now that we know how to compute the differentiation and 
+integral of a sampled audio waveform, we can try to apply this process to a 
+sample of human voice. The following figures, with linked MP3 audible sound 
+samples, show this:</font></font></p>
+<font face="Arial">		<font face="Tahoma">
+			</font><font face="Arial">
+				</font><table id="table1" border="1" width="100%">
+			<tbody><tr>
+				<td align="center">
+				<a href="Acustica-samples/Original.mp3" style="color: blue; text-decoration: underline;">
+				<img src="acusti1.jpg" border="0"></a></td>
+				<td align="center">
+				<a href="Acustica-samples/Differentiated.mp3" style="color: blue; text-decoration: underline;">
+				<img src="acusti2.jpg" border="0"></a></td>
+				<td align="center">
+				<a href="Acustica-samples/Integrated.mp3" style="color: blue; text-decoration: underline;">
+				<img src="acusti3.jpg" border="0"></a></td>
+			</tr>
+
+			<tr>
+				<td align="center"><font face="Tahoma">
+				<a href="Acustica-samples/Original.mp3" style="color: blue; text-decoration: underline;">
+				Original.mp3</a></font></td>
+
+				<td align="center"><font face="Tahoma">
+				<a href="Acustica-samples/Differentiated.mp3" style="color: blue; text-decoration: underline;">Differentiated.mp3</a></font></td>
+				<td align="center"><font face="Tahoma">
+				<a href="Acustica-samples/Integrated.mp3" style="color: blue; text-decoration: underline;">Integrated.mp3</a></font></td>
+			</tr>
+		</tbody></table>
+		</font><p><font face="Arial"><font face="Tahoma">Please note that the amplitude of processed 
+		waveforms was rescaled, for making them easily audible without having to 
+		change the volume during playback.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">Now we try to re-frame all the previous knowledge within 
+the scheme of LTI (Linear, Time Invariant) filters. Many effects applied to a 
+sound can be framed in such a scheme: delays, echoes, reverb, spectral 
+equalization, basic filtering such as low-pass, high-pass, band-pass and band-reject, 
+shelf-filtering, etc.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">However, not all audio effects can be represented as a 
+linear, time-invariant filter: for example this scheme does not applies to 
+compressors, automatic gain control, soft-clipping, gating, flanging, 
+time-varying delay (Doppler effect), saturation, harmonic enhancement, etc.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">Luckily, differentiation and integration are LTI filters. 
+So we can represented them thanks to the convolution theorem, employing an 
+impulse response of finite length h(</font><font face="Symbol">t</font><font face="Tahoma">) 
+(that is, employing FIR filtering):</font></font></p>
+<p>
+<font face="Arial"><img src="Acustica-samples/Convolution.png" border="0" height="69" width="243"></font></p>
+<p><font face="Arial"><font face="Tahoma">This formula is usually read as "y is the convolution of 
+x with h". The operation "sum of products" is called convolution, and is a very 
+trivial operation indeed.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">This is usually written in short form as </font></font></p>
+<table id="table4" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="240">
+	<tbody><tr>
+		<td align="center" height="40" width="200">
+		<p align="center"><i><font face="Times New Roman" size="5">y(t) = x(t) * 
+		h(t)</font></i></p></td>
+	</tr>
+</tbody></table>
+<p><font face="Arial"><font face="Tahoma">where the operator * is called the convolution operator.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">The length N of the impulse response h is not critical 
+for the differentiation operator. Instead, for the integral operator, in theory 
+an infinite length would be needed. Truncating the length of the corresponding 
+FIR filter to a given value imposes a low-frequency limit, that is, the computed 
+integral signal will be correct only above a frequency given by the reciprocal 
+of the length of the FIR filter itself.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">For example, if we choose a filter length N = 4800 
+samples (0.1s), we get a correct filtering above 10 Hz, which is plenty enough 
+for audio applications.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">So what is the time-domain representation (waveform) of 
+such FIR filters, for performing differentiation and integration?</font></font></p>
+<p><font face="Arial"><font face="Tahoma">We start defining the Dirac's Delta function</font>
+<font face="Symbol">d</font><font face="Tahoma">(</font><font style="font-family: Tahoma;" face="Symbol">t</font><font face="Tahoma">) 
+filter: it is a "null" filter, which does not alter the processed waveform at 
+all.</font></font></p>
+<p><font face="Arial"><font face="Tahoma">The Dirac's Delta function is simply a waveform 
+containing a zero amplitude for all samples, except for one sample which has a 
+value of +1.0:</font></font></p>
+<p><font face="Arial"><font face="Tahoma">
+<img src="Acustica-samples/Dirac-Filter.png" border="0" height="366" width="532">
+</font></font></p>
+<p><font face="Arial"><font face="Tahoma">If a signal is convolved with
+				<font face="Arial">
+				<font face="Symbol">d</font><font face="Tahoma">(</font><font face="Symbol">t</font><font face="Tahoma">), 
+the result is identical to the original signal (no filtering), except for a 
+delay due to the position of the not-zero value inside the Dirac's Delta FIR 
+filter (20 samples in the example above). It must also be said that the spectrum 
+if a Dirac's Delta function is perfectly flat (white).</font></font></font></font></p>
+<p><font face="Arial"><font face="Tahoma">If we now differentiate the Dirac's Delta function, we 
+get what is known as the Unit Doublet function u<sub>1</sub>(</font><font face="Symbol">t</font><font face="Tahoma">) 
+(<a href="http://isites.harvard.edu/fs/docs/icb.topic133182.files/5-singular_func.pdf">click 
+here</a> for a mathematical definition of this functions).</font></font></p>
+<p><font face="Arial"><font face="Tahoma">In practice, the difference between zeroes remain zero, 
+and this occurs for all the samples of the differentiated signals, except for 
+two consecutive ones, which will get respectively the values of +1.0 and -1.0, 
+as shown here:</font></font></p>
+<p>
+<font face="Arial"><img src="Acustica-samples/Unit-Doublet.png" border="0" height="367" width="532"></font></p>
+<p><font face="Arial"><font face="Tahoma">This Unit Doublet function
+				<font face="Arial">
+				<font face="Tahoma">u<sub>1</sub>(</font><font face="Symbol">t</font><font face="Tahoma">)
+</font></font>is in practice a differentiating FIR filter: if an x(t) signal is 
+convolved with
+				<font face="Arial">
+				<font face="Tahoma">u<sub>1</sub>(</font><font face="Symbol">t</font><font face="Tahoma">), 
+the result will be the time-derivative of the original signal:</font></font></font></font></p>
+<p>
+<font face="Arial"><img src="Acustica-samples/unitdoubletconvolution.png" border="0" height="61" width="299"></font></p>
+<p><font face="Arial"><font face="Tahoma">If we instead apply the integration operator to the 
+Dirac's Delta function, we obtain the Unit Step function, also called Heaviside 
+step function H(</font><font face="Symbol">t</font><font face="Tahoma">):</font></font></p>
+<p>
+<font face="Arial"><img src="Acustica-samples/Unit-Step.png" border="0" height="368" width="533"></font></p>
+<p><font face="Arial"><font face="Tahoma">As already said, in this case we should continue the 
+integration for a long time, ensuring to get a FIR filter of enough length, for 
+obtaining proper integration over all the audio spectrum (down to less than 16 
+Hz, the minimum audible frequency).</font></font></p>
+<p><font face="Arial"><font face="Tahoma">This Unit Step function
+				<font face="Arial">
+				<font face="Tahoma">H(</font><font face="Symbol">t</font><font face="Tahoma">)
+</font></font>is in practice an integrating FIR filter: if an x(t) signal is 
+convolved with H<font face="Arial"><font face="Tahoma">(</font><font face="Symbol">t</font><font face="Tahoma">), 
+the result will be the time-integral of the original signal:</font></font></font></font></p>
+<p>
+<font face="Arial"><img src="Acustica-samples/stepconvolution.png" border="0" height="73" width="318"></font></p>
+
+
+<font face="Tahoma">Here we provide three FIR filters, all with the same length 
+(4800 samples, at 48 kHz), which correspond to the above-defined Dirac's Delta, 
+Unit Doublet and Unit Step functions:<br>
+&nbsp;</font><font face="Tahoma"><font face="Arial"><font face="Tahoma">
+			</font><font face="Arial">
+				</font><table id="table3" border="1" width="100%">
+			<tbody><tr>
+				<td align="center">
+				<img src="Acustica-samples/delta.png" border="0" height="203" width="321"></td>
+				<td align="center">
+				<img src="Acustica-samples/u1.png" border="0" height="203" width="324"></td>
+				<td align="center">
+				<img src="Acustica-samples/step.png" border="0" height="203" width="325"></td>
+			</tr>
+
+			<tr>
+				<td align="center"><a href="Acustica-samples/Dirac.wav">
+				Dirac.wav</a></td>
+
+				<td align="center">
+				<a href="Acustica-samples/Derivator-Filter.wav">
+				Derivator-Filter.wav</a></td>
+				<td align="center">
+				<a href="Acustica-samples/Integrator-Filter.wav">Integrator-Filter.wav</a></td>
+			</tr>
+		</tbody></table>
+		</font>
+</font>
+<p><font face="Tahoma">
+You can use these FIR filters with any software capable of performing linear 
+convolution, for example Matlab, or Adobe Audition, or Audacity; for the latter 
+two, the <a href="http://www.aurora-plugins.com">Aurora Plugins</a> can be used, 
+which contain a very handy-to-use "convolve with clipboard" module:</font></p>
+<p>
+<img src="Acustica-samples/Convolve-with-Clipboard.png" border="0" height="414" width="447"></p>
+<p><font face="Tahoma">A very useful exercise is first to apply differentiation, 
+followed by integration (or vice-versa): as differentiation is the opposite of 
+integration, the two operations elide each other, reconstructing the original 
+signal. And, of course, if the two FIR filters are convolved each other, the 
+Dirac's Delta function is obtained as the result:</font></p>
+<p><font face="Symbol">d</font><font face="Tahoma">(t) = u<sub>1</sub>(t) *
+				<font face="Arial">
+				<font face="Tahoma">H(</font><font face="Symbol">t</font><font face="Tahoma">)</font></font></font></p>
+<p><font face="Tahoma">Finally, it must be said that second-order 
+differentiation or integration can be easily obtained by repeating twice the 
+convolution of the signal with the corresponding filter.</font></p>
+<p><font face="Tahoma">Last point is: when the hell one has the need to 
+differentiate or integrate an audio signal? In reality, this often occurs when 
+"strange" types of transducers have been used: for example, an accelerometer, so 
+the sampled signal is an acceleration, and the user wants to transform it into 
+velocity (simple integration) or displacement (double integration). And, of 
+course, the opposite is also possible: if one has sampled the position of a 
+vibrating surface (for example by means of a laser distance meter), and wants to 
+obtain velocity or acceleration, then he has to differentiate the recorded 
+signal once or twice...</font></p>
+<p><font face="Tahoma">So this article describes a general method for processing 
+audio signals (or, indeed, any sampled waveform), for performing differentiation 
+and integration numerically, and very efficiently (convolution is amazingly fast 
+when properly implemented as "partitioned convolution" on modern processors).</font></p>
+<font face="Arial">
+
+</font><div class="MsoNormal" style="text-align: center;" align="center"><font face="Arial"><b><span style="" lang="IT">
+
+<hr align="center" size="2" width="100%">
+
+</span></b></font></div>
+
+<font face="Arial"><font face="Tahoma">
+
+</font></font><h5><span style="" lang="IT"><font face="Arial"><font face="Tahoma">Copyright (C) </font></font></span><font face="Arial"><font face="Tahoma"><strong><span style="" lang="EN-GB"><a href="home.htm"><span style="" lang="IT">Angelo
+Farina</span></a></span></strong><span lang="it"> 2011</span><span style="" lang="IT"> -
+reproduction is forbidden without prior consent.</span></font></font></h5><font face="Arial"><font face="Tahoma"><font face="Arial">
+
+<h5><span style="" lang="IT"><font face="Tahoma">E-MAIL: 
+<a href="mailto:farina@unipr.it" style="color: blue; text-decoration: underline;">farina@unipr.it</a></font></span><font face="Tahoma"><span style="" lang="IT"> 
+- Internet: </span><span style="" lang="EN-GB">
+<a href="http://pcfarina.eng.unipr.it/" style="color: blue; text-decoration: underline;"><span style="" lang="IT">http://pcfarina.eng.unipr.it/</span></a></span><span style="" lang="IT"> or </span><span style="" lang="EN-GB">
+<a href="http://www.angelofarina.it/" style="color: blue; text-decoration: underline;"><span style="" lang="IT">http://www.angelofarina.it/</span></a></span></font><span style="" lang="IT"><o:p></o:p></span></h5>
+</font>
+</font></font><h5><span style="" lang="IT"><font face="Arial"><font face="Tahoma">Last revised on: 
+<!--webbot bot="Timestamp" s-type="EDITED"
+s-format="%d/%m/%y" startspan -->23/09/12<!--webbot bot="Timestamp" endspan i-checksum="12513" --><o:p></o:p></font></font></span></h5>
+
+</div>
+
+
+</body></html>

@@ -1,0 +1,2837 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html dir="ltr"><head><title>Applied Acoustics course</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style><![CDATA[/* Font Definitions */
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal {
+  /* mso-style-parent: &quot;&quot;; */
+  margin: 0cm;
+  margin-bottom: .0001pt;
+  /* mso-pagination: widow-orphan; */
+  font-size: 12.0pt;
+  font-family: &quot;Times New Roman&quot;;
+  /* mso-fareast-font-family: &quot;Times New Roman&quot;; */
+}
+h1 {
+  /* mso-margin-top-alt: auto; */
+  margin-right: 0cm;
+  /* mso-margin-bottom-alt: auto; */
+  margin-left: 0cm;
+  /* mso-pagination: widow-orphan; */
+  /* mso-outline-level: 1; */
+  font-size: 24.0pt;
+  font-family: &quot;Times New Roman&quot;;
+  font-weight: bold;
+}
+h2 {
+  /* mso-margin-top-alt: auto; */
+  margin-right: 0cm;
+  /* mso-margin-bottom-alt: auto; */
+  margin-left: 0cm;
+  /* mso-pagination: widow-orphan; */
+  /* mso-outline-level: 2; */
+  font-size: 18.0pt;
+  font-family: &quot;Times New Roman&quot;;
+  font-weight: bold;
+}
+a:link, span.MsoHyperlink {
+  color: blue;
+  text-decoration: underline;
+  text-underline: single;
+}
+a:visited, span.MsoHyperlinkFollowed {
+  color: purple;
+  text-decoration: underline;
+  text-underline: single;
+}
+p {
+  /* mso-margin-top-alt: auto; */
+  margin-right: 0cm;
+  /* mso-margin-bottom-alt: auto; */
+  margin-left: 0cm;
+  /* mso-pagination: widow-orphan; */
+  font-size: 12.0pt;
+  font-family: &quot;Times New Roman&quot;;
+  /* mso-fareast-font-family: &quot;Times New Roman&quot;; */
+}
+@page Section1 {
+  size: 612.0pt 792.0pt;
+  margin: 72.0pt 90.0pt 72.0pt 90.0pt;
+  /* mso-header-margin: 35.4pt; */
+  /* mso-footer-margin: 35.4pt; */
+  /* mso-paper-source: 0; */
+}
+div.Section1 {
+  page: Section1;
+}
+/* List Definitions */
+]]> table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ div.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0cm; margin-right:0cm; margin-top:0cm}
+</style></head><body dir="ltr" bgcolor="#dddddd" lang="EN-US">
+
+<div class="Section1">
+
+<h1 style="margin-top: 0cm;"><span style="font-family: Tahoma;" lang="EN">Applied Acoustics 
+course (6 CFU) </span></h1>
+<h1 style="margin-top: 0cm;">
+<span style="font-family: Tahoma; background-color: rgb(255, 255, 0);" lang="en-gb">
+<font size="5">also in </font></span>
+<span style="font-family: Tahoma; background-color: rgb(255, 255, 0);" lang="EN">
+<font size="5">academic year 2013/2014 
+this course is taught in English<br>
+<a href="acustica-2011.htm">Click Here</a> for accessing the old Italian page (A/A 
+2011/2012)<br>
+</font></span></h1><h1><span style="font-size: 18pt; font-family: Tahoma;" lang="EN">Post-Graduate 
+(advanced) degrees: </span>
+<span style="font-size: 18pt; font-family: Tahoma;" lang="EN">
+<a href="http://ingegneria.unipr.it/2013/communication-eng/">Telecommunication Engineering</a></span><span style="font-size: 18pt; font-family: Tahoma;" lang="EN">,
+<a href="http://ingegneria.unipr.it/2013/ing-elettronica/magistrale/">Electronics Engineering</a>,</span><span style="font-size: 18pt; font-family: Tahoma;" lang="EN">
+<a href="http://ingegneria.unipr.it/2013/ing-informatica/magistrale/">Computer 
+Science Engineering</a></span><span style="font-size: 18pt; font-family: Tahoma;" lang="EN"> and </span><span style="font-size: 18pt; font-family: Tahoma;" lang="EN">
+<a href="http://ingegneria.unipr.it/2013/ing-meccanica/magistrale/">Mechanical Engineering</a></span></h1>
+
+<p><span style="font-size: 18pt; font-family: Tahoma; font-weight: 700;" lang="EN">Under-Graduate degree: 
+<a href="http://ingegneria.unipr.it/2013/ing-civileambientale/">Civil and Environmental Engineering</a></span><span style="font-size: 18pt; font-family: Tahoma;" lang="EN"><span style="font-weight: bold;"> </span>and <a href="http://ltgest.campusnet.unipr.it/cgi-bin/campusnet/home.pl"><span style="font-weight: bold;">Management Engineering</span></a></span><span style="font-size: 18pt; font-family: Tahoma; font-weight: bold;" lang="EN">
+</span></p>
+<p><b><span style="font-size: 18pt; font-family: Tahoma;" lang="EN"><span style="font-weight: bold;">Under-Graduate 
+degree: </span><a href="http://profsan4.unipr.it/cgi-bin/campusnet/home.pl">Techniques 
+of Prevention in the Environment and at the Workplace</a>
+</span></b><b><span style="font-size: 18pt; font-family: Tahoma;" lang="EN"></span></b><span lang="EN"></span></p>
+
+<hr align="center" size="2" width="100%">
+
+<p><b><span style="font-family: Tahoma;" lang="EN">Teaching Hours:
+</span></b><b><span style="font-family: Tahoma;" lang="EN">&nbsp; Friday  14.30-18.30 (classroom 7, Engineering Faculty, University Campus)
+</span></b><b><span style="font-family: Tahoma;" lang="EN"></span></b></p>
+<p><b>
+</b><b><span style="background: yellow none repeat scroll 0% 50%; font-family: Tahoma; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" lang="EN">Beginning of the course: Friday 04/10/2013</span></b></p>
+
+<p><strong><span style="font-size: 13.5pt; font-family: Tahoma;" lang="EN">Lecturer: prof. </span></strong><strong><span style="font-family: Tahoma;" lang="EN-GB"><a href="home.htm"><span style="font-size: 13.5pt;" lang="EN">Angelo Farina</span></a></span></strong><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">E-MAIL: <a href="mailto:farina@unipr.it">farina@unipr.it</a></span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">Website:</span> <span style="font-family: Tahoma;" lang="EN-GB"><a href="http://pcfarina.eng.unipr.it/"><span lang="EN">http://pcfarina.eng.unipr.it/</span></a></span> <span style="font-family: Tahoma;" lang="EN">or</span> <span style="font-family: Tahoma;" lang="EN-GB"><a href="http://www.angelofarina.it/"><span lang="EN">http://www.angelofarina.it/</span></a></span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">Receiving 
+hours: <span style="background-color: #00FFFF; background-position: 0% 50%">Frid</span><span style="background: aqua none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"><span style="background-color: rgb(0, 255, 255);">ay</span>, 10:30 to 12:30</span> -
+</span><span style="font-family: Tahoma;" lang="EN">building 7 (not recommended - better to use email). </span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">Phone Number:
+</span><span style="font-family: Tahoma;" lang="EN">0521-905854  (not recommended)</span><span lang="EN"></span></p>
+
+
+<table id="table12" bgcolor="#ffffff" border="1" width="100%">
+	<tbody><tr>
+		<td>
+		<h2><a name="Contenuti"><span style="font-family: Tahoma;" lang="EN">Contents</span></a><span lang="EN-GB"></span></h2>
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><strong><u><span style="font-family: Tahoma; color: blue;" lang="EN">
+	<a style="color: blue; text-decoration: underline;" href="#Introduction">Introduction. 
+	</a>
+</span></u></strong></li>
+</ul></td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><strong><span style="font-family: Tahoma; color: blue;" lang="EN">
+	<a href="#Program" style="color: blue; text-decoration: underline;">	Program. </a>
+</span></strong></li>
+</ul></td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><strong><span style="font-family: Tahoma;" lang="EN"><a href="#Mode_of_exam" style="color: blue; text-decoration: underline;">Method of examination. </a>
+</span></strong></li>
+</ul></td>
+	</tr>
+	
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><b><span style="font-family: Tahoma;" lang="EN">
+	<img id="_x0000_i1036" src="newarrow.gif" border="0" height="21" width="32"><a href="#Dates" style="color: blue; text-decoration: underline;"><span style="font-family: Tahoma;"><strong>Dates of exams.</strong></span></a></span></b></li>
+</ul></td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><strong><span style="font-family: Tahoma;" lang="EN">
+	<a href="#Exam_in_receiving_hours" style="color: blue; text-decoration: underline;">	Examinations during receiving hours. </a>
+</span></strong></li>
+</ul></td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><b><span style="font-family: Tahoma;" lang="EN">
+	<img id="_x0000_i1035" src="newarrow.gif" border="0" height="21" width="32"></span></b><strong><span style="font-family: Tahoma;" lang="EN"><a href="#Lab_sessions" style="color: blue; text-decoration: underline;">Lab Sessions</a></span></strong></li>
+</ul></td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><strong><span style="font-family: Tahoma;" lang="EN">
+	<a href="#textbooks" style="color: blue; text-decoration: underline;">	Recommended textbooks. </a>
+</span></strong><b><span lang="EN"></span></b></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><b>	<span style="font-family: Tahoma;" lang="EN"><strong>
+	<span style="font-family: Tahoma;">
+	<a href="#Old_Notes" style="color: blue; text-decoration: underline;">	Old 
+	"Online" notes (in Italian).</a></span></strong></span></b></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><b><span style="font-family: Tahoma;" lang="EN">
+	<strong><span style="font-family: Tahoma;">
+	<a style="color: blue; text-decoration: underline;" href="#New_Notes">New 
+	"Online" notes (in English).</a></span></strong></span></b></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><strong><u>
+	<span style="font-family: Tahoma; color: blue;" lang="EN-GB">
+	<a href="#AV_Recordings" style="color: blue; text-decoration: underline;">Audio-video recording of the lectures. </a>
+</span></u></strong><b><span lang="EN"></span></b></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><strong><span style="font-family: Tahoma;" lang="EN">
+	<a href="#Papers" style="color: blue; text-decoration: underline;">	"Online" Scientific Papers. </a>
+</span></strong><b><span lang="EN"></span></b></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><b><span style="font-family: Tahoma;" lang="EN">
+	<a href="#Software" style="color: blue; text-decoration: underline;">	Software.</a></span></b></li>
+</ul></td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><strong><span style="font-family: Tahoma;" lang="EN">
+	<a href="#Thesis_Topics" style="color: blue; text-decoration: underline;">	Thesis Topics. </a>
+</span></strong></li>
+</ul></td>
+	</tr>
+</tbody></table>
+<div class="MsoNormal" style="text-align: center;" align="center">&nbsp;</div>
+
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="Introduction">Introduction</a></span></h2>
+
+<p><span style="font-family: Tahoma;" lang="EN">The course of
+</span><span style="font-family: Tahoma;" lang="EN">Applied Acoustics is an 
+introductory course to a scientific and
+</span><span style="font-family: Tahoma;" lang="EN">technological field undergoing a very rapid development, which offers great 
+</span><span style="font-family: Tahoma;" lang="EN">employment
+</span><span style="font-family: Tahoma;" lang="EN">opportunities, and which involves disciplines apparently very different:
+</span><span style="font-family: Tahoma;" lang="EN">architecture, structural engineering, physiology, psychology, statistics,
+</span><span style="font-family: Tahoma;" lang="EN">physics,
+electronics, vibration mechanics, fluid dynamics, digital signal
+processing, telecommunications, measurements, hygiene of the workplace,
+music, musicology, virtual reality.</span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">Obviously in
+</span><span style="font-family: Tahoma;" lang="EN">a course of 6 CFUs we can only provide the methodological basis of the topic,
+</span><span style="font-family: Tahoma;" lang="EN">which must then be furthered in more in-depth courses, such as courses for <a href="corsoCSPMI.htm">Competent Technicians in Environmental Acoustics</a> or
+</span><span style="font-family: Tahoma;" lang="EN">Master Courses available at some Italian or foreign universities
+</span><span style="font-family: Tahoma;" lang="EN">(for example <a href="http://www.crbnet.it/master_acustica/index.htm">Perugia</a> ,
+</span><span style="font-family: Tahoma;" lang="EN"><a href="http://www.architettura.unina2.it/didattica/pl01.asp">Naples</a> , <a href="http://www.guidamaster.it/notizie-dai-master/dettaglio.html?iId=1127&amp;masterId=4166">Florence</a> ,
+</span><span style="font-family: Tahoma;" lang="EN"><a href="http://www.mastersuono.uniroma2.it/">Rome</a>), or even dedicated
+</span><span style="font-family: Tahoma;" lang="EN">post-graduate degrees (these are usually abroad, but in Italy 
+it must be evidenced the <a href="http://suono.como.polimi.it">post-graduate 
+(advanced) degree in
+</a>
+</span><span style="font-family: Tahoma;" lang="EN"><a href="http://suono.como.polimi.it">Sound and Music Engineering</a> 
+of Politecnico di Milano, taught
+</span><span style="font-family: Tahoma;" lang="EN">entirely in English, delivered at the <a href="http://www.polo-como.polimi.it">Como Campus</a>).</span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">Because of its
+</span><span style="font-family: Tahoma;" lang="EN">multidisciplinary and transversal nature, the Course of Applied Acoustics
+</span><span style="font-family: Tahoma;" lang="EN">is attended by students from various degree programs (almost all branches
+</span><span style="font-family: Tahoma;" lang="EN">of Engineering, but also some Architecture students, and
+</span><span style="font-family: Tahoma;" lang="EN"> even the students of the course in
+Techniques of Prevention in the Environment and at the Workplace of the Faculty of
+</span><span style="font-family: Tahoma;" lang="EN">Medicine, for which attendance is compulsory only to the first
+</span><span style="font-family: Tahoma;" lang="EN">part of the course, with the exclusion of the final part dedicated to electroacoustic and musical applications).
+</span><span style="font-family: Tahoma;" lang="EN"> </span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">For
+</span><span style="font-family: Tahoma;" lang="EN">students of all branches of engineering this is a key course,
+</span><span style="font-family: Tahoma;" lang="EN">it is practically the only opportunity to see (or, rather, hear)
+</span><span style="font-family: Tahoma;" lang="EN">the techniques learned in previous courses, in which 
+</span><span style="font-family: Tahoma;" lang="EN">the purely theoretical foundations of modern advanced mathematical methods are taught.
+</span><span style="font-family: Tahoma;" lang="EN">When the "numbers" are transformed into sound, abstruse and difficult mathematical procedures
+</span><span style="font-family: Tahoma;" lang="EN">quickly become very clear and immediate,
+</span><span style="font-family: Tahoma;" lang="EN">and the possibilities offered by sound editing systems on the PC,
+</span><span style="font-family: Tahoma;" lang="EN">used extensively both during lectures and during
+</span><span style="font-family: Tahoma;" lang="EN">laboratory exercises, make it possible to listen immediately
+</span><span style="font-family: Tahoma;" lang="EN">(usually in real time) to the "effects" of filters or other
+</span><span style="font-family: Tahoma;" lang="EN">devices (compressors, gates, convolvers, denoising, etc.).</span></p>
+<p><span style="font-family: Tahoma;" lang="EN">Given the scientific interests of the teacher, the course covers both the noise-related topics
+common to all branches of engineering and
+hygienistics (also as a consequence of the extensive legislative framework on buildings, environment and workplace), and the more specific themes
+relative to the acoustics of 
+theatres and cinemas, audio production
+in music and television / film, musical instruments, high fidelity recording and 
+Stereo
+(1D), Surround (2D) and
+three-dimensional (3D) 
+playback systems. Obviously, this second part of the course is not
+pertinent to students of the degree  in 
+Techniques of Prevention, who
+have a program limited to the first 3 CFUs of the course.</span></p>
+<p><span style="font-family: Tahoma" lang="en-gb">The topics are always 
+presented with systematic help of test sounds, as this is the most direct way to 
+make the various operations to be perceived.</span></p>
+
+<table class="MsoNormalTable" style="background: rgb(204, 255, 255) none repeat scroll 0% 50%; width: 100%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" id="table10" border="1" cellpadding="0" width="100%">
+ <tbody><tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><font face="Tahoma"><b><span lang="EN">EXAMPLE:</span></b></font></p>
+  <p><span style="font-family: Tahoma;" lang="EN">Many
+</span><span style="font-family: Tahoma;" lang="EN">  students do not understand the physical meaning of
+</span><span style="font-family: Tahoma;" lang="EN">  "differentiation" and "integration" operators applied to a
+</span><span style="font-family: Tahoma;" lang="EN">  function. </span><span style="font-family: Tahoma;" lang="EN">Math teachers tend to give "graphical" explanations
+</span><span style="font-family: Tahoma;" lang="EN">  , such as <b>"the derivative is the slope of a curve"</b>
+</span><span style="font-family: Tahoma;" lang="EN">  or <b>"the integral is the area under a curve."</b> </span><span style="font-family: Tahoma;" lang="EN">These
+</span><span style="font-family: Tahoma;" lang="EN">  explanations are useless for those who are devoid of the capacity of
+</span><span style="font-family: Tahoma;" lang="EN"> visualisation
+needed to transform these concepts into images.</span><span lang="EN"></span></p>
+  <p><span style="font-family: Tahoma;" lang="EN">In acoustics,
+</span><span style="font-family: Tahoma;" lang="EN">  the operations of differentiation or integration modify the spectrum of a sound.
+</span><span style="font-family: Tahoma;" lang="EN">  In particular, <b>differentiation boosts high frequencies</b> (increases
+</span><span style="font-family: Tahoma;" lang="EN">  the sound level of 6dB/octave). </span><span style="font-family: Tahoma;" lang="EN">On the contrary, <b> integration boosts</b></span><span style="font-family: Tahoma;" lang="EN"><b> low frequencies.</b> </span><span style="font-family: Tahoma;" lang="EN">Here's an example, which allows to
+</span><span style="font-family: Tahoma;" lang="EN">  "listen" to 
+	differentiation and integration applied to a recording
+</span><span style="font-family: Tahoma;" lang="EN">  of the human voice:</span><span lang="EN"></span></p>
+  <table class="MsoNormalTable" style="width: 100%;" id="table11" border="1" cellpadding="0" width="100%">
+   <tbody><tr>
+    <td style="padding: 0.75pt;">
+    <p class="MsoNormal" style="text-align: center;" align="center"><a href="Acustica-samples/Original.mp3"><span style="text-decoration: none;"><img id="_x0000_i1029" src="acusti1.jpg" border="0" height="282" width="316"></span></a></p>
+    </td>
+    <td style="padding: 0.75pt;">
+    <p class="MsoNormal" style="text-align: center;" align="center"><a href="Acustica-samples/Differentiated.mp3"><span style="text-decoration: none;"><img id="_x0000_i1030" src="acusti2.jpg" border="0" height="282" width="316"></span></a></p>
+    </td>
+    <td style="padding: 0.75pt;">
+    <p class="MsoNormal" style="text-align: center;" align="center"><a href="Acustica-samples/Integrated.mp3"><span style="text-decoration: none;"><img id="_x0000_i1031" src="acusti3.jpg" border="0" height="282" width="316"></span></a></p>
+    </td>
+   </tr>
+   <tr>
+    <td style="padding: 0.75pt;">
+    <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;"><a href="Acustica-samples/Original.mp3"><span lang="EN">Original.mp3</span></a></span><span style="font-family: Tahoma;" lang="EN"></span></p>
+    </td>
+    <td style="padding: 0.75pt;">
+    <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;"><a href="Acustica-samples/Differentiated.mp3"><span lang="EN">Differentiated.mp3</span></a></span><span style="font-family: Arial;" lang="EN"></span></p>
+    </td>
+    <td style="padding: 0.75pt;">
+    <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;"><a href="Acustica-samples/Integrated.mp3"><span lang="EN">Integrated.mp3</span></a></span><span style="font-family: Arial;" lang="EN"></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  <p><span style="font-family: Tahoma;" lang="EN">A
+</span><span style="font-family: Tahoma;" lang="EN">more extended presentation of this topic is developed in</span> <span style="font-family: Tahoma;"><a href="Differentiation_Integration.htm"><span lang="EN">this web 
+	page</span></a></span> <span style="font-family: Tahoma;" lang="EN"></span><span lang="EN"></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b><hr align="center" size="2" width="100%"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b></div>
+
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="Program">Program of the Applied Acoustics course</a></span> <span style="font-family: Tahoma;" lang="EN">&nbsp;</span><span lang="EN"></span></h2>
+
+<table class="MsoNormalTable" style="background: white none repeat scroll 0% 50%; width: 100%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" id="table7" border="1" cellpadding="0" width="100%">
+ <tbody><tr>
+  <td style="padding: 0.75pt;">
+  <ul type="disc">
+   <li class="MsoNormal"><span style="font-family: Tahoma; color: blue;" lang="EN">
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       Physical Acoustics: definition of quantities, propagation of
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       mechanical disturbances in an elastic medium, sound pressure,
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       particle velocity, 
+	speed of the sound wave. </span><span style="font-family: Tahoma; color: blue;" lang="EN">Equation
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       of the acoustic waves. </span><span lang="EN"></span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma; color: blue;" lang="EN">
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       Energetical Acoustics: sound propagation seen as energy transport.
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       Definition of Sound Intensity and Sound Energy Density.
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       Active and Reactive energy, propagating and stationary sound fields. </span><span style="font-family: Tahoma; color: blue;" lang="EN">The 
+	Reactivity Ratio (or index).
+</span><span lang="EN"></span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma; color: blue;" lang="EN">Psychoacoustics:
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       physiological and psychological mechanisms of sound perception by
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       humans. </span><span style="font-family: Tahoma; color: blue;" lang="EN">The logarithmic scale of decibels (dB), elementary operations
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       on quantities expressed in dB. Frequency weighting curves,
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       methods of Loudness assessment, frequency analysis
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       with constant bandwidth, with constant percentage bandwidth (octaves, etc.), with critical bands
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       (Bark). </span><span style="font-family: Tahoma; color: blue;" lang="EN">Masking phenomena in time and in frequency. </span><span style="font-family: Tahoma; color: blue;" lang="EN">Use of
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       psychoacoustics for encoding "lossy" and
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       "lossless" audio signals with large reduction
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       of the "bitrate" required (MP3, WMA, AAC, FLAC, OGG, etc.).</span><span lang="EN"></span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma; color: blue;" lang="EN">Sound Propagation:
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       plane waves, spherical waves, standing waves. </span><span style="font-family: Tahoma; color: blue;" lang="EN">
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       Reflection and absorption. </span><span style="font-family: Tahoma; color: blue;" lang="EN">Specular and diffuse reflection .
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       Definition of sound absorption coeff. and scattering coeff.
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       . </span><span style="font-family: Tahoma; color: blue;" lang="EN">Measurement techniques of the absorption coeff.  and of the scattering coeff.
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       . </span><span lang="EN"></span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma; color: blue;" lang="EN">Propagation
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       outdoors: ground absorption,
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       effect of temperature and wind gradients, of air absorption, of shielding
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       or obstacles. </span><span style="font-family: Tahoma; color: blue;" lang="EN">The Maekawa and Kurze-Anderson formulas for the
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       estimation of shielding 
+	attenuation. </span><span lang="EN"></span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma; color: blue;" lang="EN">Propagation
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       indoors: the phenomenon of multiple reflections,
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       stationary reverberant field. </span><span style="font-family: Tahoma; color: blue;" lang="EN">Formulas of the reverberant field and 
+	of the       semi-reverberant field. 
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">Transients when a sound source is switched on and
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       off: sound tail, impulse response
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       of a room, Schroeder backward integration. 
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">Definition of Reverberation Time T60
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       and other quantities related to the acoustic transients.
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       Sabine formula for the estimation of the reverberation time. </span><span style="font-family: Tahoma; color: blue;" lang="EN">The
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       apparent sound absorption coefficient, and its measurement by tests in
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       reverberation room.</span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma; color: blue;" lang="EN">Propagation
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       through building structures: insulation of partitions,
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       windows, tapping noise. </span><span style="font-family: Tahoma; color: blue;" lang="EN">Measurement techniques and
+</span><span style="font-family: Tahoma; color: blue;" lang="EN">       Italian law.</span><span lang="EN"></span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma;" lang="en-gb">Digital 
+	Signal Processing applied to audio and acoustics. Sampling sound, artefacts 
+	due to limited amplitude resolution and temporal discretization. Basic 
+	algorithms for digital filtering (FIR, IIR): a complex theory made easy. The 
+	FFT algorithm, fast convolution, partitioned convolution. Effects of 
+	nonlinearities and of time variance.</span></li>
+	<li class="MsoNormal"><span style="font-family: Tahoma;" lang="en-gb">
+	Advanced method for impulse response measurement (MLS, ESS, etc.). Sound 
+	quality in concert halls and opera houses. ISO3382 acoustical parameters. 
+	Temporal and spatial parameters. Use of directive microphones for assessing 
+	the spatial properties of the sound field inside a room. </span></li>
+	<li class="MsoNormal"><span style="font-family: Tahoma;" lang="en-gb">Speech 
+	intelligibility in classrooms, auditoria and over telecommunication systems. 
+	The signal-to-noise ratio, effect of reflections and reverb. The Speech 
+	Transmission Index (STI) and its measurement.</span></li>
+	<li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Electroacoustics:
+</span><span style="font-family: Tahoma;" lang="EN">       transducers (microphones, loudspeakers). </span><span style="font-family: Tahoma;" lang="EN">Devices for processing
+</span><span style="font-family: Tahoma;" lang="EN">       analog and digital acoustic signal: amplifiers, equalizers,
+</span><span style="font-family: Tahoma;" lang="EN">       reverbs, compressors, etc... </span><span style="font-family: Tahoma;" lang="EN">Applications in the audio/electronics industry,
+</span><span style="font-family: Tahoma;" lang="EN">       in the field of telecommunications and broadcasting,
+</span><span style="font-family: Tahoma;" lang="EN">       in the recording industry and in entertainment industry
+</span><span style="font-family: Tahoma;" lang="EN">       automotive, in aviation and marine sectors. </span><span lang="EN"></span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Techniques for numerical 
+	simulation       of sound propagation: finite element models,
+</span><span style="font-family: Tahoma;" lang="EN">       boundary elements, ray tracing, beam tracing. </span><span style="font-family: Tahoma;" lang="EN">Using simulation programs,
+</span><span style="font-family: Tahoma;" lang="EN">       with hands-on practice in the laboratory.&nbsp; </span><span lang="EN"></span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Instrumentation and
+</span><span style="font-family: Tahoma;" lang="EN">       equipment for acoustical measurements: sound level meter, spectrum analyzer,       impulse response measurement system.
+	Virtual Instrumentation on PC, software for acoustical measurements, with
+</span><span style="font-family: Tahoma;" lang="EN">       practical exercises in the laboratory. </span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Numerical processing of
+</span><span style="font-family: Tahoma;" lang="EN">       the acoustic signal: from general theory to practical applications on
+</span><span style="font-family: Tahoma;" lang="EN">       PCs. Auralization, virtual acoustics reality. </span><span style="font-family: Tahoma;" lang="EN">Outline of
+</span><span style="font-family: Tahoma;" lang="EN">       modern applications in the entertainment industry, and future uses for 
+	"live" real time applications.
+</span><span style="font-family: Tahoma;" lang="EN">"Plugins" for digital processing
+</span><span style="font-family: Tahoma;" lang="EN">       of acoustic effects; FIR and IIR filters, fast convolution, calculation of
+</span><span style="font-family: Tahoma;" lang="EN">       Inverse numerical filters, active cancellation of sound.</span><span lang="EN"></span></li>
+	<li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">       
+	The 4 modern methods for measuring absorption coefficients: ISO 354 
+	(reverberation room), ISO 10534 (standing wave tube), the Intensimetric 
+	Method (Farina/Torelli), the Impulsive Method (EN 1793/5).
+</span></li>
+   <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">
+	<a href="#Lab_sessions">lab sessions</a> : measurement of impulse response and
+</span><span style="font-family: Tahoma;" lang="EN">       other major acoustic parameters 
+	employing <a href="http://www.aurora-plugins.com">Aurora</a>, numerical simulation of the sound
+</span><span style="font-family: Tahoma;" lang="EN">       field inside a room by making use of 
+	two calculation programs (<a href="http://www.ramsete.com">Ramsete</a>,
+	<a href="http://www.comsol.com">Comsol</a>).</span></li>
+  </ul>
+  </td>
+ </tr>
+</tbody></table>
+
+<p><b><span style="font-family: Tahoma;" lang="EN">The
+</span></b><b><span style="font-family: Tahoma;" lang="EN">first 7 topics <span style="color: blue;">(evidenced in blue)</span> are common
+</span></b><b><span style="font-family: Tahoma;" lang="EN">also to students of the 
+degree in Techniques of P</span></b><b><span style="font-family: Tahoma;" lang="EN">revention 
+(3 CFUs), while the remaining topics (in black) apply only to
+</span></b><b><span style="font-family: Tahoma;" lang="EN">students of the Faculty of Engineering 
+(6 CFUs).</span></b></p>
+
+<p><b><span style="font-family: Tahoma;" lang="EN"><a href="#top">Back to Top</a></span></b><b><span lang="EN"></span></b></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">For the
+</span><span style="font-family: Tahoma;" lang="EN">"official" program and other information about the exam,
+</span><span style="font-family: Tahoma;" lang="EN">please refer to the official websites:
+<br>
+-
+<a href="http://ingegneria.unipr.it/2014/syllabus/dicatea/Applied_Acoustics%20Farina.pdf">
+Official Page of the Civil and Environmental Engineering Degree</a><br>
+</span><span style="font-family: Tahoma;" lang="EN">- 
+<a href="http://ltgest.campusnet.unipr.it/cgi-bin/campusnet/corsi.pl/Show?_id=f3bd;sort=DEFAULT;search=;hits=30">Official 
+Page of the Management Engineering Degree</a> </span><br>
+<span style="font-family: Tahoma" lang="en-gb">
+<a href="http://ingegneria.unipr.it/2014/syllabus/1314_5052_11_1005233%20-%20APPLIED%20ACOUSTICS_Farina.pdf">
+- Official Page of the Advanced Degree in Telecommunications Engineering</a> 
+(also for Electronics and Computer Science)</span><span style="font-family: Tahoma;" lang="EN"><br>
+</span><span style="font-family: Tahoma;" lang="EN">-
+<a href="http://lmingmec.unipr.it/cgi-bin/campusnet/corsi.pl/Show?_id=f3bd;sort=DEFAULT;search=;hits=24">Official Page of the 
+Advanced Degree in Mechanical Engineering</a><br>
+-
+<a href="http://ingegneria.unipr.it/2014/syllabus/dicatea/Applied_Acoustics%20Farina.pdf">
+Official Page of the Advanced Degree in Environment and Land Engineering</a><br>
+- 
+<a href="http://profsan4.unipr.it/cgi-bin/campusnet/corsi.pl/Show?_id=9bad;sort=DEFAULT;search= {aa} eq &quot;2013/2014&quot; and {anno} =~ m/3°/i ;hits=5">Official Page of the Degree in Techniques 
+of Prevention in the Environment and at the workplace</a> .</span></p>
+<div class="MsoNormal" style="text-align: center;" align="center"><hr align="center" size="2" width="100%"><b><span lang="EN-GB">
+</span></b><b><span lang="EN-GB">
+</span></b></div>
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="Mode_of_exam">Method of Examination</a></span></h2>
+
+<p><span style="font-family: Tahoma;" lang="EN">The examination is
+in two parts: some written exercise(s) to be solved numerically, followed by an 
+oral examination about theory, which usually happens just after the written 
+exercises. </span></p>
+<p><span style="font-family: Tahoma;" lang="EN">The written exercises are to be 
+completed in an one-hour time limit, typically starting at 9.00. After a few 
+minutes for the correction of the exercises, the oral examinations start 
+(typically around 10.30). Each oral exam is typically shorter than 15 minutes. 
+In most exam sessions, all the students are examined before lunch. Only when the 
+number of students of very large, some of them will be examined in the 
+afternoon. It is generally not allowed to make the oral examination in a day 
+different from the written exercises, so the student should be trained to 
+sustain both parts of the exam in the same day. </span></p>
+<p><span style="font-family: Tahoma;" lang="EN">The student is required to carry 
+a pen and an handheld calculator, as well as charts, tables, notes, etc... </span></p>
+<p><span style="font-family: Tahoma;" lang="EN">During the written exercises it is 
+possible to employ all of the above material, including notes and/or 
+textbooks; instead, during the final oral question, the student is 
+not allowed to consult his/her notes or books, but he/she can still employ charts and 
+tables - so it is advisable to keep them separate from the notes.</span></p>
+<p><span style="font-family: Tahoma; background-color: #FFFF00" lang="en-gb">In 
+previous academic years, during the written exercise it was also allowed to 
+employ a computer, a tablet, or other electronics devices, although it was not 
+allowed to connect to the Internet or to communicate with anyone. </span></p>
+<p><span style="font-family: Tahoma; background-color: #FFFF00" lang="en-gb">Due 
+to systematic misuse of the communication capabilities of these devices, since 1 
+october 2013 the usage of these devices is strictly forbidden during 
+examinations. If the student carries such devices with him/her, including cell 
+phones or smartphones, the devices must be kept switched off (NOT just in 
+standby mode) during the whole duration of the exam.</span></p>
+<p><span style="font-family: Tahoma; background-color: #FFFF00" lang="en-gb">Who 
+infringes this rule will be immediately expelled from the classroom and 
+consequently rejected. </span></p>
+<p><span style="font-family: Tahoma; background-color: #FFFF00" lang="en-gb">
+Exception to this rule is allowed only for students with certified Learning 
+Disabilities (LD, DSA in Italian), who are invited to contact the teacher before 
+the exam, possibly by Email or in person.</span></p>
+<p><span style="font-family: Tahoma" lang="en-gb">For the written exercises, 
+each student is given two pieces of paper: the examination form, which includes 
+the problems and there are spaces for writing the results, and one 4-faces 
+&quot;protocol&quot; foil, where the student should write clearly the passages required 
+for getting the solutions. Both sheets must carry, since the beginning of the 
+exam, name, surname and matricula of each student. It is forbidden to write on 
+anything else than the &quot;protocol&quot; sheet: if one is not enough, additional 
+&quot;protocol&quot; sheets can be asked to the examiner. All the &quot;protocol&quot; sheets must 
+be given back together with the examination form.</span></p>
+<p><span style="font-family: Tahoma;" lang="EN">The written exercises
+typically provide a maximum score of 30 points. At least 15 points are
+required for passing the written exercises and being admitted to the
+subsequent oral question, which is <b>mandatory</b>, and provides normally a 
+range of +/-5 points. Only in very exceptional cases this range can be expanded 
+to +/- 10 points, based on the sole evaluation of the examiner. </span></p>
+<p><span style="font-family: Tahoma" lang="en-gb">Additional points can also be 
+added thanks to activity related to <a href="#New_Notes">notes</a>.</span></p>
+<p><span style="font-family: Tahoma;" lang="EN">At least <b>one written exercise is always mandatory</b>,
+even for students who take the examination during receiving hours (<a href="#Exam_in_receiving_hours">see later</a>). </span></p>
+<p><span style="font-family: Tahoma;" lang="EN">Similarly, it is always <b>
+mandatory to satisfactorily </b></span>
+<span style="font-family: Tahoma;" lang="EN"><b>answer </b></span>
+<span style="font-family: Tahoma;" lang="EN"><b>to at least one oral question</b></span><span style="font-family: Tahoma;" lang="en-gb">, 
+even for students who passed the written exercises with maximum score. The 
+evaluation of the oral examination, which usually is positive, in some cases can 
+provide a NEGATIVE score, reducing the score obtained in the written part. And, 
+independently from the sum of the scores, <b>if the oral examination is judged 
+unsatisfactory, the student can always be rejected</b>.</span></p>
+<p><span style="font-family: Tahoma;" lang="en-gb">So students must train 
+themselves to sustain a formal oral examination, and are discouraged to only train 
+on exercises. Please, note that an oral question is considered satisfactorily 
+answered even if just a minimal answer is given, provided that the student 
+proofs to know and use proper words (names) associated with the physical 
+quantities, and to know the corresponding definitions, physical meaning and 
+measurement units. It is NOT required to memorize complex formulas or numerical 
+values, the student should consult his tables of formulas and values during the 
+oral examination. Conversely, it is well appreciated to be equipped with a good 
+set of tables and charts, proofing to be able to retrieve the required 
+information from them. During the oral examination it is not usually required to 
+do numerical computations: however it is always useful to keep the handheld 
+calculator at hand.</span></p>
+<p><span style="font-family: Tahoma;" lang="en-gb">Students of the Engineering 
+courses are requested to use <span style="background-color: rgb(255, 255, 0);">English</span> 
+both for the written and oral parts of the examination, even if they 
+followed the course in previous years, when it was named "Acustica Applicata" 
+and taught in Italian.</span></p>
+<p><span style="font-family: Tahoma;" lang="en-gb">S</span><span style="font-family: Tahoma;" lang="EN">tudents 
+of the degree in Techniques of Prevention, instead, are still allowed to take the 
+examination in Italian, if preferred, although of course they are also allowed 
+to take it in English, at their choice.</span></p>
+<p><span style="font-family: Tahoma;" lang="en-gb">For optimal training to the 
+oral examinations, students are encouraged to assist to the previous session 
+of exams. </span></p>
+<p><span style="font-family: Tahoma;" lang="en-gb">For optimal training to the 
+exercises, it is strongly <b>discouraged</b> to "study" the solution of already-solved 
+problems. The only way to be trained correctly is by attempting to solve 
+problems without any preliminary knowledge of the correct solution. For this, it 
+can be useful to download the text of the problems which were employed in past 
+years, which can be downloaded 
+here:</span></p>
+<p><span style="font-family: Tahoma;" lang="EN"><a href="/Testi_Esame/">OLD EXAM 
+EXERCISES</a><br>
+</span></p>
+<span lang="it"><font face="Tahoma">
+</font></span>
+
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN-GB">
+</span></b><b><span lang="EN-GB">
+</span></b><hr align="center" size="2" width="100%"><b><span lang="EN-GB"></span></b><span style="font-family: Tahoma;" lang="EN"></span><span lang="it"></span></div>
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="Dates">Dates of exams</a></span> <span style="font-family: Tahoma;" lang="EN"> </span><span lang="EN-GB"></span></h2>
+
+<table class="MsoNormalTable" style="width: 100%;" id="table1" bgcolor="#ffffff" border="1" cellpadding="0" width="100%">
+ <tbody><tr>
+  <td style="padding: 0cm; background: aqua none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: Tahoma;">Date</span></b></p>
+  </td>
+  <td style="padding: 0cm; background: aqua none repeat scroll 0% 50%; width: 25%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>
+	<span style="font-family: Tahoma;">Day</span></b></p>
+  </td>
+  <td style="padding: 0cm; background: aqua none repeat scroll 0% 50%; width: 25%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>
+	<span style="font-family: Tahoma;">Hour</span></b></p>
+  </td>
+  <td style="padding: 0cm; background: aqua none repeat scroll 0% 50%; width: 25%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-family: Tahoma;">Place</span></b></p>
+  </td>
+ </tr>
+ 	<tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">	
+	<span style="font-family: Tahoma; font-size: 10pt;">13/09/2013</span></p></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+	<p class="MsoNormal" align="center">
+	<span style="font-size: 10pt; font-family: Tahoma;">Friday</span></p></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  <p class="MsoNormal" align="center">
+  <span style="font-size: 10pt; font-family: Tahoma;">9.00</span></p></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  <p class="MsoNormal" align="center">
+	<font size="2"><span style="font-family: Tahoma">Aula A</span></font></p></td>
+ 	</tr>
+	<tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">	
+	<font size="2"><span style="font-family: Tahoma">24</span></font><span style="font-family: Tahoma; font-size: 10pt;">/09/2013</span></p></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+	<p class="MsoNormal" align="center">
+	<font size="2"><span style="font-family: Tahoma">Tuesday</span></font></p></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  <p class="MsoNormal" align="center">
+  <span style="font-size: 10pt; font-family: Tahoma;">9.00</span></p></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  <p class="MsoNormal" align="center">
+	<font size="2"><span style="font-family: Tahoma">Aula B1</span></font></p></td>
+ 	</tr>
+ 	<tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">	
+	<font size="2"><span style="font-family: Tahoma">31</span></font><span style="font-family: Tahoma; font-size: 10pt;">/01/2014</span></p></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p align="center">
+	<span style="font-size: 10pt; font-family: Tahoma;">Friday</span></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">
+	<span style="font-size: 10pt; font-family: Tahoma;">9.00</span></p></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" align="center">
+	<font size="2"><span style="font-family: Tahoma">Aula B1</span></font></p></td>
+ 	</tr>
+ <tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">	
+	<span style="font-family: Tahoma; font-size: 10pt;">14/02/2014</span></p></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p align="center">
+	<span style="font-size: 10pt; font-family: Tahoma;">Friday</span></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">
+	<span style="font-size: 10pt; font-family: Tahoma;">9.00</span></p></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" align="center">
+	<font size="2"><span style="font-family: Tahoma">Aula A1</span></font></p></td>
+ </tr>
+ <tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">	
+	<span style="font-family: Tahoma; font-size: 10pt;">28/02/2014</span></p></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p align="center">
+	<span style="font-size: 10pt; font-family: Tahoma;">Friday</span></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">
+	<span style="font-size: 10pt; font-family: Tahoma;">9.00</span></p></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" align="center">
+	<font size="2"><span style="font-family: Tahoma">Aula L</span></font></p></td>
+ </tr>
+ <tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">
+	<span style="font-family: Tahoma; font-size: 10pt;">13/06/2014</span></p></td>
+  <td style="padding: 0cm; width: 25%;" width="25%" align="center">
+  	<span style="font-size: 10pt; font-family: Tahoma;">Friday</span></td>
+  <td style="padding: 0cm; width: 25%;" width="25%" align="center">
+  	<span style="font-size: 10pt; font-family: Tahoma;">9.00</span></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" align="center"><font size="2">
+	<span style="font-family: Tahoma">Aula L</span></font></td>
+ </tr>
+ <tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">	
+	<font size="2"><span style="font-family: Tahoma">11</span></font><span style="font-family: Tahoma; font-size: 10pt;">/07/2014</span></p></td>
+  <td style="padding: 0cm; width: 25%;" width="25%" align="center">
+  	<span style="font-size: 10pt; font-family: Tahoma;">Friday</span></td>
+  <td style="padding: 0cm; width: 25%;" width="25%" align="center">
+  	<span style="font-size: 10pt; font-family: Tahoma;">9.00</span></td>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p align="center"><font size="2"><span style="font-family: Tahoma">Aula L</span></font></td>
+ </tr>
+ <tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">	
+	<font size="2"><span style="font-family: Tahoma">25</span></font><span style="font-family: Tahoma; font-size: 10pt;">/07/2014</span></p></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+	<span style="font-size: 10pt; font-family: Tahoma;">Friday</span></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  	<span style="font-size: 10pt; font-family: Tahoma;">9.00</span></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  <font size="2"><span style="font-family: Tahoma">Aula L</span></font></td>
+ </tr>
+ 	<tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">	
+	<span style="font-family: Tahoma; font-size: 10pt;">12/09/2014</span></p></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+	<span style="font-size: 10pt; font-family: Tahoma;">Friday</span></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  	<span style="font-size: 10pt; font-family: Tahoma;">9.00</span></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  <font size="2"><span style="font-family: Tahoma">Aula H</span></font></td>
+ 	</tr>
+ <tr>
+  <td style="padding: 0cm; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center">	
+	<span style="font-family: Tahoma; font-size: 10pt;">26/09/2014</span></p></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+	<span style="font-size: 10pt; font-family: Tahoma;">Friday</span></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  	<span style="font-size: 10pt; font-family: Tahoma;">9.00</span></td>
+  <td style="padding: 0cm; width: 25%;" align="center" width="25%">
+  <font size="2"><span style="font-family: Tahoma">Aula H</span></font></td>
+ </tr>
+ </tbody></table>
+
+<p><span style="font-family: Tahoma;" lang="en-gb">
+Currently, the Easytes</span><span style="font-family: Tahoma;">t software does 
+not allow to plan the exam dates with large advance, so the students are kindly 
+requested to be patient, and do not stress the teacher asking to fix the exam 
+dates. This is currently outside the control of the teacher, and such requests 
+are absolutely not useful. The students are simply recommended to check this web 
+page often, when the dates are fixed they will be posted immediately here. In 
+any case, the teacher will not answer to requests of fixing additional exams, as 
+it is possible to make exams every week, during the receiving hours, as 
+explained below.</span></p>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b><hr align="center" size="2" width="100%"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b></div>
+
+<h2><span style="font-family: Tahoma;" lang="EN">
+<a name="Exam_in_receiving_hours">Examinations in receiving hours </a> </span></h2>
+
+<p><span style="font-family: Arial;" lang="EN">Students
+</span><span style="font-family: Arial;" lang="EN">may ask the teacher to take the exam in dates different from
+the "official" ones
+shown above, by sending an E-mail for according about date and site for the exam.
+</span><span style="font-family: Arial;" lang="EN">In particular, <span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">the general rule </span></span><span style="font-family: Arial;" lang="EN"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">is to perform these exams during
+</span></span><span style="font-family: Arial;" lang="EN"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">receiving hours,</span> even if it is always required to get a preliminary agreement by
+</span><span style="font-family: Arial;" lang="EN">E-mail.</span></p>
+<p><span style="font-family: Arial;" lang="en-gb">E</span><span style="font-family: Arial;" lang="EN">very student is required to check with the Secretary that he is allowed </span><span style="font-family: Arial;" lang="EN">to take the exam on the chosen date - if he is not allowed,
+</span><span style="font-family: Arial;" lang="EN">the Secretary cancels the exam's recording, and it must be repeated ....</span><span lang="EN"></span></p>
+
+<p><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-family: Arial;" lang="EN">For <span style="font-family: Arial;" lang="EN">clarity:</span></span> <span style="font-family: Arial;" lang="EN">who does the exam in receiving 
+hours gets immediate verbalization of the examination carried out. </span><span style="font-family: Arial;" lang="EN">Therefore
+</span><span style="font-family: Arial;" lang="EN">it needs to be ensured that the student is allowed to take the exam on the date on which it actually
+</span><span style="font-family: Arial;" lang="EN">takes place. </span><span style="font-family: Arial;" lang="EN"><span style="font-weight: 700; background-color: rgb(255, 255, 0);">
+Under no circumstances the examinator will leave a
+</span></span><span style="font-family: Arial;" lang="EN"><span style="background-color: rgb(255, 255, 0); font-weight: 700;">"suspended verbalization"</span> until the next exam session. </span><span style="font-family: Arial;" lang="EN">Who is not allowed to
+</span><span style="font-family: Arial;" lang="EN">take the exam on a certain date, of course cannot do it at that time. </span><span style="font-family: Arial;" lang="EN">
+</span><span style="font-family: Arial;" lang="EN">
+</span><span style="font-family: Arial;" lang="EN">These rules were made for presumably good reasons, so
+</span><span style="font-family: Arial;" lang="EN">they should not be circumvented. </span><span style="font-family: Arial;" lang="EN">If they are deemed
+</span><span style="font-family: Arial;" lang="EN">inappropriate, students should ask the Faculty to change them, rather than bombard
+</span><span style="font-family: Arial;" lang="EN">the lecturer with requests of improper circumvention of the rule...</span><span lang="EN"></span></p>
+
+<p><span style="font-family: Arial;" lang="EN">On the other hand,
+</span><span style="font-family: Arial;" lang="EN">these rules are complex, and the position of each student is, in general,
+</span><span style="font-family: Arial;" lang="EN">different from that of another. </span><span style="font-family: Arial;" lang="EN">I do not have the knowledge and the tools to
+</span><span style="font-family: Arial;" lang="EN">determining who is entitled to make an examination on a certain date and who is not. </span><span style="font-family: Arial;" lang="EN">It is
+</span><span style="font-family: Arial;" lang="EN">useless to ask me, for me everyone can do the exam at any time... Every student must </span><span style="font-family: Arial;" lang="EN">check with the Secretary, to avoid that the examination is
+</span><span style="font-family: Arial;" lang="EN">cancelled, after being done in a "not allowed" date.</span><span lang="EN"></span></p>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b><hr align="center" size="2" width="100%"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b></div>
+
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="Lab_sessions">Laboratory 
+sessions</a></span> <span style="font-family: Tahoma;" lang="EN"> </span><b><span style="font-family: Tahoma;" lang="EN">
+	<img id="_x0000_i1037" src="newarrow.gif" border="0" height="21" width="32"></span></b></h2>
+
+<p><span style="background-color: rgb(255, 255, 0); font-family: Tahoma;" lang="EN">Three lab sessions 
+</span><span style="background-color: rgb(255, 255, 0); font-family: Tahoma;" lang="EN">of 4 h each will be held at the CEDI (Didactical Engineering Center, building B, CAD-CAM lab), in the month of January, 2014. 
+</span><span style="font-family: Tahoma;" lang="EN"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">The dates are as <span style="background-color: rgb(255, 255, 0);">follows:</span></span></span><span lang="EN"></span></p>
+
+<table class="MsoNormalTable" style="width: 100%;" id="table5" bgcolor="#ffffff" border="1" cellpadding="0" width="100%">
+ <tbody><tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Date</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Time</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Place</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	15/01/2014</span></p></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma">14.30-18.30</span></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">CAD-CAM Lab (Pal.</span><span style="font-family: Tahoma;">B, 
+</span><span style="font-family: Tahoma;">	scientific engineering buildings, 1st floor)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	20/01/2014</span></p></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma">9.00-13.00</span></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">CAD-CAM Lab</span> <span style="font-family: Tahoma;">(Pal.</span><span style="font-family: Tahoma;">B, 
+</span><span style="font-family: Tahoma;">	scientific engineering buildings, 1st floor)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	22/01/2014</span></p></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma">9.00-13.00</span></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">CAD-CAM Lab</span> <span style="font-family: Tahoma;">(Pal.</span><span style="font-family: Tahoma;">B, 
+</span><span style="font-family: Tahoma;">	scientific engineering buildings, 1st floor)</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<p><span style="font-family: Tahoma;" lang="EN">D</span><span style="font-family: Tahoma;" lang="EN">uring the first lab session 
+acoustical tests are performed employing a powerful dodechaedron loudspeaker: of consequence,
+</span><span style="font-family: Tahoma;" lang="EN">students are encouraged to carry
+proper personal protective equipment.
+</span><span style="font-family: Tahoma;" lang="EN">We recommend
+</span><span style="font-family: Tahoma;" lang="EN">"disposable" earplugs (Ear, Bilsom, etc..).</span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">Students
+</span><span style="font-family: Tahoma;" lang="EN">in possession of a laptop are invited to bring it in the classroom, but only
+</span><span style="font-family: Tahoma;" lang="EN">if it features:</span><span lang="EN"></span></p>
+
+<ol>
+	<li><span style="font-family: Tahoma;" lang="EN">External microphone
+	(wired), preferably of cylindrical shape (so that it can be inserted
+	in the calibrator). Also headphones equipped with microphone are suitable (at a lesser extent).
+In laboratory
+	a number microphones is provided, but their use is
+	primarily for computers installed in the classroom.</span></li>
+	<li><span style="font-family: Tahoma;" lang="EN">Headphones (to listen to the
+	auralization results without disturbing colleagues).</span></li>
+	<li><span style="font-family: Tahoma;" lang="EN">Software 
+	<a href="http://www.adobe.com/it/products/audition">Adobe Audition</a> with
+	<a href="http://www.aurora-plugins.com">Aurora</a></span><font face="Tahoma">
+	</font><span style="font-family: Tahoma;">plugins,	or 
+	<a href="http://audacity.sourceforge.net/">Audacity</a> with
+	<a href="http://pcfarina.eng.unipr.it/Public/Aurora-for-Audacity/">
+	Aurora-for-Audacity</a> plugins (1st session)<br>
+</span></li>
+	
+  <li><span style="font-family: Tahoma;" lang="EN">Software 
+	<a href="http://www.ramsete.com">Ramsete</a></span><span style="font-family: Tahoma;"> (2nd session)</span></li>
+
+	
+	<li><span style="font-family: Tahoma;" lang="it">Software <a href="http://pcfarina.eng.unipr.it/Public/DISIA/">DISIA</a></span><a href="http://pcfarina.eng.unipr.it/Public/DISIA/"><span style="font-family: Tahoma;"> </span></a><span style="font-family: Tahoma;">(3rd session)</span></li>
+</ol><p><span style="font-family: Tahoma;" lang="EN"></span><b><span lang="EN"></span></b></p>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b><hr align="center" size="2" width="100%"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b></div>
+
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="textbooks">Recommended textbooks</a></span> <span style="font-family: Tahoma;" lang="EN"> </span><span lang="EN"></span></h2>
+
+<p><span style="font-family: Tahoma;" lang="EN">The official textbooks for the Applied Acoustics course 
+are:</span></p>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Patrizio Fausti:
+	<a href="http://download.rockwool.it/media/74935/acustica%20in%20edilizia.pdf">Acustica in Edilizia</a> ,
+</span><span style="font-family: Tahoma;" lang="EN">     Rockwool Italy, Milan (2005) 
+</span></li>
+	<li class="MsoNormal"><span style="font-family: Tahoma" lang="en-gb">Arianna 
+	Astolfi e Maria Giovannini:
+	<a href="http://download.rockwool.it/media/75055/acustica%20delle%20aule%20scolastiche.pdf">
+	Acustica delle aule scolastiche</a>, Rockwool Italy, Milan (2012) </span></li>
+</ul>
+
+<p><span style="font-family: Tahoma;" lang="EN">     These books are in Italian 
+- free download in PDF format,
+</span><span style="font-family: Tahoma;" lang="EN">     you can also request for a free hardcopy to Rockwool.
+Thanks Rockwool!</span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">The books
+</span><span style="font-family: Tahoma;" lang="EN">RECOMMENDED (not required) for thorough preparation of the exam are:
+</span><span lang="EN"></span></p>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">R. Spagnolo: <a href="http://www.hoepli.it/libro.asp?ib=9788825173208&amp;pc=000012008001006">Manuale</a></span><span style="font-family: Tahoma;" lang="EN"><a href="http://www.hoepli.it/libro.asp?ib=9788825173208&amp;pc=000012008001006"> di Acustica Applicata</a> - Citta'&nbsp; Studi Editore, Milano (2001/2007). </span><span lang="EN"></span></li>
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">S. Cingolani, R. Spagnolo
+</span><span style="font-family: Tahoma;" lang="EN">     : <a href="http://www.hoepli.it/libro.asp?ty=&amp;ib=9788825173215&amp;pc=000000000000000&amp;mcs=0">Acustica </a></span><span style="font-family: Tahoma;" lang="EN"><a href="http://www.hoepli.it/libro.asp?ty=&amp;ib=9788825173215&amp;pc=000000000000000&amp;mcs=0">Musicale ed Architettonica</a> , Citta'&nbsp; Studi Editore, Milano (2004/2007)</span><span lang="EN"></span></li>
+ <li class="MsoNormal"><span style="font-family: Tahoma;">Thomas D. Rossing (ed.):</span> <span lang="EN-US"><a href="http://www.springer.com/physics/classical+continuum+physics/book/978-0-387-30446-5"><span style="font-family: Tahoma;" lang="EN">Springer Handbook of Acoustics</span></a></span> <span style="font-family: Tahoma;">, Springer Science + Business Media, New York</span><span style="font-family: Tahoma;">     (2007).</span></li>
+</ul>
+
+<p><span style="font-family: Tahoma;" lang="en-gb">Additional</span><span style="font-family: Tahoma;" lang="EN"> support material
+for the course (Excel spreadsheets, WAV files, etc..) used during the lessons is available in the
+"Public" section of this website:</span><br><span style="font-family: Tahoma;" lang="EN">
+<b><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+<a href="Public/Acoustics-Course/">http://pcfarina.eng.unipr.it/Public/Acoustics-Course/</a></span></b>
+- It is recommended to download especially the Excel
+spreadsheets containing the exercises done in the classroom.</span></p>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b><hr align="center" size="2" width="100%"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b></div>
+
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="Old_Notes">Old "on line" 
+notes 
+(in Italian) </a> </span></h2>
+
+<p><span style="font-family: Tahoma;" lang="EN">It can be useful
+</span><span style="font-family: Tahoma;" lang="EN">to download the material prepared 
+some years ago for the <a href="http://pcfarina.eng.unipr.it/corsoCSPMI.htm">Advanced Training Course for</a></span><span style="font-family: Tahoma;" lang="EN"><a href="http://pcfarina.eng.unipr.it/corsoCSPMI.htm"> Competent Technicians in Environmental Acoustics</a> , organized by the University of
+</span><span style="font-family: Tahoma;" lang="EN">Parma in 2005 and 2006. </span><span style="font-family: Tahoma;" lang="EN">It consists of <b><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/">11 
+lesson notes covering </a></span></b></span><span style="font-family: Tahoma;" lang="EN"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"><b>the first part of the program</b></span></a> (the one which covers the topics
+</span><span style="font-family: Tahoma;" lang="EN">common also to the students of the Degree in Techniques of
+</span><span style="font-family: Tahoma;" lang="EN">Prevention).</span><span lang="EN"></span></p>
+
+<div align="left">
+
+<table class="MsoNormalTable" style="width: 53%;" id="table9" bgcolor="#ffffff" border="1" cellpadding="0" width="53%">
+ <tbody><tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>N (%)</b></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><b>Topics:</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">1</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/01%20Misura%20Grandezze%20Fisiche.doc">01
+</a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/01%20Misura%20Grandezze%20Fisiche.doc">  Misura Grandezze Fisiche.doc</a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">2</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/02%20Il%20suono%20-%20natura%20e%20grandezze%20caratteristiche.doc"><span lang="EN">02 Il suono - natura e grandezze
+</span></a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/02%20Il%20suono%20-%20natura%20e%20grandezze%20caratteristiche.doc"><span lang="EN">  caratteristiche.doc</span></a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;" lang="EN"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">3</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/03%20Sistema%20uditivo%20-%20decibel%20-%20somma%20di%20livelli.doc"><span lang="EN">03 Sistema uditivo - decibel - somma di
+</span></a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/03%20Sistema%20uditivo%20-%20decibel%20-%20somma%20di%20livelli.doc"><span lang="EN">  livelli.doc</span></a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;" lang="EN"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">4</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/04%20Fonometria.doc">04
+</a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/04%20Fonometria.doc">  Fonometria.doc</a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">5</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/05%20Analisi%20Spettrale.doc">05
+</a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/05%20Analisi%20Spettrale.doc">  Analisi Spettrale.doc</a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">6</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/06%20Tecniche%20digitali%20di%20misurazione%20acustica.doc"><span lang="EN">06 Tecniche digitali di misurazione
+</span></a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/06%20Tecniche%20digitali%20di%20misurazione%20acustica.doc"><span lang="EN">  acustica.doc</span></a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;" lang="EN"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">7</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/07%20Propagazione%20in%20Campo%20Libero.doc"><span lang="EN">07 Propagazione in Campo Libero.doc</span></a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;" lang="EN"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">8</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/08%20Barriere%20antirumore.doc">08
+</a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/08%20Barriere%20antirumore.doc">  Barriere antirumore.doc</a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">9</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/09%20Acustica%20Ambienti%20Chiusi.doc">09
+</a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/09%20Acustica%20Ambienti%20Chiusi.doc">  Acustica Ambienti Chiusi.doc</a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">10</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/10%20Assorbimento%20-%20Isolamento.doc">10
+</a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/10%20Assorbimento%20-%20Isolamento.doc">  Assorbimento - Isolamento.doc</a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;"></span>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 58.5pt;" width="78">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Arial;">11</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+	<span style="word-spacing: 0px;">
+</span><span style="word-spacing: 0px;">  </span><p class="MsoNormal"><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/11%20Misura%20Assorbimento%20Acustico.doc">11
+</a></span></span></span><span style="word-spacing: 0px;"><span class="apple-style-span"><span style="font-size: 13.5pt; font-family: Tahoma; color: black;"><a href="http://pcfarina.eng.unipr.it/Public/CorsoCSPMI/11%20Misura%20Assorbimento%20Acustico.doc">  Misura Assorbimento Acustico.doc</a></span></span></span></p><span style="word-spacing: 0px;"></span><span style="font-family: Arial;"></span>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p><span style="font-family: Tahoma;" lang="EN">Furthermore,
+</span><span style="font-family: Tahoma;" lang="EN">the "on line" notes of
+</span><span style="font-family: Tahoma;" lang="EN">the old course of Technical Physics are available, which had been
+</span><span style="font-family: Tahoma;" lang="EN">prepared by the students of the time. </span><span style="font-family: Tahoma;" lang="EN">This course contained a part of about 30
+</span><span style="font-family: Tahoma;" lang="EN">hours of Acoustics, with e program covering, at least partially,
+</span><span style="font-family: Tahoma;" lang="EN">the program of the current Applied Acoustics course. </span><span style="font-family: Tahoma;" lang="EN">In reality they covered it almost
+</span><span style="font-family: Tahoma;" lang="EN">completely: in fact, they even did a couple of things that
+</span><span style="font-family: Tahoma;" lang="EN">are not done anymore, because the average level of the students
+</span><span style="font-family: Tahoma;" lang="EN">of the old, five-years degree, was vastly superior to the average level of current students,
+</span><span style="font-family: Tahoma;" lang="EN">and you could go away very fast on a wide range of subjects, instead
+</span><span style="font-family: Tahoma;" lang="EN">now everything must  be explained starting from the grassroots level ...</span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">The web pages
+</span><span style="font-family: Tahoma;" lang="EN">from which you can download these 
+notes are:</span><span lang="EN"></span></p>
+
+<div align="left">
+
+<table class="MsoNormalTable" style="width: 53%;" id="table2" bgcolor="#ffffff" border="1" cellpadding="0">
+ <tbody><tr>
+  <td style="padding: 0.75pt; width: 23%;" width="23%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">Academic Year</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">Degree</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">List of 
+	Notes</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">Format</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 23%;" width="23%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">1998/1999</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">Electronic Engineering</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><strong>
+	<a href="dispense98/elenco.htm#Acustica"><span style="font-family: Tahoma">
+	Note</span></a><span style="font-family: Tahoma;"><a href="dispense98/elenco.htm#Acustica">s
+</a></span></strong><strong><span style="font-family: Tahoma;"><a href="dispense98/elenco.htm#Acustica">  98/99</a></span></strong></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">DOC and HTML</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 23%;" width="23%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">1999/2000</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">Electronic Engineering</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><strong>
+	<span style="font-family: Tahoma;"><a href="dispense99/elenco.htm#Acustica">
+	Notes
+</a></span></strong><strong><span style="font-family: Tahoma;"><a href="dispense99/elenco.htm#Acustica">  99/00</a></span></strong></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">DOC and HTML</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 23%;" width="23%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">2000/2001</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">Electronic Engineering</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><strong>
+	<span style="font-family: Tahoma;"><a href="dispense00/elenco.htm#Acustica">
+	Notes
+</a></span></strong><strong><span style="font-family: Tahoma;"><a href="dispense00/elenco.htm#Acustica">  00/01</a></span></strong></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">DOC and HTML</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 23%;" width="23%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">2001/2002</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">Electronic Engineering</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><strong>
+	<span style="font-family: Tahoma;"><a href="dispense01/elenco.htm#Acustica">
+	Notes
+</a></span></strong><strong><span style="font-family: Tahoma;"><a href="dispense01/elenco.htm#Acustica">  01/02</a></span></strong></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">DOC and HTML</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 23%;" width="23%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">2002/2003</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">Mechanical Engineering</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><strong>
+	<span style="font-family: Tahoma;"><a href="dispense02/elenco.htm#Acustica">
+	Notes
+</a></span></strong><strong><span style="font-family: Tahoma;"><a href="dispense02/elenco.htm#Acustica">  02/03</a></span></strong></p>
+  </td>
+  <td style="padding: 0.75pt; width: 24%;" width="24%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">PDF</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div><span style="font-family: Tahoma;" lang="EN"><br>
+And finally
+</span><span style="font-family: Tahoma;" lang="EN">it is possible to find on the Internet a number of useful 
+notes on some
+</span><span style="font-family: Tahoma;" lang="EN">of the course topics:</span>
+<br>
+&nbsp;<table id="table13" bgcolor="#ffffff" border="1" width="70%">
+	<tbody><tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">
+	<a href="http://www.iuav.it/Ateneo1/docenti/architettu/docenti-st/Carbonari-/materiali-1/Master-in-/leq_sel_.pdf" style="color: blue; text-decoration: underline;">     
+	Livelli Sonori, Leq, SEL e calcoli relativi</a> (Antonio Carbonari, IUAV)</span></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">	<a href="http://www.iuav.it/Ateneo1/docenti/architettu/docenti-st/Carbonari-/materiali-1/Master-in-/FONO_AS1.pdf" style="color: blue; text-decoration: underline;">Materiali
+	e strutture fonoassorbenti</a> (Antonio Carbonari, IUAV)</span></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">	<a href="http://www.iuav.it/Ateneo1/docenti/architettu/docenti-st/Carbonari-/materiali-1/Master-in-/CAMPOLIB1.pdf" style="color: blue; text-decoration: underline;">Propagazione
+	sonora in ambiente esterno</a> (Antonio Carbonari, IUAV)</span></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">	<a href="http://www.iuav.it/Ateneo1/docenti/architettu/docenti-st/Carbonari-/materiali-1/Master-in-/sale_c.pdf" style="color: blue; text-decoration: underline;">Acustica
+	delle sale d'ascolto</a> (Antonio Carbonari, IUAV)</span></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">	<a href="http://www.fisicatecnica.altervista.org/dispense/psicoacustica.zip" style="color: blue; text-decoration: underline;">Elementi
+	di Psicoacustica</a> (Francesco Martellotta, POLIBA)</span></li>
+</ul></td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">	<a href="http://www.fisicatecnica.altervista.org/dispense/analisi_segnale.zip" style="color: blue; text-decoration: underline;">Elementi
+	di elaborazione numerica dei segnali audio</a> (Francesco Martellotta,     POLIBA)</span></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">	<a href="http://www.fisicatecnica.altervista.org/dispense/grandi_ambienti.zip" style="color: blue; text-decoration: underline;">Elementi
+	di acustica degli ambienti chiusi</a> (Francesco Martellotta, POLIBA)</span></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">	<a href="http://www.fisicatecnica.altervista.org/dispense/coincidenza.zip" style="color: blue; text-decoration: underline;">Effetto
+	di coincidenza</a> (Francesco Martellotta, POLIBA)</span></li>
+</ul>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+
+<ul type="disc">
+ <li class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">	<a href="http://inquinamentoacustico.it/_dowload/Assorbimento%20acustico.pdf" style="color: blue; text-decoration: underline;">Assorbimento
+	Acustico</a> (Luciano Mattevi)</span></li>
+</ul>
+
+		</td>
+	</tr>
+</tbody></table>
+
+<div class="MsoNormal" style="text-align: center;" align="center">&nbsp;</div>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><hr align="center" size="2" width="100%"></div>
+
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="New_Notes">New "on line" 
+notes 
+(in English) </a> </span></h2>
+
+<p><span style="font-family: Tahoma;" lang="en-gb">D</span><span style="font-family: Tahoma;" lang="EN">uring 
+the academic year 2012/2013, a new collection of notes was organized. At the 
+beginning of each lesson, a student offered himself to write 
+the note of the lesson. This was later sent to the lecturer as a Word document, 
+which is made available on 
+the following web page, together with the Powerpoint files and the audio-video recordings:</span></p>
+<p style="font-weight: bold;"><a href="Acoustics-2012-Lessons.htm">
+<span style="font-family: Tahoma; background-color: #FFFF00" lang="en-gb">Note</span></a><span style="font-family: Tahoma;" lang="en-gb"><a href="Acoustics-2012-Lessons.htm"><span style="background-color: yellow;">s of the Applied 
+Acoustics course - ac.year 2012/2013</span></a></span></p>
+<p><span style="font-family: Tahoma" lang="en-gb">If some student wants to <b>
+improve the existing notes</b>, and to get some additional point for the 
+exam, he/she can download the currently-available Word documents, correct or 
+extend them, and send them back to the teacher. Depending on the relevance and 
+extension of 
+the contribution, such a voluntary work can be evaluated up to 5 additional 
+points for each student (typically 1 point for each updated note). This will be mostly useful for the other students, of course!</span></p>
+<p><span style="font-family: Tahoma" lang="en-gb"><b>
+<span style="background-color: #FFFF00">ATTENTION!</span></b> Read carefully the
+<a href="istruz-Acustica.html">INSTRUCTIONS</a> (in Italian) for properly 
+formatting the updated document...</span></p>
+
+<hr align="center" size="2" width="100%">
+
+<p><span style="font-family: Tahoma;" lang="en-gb">A good set of
+notes written in American English, covering the first half of the
+course (Noise Control) are available from the site of <span style="font-weight: bold;">prof. J. S.
+Lamancusa</span> at <span style="font-weight: bold;">Penn State University</span>:
+<a href="http://www.me.psu.edu/lamancusa/me458/">http://www.me.psu.edu/lamancusa/me458/</a> Please, have a look at the
+animations on that page!</span></p>
+<p><span style="font-family: Tahoma;" lang="en-gb">In particular, the first 10 
+notes</span><span style="font-family: Tahoma;" lang="EN">, </span><span style="font-family: Tahoma;" lang="en-gb">albeit not in the same order</span><span style="font-family: Tahoma;" lang="en-gb">, cover perfectly the first part of this Applied Acoustics course, </span><span style="font-family: Tahoma;" lang="EN">the one </span><span style="font-family: Tahoma;" lang="EN">common also to the students of the Degree in Techniques of
+</span><span style="font-family: Tahoma;" lang="EN">Prevention</span><span style="font-family: Tahoma;" lang="en-gb">:</span></p>
+<p><span style="font-family: Tahoma">
+<a href="Public/Acoustics-Course/Penn-State-Course">Penn State notes</a></span></p>
+
+
+<hr align="center" size="2" width="100%">
+
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="AV_Recordings">Audio / Video recording of the lessons</a></span></h2>
+
+<p><b><span style="font-family: Tahoma;" lang="EN">Starting 
+</span></b><b><span style="font-family: Tahoma;" lang="EN">from academic year 2010/2011, we are performing the audio / video recording of the 
+</span></b><b><span style="font-family: Tahoma;" lang="EN">lessons, in AVI format, thanks to the <i>Open Source</i> program <a href="http://camstudio.org/">CamStudio</a> .</span></b></p>
+<p><span lang="it"><b><span style="font-family: Tahoma;">The following links 
+</span></b></span><span lang="it"><b><span style="font-family: Tahoma;">point to the list of these recordings 
+for each year 
+(the latter will be updated as the lessons are made)</span></b></span></p>
+
+<ul>
+	<li><b>
+	<span style="background-color: rgb(255, 255, 0); background-position: 0% 50%; font-family: Tahoma;">
+	<a href="Acustica-2010-Lezioni.htm"><span lang="en-gb">P</span></a></span><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-family: Tahoma;" lang="EN"><a href="Acustica-2010-Lezioni.htm">rogressive 
+	list of lessons
+</a></span>
+</b><b><a href="Acustica-2010-Lezioni.htm"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-family: Tahoma;" lang="EN">
+	carried out in the A.Y. 2010/2011</span></a><span style="font-family: Tahoma;" lang="EN"></span></b><a href="Acustica-2011-Lezioni.htm"><span style="color: rgb(0, 0, 255); text-decoration: underline; background-color: rgb(255, 255, 0); background-position: 0% 50%;" lang="en-gb"><b><span style="font-family: Tahoma;"></span></b></span></a></li>
+  <li><a href="Acustica-2011-Lezioni.htm"><span style="color: rgb(0, 0, 255); text-decoration: underline; background-color: rgb(255, 255, 0); background-position: 0% 50%;" lang="en-gb"><b><span style="font-family: Tahoma;"></span></b></span></a><b><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-family: Tahoma;" lang="EN"><a style="color: blue; text-decoration: underline;" href="Acustica-2011-Lezioni.htm">Progressive 
+	list of lessons
+</a></span><a style="color: blue; text-decoration: underline;" href="Acustica-2011-Lezioni.htm"><span style="background: yellow none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-family: Tahoma;" lang="EN">carried out in the 
+	A.Y. 2011/2012</span></a></b><b><span style="background: yellow none repeat scroll 0% 50%; font-family: Tahoma; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" lang="EN"></span>&nbsp; </b></li>
+
+	
+	<li>
+	<b><span style="background: yellow none repeat scroll 0% 50%; font-family: Tahoma; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" lang="EN"><a style="color: blue; text-decoration: underline;" href="Acoustics-2012-Lessons.htm">Progressive list of lessons carried out in the 
+	A.Y. 2012/2013</a></span></b></li>
+	<li>
+	<b><span style="background: yellow none repeat scroll 0% 50%; font-family: Tahoma; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" lang="EN">
+	<a style="color: blue; text-decoration: underline;" href="Acoustics-2013-Lessons.htm">Progressive list of lessons carried out in the 
+	A.Y. 2013/2014</a></span></b></li>
+</ul><span style="font-family: Tahoma;" lang="EN">We recommend to use the
+</span><span style="font-family: Tahoma;" lang="EN"><i>Open Source</i> program <a href="http://www.videolan.org/vlc/">VLC</a></span><span style="font-family: Tahoma;" lang="EN"><a href="http://www.videolan.org/vlc/"> Mediaplayer</a> for viewing and listening to these AVI files on any
+</span><span style="font-family: Tahoma;" lang="EN">platform
+(Win/Mac/Linux). We also recommend to first download the AVI files to
+a local directory, and then to open the files form the local HD employing
+VLC mediaplayer. Playing back directly in the browser, from the course
+web site, is NOT recommended...</span><b><span style="font-family: Tahoma;" lang="EN"><br>
+</span></b>
+
+
+
+<p><span style="font-family: Tahoma;" lang="EN">These
+</span><span style="font-family: Tahoma;" lang="EN">audio / video recordings are made available primarily to facilitate
+</span><span style="font-family: Tahoma;" lang="EN">learning for <b><a href="http://www.dis-abile.unipr.it/">students with disabilities</a>,</b> but 
+all students can view them comfortably</span><span style="font-family: Tahoma;" lang="EN">, providing an opportunity to recover, at least 
+partially, the lack of presence in the classroom during the lesson. <br>
+</span></p>
+<p><span style="font-family: Tahoma;" lang="EN">It must be remembered, 
+however, that <b>attending the lessons in person is always the best way to assimilate the material</b>.
+</span><span style="font-family: Tahoma;" lang="EN">The various experiments in telematic 
+didactics have shown, unfortunately, that the students get a level of preparation 
+significantly lower than that obtainable with good traditional "face to face" 
+didactics.</span></p>
+<p><span style="font-family: Tahoma;" lang="EN">This occurs due to the
+"intelligibility barrier" caused by the recording/playback "filter".
+This effect on the intelligibility of speech will be explained during
+the course...<br>
+</span></p>
+
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b><hr align="center" size="2" width="100%"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b></div>
+
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="Papers">On Line 
+scientific papers</a></span></h2>
+
+<p><span style="font-family: Tahoma;" lang="EN">The course
+</span><span style="font-family: Tahoma;" lang="EN">contains advanced research topics, which are not described in 
+standard textbooks about Applied Acoustics. In particular, updated information 
+is required regarding measurement techniques, methods of
+</span><span style="font-family: Tahoma;" lang="EN">computer simulation, and 
+modern technologies for recording and playback of three-dimensional sound.</span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">Students
+</span><span style="font-family: Tahoma;" lang="EN">who wish to explore these 
+topics can download the scientific papers of the lecturer in PDF format from 
+this <a href="Public/Papers/list_pub.htm">Chronological List</a> . Most of them 
+are in English.</span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN">The
+papers recommended to read for the exam
+</span><span style="font-family: Tahoma;" lang="EN">are the following:</span></p>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b>
+
+<table class="MsoNormalTable" style="width: 100%;" id="table14" bgcolor="#ffffff" border="1" cellpadding="0" width="100%">
+ <tbody><tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center">
+	<span style="font-family: Tahoma; font-weight: 700;" lang="IT">N.</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma; font-weight: 700;">Author(s)</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma; font-weight: 700;">Title</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma; font-weight: 700;">Publisher</span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">24</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/024-RumVib90.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Nuove tendenze nell' acquisizione dei dati acustici: strumentazione,
+  software, normativa</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Atti del Convegno Nazionale RUMORE e VIBRAZIONI, Bologna e Modena, 20-24
+  Novembre 1990</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">26</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/026-AA91.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Modelli matematici per la previsione della diffusione del suono</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Acqua Aria, n. 3, pagg. 257-268, Marzo 1991</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">32</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina , G. Raffellini</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/032-CLAT91.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Potere fonoisolante di murature in laterizio: verifiche sperimentali di
+  laboratorio e considerazioni applicative</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Costruire In Laterizio, N. 23 pagg. 378-385 (Settembre-Ottobre 1991)</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">48</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">A. Farina , P. Galaverna, G. Truffelli</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/048-AIA94.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">"RAMSETE" - un nuovo software per la previsione del campo
+  sonoro in teatri, ambienti industriali ed ambiente esterno</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Atti del XXII Congresso Nazionale AIA, Lecce, 13-15 aprile 1994</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">49</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/049-AIA94.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Tecniche di convoluzione applicate al trattamento di segnali sonori per
+  prove di ascolto</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Atti del XXII Congresso Nazionale AIA, Lecce, 13-15 aprile 1994</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">50</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">A. Cocchi - A. Farina - P. Fausti - R. Pompoli - G. Semprini</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/050-CostLat94.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Prestazioni acustiche dei solai in laterizio</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">COSTRUIRE IN LATERIZIO nÂ° 38, MAR-APR 1994, p.156-163</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">87</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Farina A., Brero G., Pollone G.</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/087-NP96.PDF" style="color: blue; text-decoration: underline;">Computer code based on experimental results
+  for acoustical mapping of urban areas</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Proc. of NOISE &amp;
+  PLANNING 96, <st1:city w:st="on"><st1:place w:st="on">Pisa</st1:place></st1:city>
+  (28-31 May 1996)</span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">88</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Farina A., Brero G.</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/088-NP96.PDF" style="color: blue; text-decoration: underline;">Computer code based on experimental results
+  for designing sound reduction devices</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Proc. of NOISE &amp; PLANNING
+  96, <st1:city w:st="on"><st1:place w:st="on">Pisa</st1:place></st1:city>
+  (28-31 May 1996)</span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">94</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina, A. Torelli</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/094-AES97.PDF" style="color: blue; text-decoration: underline;">Measurement of the sound absorption
+  coefficient of materials with a new sound intensity technique</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Pre-prints of the 102nd
+  AES Conference, <st1:state w:st="on"><st1:place w:st="on">Berlin</st1:place></st1:state>,
+  23-26 March 1997</span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">97</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina, F. Righini</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/097-AES97.PDF" style="color: blue; text-decoration: underline;">Software implementation of an MLS
+  analyzer, with tools for convolution, auralization and inverse filtering</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Pre-prints of the 103rd
+  AES Convention, <st1:state w:st="on"><st1:place w:st="on">New York</st1:place></st1:state>,
+  26-29 September 1997</span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">106</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina, P. Fausti</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/106-EdAmb98.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Misure di isolamento, del rumore di calpestio e del tempo di
+  riverberazione</span></a></span><span style="font-family: Tahoma;"> </span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">atti del convegno Edilizia e Ambiente, Trento, 18-20 febbraio 1998</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">107</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/107-VIA98.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">
+	Valutazione di impatto acustico previsionale relativamente alle sorgenti più diffuse</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Atti del Seminario sul tema "Acustica Ambientale - effetti sull'uomo
+  e pianificazione del territorio" - Repubblica di S.Marino, 9 maggio 1998</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">119</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">A. Farina, P. Galaverna, M. Giabbani</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/119-Ciarm98.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Il processo di auralizzazione: metodologia ed esemplificazione</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Atti del Convegno "L'acustica dei teatri storici: un bene
+  culturale" - Ferrara, 4 novembre 1998</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">122</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">G. Fornari, A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/122-IndBev98.pdf" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Studio della propagazione del rumore in ambienti industriali bassi e
+  vasti</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Industria delle Bevande (ISSN 0390-0541), anno 27, n. 158, Dicembre 1998,
+  pp. 585-596</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">125</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/125-Sem99.PDF" style="color: blue; text-decoration: underline;">Misurazioni e rilievi fonometrici</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Atti del Seminario "L'acustica negli edifici e nelle città&nbsp;"-
+  Firenze, 26 marzo 1999&nbsp;</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">131</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/131-DBA99.PDF" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Propagazione sonora e previsione del rumore negli ambienti di lavoro</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">atti del seminario "rumore e vibrazioni negli ambienti di lavoro:
+  dalla valutazione alla bonifica" - Modena, 23 settembre 1999</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">134</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN-GB">A.
+  Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN-GB">
+	<a href="Public/Papers/134-AES00.PDF" style="color: blue; text-decoration: underline;">Simultaneous measurement of impulse
+  response and distortion with a swept-sine technique</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN-GB">108th
+  AES Convention, <st1:city w:st="on"><st1:place w:st="on">Paris</st1:place></st1:city>
+  18-22 February 2000</span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">164</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Torger, A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/164-Mohonk2001.PDF" style="color: blue; text-decoration: underline;">Real-time partitioned convolution for
+  Ambiophonics surround sound</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="http://www.cs.princeton.edu/waspaa01/" style="color: blue; text-decoration: underline;">2001 IEEE Workshop on
+  Applications of Signal Processing to Audio and Acoustics </a>- <st1:placename w:st="on">Mohonk</st1:placename> <st1:placetype w:st="on">Mountain</st1:placetype>
+  House New <st1:place w:st="on"><st1:city w:st="on">Paltz</st1:city>, <st1:state w:st="on">New York</st1:state></st1:place> October 21-24, 2001.</span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">179</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina, A. Avanzini</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/179-AESItalia03.pdf" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Registrazione della risposta acustica delle sale da concerto per i
+  posteri</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Seminario </span><span style="font-family: Tahoma;">
+	<a href="http://www.aesitalia.org" style="color: blue; text-decoration: underline;"><span style="" lang="IT">AES-Italia</span></a></span><span style="font-family: Tahoma;" lang="IT"> "Workshop sulle
+  tecniche di ripresa stereofoniche multicanale per le orchestre
+  sinfoniche" - Adria, 16 maggio 2003</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">188</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">E. Armelloni, C. Giottoli, A. Farina</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/188-Mohonk2003.pdf" style="color: blue; text-decoration: underline;">Implementation of Real-Time
+  Partitioned Convolution on a DSP Board</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="http://musen.engin.umich.edu/waspaa03/" style="color: blue; text-decoration: underline;">2003 IEEE Workshop on
+  Applications of Signal Processing to Audio and Acoustics</a> - October 19-22,
+  2003, New <st1:place w:st="on"><st1:city w:st="on">Paltz</st1:city>, <st1:state w:st="on">NY</st1:state></st1:place></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">200</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina, L.Tronchin</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/200-UTET-2004.pdf" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Cap. 19 - Misure acustiche nei teatri e nelle sale</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">nel volume "</span><span style="font-family: Tahoma;"><a href="http://www.utetlibreria.it/html/scheda.phtml?ID=2500&amp;chk=1&amp;casa=1" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Acustica Musicale ed Architettonica</span></a></span><span style="font-family: Tahoma;" lang="IT">", UTET
+  Libreria, Torino 2004, ISBN 88-7750 -941-4</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">226</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/226-AES122.pdf" style="color: blue; text-decoration: underline;">Advancements in impulse response
+  measurements by sine sweeps</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="http://www.aes.org/events/122/" style="color: blue; text-decoration: underline;">122th AES Convention</a>, <st1:place w:st="on"><st1:city w:st="on">Vienna</st1:city>, <st1:country-region w:st="on">Austria</st1:country-region></st1:place>,
+  5-8 May 2007</span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">238</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">A. Farina</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/238-NordicSound2007.pdf" style="color: blue; text-decoration: underline;">Impulse Response Measurements</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="http://www.nrk.no/soundsymp/" style="color: blue; text-decoration: underline;">23rd Nordic Sound Symposium,</a> BolkesjÃ¸
+  (<st1:country-region w:st="on"><st1:place w:st="on">Norway</st1:place></st1:country-region>) 
+	27 - 30 September 2007</span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">244</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Angelo Farina, Andrea Capra, Simone Campanini</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/244-Ancona-2008.pdf" style="color: blue; text-decoration: underline;"><span style="" lang="IT">La misura della risposta all'impulso per la caratterizzazione di sistemi
+  acustici e vibrazionali</span></a></span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">"</span><span style="font-family: Tahoma;"><a href="http://www.associazioneitalianadiacustica.it/ancona2008/" style="color: blue; text-decoration: underline;"><span style="" lang="IT">Strumenti e metodi di misura per
+  l'acustica e le vibrazioni</span></a></span><span style="font-family: Tahoma;" lang="IT">" - Seminario in ricordo
+  di Eugenio Mattei - Ancona, 21 settembre 2008</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ 	<tr>
+  <td style="padding: 0.75pt; width: 6%;" width="6%">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: Tahoma;">252</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 25%;" width="25%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="IT">Angelo Farina, Andrea Capra, Lorenzo Chiesi, Leonardo Scopece</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 40%;" width="40%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="Public/Papers/252-AES-40.pdf" style="color: blue; text-decoration: underline;">A Spherical Microphone Array For
+  Synthesizing Virtual Directive Microphones In Live Broadcasting And In Post
+  Production</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 35%;" width="35%">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+	<a href="http://www.aes.org/events/40/" style="color: blue; text-decoration: underline;">40th AES Conference</a> "Spatial
+  Audio - Sense the Sound of Space", <st1:place w:st="on"><st1:city w:st="on">Tokyo</st1:city>,
+   <st1:country-region w:st="on">Japan</st1:country-region></st1:place>, 8-10
+  October 2010</span></p>
+  </td>
+ 	</tr>
+	<tr>
+    <td align="center" width="6%"><font face="Arial">253</font></td>
+    <td width="25%">
+      <font face="Arial">Leonardo Scopece, Angelo Farina, Andrea Capra</font></td>
+    <td width="40%">
+      <font face="Arial"><a href="Public/Papers/253-ET2011.pdf">3D Virtual Microphone System - 
+		Sonda Microfonica ad Elevata Direttivita'</a></font></td>
+    <td width="35%"> 
+      <font face="Arial"><a href="http://www.crit.rai.it/eletel/">Elettronica e 
+		Telecomunicazioni</a>, n.1, Aprile 2011, pagg. 14-26 - ISSN: 0013-6123</font></td>
+  	</tr>
+	<tr>
+    <td align="center" width="6%"><font face="Arial">254</font></td>
+    <td width="25%">
+      <font face="Arial">Marco Binelli, Andrea Venturi, Alberto Amendola, Angelo Farina</font></td>
+    <td width="40%">
+      <font face="Arial"><a href="Public/Papers/254-AES130.pdf">Experimental analysis of spatial properties of 
+		the sound field inside a car employing a spherical microphone array</a></font></td>
+    <td width="35%"> 
+      <font face="Arial"> 
+      <a href="http://www.aes.org/events/130/">130th AES Conference</a>, London, 
+		13-16 May 2011</font></td>
+  	</tr>
+	<tr>
+    <td align="center" width="6%"><font face="Arial">255</font></td>
+    <td width="25%">
+      <font face="Arial">Angelo Farina, Alberto Amendola, Andrea Capra, Christian Varani</font></td>
+    <td width="40%">
+      <font face="Arial"><a href="Public/Papers/255-AES130.pdf">Spatial analysis of room impulse responses 
+		captured with a 32-capsules microphone array</a></font></td>
+    <td width="35%"> 
+      <font face="Arial"> 
+      <a href="http://www.aes.org/events/130/">130th AES Conference</a>, London, 
+		13-16 May 2011</font></td>
+  	</tr>
+	<tr>
+    <td align="center" width="6%"><font face="Arial">256</font></td>
+    <td width="25%">
+      <font face="Arial">Angelo Farina, Enrico Armelloni, Lorenzo Chiesi</font></td>
+    <td width="40%">
+      <p class="MsoNormal"><font face="Arial"><span lang="EN-GB">
+		<a href="Public/Papers/256-UAM-2011.pdf">Experimental Evaluation Of The Performances 
+		Of A New Pressure-Velocity 3D Probe Based On The Ambisonics Theory</a></span></font></p></td>
+    <td width="35%"> 
+      <font face="Arial">
+		<a href="http://www.uam-conferences.org/index.php/overview">4th 
+		international conference and exhibition on Underwater Acoustic 
+		Measurements: Technologies and Results</a> - Kos (Greece), 20-24 June 
+		2011</font></td>
+  	</tr>
+	<tr>
+    <td align="center" width="6%"><font face="Arial">257</font></td>
+    <td width="25%">
+      <font face="Arial">Leonardo Scopece, Angelo Farina, Andrea Capra</font></td>
+    <td width="40%">
+      <p class="MsoNormal"><font face="Arial">
+		<a href="Public/Papers/257-IBC2011.pdf">360 
+		Degrees Video And Audio Recording And Broadcasting Employing A Parabolic 
+		Mirror Camera And A Spherical 32-Capsules Microphone Array</a></font></p></td>
+    <td width="35%"> 
+      <font face="Arial"><a href="http://www.ibc.org/page.cfm/link=431">IBC 2011</a>, 
+		Amsterdam, 8-11 September 2011</font></td>
+  	</tr>
+	<tr>
+    <td align="center" width="6%"><font face="Arial">258</font></td>
+    <td width="25%">
+      <font face="Arial">Angelo Farina, Lamberto Tronchin</font></td>
+    <td width="40%">
+      <p class="MsoNormal"><font face="Arial">
+		<a href="Public/Papers/258-AncientTheatres.pdf">
+		New Measurement Technique For 3d Sound Characterization In Theatres</a></font></p></td>
+    <td width="35%"> 
+      <font face="Arial"><a href="http://www.ancientacoustics2011.upatras.gr/">
+		The Acoustics of Ancient Theatres Conference</a> Patras, Greece, 
+		September 18-21, 2011</font></td>
+  	</tr>
+	<tr>
+    <td align="center" width="6%"><font face="Arial">264</font></td>
+    <td width="25%">
+      <font face="Arial">A. Farina, M. Binelli, A. Capra, E. Armelloni, S. 
+		Campanini, A. Amendola</font></td>
+    <td width="40%">
+      <p class="MsoNormal"><font face="Arial">
+		<a href="Public/Papers/264-Paper-Farina-ISVA-2011.pdf">Recording, Simulation and 
+		Reproduction of Spatial Soundfields by Spatial PCM Sampling (SPS)</a></font></p></td>
+    <td width="35%"> 
+      <font face="Arial">
+		<a href="http://www.upv.es/contenidos/ACUSVIRT/indexi.html">International Seminar on Virtual Acoustics</a>, 
+		Valencia (Spain), 24-25 November 2011</font></td>
+  	</tr>
+	<tr>
+      <td style="text-align: center;"><font face="Arial">267</font></td>
+      <td><font face="Arial">Angelo Farina, Lamberto Tronchin</font></td>
+      <td><a href="Public/Papers/267-Acta2012.pdf"><span style="font-family: Arial;">3D Sound Characterisation in Theatres Employing Microphone Arrays</span></a><br>
+      </td>
+      <td><font face="Arial"><span><a href="http://www.acta-acustica-united-with-acustica.com/">Acta
+      Acustica united with Acustica</a>, vol. 99, n.1, pp. 118-125, ISSN 1610-1928, January/February 2013<br>
+</span></font></td>
+    </tr>
+</tbody></table>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span style="" lang="IT">
+
+<hr align="center" size="2" width="100%">
+
+</span></b></div>
+
+</div>
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="Software">Software </a> </span></h2>
+
+<p><span style="font-family: Tahoma;" lang="EN">This is
+</span><span style="font-family: Tahoma;" lang="EN">the list of software used during the lessons and lab sessions, with
+</span><span style="font-family: Tahoma;" lang="EN">links to download them.</span><span lang="EN"></span></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" style="width: 100%; background-color: rgb(255, 255, 255);" id="table3" border="1" cellpadding="0">
+ <tbody><tr>
+  <td>
+  <p class="MsoNormal"><b><span style="font-family: Tahoma;">Name</span></b></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><b><span style="font-family: Tahoma;">Description</span></b></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><b><span style="font-family: Tahoma;">Link</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">&nbsp;Adobe Audition</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Program
+for sound recording and playback, waveform editor, simple FFT analysis,
+sonogram, multitrack recorder, and it can act as a "host" program for
+plugins in three different formats
+</span><span style="font-family: Tahoma;" lang="EN">  (VST, Direct-X, XFM).</span></p>
+	<p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">  The recommended versions are 1.5 (the best one) and 3.0 
+	(if you need ASIO). An unrestricted version of Audition 3.0 can actually be
+	<a href="https://www.adobe.com/cfusion/entitlement/index.cfm?e=cs2_downloads">
+	downloaded for free</a> from the Adobe web site, after registering. </span></p>
+	<p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">  Please
+DO NOT USE version 2.0 or version CS 5.5 and following, as these are
+NOT compatible with Aurora plugins. And please, install the English
+version of Audition (and of any other program offering a multi-language
+interface!). </span></p>
+	<p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">  Furthermore,
+it is always mandatory to set the Regional Settings of your operating
+system (in Control Panel) to English-UK or similar, NEVER in Italian!
+This affects decimal separator, date, time and number formats... If
+this setting is incorrect, operations such as Copy and Paste to another
+program (i.e., Excel) are going to fail....<br>
+      </span></p>
+
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://www.adobe.com/it/products/audition/"><span lang="EN">http://www.adobe.com/it/products/audition/</span></a></span><span lang="EN"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">&nbsp;</span><span style="font-family: Tahoma;">Aurora</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Suite of XFM plugins for Adobe Audition: generation of test signals
+</span><span style="font-family: Tahoma;" lang="EN">  (MLS, sweep) computation of the impulse response,
+</span><span style="font-family: Tahoma;" lang="EN">  acoustic parameters according to ISO 3382, calculation of inverse filters. </span><span style="font-family: Tahoma;" lang="EN">Includes a fast convolution
+</span><span style="font-family: Tahoma;" lang="EN">  module, which is employed for performing auralization.&nbsp;
+</span></p>
+	<p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">  See the warnings above for Audition regarding program version and regional settings</span><span lang="EN">.</span></p>
+	<p class="MsoNormal"><font face="Tahoma"><span lang="en-gb">Aurora is 
+	shareware, with a &quot;russian roulette&quot; annoying-by-purpose feature.</span></font></p>
+
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><span lang="EN">
+	<a href="http://www.aurora-plugins.it">http://www.aurora-plugins.it</a></span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">&nbsp;</span><span style="font-family: Tahoma;">AudioMulch</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">VST-Host general purpose</span><span style="font-family: Tahoma;" lang="EN"> 
+	program</span><span style="font-family: Tahoma;" lang="EN">, programmable through the construction of
+</span><span style="font-family: Tahoma;" lang="EN">  block diagrams, coming with a wide range of effects. </span>
+	<span style="font-family: Tahoma;">  Easy to use. </span><span style="font-family: Tahoma;">Versions
+	for  Windows and Mac. </span><span lang="EN"><font face="Tahoma">&nbsp;90 
+	days free trial.</font></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://www.audiomulch.com">http://www.audiomulch.com</a></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">&nbsp;Plogue Bidule</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">VST-Host general purpose</span><span style="font-family: Tahoma;" lang="EN"> 
+	program</span><span style="font-family: Tahoma;" lang="EN">, programmable through the construction of
+</span><span style="font-family: Tahoma;" lang="EN">  block diagrams, coming with a wide range of effects. 
+	It is possible to create new effects. Shareware.
+	</span><span style="font-family: Tahoma;" lang="EN">  Windows and Mac versions. It can 
+	also be used as a VST plugin inside
+</span><span style="font-family: Tahoma;" lang="EN">  another VST Host program.</span><span lang="EN">
+	<font face="Tahoma">More tricky than Audio Mulch, but also more powerful.&nbsp; 
+	90 days free trial.</font></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://www.plogue.com/">http://www.plogue.com/</a></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">&nbsp;SynthEdit</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">VST-Host program and compiler 
+	of VST plugins, programmable through the construction of  block diagrams.
+</span><span style="font-family: Tahoma;" lang="EN">Customizable interface with
+</span><span style="font-family: Tahoma;" lang="EN">  editable </span><span style="font-family: Tahoma;" lang="EN">  "skins". </span><span style="font-family: Tahoma;" lang="EN">Contains an extensive library of graphical objects and
+</span><span style="font-family: Tahoma;" lang="EN">  of processing functions. </span><span style="font-family: Tahoma;">Shareware.
+</span><span style="font-family: Tahoma;">  Better than Labview ....</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://www.synthedit.com/">http://www.synthedit.com/</a></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">&nbsp;SpectraRTA</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Spectral analysis in octaves, third 
+	octaves, and FFT, signal generator
+</span><span style="font-family: Tahoma;" lang="EN">  for acoustic testing, measurement of the reverberation time. </span><span style="font-family: Tahoma;" lang="EN">Works with one or two
+</span><span style="font-family: Tahoma;" lang="EN">  channels, can be used to record and analyze WAV files</span><span lang="EN">.</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://www.soundtechnology.com/">http://www.soundtechnology.com/</a></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">&nbsp;SpectraPLUS</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">FFT and 
+	fractional-octave frequency analysis, cross-spectrum,
+</span><span style="font-family: Tahoma;" lang="EN">  sonogram, waterfall, signal generator for acoustic testing, measurement of
+</span><span style="font-family: Tahoma;" lang="EN">  reverberation times. </span><span style="font-family: Tahoma;" lang="EN">Works with one or two channels, can be used to
+</span><span style="font-family: Tahoma;" lang="EN">  record and analyze WAV files.</span><span lang="EN"><font face="Tahoma"> 
+	30 days free trial.</font></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><a href="http://www.spectraplus.com/">
+	<span style="font-family: Tahoma">http://www.spectraplus.com/</span></a></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">&nbsp;</span><span style="font-family: Tahoma;">Ramsete</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Simulation of sound propagation in enclosed spaces and
+</span><span style="font-family: Tahoma;" lang="EN">  outdoors. Calculates the impulse response, and from it derives  all the 
+	acoustical parameters. </span><span style="font-family: Tahoma;" lang="EN">Includes a 3D CAD design module and a
+</span><span style="font-family: Tahoma;" lang="EN">  module for mapping results in 
+	colour or by isolevel curves. It also allows
+	for the export of impulse responses in WAV format, for  performing auralization</span><span lang="EN">.<font face="Tahoma"> 
+	Free trial of the &quot;Lite&quot; version, the crack can be found on Emule, enabling 
+	full performance.</font></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+</span><span style="font-family: Tahoma;">	<a href="http://www.ramsete.com" style="color: blue; text-decoration: underline;">http://www.ramsete.com</a></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">&nbsp;</span><span style="font-family: Tahoma;">Comsol</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="it">	"Multiphysics" 
+	FEM simulator, which includes modules for Acoustics and Vibration. It allows 
+	for	the study of wave type phenomena (resonance, interference, diffraction, </span><span style="font-family: Tahoma;" lang="it">	
+	etc..) at low and medium frequencies, using the Finite Elements method.  
+</span><span style="font-family: Tahoma;" lang="it">Free trial license available for students.</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">
+</span><span style="font-family: Tahoma;">	<a href="http://www.comsol.com">http://www.comsol.com</a></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">&nbsp;DISIA</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">The package includes Citymap and Disiapyr. </span><span style="font-family: Tahoma;" lang="EN">These are programs for
+</span><span style="font-family: Tahoma;" lang="EN">  simulation of noise from road and rail traffic, which can
+</span><span style="font-family: Tahoma;" lang="EN">  operate both on a large scale (Citymap), 
+	and for detailed simulations  (Disiapyr). 
+</span><span style="font-family: Tahoma;" lang="EN">They were developed as part of a DISIA 
+	project,  funded by the Ministry of Environment, and are the reference 
+	computational models for the Italian fleet of vehicles.</span><font face="Tahoma"><span lang="EN"> 
+	Free for academic usage (password required).</span></font></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://pcfarina.eng.unipr.it/Public/DISIA"><span lang="EN">http://pcfarina.eng.unipr.it/Public/DISIA</span></a></span><span lang="EN"></span></p>
+  </td>
+ </tr>
+ 
+</tbody></table>
+
+</div>
+
+<p><span style="font-family: Tahoma;" lang="EN">Note:
+the above software is commercial software or shareware (excluding
+</span><span style="font-family: Tahoma;" lang="EN">the last one, which
+is free, but the use is restricted to institutional goals of public
+administrations, and protected by password), although most of them
+provide a free running mode for a limited period of time, or
+indefinitely but with reduced functionality.
+</span><span style="font-family: Tahoma;" lang="EN">Users who do not like this approach,
+</span><span style="font-family: Tahoma;" lang="EN">can use the following 
+open-source software:</span><span lang="EN"></span></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" style="width: 100%; background-color: rgb(255, 255, 255);" id="table4" border="1" cellpadding="0">
+ <tbody><tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">&nbsp;</span> <span style="font-family: Tahoma;">Audacity</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 589.5pt;" width="786">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Simple "open source"</span><span style="font-family: Tahoma;" lang="EN"> 
+	program
+</span><span style="font-family: Tahoma;" lang="EN">for sound recording / playback, with many editing</span><span style="font-family: Tahoma;" lang="EN"> 
+	effects</span><span style="font-family: Tahoma;" lang="en-gb">; it</span><span style="font-family: Tahoma;" lang="EN"> also operates in multitrack.
+</span><span style="font-family: Tahoma;" lang="EN">Supports
+</span><span style="font-family: Tahoma;" lang="EN">  all platforms (Windows, Mac, Linux). 
+	A port of Aurora plugins for Audacity is under development (</span><span lang="EN"><a href="#Porting"><span style="font-family: Tahoma;">thesis available</span></a></span><span style="font-family: Tahoma;" lang="EN">).</span><span lang="EN"></span></p>
+  <p class="MsoNormal"><span style="font-family: Tahoma" lang="en-gb">A</span><span style="font-family: Tahoma;" lang="EN"> special version of Audacity containing 
+	some of the Aurora modules so far
+</span><span style="font-family: Tahoma;" lang="EN">developed can be downloaded</span> <span lang="EN"><a href="http://pcfarina.eng.unipr.it/Public/Aurora-for-Audacity/"><span style="font-family: Tahoma;">HERE</span></a></span><span style="font-family: Tahoma;" lang="EN">.</span></p>
+	<p class="MsoNormal"><span style="font-family: Tahoma" lang="en-gb">Please 
+	note that these Aurora modules DO NOT WORK on other versions of Audacity...</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://audacity.sourceforge.net/"><span lang="EN">http://audacity.sourceforge.net/</span></a></span><span lang="EN"></span></p>
+  <p class="MsoNormal"><span lang="EN">&nbsp;</span></p>
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://pcfarina.eng.unipr.it/Public/Aurora-for-Audacity/"><span lang="EN">http://pcfarina.eng.unipr.it/Public/Aurora-for-Audacity/</span></a></span><span lang="EN"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">&nbsp;</span> <span style="font-family: Tahoma;">Sonicbirth</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 589.5pt;" width="786">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Compiler for VST and AudioUnit 
+	plugis for Mac platform, with
+</span><span style="font-family: Tahoma;" lang="EN">  graphical interface of "block diagram" 
+	type. </span><span style="font-family: Tahoma;" lang="EN">Interface
+</span><span style="font-family: Tahoma;" lang="EN">  customizable using </span><span style="font-family: Tahoma;" lang="EN">  
+	editable </span><span style="font-family: Tahoma;" lang="EN">  "skins". 
+	It contains a wide </span><span style="font-family: Tahoma;" lang="EN">  library of graphic objects and processing functions. 
+	Similar to <a href="http://www.synthedit.com/">Synthedit</a>, but less powerful and versatile.</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://sonicbirth.sourceforge.net/">http://sonicbirth.sourceforge.net/</a></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 101.25pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">&nbsp;RoomEQ</span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 589.5pt;" width="786">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">JAVA
+application for the measurement of the impulse response of a room with
+Exponential Sine Sweep and calculation of equalization filters for
+sound systems. It includes a realtime spectrum analyzer, a realtime
+Sound Level Meter, and a reverberation time measurement module.</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://www.hometheatershack.com/roomeq/"><span lang="EN">http://www.hometheatershack.com/roomeq/</span></a></span><span lang="EN"></span></p>
+  </td>
+ </tr><tr>
+<td style="padding: 0.75pt; width: 101.25pt;" width="135">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">&nbsp;</span><span style="font-family: Tahoma;">Psysound</span></p>
+  </td><td style="padding: 0.75pt; width: 638.25pt;" width="851">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Matlab suite of modules, 
+	with user interface developed for processing
+</span><span style="font-family: Tahoma;" lang="EN">  of audio signals and acoustic analysis of all kinds</span><span lang="EN"></span></p>
+  </td><td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;"><a href="http://psysound.wikidot.com/">http://psysound.wikidot.com/</a></span></p>
+  </td></tr>
+
+</tbody></table>
+
+</div>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b><hr align="center" size="2" width="100%"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b></div>
+
+<h2><span style="font-family: Tahoma;" lang="EN"><a name="Thesis_Topics">Thesis Topics</a></span></h2>
+
+<p><span style="font-family: Tahoma;" lang="EN">A variety of thesis topics is 
+available, for all the branches of Engineering. Some are listed below, but others are available, so it is recommended
+</span><span style="font-family: Tahoma;" lang="EN">to contact the teacher for more information.</span><span lang="EN"></span></p>
+
+<p><span style="font-family: Tahoma;" lang="EN"><span style="font-family: Tahoma;" lang="EN"><b>Attention:</b></span>
+an Applied Acoustics thesis can only be experimental, and thus requires
+hard work: so, if you are looking for a "light and fast" thesis, you're
+in the wrong place ...</span><br><span style="font-family: Tahoma;" lang="EN">
+</span><span style="font-family: Tahoma;" lang="EN">&nbsp;</span><span lang="EN"></span></p>
+
+<table class="MsoNormalTable" style="width: 100%;" id="table6" bgcolor="#ffffff" border="1" cellpadding="0" width="100%">
+ <tbody><tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Title</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Description</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">S</span><span style="font-family: Tahoma;">uggested 
+	degree</span></p>
+  </td>
+ </tr>
+ <tr style="height: 23.25pt;">
+  <td style="padding: 0.75pt; height: 23.25pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Digital Audio Amplifier</span> <span lang="EN">&nbsp;</span></p>
+  </td>
+  <td style="padding: 0.75pt; height: 23.25pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research
+carried out in collaboration with ASK Industries, Reggio Emilia,
+looking for a student who is willing to learn programming </span><span style="font-family: Tahoma;" lang="EN">	DSP devices "embedded" in 
+	automotive audio amplifiers. </span><span style="font-family: Tahoma;" lang="EN">The DSP built into the device
+</span><span style="font-family: Tahoma;" lang="EN">  could be used for active noise cancellation, for
+</span><span style="font-family: Tahoma;" lang="EN">  dynamically changing the equalization curve and the gain 
+	as a function of  the background noise, and for the correction of non-linear response
+	of loudspeakers. 
+</span><span style="font-family: Tahoma;" lang="EN">The student will work as an intern at the
+</span><span style="font-family: Tahoma;" lang="EN">  ASK Montecavolo (RE), actively participating in the trial, and
+</span><span style="font-family: Tahoma;" lang="EN">  gaining professional experience in the field, 
+	which is extremely useful for
+</span><span style="font-family: Tahoma;" lang="EN">  subsequent job search.</span></p>
+  </td>
+  <td style="padding: 0.75pt; height: 23.25pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Electronics,  Telecommunications, 
+	Computer Science</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Vehicle sound system 
+	measurement</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with ASK Industries, Reggio Emilia. 
+	The purpose is to evaluate the perceived acoustical </span><span style="font-family: Tahoma;" lang="EN">
+	quality</span><span style="font-family: Tahoma;" lang="EN"> of a "automotive" 
+	sound system, based on innovative measurement techniques </span><span style="font-family: Tahoma;" lang="EN">  (STI, AQT, PEAQ) and on listening tests performed within the vehicle or in 
+	a special playback room.
+</span><span style="font-family: Tahoma;" lang="EN">It employs mono recording techniques, binaural, or
+</span><span style="font-family: Tahoma;" lang="EN">  array of microphones. </span><span style="font-family: Tahoma;" lang="EN">Depending on the capacity of the student, 
+	he will have to develop "ad hoc"  software for measurement or analysis (in Matlab or Visual C), 
+	to  define new metrics, to analyze statistically the  results of subjective tests, 
+	and to design new strategies for
+</span><span style="font-family: Tahoma;" lang="EN">  temporal, spectral and spatial 
+	equalization of the sound reproduction system.</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Electronics, Computer,
+</span><span style="font-family: Tahoma;">  Telecommunications, Mechanical</span></p>
+  </td>
+ </tr>
+ <tr style="height: 23.25pt;">
+  <td style="padding: 0.75pt; height: 23.25pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Active Noise 
+	Cancellation</span></p>
+  </td>
+  <td style="padding: 0.75pt; height: 23.25pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with ASK Industries, Reggio Emilia.
+</span><span style="font-family: Tahoma;" lang="EN">The purpose is to design and build a prototype of
+</span><span style="font-family: Tahoma;" lang="EN">  device, based on DSP, for processing in real time the signal
+</span><span style="font-family: Tahoma;" lang="EN">  captured by a primary 
+	microphone. </span><span style="font-family: Tahoma;" lang="EN">The filtered signal is output from one or
+</span><span style="font-family: Tahoma;" lang="EN">  more loudspeakers, creating an
+</span><span style="font-family: Tahoma;" lang="EN">  antiphase
+</span><span style="font-family: Tahoma;" lang="EN"> sound field that
+cancels the original noise. The student must possess the ability to
+program a DSP (also using high-level interfaces such as "block
+diagram"), to carry out measurements of impulse response (Aurora) and
+of spectra (SpectraRTA), and also to work in the workshop in order to
+build the
+</span><span style="font-family: Tahoma;" lang="EN">  mechanical components of the device.</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt; height: 23.25pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Mechanics, Electronics, Computer Science, 
+	Information Technology</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Analysis of sound 
+	quality of bakery products</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with Barilla, Parma. </span><span style="font-family: Tahoma;" lang="EN">The purpose 
+	is the analysis and optimization of the sound created during fracture and / or
+</span><span style="font-family: Tahoma;" lang="EN">  chewing of bakery products (such as cookies, biscuits, crackers,
+</span><span style="font-family: Tahoma;" lang="EN">  sticks, etc..). Binaural recordings 
+	are employed for objective analysis of the sound produced, and tests with human subjects 
+	are performed, in  order to operate a collection of questionnaires and obtain an analysis
+	of the  subjective sensations evoked while eating these products.&nbsp; </span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Mechanics, Mechanical Engineering for the Food Industry, Information Technology, Management</span><span lang="EN"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Use of ultrasound in the food industry</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with Barilla, Parma. 
+	The goal </span><span style="font-family: Tahoma;" lang="en-gb">is to </span>
+	<span style="font-family: Tahoma;" lang="EN">&nbsp;evaluate the possibility of using a treatment section with </span><span style="font-family: Tahoma;" lang="EN">  ultrasound for sanitizing and / or homogenization of 
+	liquid foods,
+</span><span style="font-family: Tahoma;" lang="EN">  either as a single treatment, 
+	or as a treatment subsidiary to other
+</span><span style="font-family: Tahoma;" lang="EN">  devices. </span><span style="font-family: Tahoma;" lang="EN">The student must 
+	work alongside a research assistant
+</span><span style="font-family: Tahoma;" lang="EN">  in carrying out experiments on the pilot line and in the analysis of
+	results</span><span lang="EN">.</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Mechanics, Mechanical Engineering for the Food Industry</span><span lang="EN"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Noise analysis of gear pumps</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with Casappa, Parma. </span><span style="font-family: Tahoma;" lang="EN">The purpose 
+	is  to develop new methods of signal analysis, applicable to both the
+</span><span style="font-family: Tahoma;" lang="EN">  noise signal radiated during operation of gear pumps, 
+	and to the "pressure ripple" signal detectable in the delivery circuit
+</span><span style="font-family: Tahoma;" lang="EN">  of the pump. </span><span style="font-family: Tahoma;" lang="EN">It is expected to obtain useful 
+	information in order to
+</span><span style="font-family: Tahoma;" lang="EN">  identify problems in the pump (diagnostics), 
+	and to develop
+</span><span style="font-family: Tahoma;" lang="EN">  new, more silent pumps and of longer duration.</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Mechanical, Electronics</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Analysis of the sound generated by 
+	old gramophones and radios</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with the House of Sound, Parma. </span><span style="font-family: Tahoma;" lang="EN">
+	It deals with measuring the sound characteristics of old gramophones or receivers
+</span><span style="font-family: Tahoma;" lang="EN">  radio, part of the famous Patane' 
+	collection. The recordings
+could be used as such in the exhibition of the House of  Sound, or even be "virtualized" making use of </span><span style="font-family: Tahoma;" lang="EN">  advanced techniques of analysis and resynthesis available in the laboratory of
+</span><span style="font-family: Tahoma;" lang="EN">  virtual reproduction of the House of Sound.</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Telecommunications,
+	Computer Science.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Sound reproduction using loudspeaker arrays</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with the House of Sound, Parma. 
+	The student will have to create recordings or compositions, mostly of musical events,
+</span><span style="font-family: Tahoma;" lang="EN">  but also of "special effects", to play on 
+	the WFS playback  systems available at the House of Sound: the WFS "white 
+	room" the "Sonic Chandelier".
+</span><span style="font-family: Tahoma;" lang="EN">The student must first acquire an adequate
+</span><span style="font-family: Tahoma;" lang="EN">  understanding of the physical mechanisms underlying the Wave Field Synthesis, and
+</span><span style="font-family: Tahoma;" lang="EN">  master the system hardware and software that 
+	operate the House of
+</span><span style="font-family: Tahoma;" lang="EN">  Sound. </span><span style="font-family: Tahoma;" lang="EN">Then 
+	he must create one or more "documentary soundtracks" that
+</span><span style="font-family: Tahoma;" lang="EN">  will be "projected" at the House of Sound.</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Telecommunications, Electronics, Computer 
+	Science</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Shooting techniques 
+	with virtual microphones</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration 
+	with the RAI Research Centre, Turin. </span><span style="font-family: Tahoma;" lang="EN">The purpose
+	is the development of a device for recording "live"  events such as concerts, sporting events, 
+	theatre, etc.., in
+</span><span style="font-family: Tahoma;" lang="EN">  all cases in which microphones 
+	located close the sound sources cannot be employed.
+</span><span style="font-family: Tahoma;" lang="EN">The microphone arrays employed 
+	are  the Holophone and the Eigenmike 32.
+</span><span style="font-family: Tahoma;" lang="EN">The student must make a series
+</span><span style="font-family: Tahoma;" lang="EN">  of test recordings with these devices, process the traces
+</span><span style="font-family: Tahoma;" lang="EN">  recorded so as to synthesize an adequate number of virtual microphones
+</span><span style="font-family: Tahoma;" lang="EN">  with suitable directivity and pointing, and manage the organization of special
+</span><span style="font-family: Tahoma;" lang="EN">  "surround"
+</span><span style="font-family: Tahoma;" lang="EN">  listening tests with trained 
+	listeners specialize, with the goal to  identify the best signal processing 
+	technique.</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Telecommunications, Electronics, Computer</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Three-dimensional measurement of impulse responses in 
+	theatres and
+</span><span style="font-family: Tahoma;" lang="EN">  concert halls</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with</span> <span lang="EN"><a href="http://www.aidasrl.it"><span style="font-family: Tahoma;">AIDA Srl</span></a></span><span style="font-family: Tahoma;" lang="EN">, Parma. The purpose 
+	is to develop a method of measuring </span><span style="font-family: Tahoma;" lang="EN">  acoustic characteristics of a room, making use of
+</span><span style="font-family: Tahoma;" lang="EN">  a new portable recording system, 
+	equipped with a tetrahedral microphone probe, called Brahma.
+</span><span style="font-family: Tahoma;" lang="EN">The student must perform measurements with the "exponential sine sweep" 
+	technique in a number of rooms, comparing the results
+</span><span style="font-family: Tahoma;" lang="EN">  of the new technique with the traditional ones, and 
+	employing the results for designing suitable acoustical corrections, when 
+	required.</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Electronics, Civil,
+</span><span style="font-family: Tahoma;">  Telecommunications</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN"><a name="Porting0">Porting</a></span> <span style="font-family: Tahoma;" lang="EN">
+	of Aurora plugins under Audacity</span></p>
+  <p>&nbsp;</p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">The project, recently launched thanks to the activity of 
+	research assistant Simone Campanini, aims to rebuild the suite of Aurora plugins (</span> <span lang="EN"><a href="http://www.aurora-plugins.com"><span style="font-family: Tahoma;">www.aurora-plugins.com</span></a></span> <span style="font-family: Tahoma;" lang="EN">) as add-on modules for the open-source and cross-platform 
+	program</span> <span lang="EN"><a href="http://audacity.sourceforge.net/"><span style="font-family: Tahoma;">Audacity</span></a></span> <span style="font-family: Tahoma;" lang="EN">.</span><br><span style="font-family: Tahoma;" lang="EN">
+</span><span style="font-family: Tahoma;" lang="EN">  The student will have the opportunity to participate in the development of new
+</span><span style="font-family: Tahoma;" lang="EN">  software modules, operating on the platform of choice (Windows, Mac, Linux)
+</span><span style="font-family: Tahoma;" lang="EN">  and to test the correct functionality 
+	by performing experiments of measurement and
+</span><span style="font-family: Tahoma;" lang="EN">  listening, and by comparison with the current implementation for Adobe
+</span><span style="font-family: Tahoma;" lang="EN">  Audition, and with cutting-edge laboratory instrumentation (Audio
+</span><span style="font-family: Tahoma;" lang="EN">  Precision, Bruel &amp; Kjaer, etc..).</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">IT &amp; Computer Science
+</span><span style="font-family: Tahoma;">  Telecommunications, Electronics</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN"><a name="Porting">Porting</a> 
+	of Aurora and X-volver </span><span style="font-family: Tahoma;" lang="EN">plugins </span>
+	<span style="font-family: Tahoma;" lang="EN">to VST format</span></p>
+  <p><span lang="EN">&nbsp;</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">The project, 
+	recently launched thanks to the activity of research assistant Andrea Venturi, aims to rebuild the suite of 
+	Aurora plugins
+</span><span style="font-family: Tahoma;" lang="EN">(</span><span lang="EN"><a href="http://www.aurora-plugins.com"><span style="font-family: Tahoma;">www.aurora-plugins.com</span></a></span> <span style="font-family: Tahoma;" lang="EN">) as additional modules in </span>
+	<a href="http://ygrabit.steinberg.de/%7Eygrabit/public_html/index.html">
+	<span style="font-family: Tahoma;" lang="EN">VST</span></a> <span style="font-family: Tahoma;" lang="EN">
+	format</span><span style="font-family: Tahoma;" lang="EN">.</span><br><span style="font-family: Tahoma;" lang="EN">
+</span><span style="font-family: Tahoma;" lang="EN">  The student will have the opportunity' to participate in the development of new
+</span><span style="font-family: Tahoma;" lang="EN">  software modules, operating on the platform of choice (Windows, Mac, Linux)
+</span><span style="font-family: Tahoma;" lang="EN">  and to test the correct functionality 
+	by performing experiments of measuring and
+</span><span style="font-family: Tahoma;" lang="EN">  listening, and by comparison with the current implementation for Adobe
+</span><span style="font-family: Tahoma;" lang="EN">  Audition, and with 
+	cutting-edge laboratory instrumentation (Audio
+</span><span style="font-family: Tahoma;" lang="EN">  Precision, Bruel &amp; Kjaer, etc..).</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">IT &amp; Computer Science,  Telecommunications, Electronics</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Non-destructive analysis of frescoes by acoustic 
+</span><span style="font-family: Tahoma;" lang="EN">and
+</span><span style="font-family: Tahoma;" lang="EN">  vibration measurements </span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research sponsored by the Cariparma Foundation, Parma. </span><span style="font-family: Tahoma;" lang="EN">
+	The purpose is  to develop a new test method with very small  invasiveness, aimed at locating 
+</span><span style="font-family: Tahoma;" lang="EN">structurally
+</span><span style="font-family: Tahoma;" lang="EN">  degraded areas in plaster, frescoes, mosaics, and other structures of 
+	historical value. 
+</span><span style="font-family: Tahoma;" lang="EN">The new method makes use of an 
+	"exponential sine sweep" signal,
+</span><span style="font-family: Tahoma;" lang="EN">  in order to operate with very low 
+	sound pressure level; an array of loudspeakers focuses sound waves, so that 
+	just a restricted area of  the surface to be scanned is stressed, and an array of microphones (or 
+	a Laser-Doppler velocimeter) is employed in order to determine the  vibrational 
+	response of a single point of the structure.
+</span><span style="font-family: Tahoma;" lang="EN">The student must first
+</span><span style="font-family: Tahoma;" lang="EN">  operate a verification of the new method on artificial samples in
+</span><span style="font-family: Tahoma;" lang="EN">  laboratory, and then perform 
+	experimental tests "in situ" inside  churches and other historic buildings in Parma.</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Civil, Mechanical</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Development of a sonar system for "sub-bottom profiling"</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with WASS, La Spezia and Livorno. 
+	The goal is the development of a low-frequency Sonar system, operating </span><span style="font-family: Tahoma;" lang="EN">  in the audio field (1000-20000 Hz), broadband, in order to obtain a good
+</span><span style="font-family: Tahoma;" lang="EN">  penetration into the seabed and to view the 
+	soil stratigraphy
+</span><span style="font-family: Tahoma;" lang="EN">  below. </span><span style="font-family: Tahoma;" lang="EN">The system uses an array of 16 hydrophones and an  underwater 
+	loudspeaker fed with sine sweep signal.
+</span><span style="font-family: Tahoma;" lang="EN">The student will have to make
+</span><span style="font-family: Tahoma;" lang="EN"> a series of tests
+in the laboratory, in the test tank and in the sea, in order to
+validate the operation of the system, and to process the results of the
+acquired traces in order to obtain three-dimensional images of the
+stratigraphy of the bottom.</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Electronics, Environment and Territory, Computer</span><span lang="EN"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Development of </span><span style="font-family: Tahoma;" lang="EN">
+	a three-dimensional</span><span style="font-family: Tahoma;" lang="EN"> underwater 
+	sound recording system</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research 
+	carried out in collaboration with <a href="http://www.aidasrl.it">AIDA Srl</a> , Parma. </span><span style="font-family: Tahoma;" lang="EN">The purpose of the research 
+	is the development of a device for recording underwater the signals of 4 
+	hydrophones, capable to determine the direction of origin of the sound, to be used for
+</span><span style="font-family: Tahoma;" lang="EN">  underwater environmental monitoring in marine protected areas. </span><span style="font-family: Tahoma;" lang="EN">The student
+</span><span style="font-family: Tahoma;" lang="EN">  must follow the 
+</span><span style="font-family: Tahoma;" lang="EN">  electromechanical
+</span><span style="font-family: Tahoma;" lang="EN">  development of the prototype and carry out the
+</span><span style="font-family: Tahoma;" lang="EN">  characterization of performance with 
+	in-tank testing and in-sea testing.</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Electronics, Environment and Territory, Computer Science, Mechanical Engineering</span><span lang="EN"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Development of an "Acoustic 
+	Camera" system</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with <a href="http://www.aidasrl.it">AIDA</a> <a href="http://www.aidasrl.it">srl</a> , Parma. </span><span style="font-family: Tahoma;" lang="EN">The purpose 
+	is to reactivate the "Acoustic Camera" system that was built four years ago, making use of high quality microphones and 
+	of a new
+</span><span style="font-family: Tahoma;" lang="EN">  portable hardware acquisition</span><span style="font-family: Tahoma;" lang="EN"> 
+	system</span><span style="font-family: Tahoma;" lang="EN">, which should allow 
+	to be  used outside the laboratory.
+</span><span style="font-family: Tahoma;" lang="EN">The student must
+first reassemble the system and make it operational, then verify its
+performances through a series of measurements to be carried out both in
+the laboratory, and in
+</span><span style="font-family: Tahoma;" lang="EN">  industrial environment. </span><span style="font-family: Tahoma;" lang="EN">If versed in programming, 
+	the student may also
+</span><span style="font-family: Tahoma;" lang="EN">  participate in the development of the new 
+</span><span style="font-family: Tahoma;" lang="EN">  real time</span><span style="font-family: Tahoma;" lang="EN">a 
+	software, that
+</span><span style="font-family: Tahoma;" lang="EN">  should replace the existing 
+</span><span style="font-family: Tahoma;" lang="EN">  Matlab
+</span><span style="font-family: Tahoma;" lang="EN">  software, currently capable 
+	of "off
+</span><span style="font-family: Tahoma;" lang="EN">  line "</span><span style="font-family: Tahoma;" lang="EN">  
+	processing only</span><span style="font-family: Tahoma;" lang="EN">.</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Mechanical, Civil,
+</span><span style="font-family: Tahoma;">  Electronics, Computer Science</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Mapping of environmental noise through measurements and simulation</span><b><span lang="EN"></span></b></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with the Municipality of Parma, Department of
+</span><span style="font-family: Tahoma;" lang="EN">  Environment. </span><span style="font-family: Tahoma;" lang="EN">It is 
+	aimed to realize a first prototype of a control unit for
+</span><span style="font-family: Tahoma;" lang="EN">  acoustic monitoring of urban areas, based on the assembly of
+already existing</span><span style="font-family: Tahoma;" lang="EN">, low cost</span><span style="font-family: Tahoma;" lang="EN">  
+	components. </span><span style="font-family: Tahoma;" lang="EN">The student must make a
+</span><span style="font-family: Tahoma;" lang="EN">  series of surveys by placing these 
+	10 units in the hot spots of the city,
+</span><span style="font-family: Tahoma;" lang="EN">  in order to achieve the noise map in the city  of Parma, also making use of the simulation software Citymap.</span><span lang="EN"></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Environment and Territory,
+</span><span style="font-family: Tahoma;">  Civil</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Development of a 
+</span><span style="font-family: Tahoma;" lang="EN">"low cost"</span><span style="font-family: Tahoma;" lang="EN"> measurement system 
+	for building acoustic</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;" lang="EN">Research carried out in collaboration with <a href="http://www.aidasrl.it">AIDA</a> <a href="http://www.aidasrl.it">srl</a> , Parma. </span><span style="font-family: Tahoma;" lang="EN">This is to verify the ability 
+	to employ low-cost  instrumentation, making use of digital audio equipment
+</span><span style="font-family: Tahoma;" lang="EN">  originally developed in the field of music, to carry out
+</span><span style="font-family: Tahoma;" lang="EN">  building acoustics measurements, thanks to recent technical rules
+	which  allow for the use of the exponential sine sweep signal.
+</span><span style="font-family: Tahoma;" lang="EN">This makes it possible to use a
+</span><span style="font-family: Tahoma;" lang="EN">  small loudspeaker and 
+	low-cost digital audio recorders. </span><span style="font-family: Tahoma;" lang="EN">The student
+</span><span style="font-family: Tahoma;" lang="EN">  must carry out a campaign of comparative measurements, using either the
+</span><span style="font-family: Tahoma;" lang="EN">  new method and the traditional one, and compare the results obtained
+</span><span style="font-family: Tahoma;" lang="EN">  in a number of civil and 
+	public buildings</span><span style="font-family: Tahoma;" lang="EN">  (school, 
+	hospital, etc..)</span><span style="font-family: Tahoma;" lang="EN">.</span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: Tahoma;">Civil, Environment and Territory</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<div class="MsoNormal" style="text-align: center;" align="center"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b><hr align="center" size="2" width="100%"><b><span lang="EN">
+</span></b><b><span lang="EN">
+</span></b></div>
+
+<h5><span style="font-family: Tahoma;" lang="EN">Copyright (C)
+</span><span style="font-family: Tahoma;" lang="EN">Angelo Farina - reproduction prohibited without permission.</span><br><span style="font-family: Tahoma;" lang="EN">
+</span><span style="font-family: Tahoma;" lang="EN">Last revised: 10/11/13, 
+16:15<br>
+</span></h5>
+
+</div>
+
+</body></html>

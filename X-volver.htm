@@ -1,0 +1,136 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="it">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>X-volver VST plugin</title>
+</head>
+
+<body>
+
+<h1 align="center">
+<font face="Arial">
+<img border="0" src="X-volver-pictures/X-volv1.gif" width="800" height="96"></font></h1>
+<h2 align="center">
+<font face="Arial"><b>X-volver is a VST plugin running on WIN32 and OSX 
+multichannel host programs,<br>
+performing matrix convolution of audio signals with up to 32 inputs and 32 
+outputs</b></font></h2>
+<hr>
+<p><font face="Arial">You can
+<a href="http://www.angelofarina.it/Public/Xvolver/">download X-volver and a 
+collection of filter matrices here</a>. X-volver is free for personal usage.
+<a href="mailto:farina@unipr.it?subject=X-volver">Contact the author</a> for 
+professional usage.</font></p>
+<hr>
+<p><font face="Arial">X-volver can be hosted inside a large number of sound 
+processing programs, but for multichannel operation (that is, more than 2 
+inputs, 2 outputs) you need to employ a truly-multichannel host program. 
+Unfortunately most sound processing programs and DAWs support only soundtracks 
+with a limited number of audio channels (typically 2, 4 or 6 at most). Instead 
+X-volver can operate with up to 32 channels (and the shortcoming version will go 
+up to 64), so your host program is better if capable of such large channel 
+counts. </font></p>
+<p><font face="Arial">Furthermore, Xvolver can produce an output stream having a 
+different channel number than the input stream, and only a few audio processing 
+programs allow for this possibility.</font></p>
+<p><font face="Arial">We recommend the usage of &quot;graphical&quot; sound processing programs, such as 
+Plogue Bidule, Audio Mulch, PureData, Max-Msp. X-volver can also be employed 
+inside traditional DAW programs, such as Reaper, but this makes quite more 
+difficult to understand the signal paths.</font></p>
+<p><font face="Arial">This is a typical screenshot of Plogue Bidule, where an 
+instance of X-volver is employed for processing a 4-channels audio file and 
+converting it to another 4-channels audio file, employing a filter matrix of 4x4 
+(16) FIR filters:</font></p>
+<p><font face="Arial"><img border="0" src="X-volver-pictures/X-volv2.jpg"></font></p>
+<p><font face="Arial">When X-volver is first instanced, under Windows, it asks 
+for the number of input and output channels:</font></p>
+<p><font face="Arial"><img border="0" src="X-volver-pictures/X-volv3.jpg"></font></p>
+<p><font face="Arial">This does not happens on the Mac version, where the number 
+of channels must be changed inside X-volver, then it must be closed and opened 
+again for the new setting to become effective.</font></p>
+<p><font face="Arial">After instancing X-volver and connecting its 4 inputs 
+(from above) and its 4 outputs (to below), you can click on it for opening its 
+user's interface:</font></p>
+<p><font face="Arial"><img border="0" src="X-volver-pictures/X-volv4.jpg"></font></p>
+<p><font face="Arial">The largest part of the GUI contains the filter matrix, in 
+this case a 4x4 matrix, where the impulse responses (IRs, also called FIRs) of 
+the filters have to be loaded.</font></p>
+<p><font face="Arial">This matrix contains 16 cells, numbered from (1,1) to 
+(4,4). You must remember that COLUMNS=INPUTS, ROWS=OUTPUTS.</font></p>
+<p><font face="Arial">So the signal coming out from X-volver on channel 1 will 
+be the sum of the convolutions of the 4 inputs with the 4 filters displayed in 
+the first row:</font></p>
+<p><font face="Arial">Out(1) = In(1)*f(1,1) + In(2)*f(1,2) + In(3)*f(1,3) + 
+In(4)*f(1,4).</font></p>
+<p><font face="Arial">For populating the matrix of FIR filters you have three 
+ways:</font></p>
+<p><font face="Arial">1) If Mode is set to &quot;<b>IR mono</b>&quot;, first write in the 
+IR size field the proper length (in samples) of the impulse responses you plan 
+to use (16384, in the example below). Then navigate to a directory containing 
+the individual filters (each saved in a mono WAV file) by pressing the button 
+labelled [...], and then drag-and-drop these filters to each cell of the matrix, 
+as shown here during the drag-and-drop operation:</font></p>
+<p><font face="Arial"><img border="0" src="X-volver-pictures/X-volv5.jpg"></font></p>
+<p><font face="Arial">When the matrix is complete, you can save it in a single 
+multichannel WAV file pressing the PACK button:</font></p>
+<p><font face="Arial"><img border="0" src="X-volver-pictures/X-volv6.jpg"></font></p>
+<p><font face="Arial">It is recommended to always save in 32 bit float format, 
+&quot;IR multi&quot; (which means complete matrix, whilst &quot;IR 1-TO-1&quot; means to save only 
+the diagonal of the matrix).</font></p>
+<p><font face="Arial">2) If a filter matrix is already available, packed in a 
+single multichannel WAV file, you can select the Mode labelled &quot;<b>IR multi</b>&quot; 
+in X-volver. At this point on the left you only see the WAV files having the 
+&quot;correct&quot; number of channels (4, in this case), and you can just select the one to 
+load. No drag-and-drop is required when in IR-multi mode, just selecting the WAV 
+file automatically loads the full matrix, as shown here:</font></p>
+<p><font face="Arial"><img border="0" src="X-volver-pictures/X-volv7.jpg"></font></p>
+<p><font face="Arial">3) Finally, if Mode is set to &quot;<b>IR 1-to-1</b>&quot;, only the 
+diagonal of the filter matrix is processed (which means that each output is 
+equal to the corresponding input, convolved with its FIR filter placed in the 
+cell in the diagonal):</font></p>
+<p><font face="Arial"><img border="0" src="X-volver-pictures/X-volv8.jpg"></font></p>
+<p><font face="Arial">When operating in this mode, X-volver behaves as several 
+other convolvers already widely employed, such as Voxengo Pristine Space. Matrix mode is peculiar to X-volver.</font></p>
+<hr>
+<p><font face="Arial">Of course you can create your own FIR filter matrix 
+assembling the individual FIRs directy in a program such as Audacity. Remember 
+to set, in the preferences of Audacity, the option &quot;Use custom mix&quot; for 
+exporting a true multichannel file; by default, Audacity downmixes everything to 
+stereo or mono...</font></p>
+<p><img border="0" src="X-volver-pictures/X-volv4.jpg"></p>
+<p><font face="Arial">Here you see for example 
+the filter matrix employed above when it was being edited in Audacity:</font></p>
+<p><font face="Arial">
+<img border="0" src="Public/B-format/A2B-conversion/A2B-images/A2B-Xv10.jpg"></font></p>
+<p><font face="Arial">Just remember that in Audacity you have to specify 
+&quot;XvMulti&quot; in the Comments, if you want that your filter matrix is recognized 
+properly by the MAC-OSX version of X-volver (the Windows version does not 
+require this):</font></p>
+<p><font face="Arial"><img border="0" src="X-volver-pictures/X-volv11.jpg"></font></p>
+<p><font face="Arial">Final trick: set the processing gain properly, as often 
+the convolution operation can result in a significant boost in the amplitude of 
+the signals, which can clip and get distorted. No auto-gain is provided, so it 
+is up to the user to ensure that the audio signal is not clipped, by adjusting 
+properly the Out gain control.</font></p>
+<p><font face="Arial"><b>Notes:</b></font></p>
+<p><font face="Arial">1) The graphical display of the waveform of each filter 
+undersamples the real waveform, so do not expect to see all the peaks and 
+valleys</font></p>
+<p><font face="Arial">2) The graphical display of the spectrum of the selected 
+FIR filter is also low-resolution, so again do not expect to see all the peaks 
+and valleys</font></p>
+<p><font face="Arial">3) The choice of IR size and the &quot;Zero Latency&quot; option 
+affect the CPU usage and the processing latency. On modern computers you can 
+operate massive convolutions, with small CPU usage and reasonably low latency, 
+but if you exceed in your requirements the audio will drop or you will get other 
+nasty artifacts.</font></p>
+<p><font face="Arial">And
+<a href="Public/B-format/A2B-conversion/A2B-Xvolver.htm">here you see an example</a> 
+of using X-volver for performing conversion between A-format and B-format.</font></p>
+<hr>
+<p><font face="Arial"><i>All the contents are Copyright by <a href="home.htm">Angelo Farina</a>, 2017</i></font></p>
+
+</body>
+
+</html>

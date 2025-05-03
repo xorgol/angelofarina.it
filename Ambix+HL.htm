@@ -1,0 +1,227 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="it">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Ambix + HL for Youtube</title>
+<meta name="keywords" content="Ambix, Ambisonics, head-locked, Youtube">
+</head>
+
+<body>
+
+<h2 align="center">
+<img border="0" src="Ambix+HL.png" width="500" height="500"></h2>
+<h2 align="center">
+<font face="Arial">How to create a 360-video for Youtube with both an Ambix 
+&quot;SPATIAL AUDIO&quot; track</font></h2>
+<h2 align="center">
+<font face="Arial">plus an &quot;head-locked&quot; stereo track</font></h2>
+<table border="1" width="100%" id="table1">
+	<tr>
+		<td bgcolor="#FFFF00">&nbsp;<p align="center">
+		<font face="Arial" size="4">&nbsp;&nbsp;&nbsp;
+		This page is here temporarily, until the clever guys at Two Big Ears fix 
+		their FB360 Encoder app, <br>
+		currently uncapable of creating the proper video file for Youtube with 
+		head-locked stereo added to the standard 4-channels 1st order Ambix 
+		track</font></p>
+		<p>&nbsp;</td>
+	</tr>
+</table>
+<p><font face="Arial">Starting in August 2018, Youtube
+<a href="https://support.google.com/youtube/answer/6395969?hl=en">supports a new 
+hybrid format</a> for the spatial audio soundtrack embedded with panoramic 360 
+videos, which contains 6 channels:</font></p>
+<ul>
+	<li><font face="Arial">the first 4 channels are traditional Ambix 1st order 
+	(WYZX)</font></li>
+	<li><font face="Arial">channels 5 and 6 contain headlocked stereo sound, 
+	which is sent to headphones unprocessed during playback, without any 
+	head-tracking effect</font></li>
+</ul>
+<p><font face="Arial">When uploading videos to Youtube supporting this new 
+6-channels format, the usage of a MOV container with uncompressed PCM audio, at 
+48 kHz, 24 or 32 bits, is highly recommended for preserving the best sound 
+quality.<br>
+Google provides a <a href="https://github.com/google/spatial-media/releases">new 
+version of their Metadata Injector V. 2.1</a>, which now allows to specify that 
+the video contains this new hybrid 6.channels audio track.</font></p>
+<p><font face="Arial">A modified version of this new Metadata Injector has been 
+released by Angelo Farina, supporting Ambix up to third order (16 channels) - 
+this is not yet supported by Youtube, but can be enjoyed in local playback using
+<a href="https://github.com/openbigdatagroup/vivecinema">Vive Cinema</a>,
+<a href="https://www.videolan.org/vlc/index.html">VLC Mediaplayer</a> or
+<a href="https://web.archive.org/web/20201111215748/https:/community.gopro.com/t5/en/GoPro-VR-Player-for-desktop-FAQ/ta-p/394345">Gopro VR Player</a> apps. </font></p>
+<p><font face="Arial">Here you can download this extended
+<a href="http://www.angelofarina.it/Public/Jump-Videos/spatial-media-2.1-HOA.zip">
+High Order version of the Metadata Injector</a>. </font></p>
+<p><font face="Arial">And <a href="Ambix_3rd_order.htm">here</a> you find a 
+guide on how to prepare such a file containing panoramic video and third-order 
+Ambix for Vive Cinema, Gopro VR Player or VLC Mediaplayer.</font></p>
+<p><font face="Arial">The present guide, instead, is limited to First Order Ambisonics 
+plus head-locked stereo, as currently supported by Youtube. And for this goal, 
+the standard Metadata Injector v. 2.1 provided by Google is good enough, 
+although, of course, you can also use my new High oder Metadata Injector. We also 
+need two other free, multi-platform and open source programs, Audacity and 
+FFMPEG, as explained here below.</font></p>
+<hr>
+<h1><font face="Arial">Preparing the 6-channels sound track using
+<a href="https://www.audacityteam.org/">Audacity</a></font></h1>
+<p><font face="Arial">Most people traditionally prefer to edit separately the Ambisonics 
+&quot;spatial audio&quot; soundtrack and the stereo head-locked soundtrack. Hence the 
+results are typically two separate .WAV files, one is a 4-channels Ambix, the 
+other is a plain 2-channels stereo. </font></p>
+<p><font face="Arial">More recently, people started working at Third Order 
+Ambisonics, hence the Ambix soundtrack will have 16 channels, not just 4. In 
+tjis case, you firs need to convert Third ORder to First order, which is done 
+esaily just jkeeping the first 4 chanenls of the 16-chanenls third order WAV 
+file.</font></p>
+<p><font face="Arial">There are many ways of performing this. One is using the 
+FB360 Encoder free program (it is part of the
+<a href="https://facebook360.fb.com/spatial-workstation/">FB Spatial Workstation</a>). 
+It has the option of converting an input 3rd order Ambix (16ch) to an outpout 
+1st order Ambix (4ch), as shown here:</font></p>
+<p><img border="0" src="FB360_encoder.png" width="362" height="838"></p>
+<p><font face="Arial">The other simple way is to import your 16-channels WAV 
+file in Audacity, which will split it in 16 mono tracks. Then you simply close 
+tracks 5..16, and you end up with just the first 4 channels. At this point you 
+can export them as a single 4-channels WAV file, or, better, you directly pack 
+these 4 channels with the additional 2 channels of HL stereo, as explained here 
+below.</font></p>
+<p><font face="Arial">Let's assume that they are named 
+Ambix-01.wav and Stereo-01.wav. And of course there is also a video-only file, 
+typically saved as an .mp4 file containing a video stream compressed with H264 
+or H265 codec.<br>
+So a typical folder containing the streams to be assembled is as follows:</font></p>
+<p><img border="0" src="files.png" width="1268" height="325"></p>
+<p><font face="Arial">It is not possible to assembly directly the two audio 
+files together with the video file: first it is required to &quot;pack together&quot; the 
+two audio files, inside a single 6-channels .WAV file.</font></p>
+<p><font face="Arial">This is done easily employing the free, open source 
+program <a href="https://www.audacityteam.org/">Audacity</a>. There is&nbsp; 
+just one simple trick: after installing Audacity, it is necessary to remove one 
+default setting, which causes to &quot;downmix&quot; everything to a single stereo output 
+file, forcing the program to save instead a true multichannel file.</font></p>
+<p><font face="Arial">This is done opening the preferences of Audacity, and 
+selecting the option labelled &quot;Use custom mix (..)&quot;</font></p>
+<p><img border="0" src="Audacity-preferences.png" width="574" height="332"></p>
+<p><font face="Arial">After setting up Audacity as shown here, the task is 
+trivial: just IMPORT in Audacity your two WAV files (using File - Import - 
+Audio) as shown here:</font></p>
+<p><img border="0" src="Audacity-Import.png" width="926" height="708"></p>
+<p><font face="Arial">Select the TWO wav files:</font></p>
+<p><img border="0" src="Audacity-Import-2.png" width="557" height="417"></p>
+<p><font face="Arial">And here is what you get:</font></p>
+<p><img border="0" src="Audacity-tracks.png" width="926" height="707"></p>
+<p><font face="Arial">It can be seen how the 4-channels Ambix file was split 
+into 4 mono tracks (as Audacity is yet uncapable of keeping more than two 
+channels inside the same track), whilst the following 2-channels headlocked file 
+was opened as a single stereo track.</font></p>
+<p><font face="Arial">In case the Ambix track was 16-channels (3rd order) 
+instead of 4-channels (1st order), after importing you see the following:</font></p>
+<p><img border="0" src="Audacity-16+2.png" width="800" height="668"></p>
+<p><font face="Arial">You can now simply remove, by clicking on the &quot;X&quot; on the 
+left, all channels ranging from 5 to 16, leaving the first 4, and the last two 
+(HL stereo). So you are back at the same situation as in the previous picture.</font></p>
+<p><font face="Arial">Now it is possibly the moment where the relative gains of 
+the two &quot;ingredients&quot; are adjusted. In fact, typically the stereo track is too 
+loud, and the Ambix soundtrack is too weak for being played simultaneously.
+</font></p>
+<p><font face="Arial">The head-locked sound should be very gentle, for avoiding 
+to disrupt the capability of the Ambix soundtrack of giving the listener the 
+impression of &quot;being there&quot; inside the spatial environment shown in the video.</font></p>
+<p><font face="Arial">But of course this is left to the taste of the sound 
+designer...</font></p>
+<p><font face="Arial">In this example, it resulted advisable to reduce the gain 
+of the Stereo Head-locked track by 10 dB. So I selected just the stereo track, 
+and applied gain reduction using the command Effect - Amplify...:</font></p>
+<p><img border="0" src="Audacity-Amplify.png" width="299" height="220"></p>
+<p><font face="Arial">Remember that during playback these 6 channels will be 
+downmixed to 2 and filtered with HRTF filters, hence the maximum level will peak 
+much louder than the signal on any of the 6 channels. Hence it is absolutely to 
+be avoided to &quot;maximize the gain&quot;, as it is usually done when creating standard 
+soundtracks in which each channel will be simply played by the corresponding 
+loudspeaker. The Youtube Spatial Audio medium is significantly more critical 
+than other media regarding the risk of clipping and distortion during playback, 
+so we must be very conservative. My recommendation is to avoid any peak louder 
+than -6 dB full scale, and possibly staying under -10 dB FS, as I did in this 
+example. So these are the 6 channels after gain optimization:</font></p>
+<p><img border="0" src="Audacity-optimized.png" width="926" height="707"></p>
+<p><font face="Arial">We can now export the 6 channels into a single WAV file, 
+using the command File - Export:</font></p>
+<p><img border="0" src="Audacity-Export.png" width="557" height="417"></p>
+<p><font face="Arial">It can be seen how, for preserving the maximum sound 
+quality, the output format was set to &quot;Other uncompressed files&quot;. Under 
+&quot;Options&quot;, the following has been specified:</font></p>
+<p><img border="0" src="Audacity-Uncompressed.png" width="326" height="184"></p>
+<p><font face="Arial">After clicking on the &quot;save&quot; button, the following picture 
+is displayed, confirming that the 6 channels are being packed properly into the 
+6-channels output file:</font></p>
+<p><img border="0" src="Audacity-Mixing.png" width="626" height="473"></p>
+<p><font face="Arial">And pressing finally on the &quot;OK&quot; button, the 6-channels 
+WAV file named Ambix+Stereo-01.wav is created:</font></p>
+<p><img border="0" src="files-2.png" width="1268" height="325"></p>
+<p><font face="Arial">We are able now to pack together (&quot;mux&quot;) the new 
+6-chanenls audio file together with the video file.</font></p>
+<p>&nbsp;</p>
+<h1><font face="Arial">Muxing audio with video employing
+<a href="https://ffmpeg.org/">FFMPEG</a></font></h1>
+<p><font face="Arial">Although the operation of merging the 6-channels audio 
+track with the video track can be done employing almost any existing video 
+editor (for example Adobe Premiere), in this guide we favour open-source 
+software. Which, indeed, provides much better control on what is done, and 
+avoids to decompress and recompress again the video stream (causing significant 
+loss of quality).</font></p>
+<p><font face="Arial"><a href="https://ffmpeg.org/">FFMPEG</a> is perfect for 
+this, as it allows to mux the two streams without applying any modification to 
+them.</font></p>
+<p><font face="Arial">After installing FFMPEG and having it being properly 
+inserted in the PATH of your computer, so you can launch it form any folder, you 
+simply open a console window, navigate to the folder containing your audio and 
+video files, and type the following command:</font></p>
+<table border="1" width="100%" bordercolorlight="#000000" bordercolordark="#000000">
+	<tr>
+		<td bgcolor="#000000">
+		<p style="margin-top: 6px; margin-bottom: 6px"><b>
+		<font color="#FFFFFF" face="Courier New">&nbsp;ffmpeg -i Video-01.mp4 -i 
+		&quot;Ambix+Stereo-01.wav&quot; -map 0:v -map 1:a -c:v copy -c:a copy 
+		Output-01.mov</font></b></td>
+	</tr>
+</table>
+<p><font face="Arial">In just a few milliseconds FFMPEG will write the new muxed 
+Audio + Video file inside your folder, as shown here:</font></p>
+<p><img border="0" src="files-3.png" width="1268" height="351"></p>
+<p><font face="Arial">But this new video file IS NOT READY for Youtube yet, as 
+it has to be properly &quot;injected&quot; with the required metadata, so that Youtube 
+will &quot;understand&quot; that the 6-channels audio track is NOT a 5.1 old-style 
+&quot;surround&quot; soundtrack, and is instead the new Ambix+HL format.</font></p>
+<hr>
+<h1><font face="Arial">Injecting metadata into the audio+video file</font></h1>
+<p><font face="Arial">The .mov file needs now to be injected with proper 
+metadata. This is done using the Google Metadata Injector v. 2.1 (do not use 
+previous versions, as they do not support the new Ambix+HL 6-channels format).</font></p>
+<p><font face="Arial">The Metadata Injector is a Python 2.7 script. This means 
+that, for using it, you need first to install properly
+<a href="https://www.python.org/download/releases/2.7/">Python 2.7</a> (not 
+Python 3.xx).</font></p>
+<p><font face="Arial">Then download from the GITHUB repository the ZIP file 
+containg the proper version of the
+<a href="https://github.com/google/spatial-media/releases">Metadata Injector</a> 
+for your operating system (WIndows or Mac). Unzip it to a folder, navigate to 
+the subfolder named </font>
+<span style="color: rgb(36, 41, 46); font-family: Arial; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none; background-color: rgb(255, 255, 255)">
+&quot;spatialmedia&quot; and double click on the &quot;gui.py&quot; script. This will launch Python 
+and display the following window, where you can open your MOV file and specify 
+the metadata to be injected, as shown here:</span></p>
+<p><img border="0" src="Injector.png" width="362" height="275"></p>
+<p><font face="Arial">At this point, clicking on the &quot;inject metadata&quot;&nbsp; 
+button a new version of the mov file is created, with &quot;_injected&quot; added to its 
+name. </font></p>
+<p><img border="0" src="files-4.png" width="1268" height="375"></p>
+<p><font face="Arial">THIS IS THE GOOD FILE to be upoaded on Youtube!</font></p>
+<hr>
+<p><font face="Arial"><i>All the contents are Copyright by <a href="home.htm">Angelo Farina</a>, 2019</i></font></p>
+
+</body>
+
+</html>

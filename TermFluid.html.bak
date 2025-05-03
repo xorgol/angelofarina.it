@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<TITLE> Programma del corso </TITLE>
+</HEAD>
+<LINK rel=stylesheet type="text/css" href="http://pcnettuno.cedi.unipr.it/mds/mds.css">
+<BODY class=mds bgcolor="#FFFFFF">
+<HR>
+<P class=mds_titins> <font size="3">Termofluidodinamica applicata</font></P>
+<TABLE width="582">
+  <tr> 
+    <td class=mds_doc width="345"><href="HTTP://pcfarina.eng.unipr.it">
+	<font size="3"><a href="HTTP://pcfarina.eng.unipr.it">Angelo Farina</a></font></td>
+    <td class=mds width="345">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class=mds_doc width="225">&nbsp;</td>
+    <td class=mds width="345"><a href="mailto:angelo.farina@unipr.it">
+	<font size="3">angelo.farina@unipr.it</font></a></td>
+  </tr>
+  <TR> 
+    <TD width="225">&nbsp;</TD>
+    <TD class=mds width="345"></TD>
+  </TR>
+</TABLE>
+<BR>
+<HR>
+<P class=mds_titprog> Finalit&agrave; </P>
+<P class=mds_memo>Trasporto di materia. Legge di Fick; coefficiente di diffusione; 
+  diffusione di un gas attraverso un gas stagnante; diffusione di un gas attraverso 
+  uno strato solido; equazione di conservazione per una singola specie chimica 
+  in miscele binarie; forma a dimensionale dell'equazione di conservazione; numero 
+  di Schmidt; coefficiente di trasporto di materia per piccole velocit&agrave; 
+  di trasporto; numero di Nusselt per trasporto di materia; strato limite di concentrazione; 
+  numero di Lewis.<br>
+  Diffusione del vapore in una parete. Diagramma di Glaser.</p>
+<P class=mds_titprog> Programma<b> </b></P>
+<P class=mds_memo><b> Analogia tra trasporto di quantit&agrave; di moto, energia 
+  e materia</b>. Analogia di Reynolds; analogia di Chilton-Colburn; moto turbolento 
+  entro tubi lisci lunghi; cilindro immerso in una corrente fluida; moto laminare 
+  e turbolento su lastra piana finita e semiinfinita; sfera immersa in fluido; 
+  strato di materiale granulare; evaporazione di una goccia in caduta libera; 
+  raffreddamento per evaporazione; processo di saturazione adiabatica; teoria 
+  dello psicrometro.<br>
+  <b>Moto dei fluidi nei condotti</b>, scambio termico fra parete e fluido, relazione 
+  di Dittus - Boelter, esempi applicativi.<br>
+  <b>Trasmissione del calore in ebollizione</b>. Regimi di ebollizione: ebollizione 
+  di massa, ebollizione in convezione forzata; ebollizione sottoraffreddata e 
+  satura; modalit&agrave; di ebollizione di massa: in convezione naturale, nucleata, 
+  regime di transizione, a film; correlazione di Rohsenow; flusso critico; effetto 
+  del sottoraffreddamento; effetto della scabrezza superficiale; ebollizione in 
+  convezione forzata.<br>
+  <b>Trasmissione del calore in regime di condensazione superficiale</b>. Condensazione 
+  a film e condensazione a gocce; condensazione a film laminare su lastra piana 
+  verticale, soluzione di Nusselt; numero di Reynolds per la condensazione a film, 
+  regime di transizione, regime turbolento, numero di Nusselt modificato; condensazione 
+  a film su sistemi radiali (sfere, cilindri orizzontali isolati e sovrapposti); 
+  condensazione all'interno di tubi orizzontali; condensazione a gocce. <br>
+  <b>Concentrazione dei fluidi tramite evaporazione</b>. Generalit&agrave; sugli 
+  evaporatori; bilancio di massa; bilancio di entalpia; dimensionamento della 
+  superficie di scambio termico; economia di vapore; evaporatori a effetto multiplo: 
+  bilancio di massa e di entalpia; alimentazione anteriore, posteriore, in parallelo; 
+  ricompressione meccanica del vapore.<br>
+  <b>Scambiatori di calore</b>. Generalit&agrave; e classificazione; coefficiente 
+  globale di scambio termico: effetto dello sporcamento della superficie e dell'efficienza 
+  di una eventuale superficie alettata; differenza di temperatura media logaritmica: 
+  dimensionamento dello 122 scambiatore; estensione al caso di scambiatori a correnti 
+  non parallele: fattore correttivo F; efficienza di uno scambiatore; analisi 
+  delle prestazioni termiche mediante il metodo efficienza - NTU; scambiatori 
+  di calore compatti: calcolo della potenza termica scambiata e delle perdite 
+  di carico.<br>
+  <b>Reologia.</b> Classificazione dei fluidi: puramente viscosi, viscoelastici 
+  e dipendenti dal tempo; ecometri: a tubo capillare e a rotazione; determinazione 
+  delle propriet&agrave; reologiche di fluidi indipendenti dal tempo mediante 
+  reometro a tubo capillare; numero di Reynolds generalizzato; fattore di attrito 
+  in regime laminare; legge di potenza, indice di consistenza e indice di comportamento 
+  del fluido; profilo di velocit&agrave; ed energia cinetica media di fluidi verificanti 
+  la legge di potenza, in moto laminare entro condotti a sezione circolare; regime 
+  turbolento, relazione di Dodge e Metzner: scambio termico convettivo in regime 
+  laminare e turbolento; applicazione al processo di sterilizzazione di prodotti 
+  fluidi entro sterilizzatori continui.<br>
+  Conduzione del calore in regime non stazionario. A dimensionalizzazione dell'equazione 
+  di Fourier e delle relative condizioni al contorno: numero di Fourier, numero 
+  di Biot; casi limite per Biot grande e piccolo; caso di Biot qualunque: lastra 
+  infinita, cilindro infinito, sfera, solidi di dimensione finita: parallelepipedo 
+  e cilindro; applicazione al processo di sterilizzazione di prodotti solidi.	
+  <br>
+  <b>Soluzioni ideali</b>. Definizioni e propriet&agrave; termodinamiche; diagrammi 
+  termodinamici; abbassamento del punto di fusione; innalzamento del punto di 
+  ebollizione.<br>
+  <b>Congelamento.</b> Determinazione della variazione di entalpia del prodotto; 
+  diagramma entalpia-concentrazione di acqua-temperatura; determinazione del tempo 
+  di congelarnento; equazione di Planck; equazione di Planck modificata; dimensionamento 
+  di impianti frigoriferi.<br>
+  <b>Essiccamento</b>. Curve di umidificazione e di essiccamento; umidit&agrave; 
+  di equilibrio, libera, legata; velocit&agrave; di essiccamento: fase a velocit&agrave; 
+  costante ed a velocit&agrave; decrescente; bilancio di energia e di massa nella 
+  fase a velocit&agrave; costante; effetto della velocit&agrave;, della temperatura 
+  e dell'umidit&agrave; dell'aria, effetto dello spessore del solido; fase a velocit&agrave; 
+  decrescente; contenuto di umidit&agrave; critico; essiccamento per convezione; 
+  essiccamento attraverso strati di materiale granulare: particelle piccole, rispetto 
+  allo spessore dello strato, e particelle grandi.<br>
+</P>
+<P class=mds_titprog> Attivit&agrave; d'esercitazione </P>
+<P class=mds_memo>Nel corso è inserita una esercitazione sulla soluzione dei 
+problemi di transitorio termico mediante metodo numerico alle differenze finite. 
+Nel corso di tale esercitazione, gli studenti dovranno programmare l'algoritmo 
+delle differenze finite (metodo esplicito) in un idoneo ambiente di sviluppo, 
+installato sui computer del CEDI.</P>
+<P class=mds_titprog> Modalit&agrave d'esame </P>
+<P class=mds_memo>Valutazione del software preparato durante le attività di 
+esercitazione (portare il CD all'esame). Esercizio con soluzione numerica 
+(portare la calcolatrice ed il materiale di consultazione). Domanda finale 
+orale.</P>
+<P class=mds_titprog> Propedeuticit&agrave; </P>
+<P class=mds_memo>Fisica Tecnica</P>
+<P class=mds_titprog>Testi consigliati</P>
+<P class=mds_memo>F. KREITH, &quot; Principi di 
+Trasmissione del Calore&quot;, Liguori Editore, Napoli, 1975<br>
+  R.B. BIRD, W.E. STEWART, E.N. LIGHTFOOT: &quot; Fenomeni di trasporto &quot;, 
+  Casa Editrice Ambrosiana, Milano, 1970.</span><br>
+  &nbsp;</span></P>
+<P class=mds_titprog> Testi di 
+Approfondimento </P>
+<P class=mds_memo>
+<span style="font-style: normal; font-weight: 400; text-decoration: none">F. P. INCOPRERA, D P DE WITT: &quot; Fundamentals of Heat and Mass Trasfer &quot;, 
+  John Wiley &amp; Sons, New york, 1985.<br>
+  D.R. HELDMAN, R. P. SINGH: &quot; FoodProcess Engineering &quot;, AVI Publishing 
+  Company, Inc., 1981, Wesport.<br>
+  Y.I. CHO, J.P. HARTNETT: &quot; Non newtonian fluids &quot;, in Handbook of 
+  heat TransferApplications &quot;, McGraw-Hilr Boole Company, 1985, USA.<br>
+  K.DENBIGH: &quot; The Principles of Chemicl Equilibrium &quot;, Cambridge University 
+  Press, 1984, Great Britain. <br>
+  ASHRAE: &quot; Handbook, Fundamentals &quot;, USA, 1985. <br>
+  R.E. TREYBAL: &quot; Mass-trasfer Operations &quot;, McGraw-Hill Boole Company, 
+  Inc., USA, 1955.</P>
+<HR>
+<P><I> Aggiornato il 25 marzo 2005</I></P>
+</BODY>
+</HTML>

@@ -1,0 +1,329 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="it">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Panoramic videos with Ambix 3rd order</title>
+<meta name="keywords" content="Ambix, Ambisonics, HOA, VLC Mediaplayer, Vive Cinema">
+</head>
+
+<body>
+
+<h2 align="center">
+<img border="0" src="Ambix-3o.png" width="821" height="493"></h2>
+<h2 align="center">
+<font face="Arial">How to create a 360-video for VLC Mediaplayer or for Vive 
+Cinema <br>
+with an Ambix 3rd order&nbsp; 
+&quot;SPATIAL AUDIO&quot; track (16 channels)</font></h2>
+<h2 align="center">
+&nbsp;</h2>
+<table border="1" width="100%" id="table1">
+	<tr>
+		<td bgcolor="#FFFF00">&nbsp;<p align="center">
+		<font face="Arial" size="4">&nbsp;&nbsp;&nbsp;
+		This page is here temporarily, until the clever guys at Two Big Ears fix 
+		their FB360 Encoder app, <br>
+		currently uncapable of creating a video file contaning a full 
+		3rd order Ambix 
+		track</font></p>
+		<p>&nbsp;</td>
+	</tr>
+</table>
+<p><font face="Arial">Starting with version 3.00, VLC Mediaplayer supports 
+panoramic video with spatial audio soundtrack embedded with panoramic 360 
+videos, which contains 16 channels, but requiring:</font></p>
+<ul>
+	<li><font face="Arial">Ambix format (ACN-SN3D)</font></li>
+	<li><font face="Arial">Google Metadata for the 3rd order soundtrack</font></li>
+</ul>
+<p><font face="Arial">It must be noted that currently the only container capable 
+of embedding an high-resolution panoramic video and a 16-channels high-quality 
+soundtrack 
+(uncompressed PCM at 48 kHz, 24 bits integer or, better, 32-bits float)&nbsp; is a 
+MOV container: MP4 or other &quot;modern&quot; containers do not support such a 
+16-channels soundtrack.</font></p>
+<p><font face="Arial">It must also be noted that the current version 2.1 of the 
+Google Metadata Injector only supports first-order Ambix (4-channels) with 
+2 optional additional channels of &quot;head locked&quot; stereo (the new 
+6-channels Youtube 
+format), as described <a href="http://www.angelofarina.it/Ambix+HL.htm">in this 
+web page</a>.</font></p>
+<p><font face="Arial">Here we provide the information and tools required 
+for creating a MOV file containing the 16-channels Ambix 3rd order soundtrack, 
+including the command for FFMPEG for assembling the audio and video files, 
+and the modified Google Metadata Injector suitable for 3rd-order metadata.</font></p>
+<hr>
+<h1><font face="Arial">Preparing the 16-channels sound track</font></h1>
+<p><font face="Arial">Today a number of hardware and software tools exist for 
+creating an high-quality 3rd-order Ambix soundtrack (16 channels). Here we 
+describe 3 approaches:</font></p>
+<ul>
+	<li><font face="Arial">Recording directy a 3rd-order soundtrack using a 
+	massive microphone array</font></li>
+	<li><font face="Arial">Upscaling a 1st-order recording employing advanced 
+	&quot;parametric&quot; processing</font></li>
+	<li><font face="Arial">Creating a synthetic 3rd order soundtrack panning one 
+	or more mono spound tracks using proper encoding plugins</font></li>
+</ul>
+<h2>&nbsp;</h2>
+<h2><font face="Arial">Microphone arrays</font></h2>
+<p><font face="Arial">Apart some experimental systems developed in various 
+research centers, the market provides two high-resolution microphone arrays, 
+shown here</font></p>
+<table border="1">
+	<tr>
+		<td>
+		<p align="center">
+		<img border="0" src="Eigenmike-by-mh-acoustics-32-capsule-microphone-that-can-record-in-Ambisonics.png" width="199" height="431"></td>
+		<td>
+		<p align="center">
+		<img border="0" src="Aurora/Zylia.png" width="177" height="245"></td>
+	</tr>
+	<tr>
+		<td align="center"><font face="Arial">The Eigenmike-32(TM)
+		</font></td>
+		<td align="center"><font face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The Zylia ZM-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></td>
+	</tr>
+</table>
+<p><font face="Arial">These microphones come with crap proprietary software 
+which converts the raw signals coming form the capsules (which are 32 for the 
+EIgenmike and 19 for the Zylia) into standard Ambix 3rd order (16 channels). But 
+of course the same conversion from A-format to B-format can be done employing a 
+standard matrix convolver plugin (such as
+<a href="http://www.angelofarina.it/X-volver.htm">X-Volver</a>,
+<a href="http://www.matthiaskronlachner.com/?p=1910">MCFX</a>,
+<a href="http://research.spa.aalto.fi/projects/sparta_vsts/plugins.html">Sparta 
+MatrixConv</a>, <a href="https://aurora-plugins.forumfree.it/?t=78373799">Aurora 
+for Audacity</a> or <a href="http://www.angelofarina.it/X-MCFX.htm">X-MCFX</a>) 
+and the filter matrices made available
+<a href="http://www.angelofarina.it/Public/Xvolver/Filter-Matrices/Eigenmike/Eigenmike-June-2017/Em32-Ambix-3rd-order-encoder.wav">
+here</a> (for the Eigenmike) and
+<a href="http://www.angelofarina.it/Public/Xvolver/Filter-Matrices/Aformat-2-Bformat/Zylia-Jul-2020/">
+here</a> (for the Zylia).</font></p>
+<p><font face="Arial"><a href="http://www.angelofarina.it/X-MCFX.htm">This web 
+page</a> shows how to use one of these matrix convolution plugins for performing 
+the conversion.</font></p>
+<h2><img border="0" src="X-MCFX-pictures/Bidule1.PNG" width="707" height="412"></h2>
+<p>&nbsp;</p>
+<h2><font face="Arial">Upscaling 1st order to 3rd order</font></h2>
+<p><font face="Arial">Despite the availability of the massive microphone arrays 
+described here above, many people are still using lower-resolution microphone 
+arrays, capable of just first order (4 channels) or of almost-second-order (8 
+channels, whilst full 3rd order would require at least 9 capsules). A number of 
+software tools are available for upscaling first order (and, in some cases, 
+second order) to full 3rd order:</font></p>
+<ul>
+	<li><font face="Arial"><a href="https://harpex.net/">Harpex-X</a> by Svein 
+	Berge</font></li>
+	<li><font face="Arial">
+	<a href="https://www.blueripplesound.com/products/o3a-harpex-upsampler">O3A 
+	Harpex Upsampler</a> by Richard Furse</font></li>
+	<li><font face="Arial">
+	<a href="http://research.spa.aalto.fi/projects/compass_vsts/plugins.html">
+	Compass Upmixer</a> (part of the
+	<a href="http://research.spa.aalto.fi/projects/sparta_vsts/plugins.html">
+	Sparta</a> suite by Leo McCormack)</font></li>
+</ul>
+<p><font face="Arial">The usage of these plugins is straightforward: you feed 
+them with a low-order Ambix stream, and they provide an &quot;upscaled&quot; higher-order 
+output stream. Of course you need to use an host program which manages plugins 
+having a number of output channels larger than the number of input channels.</font></p>
+<p><img border="0" src="Harpex-Bidule.jpg" width="814" height="459"></p>
+<p><font face="Arial">It must also be said that the results of these 
+&quot;upscaling&quot; parametric algorithms is not always optimal: they get confused in 
+case of complex scenes, with many sources in different locations emitting 
+similar sounds. In some cases, the first order original signal remains 
+preferable to the upscaled version.</font></p>
+<h2>&nbsp;</h2>
+<h2><font face="Arial">Sythesizing 3rd order from mono tracks</font></h2>
+<p><font face="Arial">In many cases, the best results are obtained starting form 
+one or more clean mono tracks, recording &quot;at the source&quot; with close microphones. 
+Each of these mono tracks is then &quot;encoded&quot; to 3rd order Ambix employing some 
+sort of &quot;panner&quot; or &quot;spatialiser&quot; tool. Here the number of available software 
+tools capable of this kind of &quot;spatial positioning&quot; is huge, so here I cite 
+just some of them, and I apologise for omissions.</font></p>
+<p><font face="Arial"><br>
+<b>Free tools:</b></font></p>
+<ul>
+	<li><font face="Arial"><a href="http://www.matthiaskronlachner.com/?p=2015">
+	Ambix</a> plugins by Mathias Kronlachner</font></li>
+	<li><font face="Arial"><a href="https://plugins.iem.at/">IEM</a> plugins by 
+	Daniel Rudrich</font></li>
+	<li><font face="Arial">
+	<a href="http://research.spa.aalto.fi/projects/sparta_vsts/plugins.html">
+	SPARTA</a> plugins by Leo McCormack</font></li>
+	<li><font face="Arial">
+	<a href="https://www.blueripplesound.com/products/o3a-core">O3A CORE</a> 
+	plugins by Richard Furse</font></li>
+	<li><font face="Arial">
+	<a href="https://facebook360.fb.com/spatial-workstation/">Facebook Spatial Workstation</a> 
+	by TBE</font></li>
+</ul>
+<p><font face="Arial"><b>Commercial tools:</b></font></p>
+<ul>
+	<li><font face="Arial">
+	<a href="https://www.dear-reality.com/products/dearvr-pro#:~:text=dearVR PRO is the all,output formats up to 9.1.">
+	DearVR Pro</a> by Dear Reality</font></li>
+	<li><font face="Arial"><a href="https://www.noisemakers.fr/ambi-pan-hd/">
+	AmbiPan HD</a> by Noisemakers</font></li>
+	<li><font face="Arial"><a href="https://www.audioease.com/360/">360 Pan 
+	Suite</a> by AudioEase</font></li>
+	<li><font face="Arial">
+	<a href="https://www.ssa-plugins.com/product/axpanner/">AXpanner</a> by SSA 
+	plugins</font></li>
+</ul>
+<p>&nbsp;</p>
+<h2><font face="Arial">Processing 16-channels tracks</font></h2>
+<p><font face="Arial">Further processing is often required, performing tasks 
+such as level control, compression, equalization, adding reverb, denoising, 
+etc... For performing these tasks most DAWs and plugins are not suitable, due to 
+the large channel count, and to the need of preserving carefully gain and phase 
+matching among all these channels. Only a few host programs and a few 
+mulichannel plugins are suitable for such kind of post-processing of Ambix 3rd 
+order tracks:<br>
+<br>
+<b>Multichannel DAWs capable of managing properly 16-channels soundtracks:</b></font></p>
+<ul>
+	<li><font face="Arial">Adobe Audition CC</font></li>
+	<li><font face="Arial">Reaper</font></li>
+	<li><font face="Arial">Nuendo</font></li>
+	<li><font face="Arial">Protools HD</font></li>
+	<li><font face="Arial">Plogue Bidule</font></li>
+	<li><font face="Arial">Max</font></li>
+</ul>
+<p><font face="Arial"><b>Multichannel plugins capable of managing properly 
+16-channels soundtracks:</b></font></p>
+<ul>
+	<li><font face="Arial">MELDA</font></li>
+	<li><font face="Arial">Ambix</font></li>
+	<li><font face="Arial">MCFX</font></li>
+	<li><font face="Arial">IEM</font></li>
+	<li><font face="Arial">SPARTA</font></li>
+	<li><font face="Arial">O3A Core</font></li>
+	<li><font face="Arial">Noisemakers</font></li>
+	<li><font face="Arial">Audioease</font></li>
+</ul>
+<p><font face="Arial">If you instead want to use plugins which are not properly 
+desigend for processing AMBIX soundtracks, a method for using standard plugins, 
+based on the <a href="http://www.angelofarina.it/SPS-conversion.htm">SPS 
+approach</a>, is presented in
+<a href="http://www.angelofarina.it/Aurora/Ambisonics-Denoising.htm">this web 
+page</a>.</font></p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Arial">Here an example of 
+a 16-channels Ambix soundtrack (recorded using an Eigenmike and with minimal 
+post-processing):</font></p>
+<p><img border="0" src="Ambix-3o-soundtrack.jpg" width="1014" height="606"></p>
+<p>&nbsp;</p>
+<h1><font face="Arial">Preparing the panoramic video track</font></h1>
+<p><font face="Arial">Today a number of cameras are available, capable of 
+recording a panoramic equirectangular video of proper resolution (currently the 
+minimum for decent rendering on an Oculus Quest 2 HMD is 5.7k, but 8k is highly 
+recommended).</font></p>
+<p><font face="Arial">
+<a href="https://www.digitalcameraworld.com/buying-guides/best-360-cameras">This 
+article</a> provides a short review of today's consumer-grade panoramic cameras.</font></p>
+<p><font face="Arial">I own substantially all of them, and my favouruìite one, 
+providing the sharpoest image and pretty good colours, is the
+<a href="https://www.kandaovr.com/qoocam-8k/index.html">Kandao Qoocam 8k</a>:</font></p>
+<p><img border="0" src="Kandao-QooCam-8K-360.jpg" width="670" height="533"></p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Arial">The resulting 
+video file is an MP4, containing an H264 or H265 video stream, in 
+equirectangular format, with a resolution of 7680x3840 at 30 FPS.<br>
+If the video file is not injected with proper &quot;panoramic&quot; metadata, VLC 
+Mediaplayer will not recognize that it is a 360-degrees equirectangular video, 
+and will display it &quot;strecthed out&quot; as here:<br>
+<img border="0" src="Equirectangular.jpg" width="961" height="666"></font></p>
+<p>&nbsp;</p>
+<h1><font face="Arial">Muxing audio with video employing
+<a href="https://ffmpeg.org/">FFMPEG</a></font></h1>
+<p><font face="Arial">Although the operation of merging the 16-channels audio 
+track with the video track can be done employing almost any serious video 
+editor (for example Adobe Premiere), in this guide we favour open-source 
+software. Which, indeed, provides much better control on what is done, and 
+avoids to decompress and recompress again the video stream (causing significant 
+loss of quality).</font></p>
+<p><font face="Arial"><a href="https://ffmpeg.org/">FFMPEG</a> is perfect for 
+this, as it allows to mux the two streams without applying any modification to 
+them.</font></p>
+<p><font face="Arial">After installing FFMPEG and having it being properly 
+inserted in the PATH of your computer, so you can launch it form any folder, you 
+simply open a console window, navigate to the folder containing your audio and 
+video files, and type the following command:</font></p>
+<table border="1" width="100%" bordercolorlight="#000000" bordercolordark="#000000">
+	<tr>
+		<td bgcolor="#000000">
+		<p style="margin-top: 6px; margin-bottom: 6px"><b>
+		<font color="#FFFFFF" face="Courier New">&nbsp;</font></b><p style="margin-top: 6px; margin-bottom: 6px">
+		<b>
+		<font color="#FFFFFF" face="Courier New">&nbsp;ffmpeg -i Video-01.mp4 -i 
+		Audio-01.wav -map 0:v -map 1:a -c:v copy -c:a copy -shortest Output-01.mov</font></b><p style="margin-top: 6px; margin-bottom: 6px">&nbsp;</td>
+	</tr>
+</table>
+<p><font face="Arial">In just a few milliseconds FFMPEG will write the new muxed 
+Audio + Video file inside your folder.</font></p>
+<p><font face="Arial">But this new video file IS NOT READY for playback yet, as 
+it has to be properly &quot;injected&quot; with the required metadata, so that 
+VLC Mediaplayaer (or Vive Cinema) 
+will &quot;understand&quot; that the 16-channels audio track is in Ambix 3rd 
+order format.</font></p>
+<hr>
+<h1><font face="Arial">Injecting metadata into the audio+video file</font></h1>
+<p><font face="Arial">The .mov file needs now to be injected with proper 
+metadata. This is done using my modified version of the Google Metadata Injector v. 2.1 (do not use 
+previous versions, nor the Google's official release, as they do not support the 
+Ambix 3rd order 16-channels format).</font></p>
+<p><font face="Arial">The Metadata Injector is a Python 2.7 script. </font></p>
+<p><font face="Arial">I compiled it to an EXE file, so, if you use a Windows 
+machine, just
+<a href="http://www.angelofarina.it/Public/Jump-Videos/SpatialMediaMetadataInjector.exe">
+DOWNLOAD THE EXE HERE</a> and launch it.</font></p>
+<p><font face="Arial">If you use a Mac, be aware that, on the latest versions of 
+Mac OS, Python 2.7 has been removed, so even if you can download the ZIP file 
+containing this special version of the
+<a href="http://www.angelofarina.it/Public/Jump-Videos/spatial-media-2.1-HOA.zip">Metadata Injector</a>, 
+you will have some problems riunning it. If you manage to install Python 2.7, 
+then unzip it to a folder, navigate to 
+the subfolder named
+&quot;spatialmedia&quot; and double click on the &quot;gui.py&quot; script. </font></p>
+<p><font face="Arial">In both cases, when you launch the Metadata Injector you 
+will see the following window, where you can open your MOV file and specify 
+the metadata to be injected, as shown here:</font></p>
+<p><img border="0" src="Injector.jpg" width="378" height="260"></p>
+<p><font face="Arial">At this point, clicking on the &quot;inject metadata&quot;&nbsp; 
+button, a new version of the mov file is created, with &quot;_injected&quot; added to its 
+name. </font></p>
+<p><img border="0" src="files-4.png" width="1268" height="375"></p>
+<p><font face="Arial">THIS IS THE GOOD FILE to be watched with VLC mediaplayer 
+or with Vive Cinema (using a tethered HMD and a good pair of headhones).</font></p>
+<hr>
+<h1><font face="Arial">Watching the audio+video file</font></h1>
+<p><font face="Arial">Thanks to the metadata, VLC now undertand the nature of 
+the audio+video file and allows to watch it through a movable viewport, which 
+can be dragged around for exploring the 360-degrees scene. The audio is rendered 
+accordingly to the video, resulting in sharp localization when the user is 
+wearing good headphones.</font></p>
+<p><img border="0" src="Viewport.jpg" width="962" height="595"></p>
+<p><font face="Arial">But, for the best viewing and listening experience, you 
+should use a tethered HMD, (such as the Oculus Quest 2 with the Oculus Link 
+cable), and the open-source software
+<a href="https://github.com/openbigdatagroup/vivecinema">Vive Cinema</a> by 
+Andre Chen, so the user experience will be like here:</font></p>
+<p><img border="0" src="HMD.jpg" width="685" height="513"></p>
+<p><font face="Arial">And if you have your own set of personalized HRTF filters, 
+and your own personalized heapdhones EQ filters, you can enjoy acoustical 
+virtual reality at its maximum level, tanks to
+<a href="http://www.angelofarina.it/Public/ViveCinema/">this special modified 
+version of Vive Cinema</a>, which allows to employ such personalized digital 
+filters instead of the &quot;standard&quot; ones. </font></p>
+<p><font face="Arial">
+<a href="http://www.angelofarina.it/Public/AES-AVAR-2018/">This paper</a> 
+provides explanation of these modifications and discusses the benefits obtained 
+when head tracking, personalized HRTF and personalized headphones eq are all 
+employed simultaneous with 3rd-order Ambix recordings.</font></p>
+<hr>
+<p><font face="Arial"><i>All the contents are Copyright by <a href="home.htm">Angelo Farina</a>, 2021</i></font></p>
+
+</body>
+
+</html>

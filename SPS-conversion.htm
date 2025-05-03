@@ -1,0 +1,2181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<meta http-equiv="Content-Language" content="it">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>SPS and Mach1 spatial audio formats</title>
+
+<meta name="keywords" content="Two Big Ears, Facebook Spatial Workstation, X-volver, Ambix, Ambisonics">
+<style>
+<!--
+ table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	}
+-->
+</style></head><body>
+
+<h1 align="center">
+&nbsp;<img src="Mach1/32beams-300.jpg" border="0" height="300" width="300">
+<img src="Mach1/Mach1.jpg" border="0" height="300" width="300"></h1>
+<h2 align="center">
+<font face="Arial">Introducing SPS format and its first practical 
+implementation, called Mach1</font></h2>
+<table id="table1" border="1" width="100%">
+	<tbody><tr>
+		<td bgcolor="#ffff00">&nbsp;<p align="center">
+		<font face="Arial" size="4">&nbsp;&nbsp;SPS stands for <b>Spatial PCM 
+		Sampling</b>, and is a modern alternative to Ambisonics for recording, 
+		synthesizing, manipulating, transmitting and rendering of spatial audio 
+		contents. This page provides the definition of the SPS concept, show 
+		similarities and differences with Ambisonics, and presents the hardware 
+		and software tools employed for working with SPS signals having various 
+		numbers of channels.</font></p>
+		<p align="center">
+		<font face="Arial" size="4">Finally, the first real world application of 
+		the SPS approach is presented, the <a href="http://mach1studios.com/">
+		Mach1</a> 8-channels soundtrack currently supported by the
+		<a href="https://samsungvr.com/portal/">Samsung VR portal</a> and by the
+		<a href="http://www.nytimes.com/marketing/nytvr/">New York Times VR app</a></font></p>
+		<p>&nbsp;</p></td>
+	</tr>
+</tbody></table>
+<p><font face="Arial"><a href="https://en.wikipedia.org/wiki/Ambisonics">
+Ambisonics</a> is a widely employed format for capturing, transmitting and 
+decoding spatial audio, using 4, 9, 16, 25, 36 channels or even more (High Order 
+Ambisonics, HOA). It was invented in the seventies by
+<a href="https://en.wikipedia.org/wiki/Michael_Gerzon">Michael Gerzon</a> and 
+colleagues, and has a long history of successes (few) and failures (many). In 
+Ambisonics, the spatial information is obtained representing the sound field as 
+a multichannel track, in which each channel corresponds with a virtual 
+microphone having a very complex polar pattern, mathematically described by the 
+corresponding <a href="https://en.wikipedia.org/wiki/Spherical_harmonics">
+Spherical Harmonics</a> function.</font></p>
+<p><font face="Arial">SPS is a modern audio format providing all the same 
+capabilities of recording, synthesizing, processing, transmitting and decoding 
+as Ambisonics, adding some inherent advantages which will be explained here.
+</font></p>
+<p>&nbsp;</p>
+<hr>
+<h1><font face="Arial">History of the SPS approach</font></h1>
+<p><font face="Arial">SPS was invented by Alberto Amendola and Angelo Farina, 
+during acoustical measurements performed inside the Grand Théâtre de Provence, 
+Aix en Provence, on 19 June 2007. In that case, for mapping the sound 
+reflections inside the theatre, Alberto Amendola suggested to use a Sennheiser 
+shotgun microphone, mounted on an automatic two-axes turntable, for sampling the 
+sound arriving by hundredths of directions while measuring room impulse 
+responses.</font></p>
+<p align="center"><a href="aix.jpg">
+<img src="Mach1/Aix-small.jpg" border="0" height="750" width="562"></a></p>
+<p><font face="Arial">So the first implementation of SPS was with room impulse 
+responses, measured one after the other: each one was the response of a very 
+directive microphone pointing in one of hundreths of directions, covering almost 
+uniformly the whole sphere.<br>
+<br>
+In 2010 we did buy our first Eigenmike, and this allowed to record SPS signals 
+simultaneoulsy with 32 ultradirective virtual microphones, pointing in the same 
+directions of the capsules of the Eigenmike:</font></p>
+<p align="center"><font face="Arial">
+<img src="Mach1/32beams.jpg" border="0" height="403" width="358"></font></p>
+<p align="justify"><font face="Arial">
+Thanks to these realtime capabilities, SPS-32 was first used as a tool for 
+creating colour maps of the spatial distribution of sound, employed both in 
+concert halls and inside cars, as it was published in these papers:</font></p>
+
+<table class="MsoNormalTable" style="width: 100%;" id="table2" border="1" cellpadding="0" cellspacing="3" width="100%">
+ <tbody><tr style="">
+  <td style="padding: 0.75pt; width: 11.78%;" width="11%">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;" lang="IT">Marco
+  Binelli, Andrea Venturi, Alberto Amendola, Angelo Farina</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 64.02%;" width="64%">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="Public/Papers/254-AES130.pdf" style="color: blue; text-decoration: underline;">Experimental analysis of spatial
+  properties of the sound field inside a car employing a spherical microphone
+  array</a></span><span style=""><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 19.24%;" width="19%">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="http://www.aes.org/events/130/" style="color: blue; text-decoration: underline;">130th AES
+  Conference</a>, London, 13-16 May 2011</span><span style=""><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt; width: 11.78%;" width="11%">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;" lang="IT">Angelo
+  Farina, Alberto Amendola, Andrea Capra, Christian Varani</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 64.02%;" width="64%">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="Public/Papers/255-AES130.pdf" style="color: blue; text-decoration: underline;">Spatial analysis of room impulse
+  responses captured with a 32-capsules microphone array</a></span><span style=""><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 19.24%;" width="19%">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="http://www.aes.org/events/130/" style="color: blue; text-decoration: underline;">130th AES
+  Conference</a>, London, 13-16 May 2011</span><span style=""><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">Angelo Farina, Lamberto Tronchin</span><span style=""><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="">
+	<a href="Public/Papers/267-Acta2012.pdf" style="color: blue; text-decoration: underline;"><span style="font-family: &quot;Arial&quot;,sans-serif;">3D Sound
+  Characterisation in Theatres Employing Microphone Arrays</span></a><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="http://www.acta-acustica-united-with-acustica.com/" style="color: blue; text-decoration: underline;">Acta Acustica
+  united with Acustica</a>, vol. 99, n.1, pp. 118-125, ISSN 1610-1928,
+  January/February 2013</span><span style=""><o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<p><font face="Arial">Here a frame captured from the video rendering software 
+written by Alberto Amendola for realtime mapping of room reflections inside the 
+La Scala theater:</font></p>
+<p align="center">
+<img src="Mach1/Acta-Fig4.jpg" border="0" height="577" width="681"></p>
+<p><font face="Arial">The usage of SPS as an alternative to Ambisonics for 
+recording and playback was also explored successfully, as reported in the 
+following papers:</font></p>
+
+<table class="MsoNormalTable" style="width: 100%;" id="table4" border="1" cellpadding="0" cellspacing="3" width="100%">
+ <tbody><tr style="">
+  <td style="padding: 0.75pt; width: 11.78%;" width="11%">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;" lang="IT">A. Farina, M.
+  Binelli, A. Capra, E. Armelloni, S. Campanini, A. Amendola</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 64.02%;" width="64%">
+  <p class="MsoNormal" style=""><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="Public/Papers/264-Paper-Farina-ISVA-2011.pdf" style="color: blue; text-decoration: underline;">Recording, Simulation and Reproduction
+  of Spatial Soundfields by Spatial PCM Sampling (SPS)</a></span></p>
+  </td>
+  <td style="padding: 0.75pt; width: 19.24%;" width="19%">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="http://www.upv.es/contenidos/ACUSVIRT/indexi.html" style="color: blue; text-decoration: underline;">International
+  Seminar on Virtual Acoustics</a>, Valencia (Spain), 24-25 November 2011</span><span style=""><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;" lang="IT">Angelo
+  Farina, Andrea Capra, Alberto Amendola and Simone Campanini</span><span style="" lang="IT"><o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="Public/Papers/270-AES134.pdf" style="color: blue; text-decoration: underline;">Recording
+  and playback techniques employed for the Urban Sounds project</a></span></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="http://www.aes.org/events/134/" style="color: blue; text-decoration: underline;">134th AES
+  Convention</a>, 2013 May 4–7 Rome, Italy</span><span style=""><o:p></o:p></span></p>
+  </td>
+ </tr>
+	<tr>
+  <td style="padding: 0.75pt;">
+  <span style="font-family: &quot;Arial&quot;,sans-serif;" lang="IT">Angelo Farina, Alberto Amendola, Lorenzo Chiesi, Andrea Capra, Simone
+  Campanini</span><span style="" lang="IT"><o:p></o:p></span></td>
+  <td style="padding: 0.75pt;">
+  <span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="Public/Papers/273-AES52-2013.pdf" style="color: blue; text-decoration: underline;">Spatial
+  Pcm Sampling: A New Method For Sound Recording And Playback</a></span></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="http://www.aes.org/conferences/52/" style="color: blue; text-decoration: underline;">AES 52nd
+  International Conference</a>, Guildford, UK, 2013 September 2–4</span><span style=""><o:p></o:p></span></p>
+  </td>
+ </tr>
+	<tr>
+  <td style="padding: 0.75pt;">
+  <span style="font-family: &quot;Arial&quot;,sans-serif;" lang="IT">Angelo Farina, Simone Campanini, Lorenzo Chiesi, Alberto Amendola,
+  Lorenzo Ebri</span><span style="" lang="IT"><o:p></o:p></span></td>
+  <td style="padding: 0.75pt;">
+  <span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="Public/Papers/274-AES55-2014.pdf" style="color: blue; text-decoration: underline;">Spatial
+  Sound Recording With Dense Microphone Arrays</a></span><o:p></o:p></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="http://www.aes.org/conferences/55/" style="color: blue; text-decoration: underline;">AES 55th
+  International Conference</a>, Helsinki, Finland, 2014 August 27–29</span><span style=""><o:p></o:p></span></p>
+  </td>
+ </tr>
+	<tr>
+  <td style="padding: 0.75pt;">
+  <span style="font-family: &quot;Arial&quot;,sans-serif;" lang="IT">Angelo Farina </span><span style="" lang="IT"><o:p></o:p></span>
+  </td>
+  <td style="padding: 0.75pt;">
+  <span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="Public/Papers/277-EPSRC-2015.pdf" style="color: blue; text-decoration: underline;">From High Order Ambisonics to Spatial PCM Sampling
+  – application to auralization of measurements and computer simulations</a></span><o:p></o:p></td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">
+	<a href="http://hub.salford.ac.uk/acoustics/workshopsept2015/" style="color: blue; text-decoration: underline;">EPSRC funded
+  workshop on numerical acoustic simulation and auralisation as built
+  environment design consultation tools</a><o:p></o:p></span></p>
+  <p class="MsoNormal"><span style="font-family: &quot;Arial&quot;,sans-serif;">Manchester (UK) 22-23 September 2015<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<h1>&nbsp;</h1>
+<h1><font face="Arial">Ambisonics signals</font></h1>
+<p><font face="Arial">An Ambisonics multichannel sound track is not based on the 
+concept of "position of the loudspeakers", as in a stereo (Left-Right) or 
+"surround 5.1" (Left, Right, Center, Sub, Left Surround, Right Surround) 
+formats.</font></p>
+<p><font face="Arial">Instead, the complete spatial information is represented 
+by a number of "spherical harmonics" signals, at increasing orders. The number 
+of signals for each order is increasing, and the corresponding polar patterns of 
+the equivalent "virtual microphones" are shown here:</font></p>
+<p align="center"><img src="Aurora/SH.png" border="0" height="554" width="1000"></p>
+<p><font face="Arial">An Ambisonics stream is said to be "of order n" when it 
+contains all the signal of orders 0 to n. For example, an Ambisonics signal of 
+order 3 (the most widely used, nowadays) contains 16 channels: 1 of order 0, 3 
+of order 1, 5 of order 2 and 7 of order 3. Please note that, following the Ambix 
+convention, numbering of Ambisonics channels starts from 0 instead of 1.</font></p>
+<p>&nbsp;</p>
+<hr>
+<h1><font face="Arial">SPS signals</font></h1>
+<p><font face="Arial">An SPS multichannel track consists in&nbsp; bunch of 
+signals recorded by a set of <b>coincident</b> directive microphones, pointing 
+all around, covering (almost) uniformly the surface of a sphere. As the 
+microphones are coincident, the SPS signals do not contain time differences 
+between the channels, only amplitude is different, depending on the position 
+of the sound source. In this, SPS is exactly as Ambisonics, coding the spatial 
+information based only on amplitude and not on phase. However, in SPS there are 
+never "reversed polarity" signals, as the virtual microphones being employed are 
+cardioids of various order, whithout any rear lobe with reversed polarity.</font></p>
+<p><font face="Arial">The number of channels can be chosen among the known 
+regular polyedrons (<a href="https://en.wikipedia.org/wiki/Platonic_solid">Platonic 
+solids</a>), up to 20 channels. Above 20 it is necessary to use 
+not-exactly-uniform geometries (<a href="https://en.wikipedia.org/wiki/Archimedean_solid">Archimedean 
+solids</a>), such as the truncated icosahedron (the Eigenmike). The most common 
+number of channels, and the corresponding geometries, are listed here:</font></p>
+<table id="table6" border="1" width="100%">
+	<tbody><tr>
+		<td align="center" bgcolor="#c0c0c0"><font face="Arial">Figure</font></td>
+		<td align="center" bgcolor="#c0c0c0"><font face="Arial">N. channels</font></td>
+		<td bgcolor="#c0c0c0"><font face="Arial">Description</font></td>
+	</tr>
+	<tr>
+		<td align="center"><font face="Arial">
+		<img src="Mach1/75px-Tetrahedron.svg.png" border="0" height="71" width="75"></font></td>
+		<td align="center"><font face="Arial">4</font></td>
+		<td><font face="Arial">faces of
+		<a href="https://en.wikipedia.org/wiki/Tetrahedron">tetrahedron</a></font></td>
+	</tr>
+	<tr>
+		<td align="center"><font face="Arial">
+		<img src="Mach1/75px-Hexahedron.svg.png" border="0" height="83" width="75"></font></td>
+		<td align="center"><font face="Arial">6</font></td>
+		<td><font face="Arial">faces of a
+		<a href="https://en.wikipedia.org/wiki/Cube">cube</a></font></td>
+	</tr>
+	<tr>
+		<td align="center"><font face="Arial">
+		<img src="Mach1/75px-Octahedron.svg.png" border="0" height="74" width="75"></font></td>
+		<td align="center"><font face="Arial">8</font></td>
+		<td><font face="Arial">faces of an
+		<a href="https://en.wikipedia.org/wiki/Octahedron">octahedron</a></font></td>
+	</tr>
+	<tr>
+		<td align="center"><font face="Arial">
+		<img src="Mach1/Dodecahedron.svg.png" border="0" height="75" width="75"></font></td>
+		<td align="center"><font face="Arial">12</font></td>
+		<td><font face="Arial">faces of a
+		<a href="https://en.wikipedia.org/wiki/Regular_dodecahedron">
+		dodechaedron</a></font></td>
+	</tr>
+	<tr>
+		<td align="center"><font face="Arial">
+		<img src="Mach1/Icosahedron.svg.png" border="0" height="72" width="75"></font></td>
+		<td align="center"><font face="Arial">20</font></td>
+		<td><font face="Arial">faces of an
+		<a href="https://en.wikipedia.org/wiki/Regular_icosahedron">icosahedron</a></font></td>
+	</tr>
+	<tr>
+		<td align="center"><font face="Arial">
+		<img src="Mach1/75px-Truncatedicosahedron.jpg" border="0" height="75" width="75"></font></td>
+		<td align="center"><font face="Arial">32</font></td>
+		<td><font face="Arial">faces of a
+		<a href="https://en.wikipedia.org/wiki/Truncated_icosahedron">truncated 
+		icosahedron</a></font></td>
+	</tr>
+	<tr>
+		<td align="center"><font face="Arial">
+		<img src="Mach1/75px-Rhombicosidodecahedron.jpg" border="0" height="76" width="75"></font></td>
+		<td align="center"><font face="Arial">62</font></td>
+		<td><font face="Arial">faces of a </font>
+		<a title="Rhombicosidodecahedron" style="background: rgb(248, 249, 250) none repeat scroll 0%; color: rgb(11, 0, 128); font-family: Arial; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" href="https://en.wikipedia.org/wiki/Rhombicosidodecahedron">
+		rhombicosidodecahedron</a></td>
+	</tr>
+	<tr>
+		<td align="center"><font face="Arial">
+		<img src="Mach1/75px-Snubdodecahedronccw.jpg" border="0" height="76" width="75"></font></td>
+		<td align="center"><font face="Arial">92</font></td>
+		<td><font face="Arial">faces of a </font>
+		<a title="Snub dodecahedron" style="background: rgb(248, 249, 250) none repeat scroll 0%; color: rgb(11, 0, 128); font-family: sans-serif; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" href="https://en.wikipedia.org/wiki/Snub_dodecahedron">
+		snub dodecahedron</a></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p><font face="Arial">There is not yet a standard absolute orientation and a 
+standard channel ordering for all of these geometries, except for the 
+tetrahedron, for the octahedron (SPS-8, aka Mach1, 
+described later), for the dodoecahedron (SPS-12) and for the truncated icosahedron (SPS-32, which employs the same geometry as the capsules 
+of the Eigenmike), as shown here:</font></p>
+<table id="table7" border="1" width="100%">
+	<tbody><tr>
+		<td width="792">
+		<img src="Mach1/Tetra-channels.png" border="0" height="635" width="793"></td>
+		<td align="center">
+		<p style="margin-top: 0pt; margin-bottom: 0pt;" align="center"><b><font face="Arial">Tetrahedron</font></b></p>
+		<p style="margin-top: 0pt; margin-bottom: 0pt;" align="center">&nbsp;</p>
+		<div align="left">
+			<table class="MsoNormalTable" style="border-collapse: collapse; margin-left: 95.7pt;" id="table11" border="0" cellpadding="0" cellspacing="0" width="373">
+				<tbody><tr style="height: 26.4pt;">
+					<td style="border: 1pt solid black; padding: 0cm;" width="52">
+					<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+					<span style="font-size: 8pt;" lang="EN-US">&nbsp;</span><b><span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: 0.2pt;" lang="EN-US">M</span><span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">ic<span style="letter-spacing: -0.3pt;">
+					</span>#</span></b></p></td>
+					<td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm;">
+					<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center"><b>
+					<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">Azimut [°]</span></b></p></td>
+					<td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm;" width="102">
+					<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center"><b>
+					<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">Elevation[°]</span></b></p></td>
+					<td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm;" align="center" width="104">
+					<p style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+					<font face="Arial" size="2"><b>&nbsp;EM32 Mic #</b></font></p></td>
+				</tr>
+				<tr style="height: 17.75pt;">
+					<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">1</span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span lang="en-us"><font size="2">
+					<span style="font-family: Arial,sans-serif;">45</span></font></span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="102">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span style="letter-spacing: -0.05pt;" lang="en-us">
+					<font size="2"><span style="font-family: Arial,sans-serif;">35.26</span></font></span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="104">
+					6</td>
+				</tr>
+				<tr style="height: 17.75pt;">
+					<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">2</span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span style="letter-spacing: -0.05pt;" lang="en-us">
+					<font size="2"><span style="font-family: Arial,sans-serif;">315</span></font></span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="102">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span lang="en-us"><font size="2">
+					<span style="font-family: Arial,sans-serif;">-35.26</span></font></span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="104">
+					10</td>
+				</tr>
+				<tr style="height: 17.65pt;">
+					<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">3</span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span lang="en-us"><font size="2">
+					<span style="font-family: Arial,sans-serif;">135</span></font></span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="102">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span lang="en-us"><font size="2">
+					<span style="font-family: Arial,sans-serif;">-35.26</span></font></span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="104">
+					26</td>
+				</tr>
+				<tr style="height: 17.75pt;">
+					<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">4</span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+					<p style="margin-top: 0pt; margin-bottom: 0pt;" align="center">225</p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="102">
+					<p class="TableParagraph" style="text-align: center; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+					<span lang="en-us"><font size="2">
+					<span style="font-family: Arial,sans-serif;">35.26</span></font></span></p></td>
+					<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="104">
+					22</td>
+				</tr>
+			</tbody></table></div>
+		</td>
+	</tr>
+		<tr>
+		<td width="792">
+		<img src="Mach1/Mach1-channels.jpg" border="0" height="635" width="793"></td>
+		<td align="center">
+		<p align="center"><b><font face="Arial">Octahedron (Mach1)</font></b></p>
+		<div align="left">
+		<table class="MsoNormalTable" style="border-collapse: collapse; margin-left: 95.7pt;" id="table16" border="0" cellpadding="0" cellspacing="0" width="430">
+			<tbody><tr style="height: 26.4pt;">
+				<td style="border: 1pt solid black; padding: 0cm;" width="52">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<b>
+				<span style="font-size: 8pt;" lang="EN-US">&nbsp;</span><span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: 0.2pt;" lang="EN-US">M</span><span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">ic<span style="letter-spacing: -0.3pt;">
+				</span>#</span></b></p></td>
+				<td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm;">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; font-weight: 700;" lang="EN-US">
+				Azimut [°]</span></p></td>
+				<td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm;">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; font-weight: 700;" lang="EN-US">
+				Elevation[°]</span></p></td>
+				<td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm;" width="128">
+				<p style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<font face="Arial" size="2"><b>&nbsp;EM32 Mic #</b></font></p></td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				1</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.25pt;" align="right">
+				<span lang="en-us"><font size="2">
+				<span style="font-family: Arial,sans-serif;">45</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.3pt;" align="right">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">35.26</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="128">
+				6</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				2</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.4pt;" align="right">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">315</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center">
+				<p class="TableParagraph" style="line-height: 11.3pt; margin-right: 3.4pt;">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">35.26</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="128">
+				12</td>
+			</tr>
+			<tr style="height: 17.65pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				3</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.25pt;" align="right">
+				<span lang="en-us"><font size="2">
+				<span style="font-family: Arial,sans-serif;">135</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center">
+				<p class="TableParagraph" style="line-height: 11.3pt; margin-right: 3.25pt;">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">35.26</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="128">
+				28</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.45pt; margin-right: 3.15pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				4</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+				<p align="center">225</p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center">
+				<p align="center">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">35.26</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="128">
+				22</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.45pt; margin-right: 3.15pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				5</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.25pt;" align="right">
+				<span lang="en-us"><font size="2">
+				<span style="font-family: Arial,sans-serif;">45</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center">
+				<p class="TableParagraph" style="line-height: 11.3pt; margin-right: 3.25pt;">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">
+				-35.26</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="128">
+				8</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				6</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.4pt;" align="right">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">315</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center">
+				<p class="TableParagraph" style="line-height: 11.3pt; margin-right: 3.25pt;">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">
+				-35.26</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="128">
+				10</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				7</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.25pt;" align="right">
+				<span lang="en-us"><font size="2">
+				<span style="font-family: Arial,sans-serif;">135</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center">
+				<p class="TableParagraph" style="line-height: 11.3pt; margin-right: 3.25pt;">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">
+				-35.26</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="128">
+				26</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="52">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				8</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;">
+				<p align="center">225</p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center">
+				<p class="TableParagraph" style="line-height: 11.3pt; margin-right: 3.25pt;">
+				<span style="letter-spacing: -0.05pt;" lang="en-us">
+				<font size="2"><span style="font-family: Arial,sans-serif;">
+				-35.26</span></font></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="128">
+				24</td>
+			</tr>
+		</tbody></table>
+		</div>
+		</td>
+		</tr>
+	<tr>
+		<td width="792">
+		<img border="0" src="Mach1/Icosahedron.png" width="810" height="830"></td>
+		<td align="center">
+		<p><b><font face="Arial">Dodecahedron (12 directions at the vertexes of 
+		an icosahedron)</font></b></p>
+		<div align="left">
+		<table class="MsoNormalTable" style="border-collapse: collapse; margin-left: 95.7pt;" id="table10" border="0" cellpadding="0" width="600" height="64%">
+			<tbody><tr style="height: 26.4pt;">
+				<td style="border: 1pt solid black; padding: 0cm; height:16px" width="100" align="center">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<b>
+				<font face="Arial" size="2">
+				<span lang="EN-US">&nbsp;</span></font><span style="font-family: Arial; letter-spacing: 0.2pt" lang="EN-US"><font size="2">M</font></span><span style="font-family: Arial;" lang="EN-US"><font size="2">ic<span style="letter-spacing: -0.3pt;">
+				</span>#</font></span></b></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:1pt solid black; border-bottom:1pt solid black; padding:0cm; height:16px">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-family: Arial; font-weight: 700" lang="EN-US">
+				<font size="2">Azimut [°]</font></span></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:1pt solid black; border-bottom:1pt solid black; padding:0cm; height:16px">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-family: Arial; font-weight: 700" lang="EN-US">
+				<font size="2">Elevation [°]</font></span></p></td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2">
+				<span style="font-family: Arial;">
+				1</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-120</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">52.6</font></td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2">
+				<span style="font-family: Arial;">
+				2</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">0</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">52.6</font></td>
+			</tr>
+			<tr style="height: 17.65pt;">
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2">
+				<span style="font-family: Arial;">
+				3</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">120</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">52.6</font></td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.45pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2">
+				<span style="font-family: Arial;">
+				4</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">120</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-10.8</font></td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.45pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2">
+				<span style="font-family: Arial;">
+				5</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">60</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">10.8</font></td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2">
+				<span style="font-family: Arial;">
+				6</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">0</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-10.8</font></td>
+			</tr>
+				<tr>
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2">
+				<span style="font-family: Arial;">
+				7</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-60</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">10.8</font></td>
+				</tr>
+				<tr>
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2"><span style="font-family: Arial">8</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-120</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-10.8</font></td>
+				</tr>
+				<tr>
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2"><span style="font-family: Arial">9</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">180</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">10.8</font></td>
+				</tr>
+				<tr>
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2"><span style="font-family: Arial">10</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-60</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-52.6</font></td>
+				</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2"><span style="font-family: Arial">11</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">180</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-52.6</font></td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-left:1pt solid black; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" width="100" align="center">
+				<p class="TableParagraph" style="text-align: center; line-height: 11.3pt; margin-right: 3.15pt; margin-top:2px; margin-bottom:2px" align="right">
+				<font size="2"><span style="font-family: Arial">12</span></font></p></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px">
+				<p align="center" style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">60</font></td>
+				<td style="border-left:medium none -moz-use-text-color; border-right:1pt solid black; border-top:medium none -moz-use-text-color; border-bottom:1pt solid black; padding:0cm; height:19px" align="center">
+				<p style="margin-top: 2px; margin-bottom: 2px">
+				<font face="Arial" size="2">-52.6</font></td>
+			</tr>
+		</tbody></table>
+		<p>&nbsp;</p>
+		<p>&nbsp; </p>
+		<p>&nbsp;</div>
+		</td>
+	</tr>
+	<tr>
+		<td width="792">
+		<p align="center"><b><font face="Arial">SPS-32 (Eigenmike)</font></b></p>
+		<p style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+		<img src="Mach1/Eigenmike.jpg" border="0" height="796" width="792"></p></td>
+		<td>
+		<div align="left">
+		<p align="center"><b><font face="Arial">Truncated Icosahedron</font></b></p>
+		<table class="MsoNormalTable" style="border-collapse: collapse; margin-left: 95.7pt;" id="table8" border="0" cellpadding="0" cellspacing="0" width="406">
+			<tbody><tr style="height: 26.4pt;">
+				<td style="border: 1pt solid black; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 8pt;" lang="EN-US">&nbsp;</span><b><span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: 0.2pt;" lang="EN-US">M</span><span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">ic<span style="letter-spacing: -0.3pt;">
+				</span>#</span></b></p></td>
+				<td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<b>
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				azimut [°]</span></b></p></td>
+				<td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<b>
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				elevation [°]</span></b></p></td>
+				<td style="border-style: solid solid solid none; border-color: black black black -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				<p class="TableParagraph" style="margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<b>
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;">
+				Mach1 ch.</span></b></p></td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				1</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				21</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				2</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				32</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.65pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				3</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">21</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				4</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				328</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				5</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				58</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				6</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				45</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				35</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				<p align="center">&nbsp;1: FLU</p></td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				7</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				69</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				8</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				45</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">35</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				5: FLD</td>
+			</tr>
+			<tr style="height: 17.8pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				9</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">58</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				10</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				315</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">35</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				6: FRD</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				11</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				291</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				12</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				315</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				35</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				2: FRU</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				13</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				91</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				69</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.65pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				14</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				90</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				32</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				15</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				90</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">31</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				16</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				89</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">69</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				17</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				180</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				21</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				18</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				212</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				19</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				180</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">21</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.8pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				20</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				148</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				21</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				180</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				58</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				22</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				225</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				35</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				4: BRU</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				23</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				249</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.65pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				24</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				225</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">35</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				8: BRD</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				25</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				180</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">58</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				26</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				135</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">35</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				7: BLD</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				27</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				111</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				0</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				28</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				135</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				35</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				3: BLU</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				29</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				269</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				69</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.8pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				30</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				270</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				32</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				31</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				270</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">32</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+			<tr style="height: 17.75pt;">
+				<td style="border-style: none solid solid; border-color: -moz-use-text-color black black; border-width: medium 1pt 1pt; padding: 0cm;" width="79">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				32</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="103">
+				<p class="TableParagraph" style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="center">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif; letter-spacing: -0.05pt;" lang="EN-US">
+				271</span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" width="118">
+				<p class="TableParagraph" style="text-align: center; line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;" align="right">
+				<span style="font-size: 10pt; font-family: Arial,sans-serif;" lang="EN-US">
+				-<span style="letter-spacing: -0.05pt;">69</span></span></p></td>
+				<td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm;" align="center" width="110">
+				&nbsp;</td>
+			</tr>
+		</tbody></table>
+		</div>
+		<p style="margin-top: 0pt; margin-bottom: 0pt;" align="center">&nbsp;</p></td>
+	</tr>
+</tbody></table>
+<p><font face="Arial">Please note that, in the tables above, azimuth 
+and elevation coordinates are conforming to current ISO2631 standard, as shown 
+here:</font></p>
+<p align="center"><font face="Arial">
+<img src="Mach1/ISO2631.jpg" border="0" height="394" width="386"></font></p>
+<p align="left"><font face="Arial">Be aware that some software is not compliant 
+with ISO standards, for example Ambix plugins and Facebook Spatial Workstation, 
+which employ azimuth with reversed polarity. Eigenstudio instead has correct 
+azimuth, but uses an elevation counting "down" from 0 at North pole, 90 at Equator and 
+180 at South pole.<br>
+&nbsp;</font></p>
+<hr>
+<h1><font face="Arial">Comparison between SPS and Ambisonics</font></h1>
+<p><font face="Arial">The relationship between SPS and Ambisonics is 
+substantially the same relationship occurring, for time domain waveforms, 
+between a standard PCM waveform and its Fourier spectrum.</font></p>
+<p align="left"><font face="Arial">A time domain continuous (analog) waveform, 
+can be represnted digitally by a sequence of pulses (PCM Pulse Code Modulation) 
+as shown here:</font></p>
+<p align="center"><font face="Arial">
+<img src="Mach1/PCM-wave.png" border="0" height="561" width="516"></font></p>
+<p align="left"><font face="Arial">Each pulse is also called a "Dirac's Delta 
+Function".</font></p>
+<p align="left"><font face="Arial">In space, a "balloon" expressing the 
+amplitude of sound arriving form every direction can also be approximated by a 
+spherical distribution of "spatial pulses" or "spatial Dirac's Delta Functions", 
+which can be seen as the spikes of a sea urchin:</font></p>
+<p align="center"><font face="Arial"><br>
+<img src="Mach1/Balloon.png" border="0" height="487" width="524">&nbsp;
+<img src="Mach1/SeaUrchin.png" border="0" height="487" width="535"></font></p>
+<p align="left"><font face="Arial">Coming back to a waveform in time domain, we 
+can also represent it as the summation of a number of sinusoids and cosinusoids 
+with increasing frequency, each with proper amplitude (the amplitudes are given 
+us by the Fourier transform):</font></p>
+<p align="center">
+<img src="Mach1/Fourier.jpg" border="0" height="329" width="515"></p>
+<p align="center"><font face="Arial">Similarly, a spatial balloon can also be 
+represented as the summation of a number of spherical harmonics functions of 
+increasing spatial frequency ("order" in Ambisonics terminology), each with 
+proper amplitudes (the amplitudes are given use by the Ambisonics encoding 
+formulas, or by the A-format to B-format filtering):</font></p>
+<p align="center">
+<img src="Mach1/Harmonics-Balloon.png" border="0" height="675" width="731"></p>
+<p align="left"><font face="Arial">In conclusion, it can be said that both SPS 
+and Ambisonics are intermediate formats capable of decomposing a complete 
+three-dimensional sound field in a number of discrete components. These are just 
+Dirac's Delta pulses for Spatial PCM Sampling, and instead are complex 
+oscillating functions ove the surface of a sphere for Ambisonics.<br>
+But conceptually both are just projections of the original data set over 
+different kernels of base spatial functions, and the complete workflow going 
+from recording to playback is exactly the same:</font></p>
+<p align="center">
+<img src="Mach1/Workflow.png" border="0" height="242" width="728"></p>
+<p align="left"><font face="Arial">The red arrow means that the intermediate 
+format (called B-format for Ambisonics, P-format for SPS) can be easily 
+manipulated, although some sort of manipulations are easier in one of the two 
+formats, and more tricky in the other.</font></p>
+<p align="left"><font face="Arial">For example, performing <b>rigid rotatons</b> of the 
+soundfield is trivial in Ambisonics, and tricky with SPS signals. On the other 
+side, doing "<b>spatial equalization</b>", which means boosting the gain in some 
+directions and reducing the gain in other directions, is trivial with SPS 
+signals and very tricky with Ambisonics.<br>
+As it is possible to go back and forth from SPS to Ambisonics and vice versa 
+(exactly as we can go from time domain to frequency domain and back, using FFT 
+and IFFT processors), the user can choose the intermediate format more suitable 
+for his needs.<br>
+However, in most cases, SPS is advantageous (exactly as a PCM wave is 
+advantageous over the usage of complex spectra for representing and processing a 
+sound recording):</font></p>
+<ul>
+	<li>
+	<p align="left"><font face="Arial">first of all, understanding SPS is much 
+	easier than understanding Ambisonics</font></p></li>
+	<li>
+	<p align="left"><font face="Arial">an SPS signal can be created without 
+	complex mathematical formulas, just adjusting some gains on a mixer, on the 
+	channels corresponding to the directions where you want to place your sound 
+	sources</font></p></li>
+	<li>
+	<p align="left"><font face="Arial">for SPS signals with large channel 
+	counts (32 and above) there is no need to "pan" across the channels, you can 
+	send each sound source to just one channel, with the exception of the case 
+	when you want to "spread" spatially the sound over more directions</font></p>
+	</li>
+	<li>
+	<p align="left"><font face="Arial">for SPS signals with a little number of 
+	channels (for example Mach1, 8 channels) panning is required, but it can be 
+	done with traditional well known panning functions, such as VBAP at low 
+	frequency and VBIP at high frequency.</font></p></li>
+	<li>
+	<p align="left"><font face="Arial">finally, also for rendering the 
+	intermediate format to the final loudspeaker system (real or virtual, in 
+	case of headphone listening) the SPS method is quite simple, as each 
+	loudspeaker is simply fed with the signal of the SPS components surrounding 
+	it. And in the very special case to have one loudspeaker in the exact 
+	location of each virtual microphone, then no decoding is necessary, as each 
+	loudspeaker is fed with just one channel of the SPS stream. This is the 
+	case, for example, of binaural rendering of the Mach1 format, which does not 
+	require any decoding.</font></p></li>
+</ul>
+<p align="left"><font face="Arial">For playback of panoramic video with spatial 
+audio soundtracks over a VR device such as Gear VR, Google Cardboard, HTC Vive, 
+Oculus Rift, etc. the playback software becomes tricky with Ambisonics (as you 
+need an advanced Ambisonics decoder, feeding each virtual loudspeaker with a 
+complex mixture of all the Ambisonics signals), whilst it is really trivial with 
+SPS: it is just necessary to place a spherical distribution of sound sources 
+around the spherical video projection screen, each one fed with one channel of 
+the SPS stream, as shown here for our Unreal Engine player for SPS-32 
+soundtracks:</font></p>
+<p align="center">
+<img src="Mach1/Unreal-Player.PNG" border="0" height="402" width="806"></p>
+<p align="center">
+&nbsp;</p>
+<hr>
+<h1><font face="Arial">Mach1 signals and other "spatial audio" formats</font></h1>
+<p><font face="Arial">Mach1<sup>TM</sup> is a registered trademark of Mach1studios (<a href="http://www.mach1studios.com">http://www.mach1studios.com</a>), 
+a startup company based in New York (US) and founded by Dražen and Jacqueline 
+Bošnjak; Dylan Marcus is Mach1's Technical Director. These guys were the first to create the tools necessary for employing 
+SPS signals in the field of "VR videos", developing software both for generating 
+Mach1 spatial audio soundtracks and for rendering them on Head-Mounted Displays, 
+in particular on the Samsung Gear VR platform.</font></p>
+<p><font face="Arial">A Mach1 multichannel track corresponds to 
+SPS-8, where the 8 virtual microphones are pointing at the vertexes of a cube, 
+as shown earlier on this page.</font></p>
+<p><font face="Arial">Mach1 is becoming widely accepted as one of the best 
+"spatial audio" formats accompanying 360-degrees videos on VR head-mounted 
+displays. A "spatial audio" sound track ensures that users of these head-mounted 
+displays equipped with headphones hear a binaural rendering of the spatial 
+scene, which maintains the absolute position of the sound sources unchanged, 
+independently on the direction where the user is looking.<br>
+Currently 4 "spatial audio" formats are available for different VR platforms and 
+software:<br>
+&nbsp;</font></p>
+<table id="table5" border="1" width="100%">
+	<tbody><tr>
+		<td bgcolor="#c0c0c0"><font face="Arial">Name</font></td>
+		<td align="center" bgcolor="#c0c0c0"><font face="Arial">N. channels</font></td>
+		<td bgcolor="#c0c0c0"><font face="Arial">Platform</font></td>
+		<td bgcolor="#c0c0c0"><font face="Arial">Software</font></td>
+	</tr>
+	<tr>
+		<td><font face="Arial">Ambix (1<sup>st</sup> order Ambisonics, FOA)</font></td>
+		<td align="center"><font face="Arial">4</font></td>
+		<td><font face="Arial">Cardboard, Daydream, Gear VR, </font><font face="Arial">Gear VR, Oculus Rift, HTC Vive, Samsung Odyssey, </font><font face="Arial">Oculus Go, 
+		Oculus Quest (untethered)<br>
+ </font></td>
+		<td><font face="Arial">
+		<a href="https://play.google.com/store/apps/details?id=com.google.android.youtube&amp;hl=en">
+		Youtube</a>,
+		<a href="https://newsroom.fb.com/news/2017/03/introducing-facebook-360-for-gear-vr/">
+		Facebook 360</a>,
+		<a href="https://support.google.com/jump/answer/6400241?hl=en">Jump 
+		Inspector</a>, <a href="https://deovr.com/">DeoVR</a>, <a href="https://www.viveport.com/apps/ed3adb70-9390-4ca3-863a-26b5fd08b8d7">Vive Cinema</a></font></td>
+	</tr>
+	<tr>
+		<td><font face="Arial">TBE (almost 2nd order Ambisonics)</font></td>
+		<td align="center"><font face="Arial">8+2</font></td>
+		<td><font face="Arial">Gear VR, Oculus Rift, HTC Vive, Samsung Odyssey, Oculus Go, 
+		Oculus Quest (untethered)<br>
+</font></td>
+		<td><font face="Arial">
+		<a href="https://newsroom.fb.com/news/2017/03/introducing-facebook-360-for-gear-vr/">
+		Facebook 360</a>,
+		<a href="https://www.oculus.com/experiences/gear-vr/838122072929207/">
+		Oculus Video</a>, <a href="http://www.eccovr.com/">EccoVR</a></font><font face="Arial">, <a href="https://www.viveport.com/apps/ed3adb70-9390-4ca3-863a-26b5fd08b8d7">Vive Cinema</a>,
+		<a href="https://deovr.com/">DeoVR</a></font></td>
+	</tr>
+	<tr>
+		<td><font face="Arial">Ambix (3<sup>rd</sup> order Ambisonics, TOA)</font></td>
+		<td align="center"><font face="Arial">16</font></td>
+		<td><font face="Arial">Cardboard, Oculus Rift, HTC Vive, Samsung 
+		Odyssey, Oculus Quest (tethered)<br>
+</font></td>
+		<td><font face="Arial">
+		<a href="https://support.google.com/jump/answer/6400241?hl=en">Jump 
+		Inspector</a></font><font face="Arial"> (discontinued), <a href="https://www.viveport.com/apps/ed3adb70-9390-4ca3-863a-26b5fd08b8d7">Vive Cinema</a></font></td>
+	</tr>
+	<tr>
+		<td><font face="Arial">Mach1 (SPS)</font></td>
+		<td align="center"><font face="Arial">8</font></td>
+		<td><font face="Arial">Gear VR, Cardboard, Daydream, Oculus Go, Oculus 
+		Quest (untethered)<br>
+</font></td>
+		<td><font face="Arial"><a href="https://samsungvr.com/portal/">Samsung 
+		VR</a>, <a href="http://www.nytimes.com/marketing/nytvr/">New York Times 
+		VR</a></font></td>
+	</tr>
+</tbody></table>
+<p><font face="Arial">For most people, "spatial audio" means 1<sup>st</sup> order 
+Ambisonics, but this is definitely the worst of the 4 available formats, 
+providing a spatial resolution which is not enough for providing good realism. 
+On the other hand, TOA (Third Order Ambisonics) produces significantly better 
+results, but working with TOA signals requires knowledge and expertise, and most 
+producers of 360 videos simply do not have knowledge, nor time to learn how to 
+master TOA, nor even higher orders (Ambix software goes up to 7th order, which 
+means 64 channels...).</font></p>
+<p><font face="Arial">Furthermore, 3<sup>rd</sup> order Ambisonics requires 16 channels of 
+uncompressed PCM audio, something which is not graceful for videos to be 
+streamed live. In practice, these 3<sup>rd</sup>-order recordings need to be downloaded 
+first, then sideloaded on the HMD for being watched with Jump Inspector. 
+Currently no VR portal allows for streaming videos with 3<sup>rd</sup> order Ambisonics 
+soundtrack.</font></p>
+<p><font face="Arial">Facebook did a great effort releasing easy-to-use software tools for their 
+proprietary TBE format, but in the hurry of releasing them, they incurred in a
+<a href="https://www.facebook.com/groups/audio360support/permalink/2053591944871670/">
+severe bug regarding encoding of elevation of the sound source</a>, resulting in 
+a completely distorted soundscape. This error has now been fixed (as of 20 
+August 2017), and so, finally, Facebook's TBE format becomes a good option for 
+delivering spatial audio soundtracks with decent spatial resolution and good 
+quality. This format has the additional advantage of making it possible to add 
+two not-spatial channels, which remain "head locked" and can be useful for 
+comments or not-diegetic audio information.</font></p>
+<p><font face="Arial"><b>But now we have finally a competitive alternative to 
+TBE: Mach1</b>. Understanding SPS is much easier than understanding 
+Ambisonics, and standard production techniques can be used for panning sounds in 
+the SPS format: you just need to know "where" in space each virtual microphone 
+is pointing to. The information presented above provides this knowledge, so synthetic Mach1 
+soundtracks can be created with a normal mixer. And the 8-channels stream can be 
+easily compressed with AAC or other efficient codecs, making it possible to use 
+it for realtime video streaming.<br>
+There are cases, indeed, where the "spatial audio" soundtrack was already 
+captured or created in another format, possibly at higher spatial resolution, 
+such as SPS-32, as raw 32 capsule signals form an Eigenmike, as a Third Order 
+Ambisonics (TOA) with 16 channels, or as TBE 8-channels.<br>
+The following chapters explain how to transcode from these formats to Mach1, and 
+vice versa.<br>
+&nbsp;</font></p>
+<hr>
+<h1><font face="Arial">Converting Ambisonics signals to Mach1</font></h1>
+<p><font face="Arial">We start from the most basic case, a 1st order Ambisonics 
+(4 channels) stream ready for Youtube. In this case, we generate 8 virtual 
+cardioid microphones employing the Visual Virtual Mic plugin, as shown here:</font></p>
+<p align="center">
+<img src="Mach1/Bidule-Ambix1-2-Mach1.jpg" border="0" height="417" width="562">
+<img src="Mach1/VVMIC.jpg" border="0" height="461" width="581"></p>
+<p>I<font face="Arial">t must be noted that the Ambi Converter plugin was 
+required, as the recording was in Ambix format, whilst Visual Virtual Mic is an 
+old plugin, still using the obsolete Furse-Malham (FuMa) format. Hence a 
+conversion plugin is required for trasforming the modern Ambix signal in the old 
+FuMa signal, before feeding the Visual Virtual Mic plugin.<br>
+This is making use of the maximum number of possible virtual microphones (8) 
+which have been aimed at the vertexes of the cube, according to Mach1 
+requirements.<br>
+It must be clear that a 1st-order Ambisonics stream does not possess all the 
+spatial resolution available with the Mach1 SPS format, hence the sound scene 
+will still remain "smeared" and badly focused, exactly as the original 
+1st-order Ambix 
+soundtrack.<br>
+However, it is possible to get more sharp virtual microphones, with better 
+channel separation, if instead of the Visual Virtual Mic plugin we employ the
+<a href="http://www.harpex.net/">Harpex-X</a> plugin:</font></p>
+<p align="center">
+<img src="Mach1/Plogue-Harpex.png" border="0" height="417" width="562">
+<img src="Mach1/Harpex.png" border="0" height="468" width="745"></p>
+<p><font face="Arial">The only problem is that Harpex-X is not free, and quite 
+expensive.</font></p>
+<p><font face="Arial">Even better results can be obtained if, instead of 
+starting with just a mere 1st order Ambisonics recording, we have a full 
+third-order Ambisonics recording, which means 16 channels. In this case we can 
+make good use of the additional spatial resolution available in the Mach1 
+format. The processing in this case requires a third-order Ambisonics plugin for 
+creating the 8 virtual microphone signals, as shown here:</font></p>
+<p align="center">
+<img src="Mach1/Bidule-Ambix2Mach1.jpg" border="0" height="417" width="562">
+<img src="Mach1/Ambix-Vmic.jpg" border="0" height="511" width="636"></p>
+<p><font face="Arial">The Ambix Vmic plugin allows for creating virtual 
+microphones with "rectangular" cross-section, hence making it possible to split 
+the acoustical scene in 8 "pyramidal" beams, which cover almost perfectly the 
+sphere, without overlaps or uncovered regions. It is also possible to control 
+the horizontal and vertical beamwidth of the virtual microphones, providing a 
+tradeoff between sharpness and "speaker detent" effect.<br>
+The first experiments done transcoding form TOA to Mach1 show excellent results, 
+with a resulting spatial resolution which is almost the same, despite 
+halving the number of channels, and making it possible to store them in highly 
+compressed AAC soundtracks.</font></p>
+<p>&nbsp;</p>
+<hr>
+<h1><font face="Arial">Converting Mach1 signals to Ambisonics</font></h1>
+<p><font face="Arial">There are cases when a Mach1 soundtrack needs to be 
+converted back to Ambisonics. Of course, if we want to minimize the loss of 
+spatial information, at least a 2<sup>nd</sup> order Ambisonics stream must be 
+generated (9 channels), but at that point better to go directly to 3rd order, 
+which is much more widely employed than 2nd order. It is obvious that the 
+resulting 3rd order Ambisonics will never have the same spatial resolution as a 
+"native" 3<sup>rd</sup> order, as it comes from a source which had just 8 channels.</font></p>
+<p align="justify"><font face="Arial">As the 8 Mach1 signals represent sound 
+sources coming from 8 cardinal directions (vertexes of a cube, as shown earlier 
+on this page) it is quite straightforward to employ an Ambisonics-encoding 
+plugin for converting them back to TOA. For example you can use Ambix Encoder or 
+03A Panner, as shown here below:</font></p>
+<p align="center"><font face="Arial"><br>
+<img src="Mach1/Plogue-O3Apanner.png" border="0" height="417" width="562">
+</font><img src="Mach1/O3A-panner.png" border="0" height="723" width="666"></p>
+<p align="justify"><font face="Arial">Of course, if one just needs 1<sup>st
+</sup>or 2<sup>nd</sup> 
+order Ambisonics, the same plugin can be employed, recording just the first 4 or 
+9 channels coming out from it.</font></p>
+<p align="justify"><font face="Arial">And, as usual, if you do not like to 
+install and use these advanced VST plugins, you can always use X-volver with 8 
+inputs, 16 outputs, with the proper filter matrix called Mach1-to-Ambix-TOA.wav 
+as it will be explained later.</font></p>
+<p>&nbsp;</p>
+<hr>
+<h1><font face="Arial">Converting TBE signals to Mach1</font></h1>
+<p align="justify"><font face="Arial">TBE stands for
+<a href="http://spatworks.twobigears.com/">Two Big Ears</a>, a small Scottish 
+company which was acquired by Facebook for providing a free
+<a href="https://facebook360.fb.com/spatial-workstation/">spatial audio platform</a> 
+for Facebook's 360-degrees "VR" videos.<br>
+The TBE format is an 8-channels stream containing a subset of 2<sup>nd</sup> 
+order Ambisonics signals, by dropping one of the 9 channels (R) and reorganizing 
+and rescaling the others, as explained in details <a href="TBE-conversion.htm">
+here</a>.</font></p>
+<p align="justify"><font face="Arial">Albeit Facebook's 360-degrees videos with 
+TBE sptial audio soundtrack can be enjoyed only on a small installed base of 
+Samsung Gear VR devices, and hopefully shortly on Oculus Rift devices, the 
+format quickly gained popularity as the sptial resolution provided by its 
+almost-2<sup>nd</sup>-order Ambisonics, with two additional available channels for "head 
+locked" stereo signals, provides much better results than the currently-dominant 
+Youtube platform with its limited-resolution First Order Ambisonics (4 channels 
+only).</font></p>
+<p align="justify"><font face="Arial">This is due also to the fact that, while 
+on Youtube watching a 360-degrees videos with spatial audio using a browser on a 
+compuer results in a plain stereo mixdown of the signals, instead on Facebook 
+good binaural rendering is provided also for people watching the video on their 
+PC.</font></p>
+<p align="justify"><font face="Arial">Furthermore, for people using HMDs, the 
+Gear VR platform ensures excellent video rendering and high quality headphone 
+listening, at a quality level far superior to Youtube "Google Cardboard" 
+devices. This means that, for a content producer which does not want to release 
+his video and audio streams with reduced quality, the Facebook platform is 
+currently 
+the preferred choice.</font></p>
+<p align="justify"><font face="Arial">But now we have an alternative, thanks to 
+the Samsung VR app (available for Gear VR devices, as an alternative to Oculus 
+Video player): Samsung VR allows to even better video resolution (thanks to the 
+native hardware support for the H265 codec, which allows to break the limit of 
+4096x2048 of the H264 codec, barely supported by Oculus Video and only on 
+European S7 smartphones), and supports Mach1 audio, which, albeit using 8 
+channels as TBE, provides more definite spatial resolution, due to the different 
+rendering approach (SPS instead of Ambisonics).</font></p>
+<p align="justify"><font face="Arial">So it could be useful being able to convert from 
+TBE to Mach1 and vice versa.</font></p>
+<p align="justify"><font face="Arial">For converting TBE to Mach1 one has to 
+create a set of 8 virtual microphones with proper directivity (ideally a 2nd 
+order cardioid) pointed at the 8 vertexes of a cube.</font></p>
+<p align="justify"><font face="Arial">Unfortunately the Facebook Spatial 
+Workstation is NOT equipped with a "virtual microphone" plugin, and the 
+"converter" module does not address directly the TBE format, just 1<sup>st</sup> order 
+Ambix, which means a significant loss in spatial resolution.</font></p>
+<p align="justify"><font face="Arial">The Ambisonics theory says that a virtual 
+microphone V can always be obtained as a linear combination of the available 
+Ambisonics components A<sub>i</sub>, with proper gains G<sub>i</sub>:</font></p>
+<p align="justify"><font face="Arial">V = A<sub>1</sub>*G<sub>1</sub> + A<sub>2</sub>*G<sub>2</sub> + ... + A<sub>8</sub>*G<sub>8</sub></font></p>
+<p align="justify"><font face="Arial">The gains G<sub>i</sub> can be found by a 
+least-squares approach, attempting to minimize the deviations between the polar 
+patterns of the "target" microphone and of the "virtual" one obtained by the 
+above-described linear combination of available components.</font></p>
+<p align="justify"><font face="Arial">The solution has been found using the 
+Solver add-on in Excel, and is shown here:</font></p>
+<div align="center">
+	<table style="border-collapse: collapse; width: 447pt;" id="table14" border="0" cellpadding="0" cellspacing="0" width="598">
+		<colgroup>
+			<col style="width: 49pt;" width="65">
+			<col style="width: 49pt;" width="66">
+			<col style="width: 50pt;" span="3" width="67">
+			<col style="width: 49pt;" width="65">
+			<col style="width: 50pt;" span="3" width="67">
+		</colgroup>
+		<tbody><tr style="height: 14.4pt;" height="19">
+			<td style="border-style: solid; border-color: windowtext; border-width: 1pt 0.5pt 0.5pt 1pt; height: 14.4pt; width: 90px; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" height="19">&nbsp;</td>
+			<td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 0.5pt 0.5pt medium; width: 73px; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;">
+			TBE(1)*</td>
+			<td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 0.5pt 0.5pt medium; width: 79px; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;">
+			TBE(2)*</td>
+			<td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 0.5pt 0.5pt medium; width: 77px; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;">
+			TBE(3)*</td>
+			<td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 0.5pt 0.5pt medium; width: 80px; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;">
+			TBE(4)*</td>
+			<td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 0.5pt 0.5pt medium; width: 73px; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;">
+			TBE(5)*</td>
+			<td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 0.5pt 0.5pt medium; width: 50pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" width="67">
+			TBE(6)*</td>
+			<td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 0.5pt 0.5pt medium; width: 50pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" width="67">
+			TBE(7)*</td>
+			<td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 0.5pt medium; width: 50pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" width="67">
+			TBE(8)*</td>
+		</tr>
+		<tr style="height: 14.4pt;" height="19">
+			<td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt 1pt; height: 14.4pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" height="19" width="90">
+			Mach1(1) =</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.682217</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="79">
+			-0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="77">
+			0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="80">
+			0.591337</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.00</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152414</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152615</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152615</td>
+		</tr>
+		<tr style="height: 14.4pt;" height="19">
+			<td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt 1pt; height: 14.4pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" height="19" width="90">
+			Mach1(2) =</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.682217</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="79">
+			0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="77">
+			0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="80">
+			0.591337</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.00</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152414</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152615</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152615</td>
+		</tr>
+		<tr style="height: 14.4pt;" height="19">
+			<td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt 1pt; height: 14.4pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" height="19" width="90">
+			Mach1(3) =</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.682217</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="79">
+			-0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="77">
+			-0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="80">
+			0.591337</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.00</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152414</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152615</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152615</td>
+		</tr>
+		<tr style="height: 14.4pt;" height="19">
+			<td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt 1pt; height: 14.4pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" height="19" width="90">
+			Mach1(4) =</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.682217</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="79">
+			0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="77">
+			-0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="80">
+			0.591337</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.00</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152414</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152615</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152615</td>
+		</tr>
+		<tr style="height: 14.4pt;" height="19">
+			<td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt 1pt; height: 14.4pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" height="19" width="90">
+			Mach1(5) =</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.682217</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="79">
+			-0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="77">
+			0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="80">
+			-0.591337</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.00</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152414</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152615</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152615</td>
+		</tr>
+		<tr style="height: 14.4pt;" height="19">
+			<td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt 1pt; height: 14.4pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" height="19" width="90">
+			Mach1(6) =</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.682217</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="79">
+			0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="77">
+			0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="80">
+			-0.591337</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.00</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152414</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152615</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152615</td>
+		</tr>
+		<tr style="height: 14.4pt;" height="19">
+			<td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt 1pt; height: 14.4pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" height="19" width="90">
+			Mach1(7) =</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.682217</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="79">
+			-0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="77">
+			-0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="80">
+			-0.591337</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.00</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152414</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152615</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 0.5pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152615</td>
+		</tr>
+		<tr style="height: 15pt;" height="20">
+			<td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 1pt 1pt; height: 15pt; text-align: center; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" height="20" width="90">
+			Mach1(8) =</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.682217</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="79">
+			0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="77">
+			-0.590557</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="80">
+			-0.591337</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right" width="73">
+			0.00</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152414</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			-0.152615</td>
+			<td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; color: black; font-size: 11pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Calibri,sans-serif; vertical-align: bottom; white-space: nowrap; padding-left: 1px; padding-right: 1px; padding-top: 1px;" align="right">
+			0.152615</td>
+		</tr>
+	</tbody></table>
+</div>
+<p align="justify"><font face="Arial">The Excel file used for computing these 
+gains can be downloaded <a href="Mach1/TBEok2Ambix.xlsx">here</a>.</font></p>
+<p align="justify"><font face="Arial">So, matrixing the 8 TBE signals with the 
+set of coefficients provided here converts them to Mach1 format.</font></p>
+<p align="justify"><font face="Arial">In Plogue Bidule an 8x8 gain matrix is 
+available as one of the standard processing effects, as shown here:</font></p>
+<p align="center">
+<img src="Mach1/Plogue-Matrix8.png" border="0" height="539" width="748"></p>
+<p align="justify"><font face="Arial">The problem is to setup this module with 
+all the gains contained in the 8x8 matrix shown above.</font></p>
+<p align="justify"><font face="Arial">The user interface allows for entering the 
+gains in dB. And in dB there are no negative-polarity gains...</font></p>
+<p align="justify"><font face="Arial">So this is not the correct way; for 
+entering the proper gains inside the Matrix Mixer 8 module, it was necessary to 
+save a preset and to edit it manually, as shown here:</font></p>
+<p align="center">
+<img src="Mach1/UltraEdit.png" border="0" height="439" width="756"></p>
+<p align="justify"><font face="Arial">The preset was saved in a file named <b>
+<a href="Mach1/com.plogue.MatrixMixer_8.bprs">com.plogue.MatrixMixer_8.bprs</a></b> (it is a Bidule's preset), which in practice 
+is an XML file, which can be opened and edited with a good text editor.</font></p>
+<p align="justify"><font face="Arial">The 64 gain values of the matrix above has 
+been entered as the values of parameters 0 to 63, one column after the other.</font></p>
+<p align="justify"><font face="Arial">After saving the edited preset and loading 
+it inside the Plogue Bidule module Matrix Mixer Mono 8, the module performs the 
+required conversion from TBE to Mach1 with minimal CPU load (it is just a matrix 
+of gains).</font></p>
+<p align="justify"><font face="Arial">Of course, doing the same in different 
+DAWs can be almost impossible, as only Plogue Bidule comes with this handy 
+matrixing module. Hence, for users of DAWs such as Reaper, the preferred way to 
+operate the conversion from TBE to Mach1 is using the X-volver VST plugin, as 
+explained later, and using the proper FIR filter matrix, named TBE-to-MACH1.wav, 
+which is shown here:</font></p>
+<p align="center">
+<img src="Mach1/TBE-to-Mach1.png" border="0" height="925" width="830"></p>
+<hr>
+<h1><font face="Arial">Converting Mach1 signals to TBE</font></h1>
+<p align="justify"><font face="Arial">Of course also the inverse transformation 
+is possible.</font></p>
+<p align="justify"><font face="Arial">The conversion had been trivial if the 
+"Spatialiser" plugin included in the Facebook's Spatial Workstation had 8 
+discrete inputs. Instead, for unknown resons, it was equipped with just 7 
+inputs, so a single instance of the plugin cannot be used for performing the 
+Mach1 =&gt; TBE conversion. Currently one has to use TWO instances of the Spatialer 
+plugin, each dealing with 4 channels, as shown here:</font></p>
+<p align="center">
+<img src="Mach1/Plogue-Mach1-2-TBE.png" border="0" height="539" width="380">
+<img src="Mach1/Spatializer1.png" border="0" height="987" width="953"></p>
+<p align="justify"><font face="Arial">Of course in Spatailser_2 (not shown here) 
+the elevation will be set to -35.3 for all the 4 inputs, the azimuth is the same 
+as in Spatialser_1.</font></p>
+<p align="justify"><font face="Arial">It must also be noted that in Spatialser 
+the azimuth angle has reversed polarity, as the Facebook Spatial Workstation 
+does not comply with ISO standards, hence uses a "wrong" azimuth polarity 
+(positive towards right, whilst the ISO standard is that azimuth is positive 
+towards left).</font></p>
+<p align="justify"><font face="Arial">Finally, it must be noted that the 
+"spread" slider has been set to minimum, for ensuring maximum channel 
+separation, and the distance has been set to 4m.</font></p>
+<p align="justify"><font face="Arial">An alternative way to transform SPS 
+(Mach1) to TBE is to first convert Mach1 to Third Order Amsbionics, as shown in 
+previous chapter, and the convert from Ambisonics to TBE using the guide 
+provided <a href="TBE-conversion.htm">here</a>. However, usually a direct 
+conversion is better than two subsequent ones, even if purely linear as in this 
+case.</font></p>
+<p>&nbsp;</p>
+<hr>
+<h1><font face="Arial">Are these transformations lossless?</font></h1>
+<p><font face="Arial">All the transcodifications presented here are purely 
+linear operations, so one could think that they are lossless also from a spatial 
+point of view.</font></p>
+<p><font face="Arial">Unfortuntaley, this is not true. If we start with an 
+SPS signal, this has the theoretical possibility of infinite channel separation. 
+Which means that we could create a sound field where the sound comes just from 
+one of the SPS directions, and there is no sound coming from elsewhere.</font></p>
+<p><font face="Arial">In Ambisonics this is not possible, the sound distribution 
+is always a continuous balloon. This ballon can be stretched significantly 
+towards one direction only by using High Order Ambisonics (order 5 or more). But 
+in practice we are limited to the usage of Ambisonics order 2 or 3, maximum.<br>
+This inherently spread the sound all around, reducing spatial "sharpness" in 
+comparison with the SPS format.</font></p>
+<p><font face="Arial">Here we present an example of an SPS-8 (Mach1) signal 
+containing white noise being hardpanned in just one of the 8 channels, namely on 
+channel 2 (Front-Right-Up).</font></p>
+<p><font face="Arial">This signal is first converted to TBE, and then converted 
+back to Mach1, using the conversion methods described in the previous two 
+chapters.<br>
+the following figure shows the Plogue Bidule setup and the VU meters showing the 
+input and output Mach1 signals:</font></p>
+<p align="center">
+<img src="Mach1/Plogue-Mach1-2-TBE-2-Mach1.png" border="0" height="539" width="380">
+<img src="Mach1/Mach1-2-Mach1.png" border="0" height="760" width="345"></p>
+<p><font face="Arial">It can be seen that originally there was signal just on 
+Mach1 channel #2, and after going to TBE format and coming back, now there is 
+also some signal in adjacent Mach1 channels, and only the channel 7 
+(Back-Left-Down), being exactly opposite to the channel which was initally 
+carrying signal, has remained silent.<br>
+In practice here you see the gains of second order virtual microphone cardioids, 
+which are not able anymore to separate perfectly the 8 spatial components of the 
+original SPS signal.</font></p>
+<p><font face="Arial">The lesson here is simple: if you want maximum spatial 
+resolution, you should generate your signals natively in the SPS format, and do 
+all your processing with P-format signals. If, for any reason, you need to 
+switch to Ambisonics and then come back to SPS, you should use very high order 
+Ambisonics (7<sup>th</sup> order, possible with Ambix plugins) for preserving as much as 
+possible the spatial sharpness of the SPS signal.</font></p>
+<p><font face="Arial">If instead you start with low-order Ambisonics signals, 
+for example with the very handy and free Facebook Spatial Workstation, do not 
+think that converting to Mach1 (SPS-8) at the end of your work will increase the 
+spatial resolution: it will remain exactly the same that was available with the 
+TBE format. The only way of improving the spatial resolution is employing 
+not-linear (parametric) processing, such as using Harpex.</font></p>
+<p>&nbsp;</p>
+<hr>
+<h1><font face="Arial">Using <a href="http://www.angelofarina.it/X-volver.htm">
+X-volver</a> for transcoding to Mach1 (and back)</font></h1>
+<p><font face="Arial">If you do not want to deal with the pieces of software 
+shown above, and you want to use an unique plugin capable of any kind of 
+transcoding, then
+<a href="http://www.angelofarina.it/X-volver.htm">X-volver</a> is for you.<br>
+You just need to employ the proper matrix of FIR filters for operating the 
+transcodification between one format and the other. For example it is shown here 
+how to use X-volver for converting a 16-channels TOA signal into an 8-channels 
+Mach1 signal:</font></p>
+<p align="center">
+<img src="Mach1/Plogue-Xvolver.png" border="0" height="417" width="562">
+<img src="Mach1/X-volver.png" border="0" height="761" width="756"></p>
+<p align="center">&nbsp;</p>
+<p><font face="Arial">The same approach can be employed also for converting from 
+1st order Ambisonics, from TBE or from raw 32-channels Eigenmike recordings, or 
+for coming bach from Mach1 to other formats.</font></p>
+<p><font face="Arial">The FIR filter matrices for all these possible conversions can be downloaded here:<br>
+<a href="http://www.angelofarina.it/Public/Xvolver/Filter-Matrices/Mach1-Encoder/">
+http://www.angelofarina.it/Public/Xvolver/Filter-Matrices/Mach1-Encoder/</a></font></p>
+<p align="justify">&nbsp;</p>
+<hr>
+<h1><font face="Arial">Native recordings in Mach1 format</font></h1>
+<p><font face="Arial">Although currently no native Mach1 microphone is available 
+on the market yet, some companies such as Brahma and Core Sound are developing 
+prototypes of these new 8-capsules microphone arrays, as shown here:<br>
+&nbsp;</font></p>
+<p align="center">
+<img src="Mach1/8-Capsule-Second-Order-Microphone.jpg" border="0" height="551" width="489">
+<img src="Mach1/Octomic.png" border="0" height="551" width="260"></p>
+<p><font face="Arial">It must be clarified that the raw signals coming out of 
+these 8 capsules <b>are not the Mach1 signals!</b> Please note that:</font></p>
+<ol>
+	<li>
+	<p style="margin-bottom: 6px;"><font face="Arial">SPS signals are COINCIDENT, exactly as Ambisonics 
+	signals. The 8 capsules of these new microphone array are SPACED by a little 
+	amount from the acoustic center of the microphone array, hence if their 
+	signals are used as SPS signals, a number of artifacts will occur due to the 
+	small delays, such as comb filtering, chorus effect, etc.</font>
+	</p></li><li><font face="Arial">The directivity patterns of the 8 capsules are at 
+	best cardioids (1st order), hence the spatial separation among channels is 
+	poor. SPS-8 (Mach1) requires that the 8 virtual microphones exhibit at least 
+	2nd order cardioid directivity, ensuring proper channel separation</font></li>
+</ol>
+<p><font face="Arial">Hence for recording a Mach1 stream the 8 capsule signals 
+(A-format) must be converted to SPS (P-format) by means of a proper 8x8 filter 
+matrix, or by means of a dedicated A2P plugin which will be supplied together with 
+the microphone. This also means that, if you are not able to create such an A2P 
+filter matrix, you are discouraged to build yourself an 8-capsule microphone 
+array for performing native Mach1 recordings.</font></p>
+<p><font face="Arial">As of today, it is possible to record native Mach1 signals 
+employing existing high order microphone arrays, such as the Eigenmike or our 
+own AIDA-RAI cylindrical microphone array:</font></p>
+<p>&nbsp;</p>
+<p align="center"><font face="Arial">
+<img src="Mach1/EM32.jpg" border="0" height="464" width="179">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="Mach1/Aida-Cyl.jpg" border="0" height="464" width="154"> </font></p>
+<p align="center"><font face="Arial">
+Eigenmike (Left) 
+and RAI-<a href="http://www.aidasrl.it">AIDA</a> Cylindrical Microphone Array 
+(Right)</font></p>
+<p>&nbsp;</p>
+<p><font face="Arial">From a 32-channels raw recording (A-format) coming form one of these 
+high-end microphone arrays it is quite easy to derive directly a set of directive virtual microphones 
+with proper directivity and aiming (P-format), employing the software tools provided with 
+them (Eigenstudio and 3DVMS respectively). For example, here it is shown how to 
+create the 8 Mach1 signals from an Eigenmike recording:</font></p>
+<p align="center">
+<img src="Mach1/Eigenstudio.jpg" border="0" height="901" width="1241"></p>
+<p><font face="Arial">In this case it is possible to adjust the beamwidth 
+of the virtual microphones, choosing among cardioids of order 2, 3 and 4. <br>
+The results are significantly better than first creating TOA signals (B-format) and then 
+transcoding them as shown in previous chapter, as a single filtering stage going 
+directly from A-format to P-format is 
+always better than two, and making a direct beamforming of the capsule signals 
+avoids some of the known problems of High Order Ambisonics occurring at very low 
+and very high frequencies.<br>
+So currenty using an Eigenmike with direct beamforming of the 8 signals is the 
+preferred method for obtaining high quality spatial audio recordings in Mach1 
+format. This can also be operated in realtime, with reasonably small latency, so 
+the Mach1 signals can be used even for live streaming.</font></p>
+<p><font face="Arial">Here it is shown instead how to use the 3DVMS software 
+developed for the RAI-AIDA Cylindrical array (this software, indeed, can be used 
+also for other microphone arrays, such as the Eigenmike, planar and dome arrays 
+with various number of capsules):</font></p>
+<p align="center">
+<img src="Mach1/3DVMS.png" border="0" height="958" width="1224"></p>
+<p><font face="Arial">In this case the directivity pattern of the virtual 
+microphones can be changed smoothly from order 0.0 (omni) up to order 8.0, but 
+of course for generating an SPS-8 (Mach1) stream the 8 virtual microphones 
+should be chosen in the range of orders 2.0 to 4.0.</font></p>
+<p>&nbsp;</p>
+<hr>
+<h1><font face="Arial">Guide for preparing video files with Mach1 spatial audio 
+for Samsung VR</font></h1>
+<p><b><font face="Arial" size="4">1. Sideloading</font></b></p>
+<p><font face="Arial">Here we provide instructions and examples for creating 360 
+videos including a Mach1 8-channels soundtrack, which can be <b>side-loaded</b> on a 
+Samsung Gear VR device, for being viewed with the Samsung VR app.</font></p>
+<p><font face="Arial">The container must be a MP4 file, and the video must be an 
+equirectangular panoramic video, either monoscopic (2:1 format) or sterescopic 
+top-bottom (1:1 format). </font></p>
+<p><font face="Arial">Recommended resolutions are 3840x1920 or better for 
+monoscopic, 3840x3840 for stereoscopic. </font></p>
+<p><font face="Arial">The Samsung VR app can decode smoothly both H264 and H265 
+videos. Of course the latter is recommended, providing faster downloads and 
+better quality.</font></p>
+<p><font face="Arial">Indeed, the equirectangular 4k H264 video coming from a 
+Samsung Gear 360 camera is just perfect, as it could be expected.</font></p>
+<p><font face="Arial">Coming to the soundtrack, Samsung VR supports natively the 
+Mach1 8-channels spatial audio format. But the soundtrack cannot be stored as a 
+single stream containing the 8 channels, as the Samsung VR app cannot understand 
+this format. It is necessary to split the 8 channels in 4 stereo soundtracks (2 
+channels each), and pack these 4 streams together with the video stream inside 
+the MP4 container as 4 separate AAC streams.</font></p>
+<p><font face="Arial">This can be done with the command line tool called
+<a href="https://www.ffmpeg.org/">FFMPEG</a>. Suppose that we have an H264 video 
+file called <b>test.mp4</b> and an 8-ch WAV file (48 kHz, 16 bits) called <b>
+test.wav</b>. The following commands first split the 8-channels WAV file in 4 
+stereo WAV files (1.wav, 2.wav, 3.wav, 4.wav), and then create a new MP4 file 
+with the proper contents (and proper file name) for being <b>side-loaded</b> 
+onto a Gear VR device running the Samsung VR app:</font></p>
+<table id="table12" border="1" width="100%">
+	<tbody><tr>
+		<td bgcolor="#000000">
+		<p style="margin-top: 9px; margin-bottom: 9px;"><b>
+		<font color="#ffff00" face="Courier">ffmpeg -i test.wav -map_channel 
+		0.0.0 -map_channel 0.0.1 1.wav -map_channel 0.0.2 -map_channel 0.0.3 
+		2.wav -map_channel 0.0.4 -map_channel 0.0.5 3.wav -map_channel 0.0.6 
+		-map_channel 0.0.7 4.wav</font></b></p>
+		<p style="margin-top: 9px; margin-bottom: 9px;"><b>
+		<font color="#ffff00" face="Courier">ffmpeg -i test.mp4 -i 1.wav -i 
+		2.wav -i 3.wav -i 4.wav -map 0:v -map 1:a -map 2:a -map 3:a -map 4:a 
+		-c:v copy -c:a aac -shortest test_m1spatial.mp4</font></b></p></td>
+	</tr>
+</tbody></table>
+<p><font face="Arial">Please note that the filename of the resulting file, to be 
+side-loaded in the Gear VR device, ends with <b>_m1spatial</b> : this is 
+required for the Samsung VR player app for Gear VR to understand that this is a 
+file containing a Mach1 spatial audio soundtrack.</font></p>
+<p><font face="Arial">At this point you connect your Samsung S6/S7/S8/Note8 
+smartphone (or your Oculus Go) to your computer with an USB cable and copy the processed file into 
+the /MilkVR folder, which is where the Samsung VR app for Gear VR expects to 
+find them. Doing so, the sideloaded videos will appear in Samsung VR under the 
+"Sideloaded" tab.</font></p>
+<p>&nbsp;</p>
+<p><b><font face="Arial" size="4">2. Uploading to the
+<a href="https://samsungvr.com/portal/">Samsung VR portal</a></font></b></p>
+<p><img src="newarrow.gif" border="0" height="21" width="32"><font face="Arial"><b><span style="background-color: rgb(255, 255, 0);">Attention:</span></b><span style="background-color: rgb(255, 255, 0);"> 
+Samsung VR finally fixed (un July 2018) the issues on their web portal, so no dirty tricks are required anymore<br>
+</span></font></p>
+<p><font face="Arial">After testing your video file by sideloading it on your 
+Gear VR device, you can upload it onto the Samsung VR Portal web site, for 
+making it available to others either in streaming or for downloading.</font></p>
+<p><font face="Arial">Be aware that the video to be uploaded is different form the one you tested locally by sideloading, as explained here:</font></p>
+<p><font face="Arial">
+<a href="https://samsungvr.com/portal/content/content_specs">
+https://samsungvr.com/portal/content/content_specs</a></font></p>
+<p><font face="Arial">On that page it is written what follows:</font></p>
+<table id="table15" bgcolor="#000000" border="1" width="100%">
+	<tbody><tr>
+		<td>
+		<h5 class="ng-scope" style="margin: 10px 0px; padding: 0px; font-family: SamsungOne,Arial,sans-serif; font-weight: 500; line-height: 1.1; color: rgb(255, 255, 255); font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(0, 0, 0);">
+		<font size="3"><span style="background-color: rgb(0, 0, 0);">Mach1 Spatial 
+		Audio</span></font></h5>
+		<ul class="ng-scope" style="margin: 0px 0px 10px; padding: 0px; font-family: SamsungOne,Arial,sans-serif; list-style-type: disc; list-style-image: none; list-style-position: outside; display: block; color: rgb(178, 178, 178); font-size: 16px; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(32, 34, 36);">
+			<li style="margin: 0px 0px 0px 30px; padding: 0px; font-family: SamsungOne,Arial,sans-serif; list-style-type: disc; list-style-image: none; list-style-position: outside; display: list-item; line-height: 1.5;">
+			<span style="background-color: rgb(0, 0, 0);">Mach1 Multi-channel 
+			isotropic spatial: 8x1 audio - 8 x 1 @48k/44.1k 16bit</span></li>
+		</ul>
+		<p class="ng-scope" style="margin: 0px 0px 10px; padding: 0px; font-family: SamsungOne,Arial,sans-serif; line-height: 1.5; color: rgb(178, 178, 178); font-size: 16px; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(0, 0, 0);">
+		All 8 channels are to be placed in a single audio track. The audio track 
+		will be transcoded to 4 audio tracks with 2 channels each to support the 
+		Android platform.</p></td>
+	</tr>
+</tbody></table><span style="font-family: Arial;"><br>
+This means that you cannot use the MP4 video file you tested locally.
+You need to create&nbsp; a new .MOV video file containing the original
+8-channels WAV file (PCM uncompressed, 16 bits) as a single track. This
+can be done with the following FFMPEG command:<br>
+<br>
+</span>
+<table id="table12" border="1" width="100%">
+
+	<tbody><tr>
+		<td bgcolor="#000000">
+		<p style="margin-top: 9px; margin-bottom: 9px;"><b>
+		<font color="#ffff00" face="Courier">ffmpeg -i test.mp4 -i test.wav -map 0:v -map 1:a -c:v copy -c:a copy -shortest test_m1spatial.mov</font></b></p></td>
+	</tr>
+</tbody>
+</table>
+
+<br>
+<span style="font-family: Arial;"></span><font face="Arial">Before being allowed to upload your video to the Samsung VR portal, 
+you need obviously to create an account on it. Once you are logged in, you can 
+select the Creator Portal tab, where you can click on Upload in the menu on the top.</font><p align="left"><font face="Arial">On this page you specify title and 
+informations on your video, and you must also set some parameters, in particular 
+the format for the video file (Stereoscopic Type equal to "none", as it is 
+monoscopic) and for Audio Type:</font></p>
+<p align="left"><font face="Arial"><span style="background-color: rgb(255, 255, 0);">
+ATTENTION !!! Here is the trick! <b>You must leave it to "autodetect"</b>!</span></font></p>
+<p align="left"><font face="Arial">You can also add tags. The upload is usually 
+quite fast, but after it, you have to wait for a much longer time, during which 
+the uploaded contents are reformatted with different codecs, suitable for the 
+different platforms which can access the Samsung VR contents.</font></p>
+<p align="left"><font face="Arial">When finally the processing is finished, you 
+can&nbsp; search for your video online, using the search button while wearing your Samsung 
+Gear VR or Oculus Go HMD....</font></p>
+<p align="left">&nbsp;</p>
+<p align="left"><b><font face="Arial" size="4">3. Sample files</font></b></p>
+<p align="left"><font face="Arial">The sample audio and video files (test.wav, test.mp4) employed 
+for the FFMPEG commands in the two previous subchapters can be found here:
+</font></p>
+<p align="left"><font face="Arial">
+<a href="http://www.angelofarina.it/Public/Xvolver/Filter-Matrices/Mach1-Encoder/Samples/">
+http://www.angelofarina.it/Public/Xvolver/Filter-Matrices/Mach1-Encoder/Samples/</a></font></p>
+<p align="left">&nbsp;</p>
+<hr>
+<p><font face="Arial"><i>All the contents are Copyright by <a href="home.htm">Angelo Farina</a>, 2017-2018</i></font></p>
+
+
+</body></html>

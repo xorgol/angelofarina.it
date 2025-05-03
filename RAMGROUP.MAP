@@ -1,0 +1,18 @@
+#Ramsete Home Page
+default ramsete/home.htm
+#Ramsete CAD
+rect ramsete/ramscad.htm 3,22 77,83
+#Ramsete Multi Trace
+rect ramsete/tracer.htm 77,22 149,83
+#Ramsete Graph
+rect ramsete/ramgraph.htm 149,22 219,83
+#Ramsete View
+rect ramsete/ramview.htm 219,22 294,83
+#Source Manager
+rect ramsete/sourcmgr.htm 3,83 78,159
+#Material Manager
+rect ramsete/matermgr.htm 78,83 149,159
+#Ramsete.INI
+rect ramsete/ramsete.ini 149,83 220,159
+#PaintShop Pro
+rect HTTP://www.jasc.com/psp.html 220,83 294,159

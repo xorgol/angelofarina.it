@@ -1,0 +1,133 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="it">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>X-MCFX VST plugin</title>
+</head>
+
+<body>
+
+<h1 align="center">
+<img border="0" src="X-MCFX-pictures/X-MCFX1.png" width="577" height="81"></h1>
+<h2 align="center">
+<font face="Arial"><b>X-MCFX is a VST2/VST3 plugin running on WIN64 and Mac-OS 
+multichannel host programs,<br>
+performing matrix convolution of audio signals with up to 128 inputs and 128 
+outputs<br>
+(running up to 16384 FIR filters at once, with near-zero latency and low CPU load!)</b></font></h2>
+<hr>
+<p><font face="Arial">You can
+<a href="http://www.angelofarina.it/Public/X-MCFX_convolver/">download X-MCFX here</a>. X-MCFX is free 
+and open source.
+<a href="mailto:farina@unipr.it?subject=X-volver">Contact the author</a> for 
+embedding it in commercial projects.</font></p>
+<hr>
+<p><font face="Arial">X-MCFX is a fork of the
+<a href="http://www.matthiaskronlachner.com/?p=1910">MCFX_Convolver</a> plugin 
+by Mathias Kronlachner, with improved performances (more than 2x), extended number of 
+channels and recompiled both as VST2 and VST3.<br>
+X-MCFX is the modern replacement for the old
+<a href="http://www.angelofarina.it/X-volver.htm">X-volver</a> program by Angelo 
+Farina.</font></p>
+<p><font face="Arial">X-MCFX can be hosted inside a large number of sound 
+processing programs, but for multichannel operation (that is, more than 2 
+inputs, 2 outputs) you need to employ a truly-multichannel host program. 
+Unfortunately most sound processing programs and DAWs support only soundtracks 
+with a limited number of audio channels (typically 2, 4 or 6 at most). Instead 
+X-MCFX can operate with up to 128 channels, so your host program is better if capable of such large channel 
+counts. </font></p>
+<p><font face="Arial">Furthermore, X-MCFX can produce an output stream having a 
+different channel number than the input stream, and only a few audio processing 
+programs allow for this possibility.</font></p>
+<p><font face="Arial">We recommend the usage of &quot;graphical&quot; sound processing 
+programs, such as <a href="https://www.plogue.com/products/bidule.html">Plogue 
+Bidule</a>, <a href="http://www.audiomulch.com/">Audio Mulch</a>,
+<a href="https://puredata.info/">PureData</a>,
+<a href="https://cycling74.com/products/max">Max</a>,
+<a href="https://kushview.net/element/">Element</a>. </font></p>
+<p><font face="Arial">X-MCFX can also be employed 
+inside traditional DAW programs, such as <a href="https://www.reaper.fm/">Reaper</a>, but this makes quite more 
+difficult to understand the signal paths.</font></p>
+<p><font face="Arial">This is a typical screenshot of Plogue Bidule, where an 
+instance of X-MCFX is employed for processing a 32-channels audio file 
+containing the raw signals from an <a href="https://mhacoustics.com/products">
+Eigenmike<sup>(TM)</sup></a> and 
+converting it to a 16-channels audio file in Ambix 3<sup>rd</sup> order format, employing a filter matrix of 
+32x16 
+(512) FIR filters, each filter being 4096 taps long:</font></p>
+<p><img border="0" src="X-MCFX-pictures/Bidule1.PNG" width="707" height="412"></p>
+<p><font face="Arial">After instancing X-MCFX and connecting its 32 inputs 
+(from above) and its 16 outputs (to below), you can click on it for opening its 
+user's interface:</font></p>
+<p><img border="0" src="X-MCFX-pictures/GUI-1.png" width="461" height="525"></p>
+<p><font face="Arial">The flag is red, as no filter matrix is loaded, so the 
+oputput of the plugin is silence.</font></p>
+<p><font face="Arial">You can choose the path of the folder containing your FIR 
+filter matrices in WAV format. And then you can choose the specific filter 
+matrix you want to use, either with the drop-down list or navigating to a 
+specific file, if it is in another folder. </font></p>
+<p><font face="Arial">When X-MCFX is opening a FIR filter matrix for the first 
+time, it asks 
+for the number of input channels (32 in our case):</font></p>
+<p><img border="0" src="X-MCFX-pictures/GUI-2.png" width="461" height="525"></p>
+<p><font face="Arial">You specify the number of input channels (columns in the 
+FIR filter matrix), and you can optionally ask to store this info in the 
+metadata of the WAV file, so at the next usage of this filter matrix file, this 
+request will not be asked anymore.</font></p>
+<p><font face="Arial">After loading the filter matrix, the round flag becomes 
+green and the relevant data of the filter matrix is shown on the GUI of X-MCFX:</font></p>
+<p><img border="0" src="X-MCFX-pictures/GUI-3.png" width="461" height="525"></p>
+<p><font face="Arial">Another intersting feature of X-MCFX is the possibility to 
+change the gain in realtime, and also the size of minimum and maximum 
+partitions, allowing to trade-off the performances of the convolver, in terms of 
+latency vs CPU load. When the min partition size equates the buffer size of the 
+host program, the plugin performs in &quot;zero latency&quot; mode (no additional plugin 
+latency).</font></p>
+<p><font face="Arial">The following picture shows the selected FIR filter 
+matrix, featuring 32 input channels (columns) and 16 outputs (rows):</font></p>
+<p>
+<img border="0" src="X-MCFX-pictures/FIR-matrix.png" width="1250" height="876"></p>
+<p>&nbsp;</p>
+<p><font face="Arial">This matrix contains 512 individual FIR filters, numbered from (1,1) to 
+(16,32). You must remember that COLUMNS=INPUTS, ROWS=OUTPUTS.</font></p>
+<p><font face="Arial">So the signal coming out from X-volver on channel 1 will 
+be the sum of the convolutions of the 32 inputs with the 32 filters displayed in 
+the first row (channel) of the WAV file, and stored one after the other:</font></p>
+<p><b><font face="Arial">Out(1) = In(1)*f(1,1) + In(2)*f(1,2) + ... + 
+In(32)*f(1,32)</font></b></p>
+<p><font face="Arial">The usage of X-MCFX is much faster (less CPU load) than 
+any other previoius matrix convolver. In particular it outperfrms both our 
+original
+<a href="http://www.angelofarina.it/X-volver.htm">X-volver</a> and the
+<a href="http://www.matthiaskronlachner.com/?p=1910">MCFX_Convolver</a> by 
+Mathias Kronlachner, from which we started for this development.</font></p>
+<p><font face="Arial">These charts show the performance comparison between the 
+original MCFX (left) and the new X-MCFX (right) as a function of the minimum 
+partition size, when running a 32x16 FIR filter matrix using 4096-taps long FIR 
+filters:</font></p>
+<p>
+<img border="0" src="X-MCFX-pictures/Benchmark.png" width="1114" height="395"></p>
+<p><font face="Arial">The new algorithm is particularly efficient when dealing 
+with very small partition sizes, as required in very demanding real-time 
+applications, such as Active Nosie Control or playing music on virtual 
+instruments.</font></p>
+<p><font face="Arial">On the other side, the usage of a novel not-uniform 
+partition scheme means that very long filters can be employed. </font></p>
+<p><font face="Arial">The longer the FIR filters, the larger is the advantage 
+over the previous MCFX convolver. Here what happens when the FIR filter length 
+is increased from 4096 to 16384 taps:</font></p>
+<p>
+<img border="0" src="X-MCFX-pictures/Benchmark2.png" width="1114" height="395"></p>
+<p><font face="Arial">On a normal modern laptop with an i7 processor, the new 
+X-MCFX plugin can deal with a massive FIR filter matrix of 128 inputs, 128 
+outputs (that is 16384 FIR filters), each long 65536 taps, with 512-taps 
+buffering.<br>
+No other matrix convolver plugin can currently reach these large channel numbers 
+and these impressive performances, whilst keeping such low latency.</font></p>
+<hr>
+<p><font face="Arial"><i>All the contents are Copyright by <a href="home.htm">Angelo Farina</a>, 2021</i></font></p>
+
+</body>
+
+</html>
